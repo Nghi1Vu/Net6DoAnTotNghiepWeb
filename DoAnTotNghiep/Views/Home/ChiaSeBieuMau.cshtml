@@ -1,0 +1,284 @@
+﻿
+@{
+    ViewData["Title"] = "ChiaSeBieuMau";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="nav-line"> </div>
+<div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <a href="#" class="nav_logo m-l--10">
+                <img src="~/images/logo.png" width="35px" height="35px" alt="">
+                <span class="nav_logo-name">Quản lý sinh viên</span>
+            </a>
+            <div class="nav_list">
+                <a href="@Url.Action("News", "Home")" class="nav_link">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav_name">Bảng tin</span>
+                </a>
+                <a href="@Url.Action("ChiaSeBieuMau", "Home")" class="nav_link active">
+                    <i class='bx bx-message-square-detail nav_icon'></i>
+                    <span class="nav_name">Chia sẻ</span>
+                </a>
+                <a href="@Url.Action("KetQuaHocTap", "Home")" class="nav_link">
+                    <i class='bx bx-clipboard'></i>
+                    <span class="nav_name">Kết quả học tập</span>
+                </a>
+                <a href="@Url.Action("ThoiKhoaBieu", "Home")" class="nav_link">
+                    <i class='bx bx-time-five'></i>
+                    <span class="nav_name">Thời khóa biểu</span>
+                </a>
+                <a href="@Url.Action("XemLichThi", "Home" )" class="nav_link">
+                    <i class='bx bx-calendar'></i>
+                    <span class="nav_name">Lịch thi</span>
+                </a>
+                <a href="@Url.Action("CaNhan", "Home" )" class="nav_link">
+                    <i class='bx bx-user nav_icon'></i>
+                    <span class="nav_name">Cá nhân</span>
+                </a>
+                <a href="@Url.Action("DangKyHP", "Home" )" class="nav_link">
+                    <i class='bx bx-bookmark nav_icon'></i>
+                    <span class="nav_name">Đăng ký học phần</span>
+                </a>
+                <a href="@Url.Action("DanhGiaRenLuyen", "Home" )" class="nav_link">
+                    <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                    <span class="nav_name">Đánh giá rèn luyện</span>
+                </a>
+            </div>
+        </div>
+        <a href="#" class="nav_link">
+            <i class='bx bx-log-out nav_icon'></i>
+            <span class="nav_name">Đăng xuất</span>
+        </a>
+    </nav>
+</div>
+<!--Container Main start-->
+<div class="border-page">
+    <div class="Bang-tin">
+        <p class="title-page">Chia sẻ biểu mẫu, quy định, hướng dẫn chung</p>
+        <div class="title-line"></div>
+        <div class="body-share">
+            <div class="content">
+                <div class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong class="card-title">Biểu mẫu</strong>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:8%" scope="col">TT</th>
+                                                <th scope="col">Tiêu đề</th>
+                                                <th style="width:18%" scope="col">loại</th>
+                                                <th style="width:18%" scope="col">Biểu mẫu</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Biểu mẫu</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Quy định</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Larry</td>
+                                                <td>Hướng dẫn</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>Larry</td>
+                                                <td>Hướng dẫn</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">5</th>
+                                                <td>Larry</td>
+                                                <td>Hướng dẫn</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong class="card-title">Mẫu báo cáo</strong>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:8%" scope="col">TT</th>
+                                                <th scope="col">Tiêu đề</th>
+                                                <th style="width:18%" scope="col">loại</th>
+                                                <th style="width:18%" scope="col">Biểu mẫu</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Biểu mẫu</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Quy định</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Larry</td>
+                                                <td>Hướng dẫn</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong class="card-title">Quy Dịnh</strong>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:8%" scope="col">TT</th>
+                                                <th scope="col">Tiêu đề</th>
+                                                <th style="width:18%" scope="col">loại</th>
+                                                <th style="width:18%" scope="col">Biểu mẫu</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Biểu mẫu</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Quy định</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Larry</td>
+                                                <td>Hướng dẫn</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong class="card-title">Liên hệ</strong>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:8%" scope="col">TT</th>
+                                                <th scope="col">Tiêu đề</th>
+                                                <th style="width:18%" scope="col">loại</th>
+                                                <th style="width:18%" scope="col">Biểu mẫu</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Biểu mẫu</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Quy định</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Larry</td>
+                                                <td>Hướng dẫn</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong class="card-title">Hướng dẫn sử dụng phần mền quản lý sinh viên</strong>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:8%" scope="col">TT</th>
+                                                <th scope="col">Tiêu đề</th>
+                                                <th style="width:18%" scope="col">loại</th>
+                                                <th style="width:18%" scope="col">Biểu mẫu</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Biểu mẫu</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Quy định</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Larry</td>
+                                                <td>Hướng dẫn</td>
+                                                <td><a href="./login/logo.png" download="logo">Download Text</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div><!-- .animated -->
+            </div><!-- .content -->
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thông quản lý sinh viên</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/styleUtill.css">
+</head>
+
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header_toggle d-flex">
+            <i class='bx bx-menu'  style="margin-top: 3px;" id="header-toggle"></i>
+            <div class="portal-new">
+                <h4 class="name-sv d-flex">
+                    Hi: <strong>Bùi Minh Thái 324</strong>              
+                    <label onclick="openTab(event, 'tabInfor'); " for="check" class="bar">
+                        <input id="check" type="checkbox">
+                            <span class="top">
+                                <svg xmlns="http://www.w3.org/2000/svg" id="Outline"   viewBox=" 5 4 24 24" fill="#007ACC" width="22" height="22"> 
+                                <!--2 số đầu của viewBox là chỉnh khoảng cách từ tâm trục x y tính từ tâm k âm mặc định 0 0 24 24
+                                    đổi màu thì svg dùng fill-->
+                                <path d="M9,17.88V6.71A1,1,0,0,1,10.71,6l5.58,5.59a1,1,0,0,1,0,1.41l-5.58,5.59A1,1,0,0,1,9,17.88Z"/>
+                                </svg>
+                            </span>
+                    </label>          
+                </h4>
+            </div>
+        </div>
+        <div class="top-bar">
+            <div class="content-topbar flex-sb-m h-full container">
+                <div class="right-top-bar flex-w h-full ">
+                    <p class="flex-c-m trans-04 p-lr-5 txt-right">
+                        Chăm chỉ hiện tại<br>
+                        Thành công Mai Sau
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="nav-line"> </div>
+    <div id="tabInfor" class="tabInfor">
+        <span onclick="this.parentElement.style.display='none' ; document.getElementById('check').checked = false; " class="topright butn-close">&times</span>
+        <h4>Tiện ích cá nhân</h4>
+        <hr/>
+        <button onclick ="location.href='#'">
+            <p>Trang cá nhân</p>
+        </button>
+        <button onclick="location.href='#'">
+            <p>Đổi mật khẩu</p>
+        </button>
+        <button onclick="location.href='#'">
+            <p>Danh sách giấy tờ hồ sơ</p>
+        </button>
+        <button onclick ="location.href='#'">
+            <p>Thanh Toán công nợ</p>
+        </button>
+        <button onclick="location.href='#'">
+            <p>Dịch vụ một cửa</p>
+        </button>
+        <button onclick="location.href='#'">
+            <p>Hóa đơn điện tử</p>
+        </button>
+        <hr />
+        <div class="flex-c dis-flex m-l--33">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#ff0000" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span class="option-1">&ensp; From DNTU with love</span>
+        </div>
+    </div>
+            @RenderBody()
+    <footer>
+        <p><i>Dev by SV DNTU</i></p>
+    </footer>
+    <!-- script từ ngày -->
+    <script>
+        var date = new Date();
+        var day = date.getDate() - 6;
+        var month = date.getMonth() + 1;
+        var year = date.getFullYear();
+        if (month < 10) month = "0" + month;
+        if (day < 10) day = "0" + day;
+        var today = year + "-" + month + "-" + day;
+        document.getElementById('FromDay').value = today;
+    </script>
+    <!-- script đến ngày -->
+    <script>
+        var date = new Date();
+        var day = date.getDate() + 6;
+        var month = date.getMonth() + 1;
+        var year = date.getFullYear();
+        if (month < 10) month = "0" + month;
+        if (day < 10) day = "0" + day;
+        var today = year + "-" + month + "-" + day;
+        document.getElementById('ToDay').value = today;
+    </script>
+    <!--Container Main -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+
+            const showNavbar = (toggleId, navId, bodyId, headerId) => {
+                const toggle = document.getElementById(toggleId),
+                    nav = document.getElementById(navId),
+                    bodypd = document.getElementById(bodyId),
+                    headerpd = document.getElementById(headerId)
+
+                // Validate that all variables exist
+                if (toggle && nav && bodypd && headerpd) {
+                    toggle.addEventListener('click', () => {
+                        // show navbar
+                        nav.classList.toggle('show')
+                        // change icon
+                        toggle.classList.toggle('bx-x')
+                        // add padding to body
+                        bodypd.classList.toggle('body-pd')
+                        // add padding to header
+                        headerpd.classList.toggle('body-pd')
+                    })
+                }
+            }
+
+            showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
+
+            /*===== LINK ACTIVE =====*/
+            const linkColor = document.querySelectorAll('.nav_link')
+
+            function colorLink() {
+                if (linkColor) {
+                    linkColor.forEach(l => l.classList.remove('active'))
+                    this.classList.add('active')
+                }
+            }
+            linkColor.forEach(l => l.addEventListener('click', colorLink))
+
+            // Your code to run since DOM is loaded and ready
+        });
+        //<!--===========Container Main end==============-->
+
+        //<!--===========Star login==============-->
+
+        $(document).ready(function () {
+            let hash = window.location.href
+            const token = hash.substring(1).split('&')[1].split('=')[1]
+            // Example POST method implementation:
+            async function postData(url = '', data = {}) {
+                // Default options are marked with *
+                const response = await fetch(url, {
+                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    mode: 'cors', // no-cors, *cors, same-origin
+                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                    credentials: 'same-origin', // include, *same-origin, omit
+                    headers: {
+                        'Content-Type': 'application/json'
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    redirect: 'follow', // manual, *follow, error
+                    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                    body: JSON.stringify(data) // body data type must match "Content-Type" header
+                });
+                return response.json(); // parses JSON response into native JavaScript objects
+            }
+            const redirect_uri = "https%3A%2F%2Fphenomenal-pasca-4e43d8.netlify.app%2Fdashboard";
+            postData(`https://accounts.google.com/o/oauth2/token?code=${token}&client_id=340866818101-gnr7bre4gdggrv6tqpjinrl9s4p6uj06.apps.googleusercontent.com&client_secret=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&redirect_uri=${redirect_uri}&grant_type=authorization_code`)
+                .then((data) => {
+                    fetch(`https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=${data.access_token}`)
+                        .then((response) => response.json())
+                        .then((data) => $("#userInfo").text(data.email));
+                });
+        });
+        //<!--===========End login==============-->
+    </script>
+    <!--===========Josn select tỉnh thành thành phố phường xã ==============-->
+    <!--===========Ca nhan==============-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script>
+        var citis = document.getElementById("city");
+        var citis1 = document.getElementById("city1");
+        var districts = document.getElementById("district");
+        var wards = document.getElementById("ward");
+        var Parameter = {
+            url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+            method: "GET",
+            responseType: "application/json",
+        };
+        var promise = axios(Parameter);
+        promise.then(function (result) {
+            renderCity(result.data);
+        });
+
+        function renderCity(data) {
+            for (const x of data) {
+                citis.options[citis.options.length] = new Option(x.Name, x.Id);
+                citis1.options[citis1.options.length] = new Option(x.Name, x.Id);
+            }
+            citis.onchange = function () {
+                district.length = 1;
+                ward.length = 1;
+                if (this.value != "") {
+                    const result = data.filter(n => n.Id === this.value);
+
+                    for (const k of result[0].Districts) {
+                        district.options[district.options.length] = new Option(k.Name, k.Id);
+                    }
+                }
+            };
+            district.onchange = function () {
+                ward.length = 1;
+                const dataCity = data.filter((n) => n.Id === citis.value);
+                if (this.value != "") {
+                    const dataWards = dataCity[0].Districts.filter(n => n.Id === this.value)[0].Wards;
+
+                    for (const w of dataWards) {
+                        wards.options[wards.options.length] = new Option(w.Name, w.Id);
+                    }
+                }
+            };
+        }
+    </script>
+    <!--===========End Josn select tỉnh thành thành phố phường xã ==============-->
+
+    <!--===========Tab đăng ký học phần==============-->
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+
+</body>
+
+</html>

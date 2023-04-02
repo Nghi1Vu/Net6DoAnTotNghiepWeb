@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/styleLogin.css">
+    <link rel="stylesheet" href="~/css/styleUtill.css">
+</head>
+
+<body>
+    <!-- Topbar -->
+    <div class="top-bar">
+        <div class="content-topbar flex-sb-m h-full container">
+            <div class="left-top-bar flex-w">
+                <!-- Logo desktop -->
+                <a href="../dashboard.htm" class="logo">
+                    <img class="align-content" src="~/images/logo.png" alt="MG-LOGO" width="50px" height="50px">
+                </a>
+                <p class="flex-c-m trans-04 m-l--50">
+                    Trường đại học công nghệ Đồng Nai <br>
+                    Hệ Thống quản lý sinh viên
+                </p>
+            </div>
+
+            <div class="right-top-bar flex-w h-full">
+                <p class="flex-c-m trans-04 p-lr-25 txt-right">
+                    Chăm chỉ hiện tại <br>
+                    Thành công Mai Sau
+                </p>
+
+                <a href="../dashboard.htm" class="flex-c-m trans-04 p-lr-25">
+                    Đăng nhập
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- END Topbar -->
+        @RenderBody()
+</body>
+    <script>
+        const redirect_uri = "https%3A%2F%2Fphenomenal-pasca-4e43d8.netlify.app%2Fdashboard";
+        function LoginToDashboard() {
+            window.location = "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=340866818101-gnr7bre4gdggrv6tqpjinrl9s4p6uj06.apps.googleusercontent.com&scope=openid%20email&redirect_uri=" + redirect_uri + "&state=security_token%3D138r5719ru3e1%26url%3Dhttps%3A%2F%2Foauth2-login-demo.example.com%2FmyHome&nonce=0394852-3190485-2490358&hd=dntu.edu.vn";
+        }
+    </script>
+</html>

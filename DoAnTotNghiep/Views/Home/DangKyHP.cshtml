@@ -1,0 +1,198 @@
+﻿
+@{
+    ViewData["Title"] = "DangKyHP";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <a href="#" class="nav_logo m-l--10">
+                <img src="~/images/logo.png" width="35px" height="35px" alt="">
+                <span class="nav_logo-name">Quản lý sinh viên</span>
+            </a>
+            <div class="nav_list">
+                <a href="@Url.Action("News", "Home")" class="nav_link">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav_name">Bảng tin</span>
+                </a>
+                <a href="" @Url.Action("ChiaSeBieuMau", "Home")"" class="nav_link">
+                    <i class='bx bx-message-square-detail nav_icon'></i>
+                    <span class="nav_name">Chia sẻ</span>
+                </a>
+                <a href="@Url.Action("KetQuaHocTap", "Home")" class="nav_link">
+                    <i class='bx bx-clipboard'></i>
+                    <span class="nav_name">Kết quả học tập</span>
+                </a>
+                <a href="@Url.Action("ThoiKhoaBieu", "Home")" class="nav_link">
+                    <i class='bx bx-time-five'></i>
+                    <span class="nav_name">Thời khóa biểu</span>
+                </a>
+                <a href="@Url.Action("XemLichThi", "Home" )" class="nav_link">
+                    <i class='bx bx-calendar'></i>
+                    <span class="nav_name">Lịch thi</span>
+                </a>
+                <a href="@Url.Action("CaNhan", "Home" )" class="nav_link">
+                    <i class='bx bx-user nav_icon'></i>
+                    <span class="nav_name">Cá nhân</span>
+                </a>
+                <a href="@Url.Action("DangKyHP", "Home" )" class="nav_link active">
+                    <i class='bx bx-bookmark nav_icon'></i>
+                    <span class="nav_name">Đăng ký học phần</span>
+                </a>
+                <a href="@Url.Action("DanhGiaRenLuyen", "Home" )" class="nav_link">
+                    <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                    <span class="nav_name">Đánh giá rèn luyện</span>
+                </a>
+            </div>
+        </div>
+        <a href="#" class="nav_link">
+            <i class='bx bx-log-out nav_icon'></i>
+            <span class="nav_name">Đăng xuất</span>
+        </a>
+    </nav>
+</div>
+<!--Container Main start-->
+<div class="border-page">
+    <div class="Bang-tin">
+        <p class="title-page">Đăng ký học phần</p>
+        <div class="title-line"></div>
+        <div class="infor-student-DKHP d-flex">
+            <div class="infor-DKHP">
+                <p>Họ và tên sinh viên:</p>
+                <p>Mã sinh viên:</p>
+                <p>Lớp:</p>
+            </div>
+            <div class="infor-DKHP">
+                <p><strong>Bùi Minh Thái</strong></p>
+                <p><strong>151901162</strong></p>
+                <p><strong>19DTH4</strong></p>
+            </div>
+            <div class="infor-DKHP2">
+                <p><strong>Tổng số tin chỉ tích lũy:</strong></p>
+                <p><strong>Điểm trung bình chung tích lũy:</strong></p>
+                <p><strong>Xếp hạng:</strong></p>
+            </div>
+            <div class="infor-DKHP3">
+                <p><strong>113.0</strong></p>
+                <p><strong>3.36</strong></p>
+                <p><strong>Giỏi</strong></p>
+            </div>
+            <div class="infor-DKHP2 p-t-20 d-flex">
+                <p>Số tiền trong tài khoản: &nbsp;</p><strong style="color: red;"> 1.000.000</strong>
+            </div>
+        </div>
+        <div class="table-dkhp">
+            <!--Sài chung css table tkb vì hai bảng giống nhau-->
+            <table style="width:100%; margin-top: 5px;">
+                <tr class="clo-1">
+                    <!-- Hàng 1-->
+                    <th style="width:9%">Thời khóa biểu</th>
+                    <th style="width:13%">Thứ 2</th>
+                    <th style="width:13%">Thứ 3</th>
+                    <th style="width:13%">Thứ 4</th>
+                    <th style="width:13%">Thứ 5</th>
+                    <th style="width:13%">Thứ 6</th>
+                    <th style="width:13%">Thứ 7</th>
+                    <th style="width:13%">Chủ Nhật</th>
+                </tr>
+                <tr>
+                    <td>Sáng</td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                </tr>
+                <tr>
+                    <td>Chiều</td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                </tr>
+                <tr>
+                    <td>Tối</td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'HPBatBuoc')" id="defaultOpen">Học phần bắt buộc</button>
+            <button class="tablinks m-l--1" onclick="openTab(event, 'HPTuChon')">Học phần tự chọn</button>
+        </div>
+        <div id="HPBatBuoc" class="tabcontent">
+            <div class="tabTable-dkhp">
+                <table style="width:100%; margin-top: 5px;">
+                    <tr class="clo-1">
+                        <!-- Hàng 1-->
+                        <th style="width:5%" rowspan="2">STT</th>
+                        <th style="width:9%" rowspan="2">Mã học phần</th>
+                        <th rowspan="2">Tên học phần</th>
+                        <th colspan="3">Tín chỉ tích lũy</th>
+                        <th style="width:4%" rowspan="2">Đã tích lũy</th>
+                    </tr>
+                    <tr>
+                        <td style="width:5%">Lý thuyết</td>
+                        <td style="width:5%">Thực hành</td>
+                        <td style="width:5%">Số TC</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>HP3176</td>
+                        <td>Kỹ năng phỏng vấn & hồ sơ xin việc</td>
+                        <td>2</td>
+                        <td>-</td>
+                        <td>2</td>
+                        <td><strong>A</strong></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="HPTuChon" class="tabcontent">
+            <div class="tabTable-dkhp">
+                <table style="width:100%; margin-top: 5px;">
+                    <tr class="clo-1">
+                        <!-- Hàng 1-->
+                        <th style="width:5%" rowspan="2">STT</th>
+                        <th style="width:9%" rowspan="2">Mã học phần</th>
+                        <th rowspan="2">Tên học phần</th>
+                        <th colspan="2">Nhóm tự chọn</th>
+                        <th colspan="3">Tín chỉ tích lũy</th>
+                        <th style="width:4%" rowspan="2">Đã tích lũy</th>
+                    </tr>
+                    <tr>
+                        <td style="width:25%">Tên Nhóm</td>
+                        <td style="width:4%">Số TC phải học</td>
+                        <td style="width:5%">Lý thuyết</td>
+                        <td style="width:5%">Thực hành</td>
+                        <td style="width:5%">Số TC</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>HP3176</td>
+                        <td>Kỹ năng phỏng vấn & hồ sơ xin việc</td>
+                        <td>2</td>
+                        <td>-</td>
+                        <td>2</td>
+                        <td>-</td>
+                        <td>2</td>
+                        <td><strong>A</strong></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

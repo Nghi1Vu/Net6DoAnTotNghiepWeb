@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<body class="br-body">
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-form">
+                    <form>
+                        <div class="form-group">
+                            <label>Tên đăng nhập<span class="cl-txt-notic-1 ">*</span></label>
+                            <input type="Mã sinh viên" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="form-group m-t--15">
+                            <label>Mật khẩu<span class="cl-txt-notic-1 ">*</span></label>
+                            <input type="Mật Khẩu" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="checkbox ">
+                            <label class="flex-l">
+                                <input type="checkbox">
+                                <partial> <span class="fs-12 m-l-8">Nhớ tài Khoản</span></partial>
+                            </label>
+                        </div>
+                        <a href="@Url.Action("News", "Home")" class="gradi-btn gradi-btn-clr">Đăng nhập</a>
+                        <div class="hr-text">
+                            Hoặc
+                        </div>
+                        <div style="margin: auto; cursor: pointer;" class="google-btn">
+                            <a onclick="LoginToDashboard()">
+                                <div class="google-icon-wrapper">
+                                    <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+                                </div>
+                                <p class="btn-text"><b>Sign in with google</b></p>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

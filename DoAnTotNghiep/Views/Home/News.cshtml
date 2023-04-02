@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <a href="#" class="nav_logo m-l--10">
+                <img src="~/images/logo.png" width="35px" height="35px" alt="">
+                <span class="nav_logo-name">Quản lý sinh viên</span>
+            </a>
+            <div class="nav_list">
+                <a href="@Url.Action("News", "Home")" class="nav_link active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav_name">Bảng tin</span>
+                </a>
+                <a href="@Url.Action("ChiaSeBieuMau", "Home")" class="nav_link">
+                    <i class='bx bx-message-square-detail nav_icon'></i>
+                    <span class="nav_name">Chia sẻ</span>
+                </a>
+                <a href="@Url.Action("KetQuaHocTap", "Home")" class="nav_link">
+                    <i class='bx bx-clipboard'></i>
+                    <span class="nav_name">Kết quả học tập</span>
+                </a>
+                <a href="@Url.Action("ThoiKhoaBieu", "Home")" class="nav_link">
+                    <i class='bx bx-time-five'></i>
+                    <span class="nav_name">Thời khóa biểu</span>
+                </a>
+                <a href="@Url.Action("XemLichThi", "Home" )" class="nav_link">
+                    <i class='bx bx-calendar'></i>
+                    <span class="nav_name">Lịch thi</span>
+                </a>
+                <a href="@Url.Action("CaNhan", "Home" )" class="nav_link">
+                    <i class='bx bx-user nav_icon'></i>
+                    <span class="nav_name">Cá nhân</span>
+                </a>
+                <a href="@Url.Action("DangKyHP", "Home" )" class="nav_link">
+                    <i class='bx bx-bookmark nav_icon'></i>
+                    <span class="nav_name">Đăng ký học phần</span>
+                </a>
+                <a href="@Url.Action("DanhGiaRenLuyen", "Home" )" class="nav_link">
+                    <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                    <span class="nav_name">Đánh giá rèn luyện</span>
+                </a>
+            </div>
+        </div>
+        <a href="../login/login.htm" class="nav_link">
+            <i class='bx bx-log-out nav_icon'></i>
+            <span class="nav_name">Đăng xuất</span>
+        </a>
+    </nav>
+</div>
+<!--Container Main start-->
+<div class="border-page">
+    <div class="Bang-tin">
+        <p class="title-page">Bảng tin</p>
+        <div class="title-line"></div>
+        <div class="newsItem d-flex">
+            <a href="#" class="news-Daily-Item">
+                <span class="calTop">31</span>
+                <span class="calBot">12/2022</span>
+            </a>
+            <a href="#" class="news-Link">Thông báo về việc nộp hồ sơ nhập học khóa 17 <span class="newDate">&nbsp;(31/12/2022)</span></a>
+        </div>
+
+    </div>
+</div>

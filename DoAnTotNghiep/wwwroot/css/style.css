@@ -1,0 +1,977 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+:root {
+    --header-height: 3rem;
+    --nav-width: 68px;
+    --main-color: #007ACC;
+    --white-color: #00d2ff;
+    --active-color: #fff;
+    --line-color: #D8DFEA;
+    --first-color-light: #AFA5D9;
+    --body-font: Tahoma, Arial, Verdana, sans-serif;
+    --normal-font-size: 1rem;
+    --hovered-color: #c84747;
+    --z-fixed: 100
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box
+}
+
+body {
+    position: relative;
+    margin: var(--header-height) 0 0 0;
+    padding: 0 1rem;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    transition: .5s
+}
+
+footer {
+    padding: 10px 5px;
+    font-family: var(--body-font);
+    font-size: 10px;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none
+}
+
+.header {
+    width: 100%;
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: var(--z-fixed);
+    transition: .5s
+}
+/*----------tab infor sinh vvieen-------------*/
+.name-sv{
+    margin-bottom: 15px;
+}
+ /*----------animation hover-------------*/
+    .name-sv svg {
+        transition: transform .3s ease-in-out;
+    }
+
+        .name-sv svg:hover {
+            transform: translate(25%, 10%) rotate(90deg);
+
+        }
+/*----------animation checkbox svg và hủy animation hover-------------*/
+input[type = "checkbox"] {
+    -webkit-appearance: none;
+    display: none;
+    visibility: hidden;
+}
+
+.bar {
+    position: relative;
+    cursor: pointer;
+    width: 50px;
+    height: 40px;
+}
+
+    .bar span {
+        position: absolute;
+        border-radius: 100px;
+        display: inline-block;
+        transition: 0.3s ease;
+        left: 0;
+    }
+
+        .bar span.top {
+            top: 0;
+        }
+
+input[type]:checked ~ span.top {
+    transform: translate(25%, 10%) rotate(90deg);
+    pointer-events: none;
+}
+/*----------tab content -------------*/
+.tabInfor {
+    height: 100vh;
+    width: 370px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: 3px solid #ccc;
+    border-left: none;
+    box-shadow: 10px 0 20px -16px #333;
+    /*box-shadow 2 số đầu là chỉnh vị trí, top (0 -5px) right(5px 0) bottom(0 5) left(-5px 0) left(0 0) số tiếp theo là độ mờ và độ lớn của bóng*/
+    margin: -2px 0px 0px -2px;
+    padding: 6px 12px;
+    display: none;
+    -webkit-animation: fadeEffect 0.4s;
+    animation: fadeEffect 0.4s;
+    z-index: 1;
+    /*position: absolute;*/
+    position: fixed;
+    transform: translate( 0%, 0%);
+}
+@-webkit-keyframes fadeEffect {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+    }
+}
+
+@keyframes fadeEffect {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/*------Style the close tab content---------*/
+.butn-close {
+    color: #090909;
+    padding: 0.1px 7px;
+    font-size: 18px;
+    border-radius: 0.05em;
+    border: 1px solid white;
+    transition: all .3s;
+}
+    .butn-close:hover {
+        background: #e8e8e8;
+        border: 1px solid #e8e8e8;
+    }
+    .butn-close:active {
+        color: #666;
+        box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+    }
+.topright {
+    float: right;
+    cursor: pointer;
+    font-size: 24px;
+}
+.tabInfor h4 {
+    margin: 15px 0px;
+    color: #ff0000
+}
+.tabInfor hr {
+    margin: 25px 20px 30px 0px;
+}
+
+.tabInfor button {
+    padding: 0;
+    margin-bottom: 20px;
+    border: none;
+    background: none;
+}
+/*----*/
+.tabInfor button {
+    position: relative;
+    display: flex;
+    font-weight: 500;
+    font-size: 16px;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.tabInfor button p {
+    margin: 0;
+    position: relative;
+    font-size: 16px;
+    color: var(--main-color)
+}
+
+.tabInfor button::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    left: 0;
+    bottom: -7px;
+    background: var(--main-color);
+    height: 2px;
+    transition: 0.5s ease-out;
+}
+
+.tabInfor button:hover::after {
+    width: 100%;
+}
+
+.tabInfor svg {
+    animation: heartButton 3s infinite;
+}
+@keyframes heartButton {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.3);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.option-1{
+    font-weight: 100;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+.nav-line {
+    border: 1px solid #C0C0C0;
+    border-radius: 2px;
+}
+
+.right-top-bar p {
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.1;
+    height: 100%;
+    color: #C0C0C0;
+}
+
+.portal-new h4 {
+    padding-top: 7px;
+    margin-left: 30px;
+    color: var(--main-color);
+    cursor: pointer;
+    height: 27px;
+    font-size: 13px;
+}
+/*
+.icon-bell{
+    padding-top: 5px;
+    padding-left: 15px;
+    font-size: 15px;
+}*/
+.header_toggle {
+    color: var(--main-color);
+    font-size: 1.5rem;
+    cursor: pointer
+}
+
+@media screen and (max-width: 375px) {
+    .header_toggle {
+        margin-top: 3px;
+        margin-left: 10px;
+    }
+
+    .portal-new h4 {
+        margin-left: 5px;
+        font-size: 10px;
+        overflow: visible;
+    }
+
+    .right-top-bar p {
+        font-size: 0.7rem;
+    }
+}
+
+.header_img {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden
+}
+
+    .header_img img {
+        width: 40px
+    }
+
+.l-navbar {
+    position: fixed;
+    top: 0;
+    left: -30%;
+    width: var(--nav-width);
+    height: 100vh;
+    background-color: var(--main-color);
+    padding: .5rem 1rem 0 0;
+    transition: .5s;
+    z-index: var(--z-fixed)
+}
+
+.nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden
+}
+
+.nav_logo,
+.nav_link {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    column-gap: 1rem;
+    padding: .5rem 0 .5rem 1.5rem
+}
+
+.nav_logo {
+    margin-bottom: 2rem
+}
+
+.nav_logo-name {
+    color: var(--active-color);
+    font-weight: 700
+}
+
+.nav_link {
+    position: relative;
+    color: var(--first-color-light);
+    margin-bottom: 1.5rem;
+    transition: .3s
+}
+
+    .nav_link:hover {
+        color: var(--white-color)
+    }
+
+.nav_icon {
+    font-size: 1.25rem
+}
+
+.show {
+    left: 0
+}
+
+.body-pd {
+    padding-left: calc(var(--nav-width) + 1rem)
+}
+
+.active {
+    color: var(--active-color)
+}
+
+    .active::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 2px;
+        height: 32px;
+        background-color: var(--active-color)
+    }
+
+.height-100 {
+    height: 100vh
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        margin: calc(var(--header-height) + 1rem) 0 0 0;
+        padding-left: calc(var(--nav-width) + 2rem)
+    }
+
+    .header {
+        height: calc(var(--header-height) + 1rem);
+        padding: 0 2rem 0 calc(var(--nav-width) + 2rem)
+    }
+
+    .header_img {
+        width: 40px;
+        height: 40px
+    }
+
+        .header_img img {
+            width: 45px
+        }
+
+    .l-navbar {
+        left: 0;
+        padding: 1rem 1rem 0 0
+    }
+
+    .show {
+        width: calc(var(--nav-width) + 156px)
+    }
+
+    .body-pd {
+        padding-left: calc(var(--nav-width) + 188px)
+    }
+}
+/*----------body-------------*/
+.border-page {
+    height: auto;
+    margin-top: 15px;
+    padding-bottom: 5px;
+    border: 1px solid var(--line-color);
+    border-radius: 5px;
+}
+
+.title-page {
+    margin-top: 20px;
+    margin-left: 25px;
+    font-weight: bold;
+    font-size: 12px;
+    color: #000;
+}
+
+.title-line {
+    border: 1px solid var(--line-color);
+    border-radius: 2px;
+    margin: 8px 5px 1px 15px;
+}
+/*----------body  bảng tin-------------*/
+.newsItem {
+    margin: 10px 10px 10px 15px;
+}
+
+    .newsItem .news-Daily-Item {
+        float: left;
+        border: 1px solid #ccc;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 120px;
+        min-height: 70px;
+        overflow: hidden;
+    }
+
+        .newsItem .news-Daily-Item .calTop {
+            color: #CF3F48;
+            display: block;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 26px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .newsItem .news-Daily-Item .calBot {
+            border-top: 2px solid #CF3F48;
+            color: #999999;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 30px;
+            text-align: center;
+            display: block;
+            width: 90px;
+            margin: 0 auto;
+        }
+
+    .newsItem .news-Link {
+        position: relative;
+        font-weight: bold;
+        font-size: 12px;
+        color: #000;
+        margin-bottom: 1.5rem;
+        transition: .3s;
+    }
+
+        .newsItem .news-Link:hover {
+            color: #ff0000;
+        }
+
+.newDate {
+    color: #999;
+    font-weight: normal !important;
+}
+/*----------body kết quả học tập-------------*/
+.body-study {
+    height: auto;
+    margin: 15px 5px 5px 5px;
+    padding: 1px;
+    border: 1px solid var(--main-color);
+}
+
+.infor-student {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+    .infor-student .infor-left {
+        width: 200px;
+        height: auto;
+        float: left;
+        font-size: 13px;
+    }
+
+@media screen and (max-width: 375px) {
+    .infor-student .infor-left p {
+        font-size: 12px;
+    }
+}
+/* table chung*/
+table, th, td {
+    font-size: 12px;
+    border: 1px solid #C0C0C0;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    padding-left: 3px;
+}
+
+.table-kq-study th {
+    background-color: #2647A0 !important;
+    color: #fff;
+    border: 1px solid #fff;
+    font-weight: 500;
+    padding: 10px 0px;
+}
+
+.table-kq-study tr:nth-child(even) {
+    background-color: #EDF5FF;
+}
+
+.table-kq-study .clo-2 {
+    background-color: #2647A0 !important;
+    color: #fff;
+    border: 1px solid #fff;
+    font-weight: 500;
+    padding: 5px 0px;
+}
+/*----------body Chia sẻ biểu mẫu, quy định, hướng dẫn chung -------------*/
+.body-share {
+    margin: 15px 8px 5px 8px;
+    padding: 1px;
+}
+
+.card {
+    border: none;
+}
+
+.card-body .table th {
+    border-top: 1px solid#CCCCCC !important;
+    border-bottom: 1px solid#CCCCCC !important;
+}
+
+.card-body .table th {
+    text-align: left;
+    border-right: 1px solid #fff !important;
+    border-left: 1px solid #fff !important;
+}
+
+
+.card-body .table td {
+    border-right: 1px solid #fff !important;
+    border-left: 1px solid #fff !important;
+}
+
+/*--------------body thời khóa biểu---------------*/
+.panelTKB {
+    padding: 25px 0px;
+}
+
+.txt-panel-l {
+    font-size: 13px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.txt-panel-r input {
+    margin-bottom: 16px;
+    border: 1px solid #c9c9c9;
+    padding: 2px 8px;
+}
+
+.txt-panel-r button {
+    padding: 5px 15px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    color: #000;
+    background-color: #DDDDDD;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px #999;
+}
+
+    .txt-panel-r button:hover {
+        background-color: #CCCCCC
+    }
+
+    .txt-panel-r button:active {
+        background-color: #CCCCCC;
+        box-shadow: 0 2px #666;
+        transform: translateY(2px);
+    }
+
+.txt-panel-l p {
+    padding-top: 3px;
+    padding-bottom: 22px;
+}
+
+.table-tkb th {
+    background: #d9e7f8;
+    padding: 8px 0px;
+    color: #000000;
+    border: 1px solid #99bbe8;
+    text-align: center;
+}
+
+.table-tkb {
+    padding: 0px 5px;
+}
+
+    .table-tkb tr:hover {
+        background-color: #EEEEEE;
+    }
+/*--------------body xêm lịch thi---------------*/
+
+.table-lichthi th {
+    background-color: #2647A0 !important;
+    color: #fff;
+    border: 1px solid #fff;
+    font-weight: 500;
+    padding: 10px 0px;
+}
+
+.table-lichthi tr:nth-child(odd) {
+    background-color: #EDF5FF;
+}
+
+.table-lichthi td:nth-child(n+11) {
+    color: #0000FF;
+}
+/*--------------body cập nhật thông tin sinh viên---------------*/
+.update-infor {
+    padding: 0px 5px;
+}
+
+.update-infor-student {
+    margin: 10px 15px;
+}
+
+.noteVD {
+    background: none repeat scroll 0 0 yellow;
+    margin: 9px 4px;
+    padding: 10px 10px;
+    color: red;
+    text-align: left;
+}
+
+.table-upInfor {
+    margin-bottom: 15px;
+}
+
+    .table-upInfor td, th {
+        border: 1px solid #99bbe8 !important;
+    }
+
+    .table-upInfor tr:nth-child(2) {
+        text-transform: uppercase;
+    }
+
+    .table-upInfor .special {
+        background: #d9e7f8;
+        height: 30px;
+        color: #000000;
+        border: 1px solid #99bbe8;
+        text-align: center;
+        font-weight: bold;
+    }
+
+        .table-upInfor .special:hover {
+            background: #d9e7f8;
+        }
+
+    .table-upInfor tr:hover {
+        background-color: #EEEEEE;
+    }
+
+    .table-upInfor span {
+        padding-top: 5px;
+        padding-bottom: 7px;
+    }
+
+.input-infor {
+    padding: 2px 10px;
+    border-top: 1px solid #000;
+    border: 1px solid #BBBBBB;
+}
+
+    .input-infor:focus {
+        border: 1px solid #000;
+    }
+
+.input-birth {
+    margin: 10px 5px;
+    padding: 2px 2px;
+    border: 1px solid #000;
+}
+
+#GioiTinh {
+    font-size: 13px;
+    width: 13em;
+    margin: 8px 5px;
+}
+
+.NoiSinh {
+    margin: 8px 5px;
+    width: 24em;
+}
+
+.HoKhau label {
+    font-size: 13px;
+    font-weight: bold !important;
+}
+
+.HoKhau select {
+    width: 20em;
+    margin-right: 4em;
+}
+
+#tablechung {
+    font-size: 13px;
+    width: 20.2em;
+    margin: 8px 5px;
+}
+
+#inputchung {
+    font-size: 13px;
+    width: 24rem;
+    margin: 8px 5px;
+}
+
+.table-inout td {
+    border: 1px solid #99bbe8;
+}
+
+.table-inout th {
+    background: #d9e7f8;
+    height: 30px;
+    color: #000000;
+    border: 1px solid #99bbe8;
+    text-align: center;
+    font-weight: bold;
+}
+
+.table-inout td:first-child {
+    background: #F6FFFF;
+    height: 30px;
+    color: #000000;
+    border: 1px solid #99bbe8;
+    text-align: center;
+    font-weight: bold;
+}
+
+.table-inout label {
+    margin-left: 5px;
+    font-size: 13px;
+    font-weight: bold !important;
+}
+
+.table-inout td:nth-child(2) p {
+    padding: 7px 0px;
+}
+
+.update-infor button {
+    padding: 5px 15px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    color: #000;
+    background-color: #DDDDDD;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px #999;
+}
+
+    .update-infor button:hover {
+        background-color: #CCCCCC
+    }
+
+    .update-infor button:active {
+        background-color: #CCCCCC;
+        box-shadow: 0 2px #666;
+        transform: translateY(2px);
+    }
+
+/*--------------body đăng ký học phần---------------*/
+
+.infor-student-DKHP {
+    margin: 20px 10px;
+}
+
+    .infor-student-DKHP .infor-DKHP {
+        width: 160px;
+        height: auto;
+        float: left;
+        font-size: 13px;
+    }
+
+    .infor-student-DKHP .infor-DKHP2 {
+        width: 210px;
+        height: auto;
+        float: left;
+        font-size: 13px;
+    }
+
+    .infor-student-DKHP .infor-DKHP3 {
+        width: 150px;
+        height: auto;
+        float: left;
+        font-size: 13px;
+        color: red;
+    }
+
+@media screen and (max-width: 375px) {
+    .infor-student .infor-DKHP p {
+        font-size: 12px;
+    }
+
+    .infor-student .infor-DKHP2 p {
+        font-size: 12px;
+    }
+
+    .infor-student .infor-DKHP3 p {
+        font-size: 12px;
+    }
+}
+/*test*/
+/* Style the tab */
+.tab {
+    margin: 20px 8px 0px 18px;
+    overflow: hidden;
+    background-color: white;
+}
+
+    /* Style the buttons inside the tab */
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        padding: 5px 12px;
+        transition: 0.3s;
+        font-size: 12px;
+        font-weight: bold;
+        color: blue;
+    }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: white;
+            color: #000;
+            border-bottom: 1px solid white;
+        }
+
+/* Style the tab content */
+.tabcontent {
+    margin: -1px 8px 0px 9px;
+    display: none;
+    padding: 6px 0px;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+.table-dkhp {
+    margin: 8px 10px;
+}
+
+    .table-dkhp th {
+        background: #d9e7f8;
+        padding: 8px 0px;
+        color: #000000;
+        border: 1px solid #99bbe8;
+        text-align: center;
+    }
+
+    .table-dkhp td {
+        color: #000000;
+        border: 1px solid #99bbe8;
+        padding: 5px 8px;
+    }
+
+    .table-dkhp tr:hover {
+        background-color: #EEEEEE;
+    }
+
+.tabTable-dkhp th {
+    background: #d9e7f8;
+    padding: 8px 0px;
+    color: #000000;
+    border: 1px solid #99bbe8;
+    text-align: center;
+}
+
+.tabTable-dkhp tr:nth-child(2) {
+    background: #d9e7f8;
+    padding: 8px 0px;
+    color: #000000;
+    border: 1px solid #99bbe8;
+    text-align: center;
+    font-weight: bold;
+}
+
+    .tabTable-dkhp tr:nth-child(2):hover {
+        background: #d9e7f8;
+    }
+
+.tabTable-dkhp td {
+    color: #000000;
+    border: 1px solid #99bbe8;
+    padding: 5px 8px;
+}
+
+.tabTable-dkhp tr:hover {
+    background-color: #EEEEEE;
+}
+
+/*--------------body Đánh giá rèn luyện---------------*/
+
+.table-Danhgia th {
+    background: #d9e7f8;
+    padding: 8px 0px;
+    color: #0000FF;
+    font-size: 13px;
+    font-weight: 800;
+    border: 1px solid #99bbe8;
+    text-align: center;
+}
+
+.table-Danhgia td {
+    padding: 5px 8px;
+    font-size: 13px;
+}
+
+    .table-Danhgia td:last-child {
+        padding: 5px 8px;
+        font-size: 13px;
+        font-weight: 800;
+    }
+
+.table-Danhgia {
+    padding: 0px 5px;
+}
+
+    .table-Danhgia tr:hover {
+        background-color: #EEEEEE;
+    }

@@ -1,0 +1,375 @@
+﻿
+@{
+    ViewData["Title"] = "CaNhan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="#" class="nav_logo m-l--10">
+                <img src="~/images/logo.png" width="35px" height="35px" alt="">
+                    <span class="nav_logo-name">Quản lý sinh viên</span>
+                </a>
+            <div class="nav_list">
+                <a href="@Url.Action("News", "Home")" class="nav_link">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav_name">Bảng tin</span>
+                </a>
+                <a href="" @Url.Action("ChiaSeBieuMau", "Home")"" class="nav_link">
+                    <i class='bx bx-message-square-detail nav_icon'></i>
+                    <span class="nav_name">Chia sẻ</span>
+                </a>
+                <a href="@Url.Action("KetQuaHocTap", "Home")" class="nav_link">
+                    <i class='bx bx-clipboard'></i>
+                    <span class="nav_name">Kết quả học tập</span>
+                </a>
+                <a href="@Url.Action("ThoiKhoaBieu", "Home")" class="nav_link">
+                    <i class='bx bx-time-five'></i>
+                    <span class="nav_name">Thời khóa biểu</span>
+                </a>
+                <a href="@Url.Action("XemLichThi", "Home" )" class="nav_link">
+                    <i class='bx bx-calendar'></i>
+                    <span class="nav_name">Lịch thi</span>
+                </a>
+                <a href="@Url.Action("CaNhan", "Home" )" class="nav_link active">
+                    <i class='bx bx-user nav_icon'></i>
+                    <span class="nav_name">Cá nhân</span>
+                </a>
+                <a href="@Url.Action("DangKyHP", "Home" )" class="nav_link">
+                    <i class='bx bx-bookmark nav_icon'></i>
+                    <span class="nav_name">Đăng ký học phần</span>
+                </a>
+                <a href="@Url.Action("DanhGiaRenLuyen", "Home" )" class="nav_link">
+                    <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                    <span class="nav_name">Đánh giá rèn luyện</span>
+                </a>
+            </div>
+            </div>
+            <a href="#" class="nav_link">
+                <i class='bx bx-log-out nav_icon'></i>
+                <span class="nav_name">Đăng xuất</span>
+            </a>
+        </nav>
+    </div>
+    <!--Container Main start-->
+    <div class="border-page">
+        <div class="update-infor">
+            <p class="title-page">Cá nhân</p>
+            <div class="title-line"></div>
+            <div class="update-infor-student">
+                <div class="infor-student d-flex">
+                    <div class="infor-left">
+                        <p>Họ và tên sinh viên:</p>
+                        <p>Mã sinh viên:</p>
+                        <p>Lớp:</p>
+                        <p>Ngành:</p>
+                        <p>Khoa:</p>
+                    </div>
+                    <div class="infor-left">
+                        <p><strong>Bùi Minh Thái</strong></p>
+                        <p><strong>151901162</strong></p>
+                        <p><strong>19DTH4</strong></p>
+                        <p><strong>Công nghệ thông tin</strong></p>
+                        <p><strong>Công nghệ</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="table-upInfor">
+                <table style="width:100%; margin-top: 5px;">
+                    <tr class="clo-1">
+                        <!-- Hàng 1-->
+                        <th colspan="3"><strong><b><div class="noteVD">Đang mở cập nhật thông tin</div></b></strong></th>
+                    </tr>
+                    <tr class="special">
+                        <!-- Hàng 2 -->
+                        <td colspan="2">Thông tin sinh viên</td>
+                        <td rowspan="2">Bảng thông tin</td>
+                    </tr>
+                    <tr class="special">
+                        <!-- Hàng 3 -->
+                        <td style="width:35%;">Thông tin hiên tại</td>
+                        <td style="width:25%;">Thông tin yêu cầu cập nhật </td>
+                    </tr>
+                    <tr>
+                        <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i> Họ và tên:<strong
+                                style="color: #0000FF;"> Bùi Minh Thái</strong></td>
+                        <td></td>
+                        <td>
+                            <span class="d-flex">
+                                <span class="m-r-20 m-l-5">
+                                    <label>Họ đệm</label>
+                                    <input type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="Bùi Minh">
+                                </span>
+                                <span>
+                                    <labbel>Tên</label>
+                                        <input type="text" class="input-infor flex-m p-l-10 fs-12" placeholder="Thái">
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Ngày sinh:</td>
+                        <td></td>
+                        <td><input class="input-birth" type="date" id="FromDay"></td>
+                    </tr>
+                    <tr>
+
+                        <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Giới tính:</td>
+                        <td></td>
+                        <td>
+                            <select id="GioiTinh" class="form-select form-select-sm mb-3" aria-label="Default select example">
+                                <option selected>== Chọn giới tính ==</option>
+                                <option value="1">Nam</option>
+                                <option value="2">Nữ</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Nơi sinh:</td>
+                        <td></td>
+                        <td>
+                            <select  class="NoiSinh form-select form-select-sm mb-3" id="city1" aria-label=".form-select-sm">
+                                <option value="" selected>Chọn tỉnh thành</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Hộ khẩu thường trú:</td>
+                        <td></td>
+                        <td class="HoKhau">
+                            <span class="d-flex m-l-5">
+                                <span>
+                                    <label>Tỉnh/ Thành phố:</label>
+                                        <select class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm">
+                                            <option value="" selected>Chọn tỉnh thành</option>
+                                        </select>
+                                </span>
+                                <span>
+                                    <label>Quận/ Huyện</label>
+                                        <select class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm">
+                                            <option value="" selected>Chọn quận huyện</option>
+                                        </select>
+                                </span>
+                            </span>
+                            <span class="d-flex m-t--20 m-l-5">
+                                <span>
+                                    <label>Xã/ Phường</label>
+                                        <select class="form-select form-select-sm" id="ward" aria-label=".form-select-sm">
+                                            <option value="" selected>Chọn phường xã</option>
+                                        </select>
+                                </span>
+                                <span>
+                                    <label>Số nhà/ Thôn xóm</label>
+                                        <input type="text" class="input-infor flex-m p-l-10 fs-12" placeholder="Nhập vào số nhà">
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Dân tộc: </td>
+                        <td></td>
+                        <td><select id="tablechung" class="form-select form-select-sm mb-3" aria-label="Default select example">
+                                <option selected>== Chọn Dân tộc ==</option>
+                                <option value="1">Kinh</option>
+                                <option value="2">Tày</option>
+                                <option value="3">Thái</option>
+                                <option value="4">Hoa</option>
+                                <option value="5">Khơ-Me</option>
+                                <option value="6">Mường</option>
+                                <option value="7">Nùng</option>
+                                <option value="8">Hmông</option>
+                                <option value="9">Dao</option>
+                                <option value="10">Gia-rai</option>
+                                <option value="11">Ngái</option>
+                                <option value="12">Ê-đê</option>
+                                <option value="13">Ba-na</option>
+                                <option value="14">Xơ-đăng</option>
+                                <option value="15">Sán Chay</option>
+                                <option value="16">Cơ-ho</option>
+                                <option value="17">Chăm</option>
+                                <option value="18">Sán Dìu</option>
+                                <option value="19">Hrê</option>
+                                <option value="20">Mnông</option>
+                                <option value="21">Ra-giai</option>
+                                <option value="22">Xtiêng</option>
+                                <option value="23">Bru-Vân Kiều</option>
+                                <option value="24">Thổ</option>
+                                <option value="25">Giáy</option>
+                                <option value="26">Cơ-tu</option>
+                                <option value="27">Gié-Triêng</option>
+                                <option value="28">Mạ</option>
+                                <option value="29">Khơ-mú</option>
+                                <option value="30">Co</option>
+                                <option value="31">Ta-ôi</option>
+                                <option value="32">Choro</option>
+                                <option value="34">Kháng</option>
+                                <option value="35">Xinh-mun</option>
+                                <option value="36">Chu-ru</option>
+                                <option value="37">Lào</option>
+                                <option value="38">La Chi</option>
+                                <option value="39">La Ha</option>
+                                <option value="40">Phù Lá</option>
+                                <option value="42">La Hủ</option>
+                                <option value="43">Lự</option>
+                                <option value="44">Lô Lô</option>
+                                <option value="45">Chứt</option>
+                                <option value="46">Mảng</option>
+                                <option value="47">Pà thẻn</option>
+                                <option value="48">Cơ Lao</option>
+                                <option value="49">Cống</option>
+                                <option value="50">Bố Y</option>
+                                <option value="51">Si La</option>
+                                <option value="52">Pu Péo</option>
+                                <option value="53">Brâu</option>
+                                <option value="54">Ơ Đu</option>
+                                <option value="55">Rơ-măm</option>
+                                <option value="56">Người nước ngoài</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Tôn giáo: </td>
+                        <td></td>
+                        <td>
+                            <select id="tablechung" class="form-select form-select-sm mb-3" aria-label="Default select example">
+                                <option selected>== Chọn tôn giáo ==</option>
+                                <option value="1">Không</option>
+                                <option value="2">Phật Giáo</option>
+                                <option value="3">Công Giáo</option>
+                                <option value="4">Tin Lành</option>
+                                <option value="5">Hồi giáo</option>
+                                <option value="6">Cao đài</option>
+                                <option value="7">Hòa Hảo</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Thành phần xuất thân: </td>
+                        <td></td>
+                        <td>
+                            <select  id="tablechung" class="form-select form-select-sm mb-3" aria-label="Default select example">
+                                <option selected>== Chọn thành phần xuất thân ==</option>
+                                <option value="1">Thành phần khác</option>
+                                <option value="2">Dân nghèo thành thị</option>
+                                <option value="3">Địa chủ</option>
+                                <option value="4">Tư sản</option>
+                                <option value="5">Quân nhân</option>
+                                <option value="6">Công chức</option>
+                                <option value="7">Cán bộ</option>
+                                <option value="8">Công nhân</option>
+                                <option value="9">Nông dân</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Đối tượng ưu tiên:</td>
+                        <td></td>
+                        <td>
+                            <select id="tablechung" class="form-select form-select-sm mb-3" aria-label="Default select example">
+                                <option selected>== Chọn đối tượng ưu tiên ==</option>
+                                <option value="1">Người lao động ưu tú; Người khuyết tật nặng</option>
+                                <option value="2">Con thương binh bệnh binh, hưởng chính sách như thương binh dưới 81%; con của người có công giúp đỡ cách mạng; Người dân tộc thiều số nngoaif KV thuộc nhóm ưu tiên 1</option>
+                                <option value="3">Quân nhân, CAND tại ngũ dược cử đi học có thời gian phục vụ dưới 18 tháng không ở khu vực 1</option>
+                                <option value="4">Con liệt sĩ, thương bệnh binh, hưởng chính sách như thương binh 81% trở lên</option>
+                                <option value="5">Quân nhân, CAND xuất ngũ, được công nhận hoang thành nghĩa vụ</option>
+                                <option value="6">Công nhân trực tiếp sản xutas làm việc trên 5 năm có it nhất 2 năm là CSTĐ cấp tỉnh</option>
+                                <option value="7">Dân tộc thiểu số có hộ khẩu tại các thôn, xã đặc biệt khó khăn</option>
+                                <option value="8">Không thuộc đói thượng ưu tiên</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Đối tượng miễn giảm:</td>
+                        <td></td>
+                        <td>
+                            <select id="tablechung" class="form-select form-select-sm mb-3" aria-label="Default select example">
+                                <option selected>== Chọn Đối tượng miễn giảm ==</option>
+                                <option value="1">Con của người có công với cách mạng</option>
+                                <option value="2">Con mồ côi cả cha lẫn mẹ</option>
+                                <option value="3">Tàn tật, khuyết tật có khó khăn về kinh tế</option>
+                                <option value="4">Dân tộc thiểu số thuộc hộ nghèo và hộ cận nghèo</option>
+                                <option value="5">Dân tộc thiểu số it người ở cùn có điều kien kinh tế khó khăn hoặc đặc biệt khó khăn</option>
+                                <option value="6">Con CBVC mà cha hoặc mẹ bị NTNL hoặc mắc bệnh nghề nghiệp được hưởng trợ cấp</option>
+                                <option value="7">2 nguoi2f trong gia đình cùng theo học tại DNTU được giảm 20% học phí</option>
+                                <option value="8">Không thuộc đói thượng niễm, giam</option>
+                                <option value="8">Con của cán bộ, giảng viên và nhân viên DNTU 70%</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Học lớp 12 trường:</td>
+                        <td></td>
+                        <td><input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="Nhập vào trường học lớp 12"></td>
+                    </tr>
+                    <tr>
+                        <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Số CMND/CCCD:</td>
+                        <td></td>
+                        <td><input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="Nhập vào số CMND/CCCD"></td>
+                    </tr> 
+                    <tr>
+                        <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Số thẻ bảo hiểm y tế:</td>
+                        <td></td>
+                        <td><input  id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="Nhập vào số thẻ bảo hiểm y tế"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table-inout">
+                <table style="width:100%">
+                    <tr>
+                      <th colspan="3">THÔNG TIN NỘI NGOẠI TRÚ</th>
+                    </tr>
+                    <tr>
+                        <td style="width:10%">Nội trú</td>
+                        <td style="width:45% ">
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Phòng: </p>
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Thời gian: </p>
+                        </td>
+                        <td style="width:45%">
+                            <p style="padding: 7px 0px">-</p>
+                            <p style="padding: 7px 0px">-</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ngoại trú</td>
+                        <td>
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Họ tên gia chủ: </p>
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Điện thoại: </p>
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Địa chỉ liên hệ: </p>
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Thời gian: </p>
+                        </td>
+                        <td>
+                            <span>
+                                <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="Nhập vào họ tên gia chủ">
+                                <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="Điện thoại">
+                                <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="Địa chỉ liên hệ">
+                                <span class="d-flex">
+                                    <span>
+                                        <label>Từ ngày</label>
+                                        <input class="input-birth" type="date" id="FromDay2">
+                                    </span>
+                                    <span>
+                                        <label>Từ ngày</label>
+                                        <input class="input-birth" type="date" id="FromDay1">
+                                    </span>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ở với gia đình</td>
+                        <td>
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Điện thoại liên hệ: </p>
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Địa chỉ liên hệ: </p>
+                        </td>
+                        <td style="padding: 8px 5px">
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8" placeholder="0987628314"> <!--Điền thông tin vào trước trong data vào placeholder-->
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="viết data địa chỉ vào đây"> <!--Điền thông tin vào trước trong data vào placeholder-->
+                        </td>
+                    </tr>
+                  </table>
+            </div>
+            <div> 
+                <button class="button m-t-20"> Gửi y/c xác nhận </button>
+            </div>
+        </div>
+    </div>
