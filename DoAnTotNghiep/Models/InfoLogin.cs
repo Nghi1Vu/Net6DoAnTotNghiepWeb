@@ -6,4 +6,9 @@ namespace DoAnTotNghiep.Models
 
         public string Password { get; set; }
     }
+    public class TokenModel
+    {
+        public string email { get; set; }
+
+    }
 }

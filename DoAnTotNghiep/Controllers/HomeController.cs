@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using System.Net.Http.Headers;
 using System.Reflection;
+using System.Text;
 
 namespace DoAnTotNghiep.Controllers
 {
@@ -28,7 +30,12 @@ namespace DoAnTotNghiep.Controllers
             {
                 BaseAddress = new Uri("https://www.googleapis.com"),
             };
-            using HttpResponseMessage response = httpClient.PostAsJsonAsync("/o/oauth2/token?code="+ code + "&client_id=340866818101-gnr7bre4gdggrv6tqpjinrl9s4p6uj06.apps.googleusercontent.com&client_secret=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&redirect_uri="+ "https://localhost:7044/Home/Index" + "&grant_type=authorization_code", "").Result;
+            var creds = $"code={code}&client_id=340866818101-3vn7u84kjevf296o5s2r7uofdqrm8k9r.apps.googleusercontent.com&client_secret=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&redirect_uri=https://localhost:7044/Home/Index&grant_type=authorization_code";
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
+            var content = new StringContent(creds, Encoding.UTF8, "application/x-www-form-urlencoded");
+            using var response = httpClient.PostAsync("/o/oauth2/token", content).Result;
+            //using HttpResponseMessage response = httpClient.po("/o/oauth2/token?code="+ code + "&client_id=340866818101-3vn7u84kjevf296o5s2r7uofdqrm8k9r.apps.googleusercontent.com&client_secret=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&redirect_uri=" + "https://localhost:7044/Home/Index" + "&grant_type=authorization_code", "").Result;
             var todo = response.Content.ReadAsStringAsync().Result;
             using HttpResponseMessage response1 = httpClient1.GetAsync("/oauth2/v3/tokeninfo?access_token=${data.access_token}").Result;
             var todo1 = response.Content.ReadAsStringAsync().Result;

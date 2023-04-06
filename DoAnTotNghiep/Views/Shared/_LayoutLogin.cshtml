@@ -43,9 +43,9 @@
         @RenderBody()
 </body>
     <script>
-    const redirect_uri = "https://localhost:7044/Home/Index";
-        function LoginToDashboard() {
-            window.location = "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=340866818101-gnr7bre4gdggrv6tqpjinrl9s4p6uj06.apps.googleusercontent.com&scope=openid%20email&redirect_uri=" + redirect_uri + "&state=security_token%3D138r5719ru3e1%26url%3Dhttps%3A%2F%2Foauth2-login-demo.example.com%2FmyHome&nonce=0394852-3190485-2490358&hd=dntu.edu.vn";
-        }
+    const redirect_uri = "https%3A%2F%2Flocalhost%3A7044%2FHome%2FIndex";
+    function LoginToDashboard() {
+        window.location = "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=340866818101-3vn7u84kjevf296o5s2r7uofdqrm8k9r.apps.googleusercontent.com&scope=openid%20email&redirect_uri=" + redirect_uri + "&state=security_token%3D138r5719ru3e1%26url%3Dhttps%3A%2F%2Foauth2-login-demo.example.com%2FmyHome&nonce=0394852-3190485-2490358&hd=dntu.edu.vn";
+    }
     </script>
 </html>
