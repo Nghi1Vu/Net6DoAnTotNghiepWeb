@@ -31,6 +31,7 @@ namespace DoAnTotNghiep.Controllers
             using HttpResponseMessage response = httpClient.PostAsJsonAsync("/o/oauth2/token?code="+ code + "&client_id=340866818101-gnr7bre4gdggrv6tqpjinrl9s4p6uj06.apps.googleusercontent.com&client_secret=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&redirect_uri="+ "https://localhost:7044/Home/Index" + "&grant_type=authorization_code", "").Result;
             var todo = response.Content.ReadAsStringAsync().Result;
             using HttpResponseMessage response1 = httpClient1.GetAsync("/oauth2/v3/tokeninfo?access_token=${data.access_token}").Result;
+            var todo1 = response.Content.ReadAsStringAsync().Result;
             return View();
         }
         
