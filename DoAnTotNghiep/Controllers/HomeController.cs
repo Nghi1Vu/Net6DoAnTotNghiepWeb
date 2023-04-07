@@ -1,6 +1,7 @@
 ﻿using DoAnTotNghiep.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Reflection;
@@ -37,9 +38,20 @@ namespace DoAnTotNghiep.Controllers
             using var response = httpClient.PostAsync("/o/oauth2/token", content).Result;
             //using HttpResponseMessage response = httpClient.po("/o/oauth2/token?code="+ code + "&client_id=340866818101-3vn7u84kjevf296o5s2r7uofdqrm8k9r.apps.googleusercontent.com&client_secret=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&redirect_uri=" + "https://localhost:7044/Home/Index" + "&grant_type=authorization_code", "").Result;
             var todo = response.Content.ReadAsStringAsync().Result;
-            using HttpResponseMessage response1 = httpClient1.GetAsync("/oauth2/v3/tokeninfo?access_token=${data.access_token}").Result;
-            var todo1 = response.Content.ReadAsStringAsync().Result;
-            return View();
+            AccessTokenModel token = JsonConvert.DeserializeObject<AccessTokenModel>(todo);
+            using HttpResponseMessage response1 = httpClient1.GetAsync("/oauth2/v3/tokeninfo?access_token="+ token.access_token).Result;
+            var todo1 = response1.Content.ReadAsStringAsync().Result;
+            TokenModel token1 = JsonConvert.DeserializeObject<TokenModel>(todo1);
+            using HttpResponseMessage response2 = sharedClient.PostAsJsonAsync("/api/v1/LoginWithEmail", token1).Result;
+            var todo2 = response2.Content.ReadAsStringAsync().Result;
+            if (todo2.IndexOf("\"expiresIn\":1") > 0)
+            {
+                return RedirectToAction("News", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Index","Account");
+            }
         }
         
         public IActionResult News()
