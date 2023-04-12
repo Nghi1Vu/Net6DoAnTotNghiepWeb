@@ -1,4 +1,6 @@
-﻿@{
+﻿@using DoAnTotNghiep.Models
+@model List<News>
+@{
     ViewData["Title"] = "Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -62,15 +64,17 @@
 
 <div class="border-page">
     <div class="Bang-tin">
-        <p class="title-page">Bảng tin</p>
-        <div class="title-line"></div>
-        <div class="newsItem d-flex">
-            <a href="#" class="news-Daily-Item">
-                <span class="calTop">31</span>
-                <span class="calBot">12/2022</span>
-            </a>
-            <a href="#" class="news-Link">Thông báo về việc nộp hồ sơ nhập học khóa 17 <span class="newDate">&nbsp;(31/12/2022)</span></a>
-        </div>
-
+        @foreach(var item in Model)
+        {
+            <p class="title-page">@item.Head</p>
+            <div class="title-line"></div>
+            <div class="newsItem d-flex">
+                <a href="#" class="news-Daily-Item">
+                    <span class="calTop">@(item.ModifiedTime.Value.Day)</span>
+                    <span class="calBot">@(item.ModifiedTime.Value.Month +"/"+ item.ModifiedTime.Value.Year)</span>
+                </a>
+                <a href="#" class="news-Link">@item.Content<span class="newDate">&nbsp;(@item.ModifiedTime)</span></a>
+            </div>
+        }
     </div>
 </div>
