@@ -58,18 +58,24 @@
         <p class="title-page">Thời Khóa biểu</p>
         <div class="title-line"></div>
         <div class="panelTKB">
-            <div class="container">
+            <div class="container px-1 px-sm-5 mx-auto">
+                <form autocomplete="off">
+                    <div class="flex-row d-flex justify-content-center">
+                        <div class="col-lg-5 col-11">
+                            <div class="input-group input-daterange">
+                                <input type="text" class="form-control input1" placeholder="Từ ngày" readonly>
+                                <input type="text" class="form-control input2" placeholder="Đến ngày" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </form>
                 <div class="row">
-                    <div class="col-1">
+                    <div class="col-lg-5">
                     </div>
-                    <div class="col-3 txt-panel-l">
-                        <p>Từ ngày</p>
-                        <p>Đến ngày</p>
-                    </div>
-                    <div class="col-8 txt-panel-r">
-                        <input type="date" id="FromDay">
-                        <input type="date" id="ToDay">
+                    <div class="col-lg-2 m-l-19 m-t-45 txt-panel-r">
                         <button class="button">Lọc dữ liệu</button>
+                    </div>
+                    <div class="col-lg-5">
                     </div>
                 </div>
             </div>

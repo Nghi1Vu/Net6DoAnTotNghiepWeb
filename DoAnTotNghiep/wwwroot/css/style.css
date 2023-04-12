@@ -231,6 +231,89 @@ input[type]:checked ~ span.top {
         transform: scale(1);
     }
 }
+/*------End Style the close tab content---------*/
+.z-index {
+    position: absolute;
+    left: 100%;
+    top: 20%;
+    z-index: 1;
+}
+/*------ Style Box chào mừng---------*/
+.Box-notic {
+    justify-content: end;
+    width: 0px;
+    height: 100px;
+    background-color: #f0f8ff;
+    animation-name: example;
+    animation-duration: 4s;
+    z-index: 1000;
+    overflow: hidden;
+    position:absolute;
+}
+
+@keyframes example {
+    0% {
+        width: 0px;
+        background-color: #e0f0fe;
+        border: none;
+    }
+
+    20% {
+        width: 325px;
+        background-color: #e0f0fe;
+        border-right: 8px inset #0c98eb;
+    }
+
+    80% {
+        width: 325px;
+        background-color: #f0f8ff;
+        border-right: 8px inset #0c98eb;
+    }
+
+    90% {
+        width: 20px;
+        background-color: #e0f0fe;
+        border: none;
+    }
+
+    100% {
+        width: 0px;
+        border: none;
+    }
+}
+
+.txt-opc {
+    animation-name: txt-opc;
+    animation-duration: 4s;
+    position: absolute;
+}
+
+@keyframes txt-opc {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    65% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+/*------ End Style Boxchào mừng---------*/
 
 .option-1{
     font-weight: 100;
@@ -420,6 +503,7 @@ input[type]:checked ~ span.top {
     padding-bottom: 5px;
     border: 1px solid var(--line-color);
     border-radius: 5px;
+
 }
 
 .title-page {
@@ -519,8 +603,6 @@ input[type]:checked ~ span.top {
 /* table chung*/
 table, th, td {
     font-size: 12px;
-    border: 1px solid #C0C0C0;
-    border-collapse: collapse;
 }
 
 th {
@@ -537,6 +619,11 @@ td {
     border: 1px solid #fff;
     font-weight: 500;
     padding: 10px 0px;
+}
+
+.table-kq-study td {
+    border: 1px solid #C0C0C0;
+    border-collapse: collapse;
 }
 
 .table-kq-study tr:nth-child(even) {
@@ -579,7 +666,178 @@ td {
 
 /*--------------body thời khóa biểu---------------*/
 .panelTKB {
-    padding: 25px 0px;
+    padding: 40px 0px;
+}
+
+    .panelTKB input {
+        padding: 25px 15px !important;
+        border: 1px solid lightgrey !important;
+        border-radius: 10px;
+        box-sizing: border-box;
+        background-color: #fff !important;
+        color: #007acc !important; /* màu khi input*/
+        font-size: 13px !important;
+        letter-spacing: 1px;
+        position: relative;
+        font-weight: bold !important
+    }
+
+.input1 {
+    text-align: left !important;
+}
+
+.input2 {
+    text-align: right !important;
+}
+
+.panelTKB input:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 2px solid #5eabdf !important;
+    outline-width: 0
+}
+
+::placeholder {
+    color: #BDBDBD;
+    opacity: 1
+}
+
+:-ms-input-placeholder {
+    color: #BDBDBD
+}
+
+::-ms-input-placeholder {
+    color: #BDBDBD
+}
+
+.panelTKB button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+.datepicker {
+    background-color: #fff;
+    border-radius: 0 !important;
+    padding: 15px 20px !important;
+    align-content: center !important
+}
+
+.datepicker-dropdown {
+    top: 0;
+    left: calc(50% - 120px) !important;
+}
+/*1484*/
+    .datepicker-dropdown.datepicker-orient-left:before {
+        left: calc(50% - 6px) !important
+    }
+
+    .datepicker-dropdown.datepicker-orient-left:after {
+        left: calc(50% - 5px) !important
+    }
+
+.panelTKB .datepicker table tr td.today,
+.panelTKB span.focused {
+    border-radius: 50% !important;
+    background-image: linear-gradient(#FFF3E0, #FFE0B2)
+}
+
+.panelTKB .datepicker table tr td.today.range {
+    background-image: linear-gradient(#eeeeee, #eeeeee) !important;
+    border-radius: 0 !important
+}
+.panelTKB thead:first-child {
+    border: none !important;
+    /* có thể thay đổi màu sắc thứ ở đây*/
+}
+thead tr:nth-child(3) th {
+    font-weight: bold !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none !important;
+    /* có thể thay đổi màu sắc thứ ở đây*/
+}
+
+thead tr:nth-child(2) th {
+    border: none !important;
+    /* có thể thay đổi màu sắc thứ ở đây*/
+}
+
+
+.old,
+.day,
+.new {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 0px !important;
+    border: 1px solid lightgrey !important
+}
+
+    .day.old,
+    .day.new {
+        background-color: #F5F5F5 !important;
+        color: #007acc !important /*màu tháng trước và sau*/
+    }
+
+        .day.old:hover,
+        .day.new:hover {
+            border-radius: 0px !important
+        }
+
+    .old-day:hover,
+    .day:hover,
+    .new-day:hover,
+    .month:hover,
+    .year:hover,
+    .decade:hover,
+    .century:hover {
+        border-radius: 50% !important;
+        background-color: #eee
+    }
+
+.panelTKB .active {
+    border-radius: 50% !important;
+    background-image: #007ACC !important;
+    color: #fff !important
+}
+
+.range-start,
+.range-end {
+    border-radius: 50% !important;
+    background-image: linear-gradient(#ff6c4d, #ff6c4d) !important /* màu chọn ngày */
+}
+
+.range {
+    color: #ff2d00 !important /* Chọn từ ngày */
+}
+
+.prev,
+.next,
+.datepicker-switch {
+    border-radius: 0 !important;
+    padding: 10px 10px 10px 10px !important;
+    font-size: 18px;
+    opacity: 0.7;
+    color: #1a87d1 /* top content màu */
+}
+
+    .prev:hover,
+    .next:hover,
+    .datepicker-switch:hover {
+        background-color: inherit !important;
+        opacity: 1
+    }
+
+@media screen and (max-width: 500px) {
+    .panelTKB .datepicker-dropdown.datepicker-orient-right:before {
+        right: calc(50% - 6px) !important
+    }
+
+    .panelTKB .datepicker-dropdown.datepicker-orient-right:after {
+        right: calc(50% - 5px) !important
+    }
 }
 
 .txt-panel-l {
@@ -595,30 +853,58 @@ td {
 }
 
 .txt-panel-r button {
-    padding: 5px 15px;
-    font-size: 12px;
-    text-align: center;
-    cursor: pointer;
-    color: #000;
-    background-color: #DDDDDD;
-    border: 2px solid #ccc;
+    padding: 10px 20px;
+    color: #6c757d; /* màu khi input*/
+    font-weight:600;
+    font-size: 13px !important;
+    background-color: white !important;
+    border: 1px solid lightgrey;
     border-radius: 5px;
-    box-shadow: 0 2px #999;
+    cursor: pointer;
+    transition: all .3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
+    .txt-panel-r button::before {
+        border-radius: 50%;
+        background-color: #5eabdf;
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+    }
 
     .txt-panel-r button:hover {
-        background-color: #CCCCCC
+        border-color: #5eabdf;
+        color: #5eabdf;
     }
+    .txt-panel-r button:focus {
+        color: #5eabdf;
+        border-color: #5eabdf;
+        box-shadow: 0 0 0 3px #5eabdf;
+    }
+        .txt-panel-r button:focus::before {
+            transition: all 0.5s ease-out;
+            opacity: 0;
+            width: 250px;
+            height: 250px;
+        }
 
-    .txt-panel-r button:active {
-        background-color: #CCCCCC;
-        box-shadow: 0 2px #666;
-        transform: translateY(2px);
-    }
+/*    .txt-panel-r button:active {
+        filter: brightness(.8);
+    }*/
 
 .txt-panel-l p {
     padding-top: 3px;
     padding-bottom: 22px;
+}
+.table-tkb td {
+    font-size: 12px;
+    border: 1px solid #C0C0C0;
+    border-collapse: collapse;
 }
 
 .table-tkb th {
@@ -644,6 +930,11 @@ td {
     border: 1px solid #fff;
     font-weight: 500;
     padding: 10px 0px;
+}
+.table-lichthi td {
+    font-size: 12px;
+    border: 1px solid #C0C0C0;
+    border-collapse: collapse;
 }
 
 .table-lichthi tr:nth-child(odd) {
@@ -807,6 +1098,61 @@ td {
         transform: translateY(2px);
     }
 
+.update-infor .buttonYC {
+    padding: 10px 25px;
+    background-color: #f6ffff;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 14px;
+    z-index: 1;
+    position: relative;
+    -webkit-box-shadow: 0 5px 15px rgba(33, 33, 33, .2);
+    box-shadow: 0 5px 15px rgba(33, 33, 33, .2);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+    .buttonYC > span {
+        z-index: 2;
+    }
+
+.buttonYC::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background-color: #d9e7f8;
+    z-index: -1;
+    overflow: hidden;
+    -webkit-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: right;
+    -ms-transform-origin: right;
+    transform-origin: right;
+    -webkit-transition: -webkit-transform 0.2s ease-in;
+    transition: -webkit-transform 0.2s ease-in;
+    transition: transform 0.2s ease-in;
+
+}
+
+    .buttonYC:hover {
+        color: #000;
+    }
+
+        .buttonYC:hover::before {
+            -webkit-transform: scaleX(1);
+            -ms-transform: scaleX(1);
+            transform: scaleX(1);
+            -webkit-transform-origin: left;
+            -ms-transform-origin: left;
+            transform-origin: left;
+        }
+
 /*--------------body đăng ký học phần---------------*/
 
 .infor-student-DKHP {
@@ -858,32 +1204,35 @@ td {
 
     /* Style the buttons inside the tab */
     .tab button {
-        background-color: inherit;
+        background-color: #1e7898;
         float: left;
-        border: 1px solid #ccc;
+        border: 1px solid #1e7898;
+        border-radius: 5px 5px 0px 0px;
         cursor: pointer;
         padding: 5px 12px;
         transition: 0.3s;
         font-size: 12px;
         font-weight: bold;
-        color: blue;
+        color: #ffffff;
     }
 
         /* Change background color of buttons on hover */
         .tab button:hover {
-            background-color: #ddd;
+            background-color: #51abcb;
+            border: 1px solid #51abcb;
         }
 
         /* Create an active/current tablink class */
         .tab button.active {
             background-color: white;
             color: #000;
+            border-color: #ccc;
             border-bottom: 1px solid white;
         }
 
 /* Style the tab content */
 .tabcontent {
-    margin: -1px 8px 0px 9px;
+    margin: -0.7px 8px 0px 9px;
     display: none;
     padding: 6px 0px;
     border: 1px solid #ccc;
@@ -960,8 +1309,9 @@ td {
 .table-Danhgia td {
     padding: 5px 8px;
     font-size: 13px;
+    border: 1px solid #C0C0C0;
+    border-collapse: collapse;
 }
-
     .table-Danhgia td:last-child {
         padding: 5px 8px;
         font-size: 13px;
