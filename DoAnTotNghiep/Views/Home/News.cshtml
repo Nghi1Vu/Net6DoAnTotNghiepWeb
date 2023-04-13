@@ -64,16 +64,16 @@
 
 <div class="border-page">
     <div class="Bang-tin">
+        <p class="title-page">Bảng tin@*@item.Head*@</p>
+        <div class="title-line"></div>
         @foreach(var item in Model)
         {
-            <p class="title-page">@item.Head</p>
-            <div class="title-line"></div>
             <div class="newsItem d-flex">
                 <a href="#" class="news-Daily-Item">
                     <span class="calTop">@(item.ModifiedTime.Value.Day)</span>
                     <span class="calBot">@(item.ModifiedTime.Value.Month +"/"+ item.ModifiedTime.Value.Year)</span>
                 </a>
-                <a href="#" class="news-Link">@item.Content<span class="newDate">&nbsp;(@item.ModifiedTime)</span></a>
+                <a href="#" class="news-Link">@item.Title<span class="newDate">&nbsp;(@item.ModifiedTime)</span></a>
             </div>
         }
     </div>

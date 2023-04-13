@@ -65,10 +65,20 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult News()
         {
-            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetNews").Result;
-            var todo = response.Content.ReadAsStringAsync().Result;
-            var news = JsonConvert.DeserializeObject<List<News>>(todo);
-            return View(news);
+            try
+            {
+                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetNews").Result;
+                var todo = response.Content.ReadAsStringAsync().Result;
+                response.EnsureSuccessStatusCode();
+                var news = JsonConvert.DeserializeObject<List<News>>(todo);
+                sharedClient.Dispose();
+                return View(news);
+            }
+            catch
+            {        
+                return RedirectToAction("Index", "Account");
+            }        
+  
         }
 
         public IActionResult ChiaSeBieuMau()
