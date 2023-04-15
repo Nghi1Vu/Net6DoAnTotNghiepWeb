@@ -81,12 +81,12 @@ namespace DoAnTotNghiep.Controllers
   
         }
 
-        public IActionResult DetailNews()
+        public IActionResult DetailNews(int id)
         {
-            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetNews").Result;
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetNewsDetail?NewsId="+ id).Result;
             var todo = response.Content.ReadAsStringAsync().Result;
             response.EnsureSuccessStatusCode();
-            var news = JsonConvert.DeserializeObject<List<News>>(todo);
+            var news = JsonConvert.DeserializeObject<News>(todo);
             sharedClient.Dispose();
             return View(news);
         }
@@ -113,6 +113,19 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult LopHoc()
         {
+            try
+            {
+                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetStudentClass").Result;
+                var todo = response.Content.ReadAsStringAsync().Result;
+                response.EnsureSuccessStatusCode();
+                var studenClasses = JsonConvert.DeserializeObject<List<StudenClass>>(todo);
+                sharedClient.Dispose();
+                return View(studenClasses);
+            }
+            catch
+            {
+                return RedirectToAction("Index", "Account");
+            }
             return View();
         }
 

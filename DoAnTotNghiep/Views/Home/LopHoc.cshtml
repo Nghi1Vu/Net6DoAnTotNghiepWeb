@@ -1,7 +1,9 @@
-﻿
+﻿@using DoAnTotNghiep.Models
+@model List<StudenClass>
 @{
     ViewData["Title"] = "LopHoc";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var stt = 1;
 }
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
@@ -82,31 +84,34 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>151901162</td>
-                                                <td>Trần Hoàng Nguyễn Tiến Đạt</td>
-                                                <td>Mark</td>
-                                                <td>0987628314</td>
-                                                <td>151901162@dntu.edu.vn</td>
-                                                
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <th scope="row">@(stt++)</th>
+                                                    <td>@item.Usercode</td>
+                                                    <td>@item.Username</td>
+                                                    <td>@item.Address</td>
+                                                    <td>@item.Phone</td>
+                                                    <td>@item.Email</td>
+
+                                                </tr>
+                                            }
+                                            @* <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>Quy định</td>
+                                            <td>Mark</td>
+                                            <td>Biểu mẫu</td>
+                                            <td>Mark</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Quy định</td>
-                                                <td>Mark</td>
-                                                <td>Biểu mẫu</td>
-                                                <td>Mark</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>Hướng dẫn</td>
-                                                <td>Mark</td>
-                                                <td>Biểu mẫu</td>
-                                                <td>Mark</td>
-                                            </tr>
+                                            <th scope="row">3</th>
+                                            <td>Larry</td>
+                                            <td>Hướng dẫn</td>
+                                            <td>Mark</td>
+                                            <td>Biểu mẫu</td>
+                                            <td>Mark</td>
+                                            </tr>*@
                                         </tbody>
                                     </table>
                                 </div>
