@@ -81,6 +81,16 @@ namespace DoAnTotNghiep.Controllers
   
         }
 
+        public IActionResult DetailNews()
+        {
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetNews").Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var news = JsonConvert.DeserializeObject<List<News>>(todo);
+            sharedClient.Dispose();
+            return View(news);
+        }
+
         public IActionResult ChiaSeBieuMau()
         {
             return View();
@@ -97,6 +107,11 @@ namespace DoAnTotNghiep.Controllers
         }
 
         public IActionResult XemLichThi()
+        {
+            return View();
+        }
+
+        public IActionResult LopHoc()
         {
             return View();
         }

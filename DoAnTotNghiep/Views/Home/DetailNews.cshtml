@@ -1,9 +1,9 @@
-﻿@using DoAnTotNghiep.Models
-@model List<News>
+﻿
 @{
-    ViewData["Title"] = "Dashboard";
+    ViewData["Title"] = "DetailNews";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
@@ -57,28 +57,28 @@
     </nav>
 </div>
 <!--Container Main start-->
-<div style="transform: rotate(180deg);" class="z-index">
-    <div class="Box-notic">
-        <div style="transform: rotate(180deg);" class="txt-opc">
-            <img src="~/images/logo.png" width="50px" height="50px" alt="">
-            Chào mừng đến với QLSV của DNTU. &emsp;
+<div class="border-page">
+    <div class="Detail-News">
+        <p class="title-page">Chi tiết bảng tin</p>
+        <div class="title-line"></div>
+        <h5>DANH SÁCH SINH VIÊN ĐỦ ĐIỀU KIỆN DỰ THI ỨNG DỤNG CNTT TRÌNH ĐỘ CƠ BẢN NGÀY THI 14/4/2023</h5>
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                </div>
+                <div class="col-4">
+                    <p class="Date">Wed, 12/04/2023, 09:09 GMT+7</p>
+                </div>
+            </div>
+            <div class="row m-t-15">
+                <div class="col-11">
+                    Phòng Đào tạo - Khảo thí thông báo Danh sách sinh viên đủ điều kiện dự thi Ứng dụng CNTT trình độ cơ bản ngày thi 14/4/2023:
+                </div>
+                <div class="col-1">
+                   
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="border-page">
-    <div class="News">
-        <p class="title-page">Bảng tin@*@item.Head*@</p>
-        <div class="title-line"></div>
-        @foreach(var item in Model)
-        {
-            <div class="newsItem d-flex">
-                <a href="#" class="news-Daily-Item">
-                    <span class="calTop">@(item.ModifiedTime.Value.Day)</span>
-                    <span class="calBot">@(item.ModifiedTime.Value.Month +"/"+ item.ModifiedTime.Value.Year)</span>
-                </a>
-                <a href="@Url.Action("DetailNews", "Home", new{ id = @item.NewsId })" class="news-Link">@item.Title<span class="newDate">&nbsp;(@(item.ModifiedTime.Value.Day + "/" + item.ModifiedTime.Value.Month + "/" + item.ModifiedTime.Value.Year))</span></a>
-            </div>
-        }
-    </div>
-</div>

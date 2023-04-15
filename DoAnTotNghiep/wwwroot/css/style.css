@@ -313,7 +313,7 @@ input[type]:checked ~ span.top {
         opacity: 0;
     }
 }
-/*------ End Style Boxchào mừng---------*/
+/*------------------ End Style Box chào mừng --------------------*/
 
 .option-1{
     font-weight: 100;
@@ -519,7 +519,7 @@ input[type]:checked ~ span.top {
     border-radius: 2px;
     margin: 8px 5px 1px 15px;
 }
-/*----------body  bảng tin-------------*/
+/*---------------body  bảng tin------------------*/
 .newsItem {
     margin: 10px 10px 10px 15px;
 }
@@ -574,6 +574,24 @@ input[type]:checked ~ span.top {
 .newDate {
     color: #999;
     font-weight: normal !important;
+}
+
+/*---------------body  bảng tin------------------*/
+.Detail-News h5{
+   padding-top:20px;
+   font-family:Calibri;
+   font-weight:600;
+   display:grid;
+   place-items:center;
+}
+.Detail-News .Date {
+    padding-top: 10px;
+    font-family: Calibri;
+    font-style: italic;
+    color: #777777;
+    font-weight: 300;
+    display: grid;
+    place-items: end;
 }
 /*----------body kết quả học tập-------------*/
 .body-study {
@@ -943,6 +961,11 @@ thead tr:nth-child(2) th {
 
 .table-lichthi td:nth-child(n+11) {
     color: #0000FF;
+}
+/*--------------body Lớp Học ---------------*/
+.Lop-Hoc .card-header {
+    background-color: #7ccbfd !important;
+    color: white;
 }
 /*--------------body cập nhật thông tin sinh viên---------------*/
 .update-infor {

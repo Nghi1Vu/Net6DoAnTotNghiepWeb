@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewData["Title"] = "LopHoc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <a href="#" class="nav_logo m-l--10">
+                <img src="~/images/logo.png" width="35px" height="35px" alt="">
+                <span class="nav_logo-name">Quản lý sinh viên</span>
+            </a>
+            <div class="nav_list">
+                <a href="@Url.Action("News", "Home")" class="nav_link">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav_name">Bảng tin</span>
+                </a>
+                <a href="@Url.Action("ChiaSeBieuMau", "Home")" class="nav_link">
+                    <i class='bx bx-message-square-detail nav_icon'></i>
+                    <span class="nav_name">Chia sẻ</span>
+                </a>
+                <a href="@Url.Action("KetQuaHocTap", "Home")" class="nav_link">
+                    <i class='bx bx-clipboard'></i>
+                    <span class="nav_name">Kết quả học tập</span>
+                </a>
+                <a href="@Url.Action("ThoiKhoaBieu", "Home")" class="nav_link">
+                    <i class='bx bx-time-five'></i>
+                    <span class="nav_name">Thời khóa biểu</span>
+                </a>
+                <a href="@Url.Action("XemLichThi", "Home" )" class="nav_link">
+                    <i class='bx bx-calendar'></i>
+                    <span class="nav_name">Lịch thi</span>
+                </a>
+                <a href="@Url.Action("LopHoc", "Home" )" class="nav_link  active">
+                    <i class='bx bxs-school'></i>
+                    <span class="nav_name">Lớp học</span>
+                </a>
+                <a href="@Url.Action("CaNhan", "Home" )" class="nav_link">
+                    <i class='bx bx-user nav_icon'></i>
+                    <span class="nav_name">Cá nhân</span>
+                </a>
+                <a href="@Url.Action("DangKyHP", "Home" )" class="nav_link">
+                    <i class='bx bx-bookmark nav_icon'></i>
+                    <span class="nav_name">Đăng ký học phần</span>
+                </a>
+                <a href="@Url.Action("DanhGiaRenLuyen", "Home" )" class="nav_link">
+                    <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                    <span class="nav_name">Đánh giá rèn luyện</span>
+                </a>
+            </div>
+        </div>
+        <a href="#" class="nav_link">
+            <i class='bx bx-log-out nav_icon'></i>
+            <span class="nav_name">Đăng xuất</span>
+        </a>
+    </nav>
+</div>
+<!--Container Main start-->
+<div class="border-page">
+    <div class="Lop-Hoc">
+        <p class="title-page">Thông tin lớp học</p>
+        <div class="title-line"></div>
+        <div class="body-share">
+            <div class="content">
+                <div class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong class="card-title">Danh sách sinh viên của lớp <span style="color:red">19DTH4</span></strong>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:5%" scope="col">TT</th>
+                                                <th style="width:10%" scope="col">Mã sinh viên</th>
+                                                <th style="width:17%" scope="col">Họ tên</th>
+                                                <th scope="col">Địa chỉ</th>
+                                                <th style="width:10%" scope="col">Điện thoại</th>
+                                                <th style="width:15%" scope="col">Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>151901162</td>
+                                                <td>Trần Hoàng Nguyễn Tiến Đạt</td>
+                                                <td>Mark</td>
+                                                <td>0987628314</td>
+                                                <td>151901162@dntu.edu.vn</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Quy định</td>
+                                                <td>Mark</td>
+                                                <td>Biểu mẫu</td>
+                                                <td>Mark</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Larry</td>
+                                                <td>Hướng dẫn</td>
+                                                <td>Mark</td>
+                                                <td>Biểu mẫu</td>
+                                                <td>Mark</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .animated -->
+            </div><!-- .content -->
+        </div>
+    </div>
+</div>
