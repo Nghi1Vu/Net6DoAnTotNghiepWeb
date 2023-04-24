@@ -102,7 +102,9 @@ Googel Fonts  */
 
 .cl-txt-notic-1 {
     color: #FF0000;
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 4px;
 }
 
 .form-group input {
@@ -137,6 +139,10 @@ Googel Fonts  */
 
     .gradi-btn-clr:hover {
         background-position: right center;
+    }
+
+    .gradi-btn-clr:active {
+        background-position: left center;
     }
 
 .hr-text {

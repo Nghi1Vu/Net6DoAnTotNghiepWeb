@@ -105,13 +105,13 @@ input[type]:checked ~ span.top {
     border-top: 3px solid #ccc;
     border-left: none;
     box-shadow: 10px 0 20px -16px #333;
-    /*box-shadow 2 số đầu là chỉnh vị trí, top (0 -5px) right(5px 0) bottom(0 5) left(-5px 0) left(0 0) số tiếp theo là độ mờ và độ lớn của bóng*/
+    /*box-shadow 2 số đầu là chỉnh vị trí, top (0 -5px) right(5px 0) bottom(0 5) left(-5px 0) toàn bộ(0 0) số tiếp theo là độ mờ và độ lớn của bóng*/
     margin: -2px 0px 0px -2px;
     padding: 6px 12px;
     display: none;
     -webkit-animation: fadeEffect 0.4s;
     animation: fadeEffect 0.4s;
-    z-index: 1;
+    z-index: 10;
     /*position: absolute;*/
     position: fixed;
     transform: translate( 0%, 0%);
@@ -238,6 +238,8 @@ input[type]:checked ~ span.top {
     top: 20%;
     z-index: 1;
 }
+
+
 /*------ Style Box chào mừng---------*/
 .Box-notic {
     justify-content: end;
@@ -315,7 +317,390 @@ input[type]:checked ~ span.top {
 }
 /*------------------ End Style Box chào mừng --------------------*/
 
-.option-1{
+/*------------------ Body Page cá nhân --------------------*/
+.Page-CaNhan .card {
+    margin: 50px 0px;
+    width: 580px;
+    height: 254px;
+    transition: all 0.2s;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.Page-CaNhan .card-inner {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    background: rgba(255,255,255,.05);
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 8px; 
+}
+
+    .Page-CaNhan .card-inner .content{
+        font-size:15px;
+
+    }
+
+    .Page-CaNhan .circle {
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(#36b2fa, #e0f0fe);
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        position: absolute;
+        animation: move-up6 2s ease-in infinite alternate-reverse;
+    }
+
+    .Page-CaNhan .circle:nth-child(1) {
+        top: -25px;
+        left: -25px;
+    }
+
+    .Page-CaNhan .circle:nth-child(2) {
+        bottom: -25px;
+        right: -25px;
+        animation-name: move-down1;
+    }
+
+@keyframes move-up6 {
+    to {
+        transform: translateY(-10px);
+        transform: rotate(100deg);
+    }
+}
+
+@keyframes move-down1 {
+    to {
+        transform: translateY(10px);
+        transform: rotate(-200deg); 
+    }
+}
+/*---------- social-media ---------*/
+
+/*---------- social-media left  ---------*/
+
+.Page-CaNhan .social-media:before {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin: 20px 0;
+    background: #36b2fa;
+}
+
+.Page-CaNhan .social-media a {
+    position: relative;
+    margin-left: 15px;
+    text-decoration: none;
+    color: inherit;
+}
+
+    .Page-CaNhan .social-media a:last-child {
+        margin-right: 0;
+    }
+
+    .Page-CaNhan .social-media a svg {
+        width: 1.1rem;
+        fill: currentColor;
+    }
+.Page-CaNhan .social-media .FB:hover {
+    fill: #0674e7;
+}
+.Page-CaNhan .social-media .InSta:hover {
+    fill: #ff0168;
+}
+.Page-CaNhan .social-media .LiKiN:hover {
+    fill: #0a66c2;
+}
+.Page-CaNhan .social-media .Git:hover {
+    fill: #1a1d21;
+}
+
+/*---------- social-media right  ---------*/
+
+.Page-CaNhan .fileUploadInput {
+    display: grid;
+    grid-gap: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+    .Page-CaNhan .fileUploadInput label {
+        display: flex;
+        align-items: center;
+        color: setColor(primary, 0.5);
+        background: setColor(white);
+        transition: .4s ease;
+        font-family: arial, sans-serif;
+        font-size: .75em;
+        font-weight: regular;
+        padding-top: 15px;
+    }
+
+    .Page-CaNhan .fileUploadInput input {
+        position: relative;
+        z-index: 1;
+        padding: 0 gap(m);
+        width: 100%;
+        height: 40px;
+        border: 0.075rem solid #ddd;
+        border-radius: 3px;
+        font-family: arial, sans-serif;
+        font-size: 0.9rem;
+        user-select: none;
+        cursor: pointer;
+        font-weight: regular;
+    }
+
+        .Page-CaNhan .fileUploadInput input[type="file"] {
+            padding: 0 gap(m);
+        }
+
+            .Page-CaNhan .fileUploadInput input[type="file"]::-webkit-file-upload-button {
+                visibility: hidden;
+                margin-left: 5px;
+                margin-top: -5px;
+                padding: 0;
+                height: 50px;
+                width: 0;
+            }
+
+    .Page-CaNhan .fileUploadInput button {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 85px;
+        height: 40px;
+        line-height: 0;
+        user-select: none;
+        color: #555;
+        background-color: #eeeeee;
+        border-radius: 0 3px 3px 0;
+        font-family: arial, sans-serif;
+        font-size: 1rem;
+    }
+
+@-moz-document url-prefix() {
+    .Page-CaNhan .fileUploadInput button {
+        display: none
+    }
+}
+
+.user-Image{
+    height:100px;
+    width:100px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #dfdfdf;
+}
+/*-- Tooltip Social Media --*/
+.Page-CaNhan .tooltip-social {
+    background: #73B0CD;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    padding: 0.5rem 0.4rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0;
+    color: #F5F5F5;
+    pointer-events: none;
+    transform: translate(-50%, -90%);
+    transition: all 0.2s ease;
+    z-index: 1;
+}
+
+    .Page-CaNhan .tooltip-social:after {
+        content: " ";
+        position: absolute;
+        bottom: 1px;
+        left: 50%;
+        border: solid;
+        border-width: 10px 10px 0 10px;
+        border-color: transparent;
+        transform: translate(-50%, 100%);
+    }
+
+.Page-CaNhan .social-media a .tooltip-social:after {
+    border-top-color: #73B0CD;
+}
+
+.Page-CaNhan .social-media a:hover .tooltip-social {
+    opacity: 1;
+    transform: translate(-50%, -130%);
+}
+
+/*------------------ End Body Page cá nhân --------------------*/
+/*------------------ Body Page cá nhân --------------------*/
+.infor-family{
+    padding: 0 10px;
+}
+.ư.infor-family button {
+    padding: 5px 15px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    color: #000;
+    background-color: #DDDDDD;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px #999;
+}
+
+    .infor-family button:hover {
+        background-color: #CCCCCC
+    }
+
+    .infor-family button:active {
+        background-color: #CCCCCC;
+        box-shadow: 0 2px #666;
+        transform: translateY(2px);
+    }
+        
+.infor-family .buttonYC {
+    padding: 10px 25px;
+    background-color: #f6ffff;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 14px;
+    z-index: 1;
+    position: relative;
+    -webkit-box-shadow: 0 5px 15px rgba(33, 33, 33, .2);
+    box-shadow: 0 5px 15px rgba(33, 33, 33, .2);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+    .infor-family .buttonYC > span {
+        z-index: 2;
+    }
+
+    .infor-family .buttonYC::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+        background-color: #d9e7f8;
+        z-index: -1;
+        overflow: hidden;
+        -webkit-transform: scaleX(0);
+        -ms-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: right;
+        -ms-transform-origin: right;
+        transform-origin: right;
+        -webkit-transition: -webkit-transform 0.2s ease-in;
+        transition: -webkit-transform 0.2s ease-in;
+        transition: transform 0.2s ease-in;
+    }
+
+    .infor-family .buttonYC:hover {
+        color: #000;
+    }
+
+        .infor-family .buttonYC:hover::before {
+            -webkit-transform: scaleX(1);
+            -ms-transform: scaleX(1);
+            transform: scaleX(1);
+            -webkit-transform-origin: left;
+            -ms-transform-origin: left;
+            transform-origin: left;
+        }
+
+/*------------------ End Body Page cá nhân --------------------*/
+/*------------------  Body Page đổi mật khẩu --------------------*/
+.br-body {
+    background-color: #fff;
+    width: 100%;
+    height: 70vh;
+}
+.login-content {
+    max-width: 540px;
+    margin: 8vh auto;
+}
+
+.login-form {
+    background: #ffffff;
+    padding: 30px 30px 20px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 20px -10px #333;
+}
+    
+    .login-form h4 {
+        color: #878787;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .login-form .checkbox {
+        color: #878787;
+    }
+
+        .login-form .checkbox label {
+            text-transform: none;
+        }
+
+    .login-form .btn {
+        width: 100%;
+        text-transform: uppercase;
+        font-size: 14px;
+        padding: 15px;
+        border: 0px;
+    }
+
+.cl-txt-notic-1 {
+    color: #FF0000;
+    font-size: 20px;
+    font-weight:600;
+    margin-left: 4px;
+}
+
+.gradi-btn {
+    margin: 10px 10px 10px 0px;
+    padding: 15px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #FFF !important;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    width: 32em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 20px;
+}
+
+    .gradi-btn:hover {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        margin: 6px 8px 10px 0px;
+    }
+
+.gradi-btn-clr {
+    background-image: linear-gradient(to right, #00d2ff 0%, #3a7bd5 51%, #00d2ff 100%)
+}
+
+    .gradi-btn-clr:hover {
+        background-position: right center;
+    }
+    .gradi-btn-clr:active {
+        background-position: left center;
+    }
+
+/*------------------ end Body Page đổi mật khẩu --------------------*/
+.option-1 {
     font-weight: 100;
     font-size: 18px;
     letter-spacing: 1px;
@@ -529,7 +914,7 @@ input[type]:checked ~ span.top {
         border: 1px solid #ccc;
         margin-right: 5px;
         margin-bottom: 5px;
-        width: 120px;
+        min-width: 120px;
         min-height: 70px;
         overflow: hidden;
     }
@@ -576,7 +961,7 @@ input[type]:checked ~ span.top {
     font-weight: normal !important;
 }
 
-/*---------------body  bảng tin------------------*/
+/*--------------- body Detail bảng tin------------------*/
 .Detail-News h5{
    padding-top:20px;
    font-family:Calibri;
@@ -762,10 +1147,10 @@ td {
     background-image: linear-gradient(#FFF3E0, #FFE0B2)
 }
 
-.panelTKB .datepicker table tr td.today.range {
-    background-image: linear-gradient(#eeeeee, #eeeeee) !important;
-    border-radius: 0 !important
-}
+    .panelTKB .datepicker table tr td.today.range {
+        background-image: linear-gradient(#e0f0fe, #e0f0fe) !important;
+        border-radius: 0 !important
+    }
 .panelTKB thead:first-child {
     border: none !important;
     /* có thể thay đổi màu sắc thứ ở đây*/
@@ -812,7 +1197,7 @@ thead tr:nth-child(2) th {
     .decade:hover,
     .century:hover {
         border-radius: 50% !important;
-        background-color: #eee
+        background-color: #e0f0fe
     }
 
 .panelTKB .active {
@@ -824,11 +1209,20 @@ thead tr:nth-child(2) th {
 .range-start,
 .range-end {
     border-radius: 50% !important;
-    background-image: linear-gradient(#ff6c4d, #ff6c4d) !important /* màu chọn ngày */
+    background-image: linear-gradient(#0c98eb, #0c98eb) !important; /* màu chọn ngày */
+}
+
+.range-start,
+.range-end {
+    border-radius: 50% !important;
+    background-image: linear-gradient(#0c98eb, #0c98eb) !important; /* màu chọn ngày */
+    background-color: #b9e2fe; 
 }
 
 .range {
-    color: #ff2d00 !important /* Chọn từ ngày */
+    color: #000 !important; /* Chọn từ ngày */
+    background-color: #e0f0fe !important;
+    border-color: #b9e2fe;
 }
 
 .prev,
@@ -967,6 +1361,17 @@ thead tr:nth-child(2) th {
     background-color: #7ccbfd !important;
     color: white;
 }
+
+.Lop-Hoc .table{
+    position:relative;
+}
+
+.Lop-Hoc .table thead tr {
+    position: sticky;
+    top: 55px;
+    background-color:#fff;
+
+}
 /*--------------body cập nhật thông tin sinh viên---------------*/
 .update-infor {
     padding: 0px 5px;
@@ -1067,6 +1472,17 @@ thead tr:nth-child(2) th {
     margin: 8px 5px;
 }
 
+#inputfamily {
+    font-size: 13px;
+    width: 1em;
+    margin: 8px 5px;
+}
+#textareaFamily {
+    padding: 5px 10px;
+    border-top: 1px solid #000;
+    border: 1px solid #BBBBBB;
+    color: #BBBBBB;
+}
 .table-inout td {
     border: 1px solid #99bbe8;
 }
@@ -1136,38 +1552,37 @@ thead tr:nth-child(2) th {
     cursor: pointer;
 }
 
-    .buttonYC > span {
+    .update-infor .buttonYC > span {
         z-index: 2;
     }
 
-.buttonYC::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 30px;
-    background-color: #d9e7f8;
-    z-index: -1;
-    overflow: hidden;
-    -webkit-transform: scaleX(0);
-    -ms-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transform-origin: right;
-    -ms-transform-origin: right;
-    transform-origin: right;
-    -webkit-transition: -webkit-transform 0.2s ease-in;
-    transition: -webkit-transform 0.2s ease-in;
-    transition: transform 0.2s ease-in;
+    .update-infor .buttonYC::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+        background-color: #d9e7f8;
+        z-index: -1;
+        overflow: hidden;
+        -webkit-transform: scaleX(0);
+        -ms-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: right;
+        -ms-transform-origin: right;
+        transform-origin: right;
+        -webkit-transition: -webkit-transform 0.2s ease-in;
+        transition: -webkit-transform 0.2s ease-in;
+        transition: transform 0.2s ease-in;
+    }
 
-}
-
-    .buttonYC:hover {
+    .update-infor .buttonYC:hover {
         color: #000;
     }
 
-        .buttonYC:hover::before {
+        .update-infor .buttonYC:hover::before {
             -webkit-transform: scaleX(1);
             -ms-transform: scaleX(1);
             transform: scaleX(1);

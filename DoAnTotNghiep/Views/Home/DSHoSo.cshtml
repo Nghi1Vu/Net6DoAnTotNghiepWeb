@@ -1,10 +1,9 @@
-﻿@using DoAnTotNghiep.Models
-@model List<StudenClass>
+﻿
 @{
-    ViewData["Title"] = "LopHoc";
+    ViewData["Title"] = "DSHoSo";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var stt = 1;
 }
+
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
@@ -17,7 +16,7 @@
                     <i class='bx bx-home-alt-2'></i>
                     <span class="nav_name">Bảng tin</span>
                 </a>
-                <a href="@Url.Action("ChiaSeBieuMau", "Home")" class="nav_link">
+                <a href="@Url.Action("ChiaSeBieuMau", "Home")" class="nav_link active">
                     <i class='bx bx-message-square-detail nav_icon'></i>
                     <span class="nav_name">Chia sẻ</span>
                 </a>
@@ -33,7 +32,7 @@
                     <i class='bx bx-calendar'></i>
                     <span class="nav_name">Lịch thi</span>
                 </a>
-                <a href="@Url.Action("LopHoc", "Home" )" class="nav_link  active">
+                <a href="@Url.Action("LopHoc", "Home" )" class="nav_link">
                     <i class='bx bxs-school'></i>
                     <span class="nav_name">Lớp học</span>
                 </a>
@@ -59,8 +58,8 @@
 </div>
 <!--Container Main start-->
 <div class="border-page">
-    <div class="Lop-Hoc">
-        <p class="title-page">Thông tin lớp học</p>
+    <div class="DsHoSo">
+        <p class="title-page">Danh sách các loại giấy tờ trong hồ sơ</p>
         <div class="title-line"></div>
         <div class="body-share">
             <div class="content">
@@ -69,33 +68,49 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <strong class="card-title">Danh sách sinh viên của lớp <span style="color:red">19DTH4</span></strong>
+                                    <strong class="card-title">Hãy nộp giấy tờ còn thiếu tại dịch vụ một cửa</strong>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table" style="width:100%;">
+                                    <table class="table">
                                         <thead>
                                             <tr>
-                                                <th style="width:5%" scope="col">TT</th>
-                                                <th style="width:10%" scope="col">Mã sinh viên</th>
-                                                <th style="width:17%" scope="col">Họ tên</th>
-                                                <th scope="col">Địa chỉ</th>
-                                                <th style="width:10%" scope="col">Điện thoại</th>
-                                                <th style="width:15%" scope="col">Email</th>
+                                                <th style="width:8%" scope="col">TT</th>
+                                                <th scope="col">Tên giấy tờ</th>
+                                                <th style="width:20%" scope="col">Số lượng yêu cầu</th>
+                                                <th style="width:20%" scope="col">Số lượng đã xác nhận nộp</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach (var item in Model)
-                                            {
-                                                <tr>
-                                                    <th scope="row">@(stt++)</th>
-                                                    <td>@item.Usercode</td>
-                                                    <td>@item.Username</td>
-                                                    <td>@item.Address</td>
-                                                    <td>@item.Phone</td>
-                                                    <td>@item.Email</td>
-
-                                                </tr>
-                                            }
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Larry</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>Larry</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">5</th>
+                                                <td>Larry</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -107,3 +122,5 @@
         </div>
     </div>
 </div>
+
+

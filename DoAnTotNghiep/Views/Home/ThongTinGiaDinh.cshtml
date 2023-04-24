@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewData["Title"] = "ThongTinGiaDinh";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <a href="#" class="nav_logo m-l--10">
+                <img src="~/images/logo.png" width="35px" height="35px" alt="">
+                <span class="nav_logo-name">Quản lý sinh viên</span>
+            </a>
+            <div class="nav_list">
+                <a href="@Url.Action("News", "Home")" class="nav_link active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav_name">Bảng tin</span>
+                </a>
+                <a href="@Url.Action("ChiaSeBieuMau", "Home")" class="nav_link">
+                    <i class='bx bx-message-square-detail nav_icon'></i>
+                    <span class="nav_name">Chia sẻ</span>
+                </a>
+                <a href="@Url.Action("KetQuaHocTap", "Home")" class="nav_link">
+                    <i class='bx bx-clipboard'></i>
+                    <span class="nav_name">Kết quả học tập</span>
+                </a>
+                <a href="@Url.Action("ThoiKhoaBieu", "Home")" class="nav_link">
+                    <i class='bx bx-time-five'></i>
+                    <span class="nav_name">Thời khóa biểu</span>
+                </a>
+                <a href="@Url.Action("XemLichThi", "Home" )" class="nav_link">
+                    <i class='bx bx-calendar'></i>
+                    <span class="nav_name">Lịch thi</span>
+                </a>
+                <a href="@Url.Action("LopHoc", "Home" )" class="nav_link">
+                    <i class='bx bxs-school'></i>
+                    <span class="nav_name">Lớp học</span>
+                </a>
+                <a href="@Url.Action("CaNhan", "Home" )" class="nav_link">
+                    <i class='bx bx-user nav_icon'></i>
+                    <span class="nav_name">Cá nhân</span>
+                </a>
+                <a href="@Url.Action("DangKyHP", "Home" )" class="nav_link">
+                    <i class='bx bx-bookmark nav_icon'></i>
+                    <span class="nav_name">Đăng ký học phần</span>
+                </a>
+                <a href="@Url.Action("DanhGiaRenLuyen", "Home" )" class="nav_link">
+                    <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                    <span class="nav_name">Đánh giá rèn luyện</span>
+                </a>
+            </div>
+        </div>
+        <a href="../login/login.htm" class="nav_link">
+            <i class='bx bx-log-out nav_icon'></i>
+            <span class="nav_name">Đăng xuất</span>
+        </a>
+    </nav>
+</div>
+
+<div class="border-page">
+        <div class="infor-family">
+            <p class="title-page">Thông tin gia đình</p>
+            <div class="title-line"></div>
+            <div class="table-inout">
+            <table style="width:100%" class="m-t-10 ">
+                    <tr>
+                        <th colspan="3">THÔNG TIN NỘI NGOẠI TRÚ</th>
+                        <th colspan="1">THÔNG TIN KHÁC</th>
+                    </tr>
+                    <tr>
+                        <td style="width:10%">Thông tin cha</td>
+                        <td style="width:20% ">
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Họ Tên cha: </p>
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Tuổi: </p>
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Điện thoại: </p>
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Nơi làm việc: </p>
+                        </td>
+                        <td style="width:35%">
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8" placeholder="0987628314"> 
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="viết data địa chỉ vào đây"> 
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8" placeholder="0987628314"> 
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="viết data địa chỉ vào đây"> 
+                        </td>
+                        <td rowspan="3"  style="width:45%">
+                            <p class="d-flex"><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Điện thoại gia đình: &emsp; <input id="#inputfamily" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8" placeholder="0987628314"> </p>
+                        <p class="d-flex"><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Điện thoại liên hệ: &ensp; &ensp; <input id="#inputfamily" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8 m-l-4" placeholder="0987628314"></p>
+                        <p class="d-flex"><i class='bx bxs-chevrons-right m-r-10 ' style='color:green'></i>Người / địa chỉ liên hệ:  <textarea id="textareaFamily" name="textareaFamily"  cols="35" >At w3schools.com you will learn how to make a website. </textarea></p>
+                        <p class="d-flex m-t-8"><i class='bx bxs-chevrons-right m-r-10 m-t-4' style='color:green'></i>Email liên hệ: &emsp; <input id="#inputfamily" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8 m-l-34" placeholder="0987628314"></p>
+                        <p class="d-flex">
+                            <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Tên anh chị em: <textarea id="textareaFamily" name="textareaFamily" rows="4" cols="35" class="m-l-35">At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.</textarea></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Thông tin mẹ</td>
+                        <td>
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Họ Tên mẹ: </p>
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Tuổi: </p>
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Điện thoại: </p>
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Nơi làm việc: </p>
+                        </td>
+                        <td style="padding: 8px 5px">
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8" placeholder="0987628314"> 
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="viết data địa chỉ vào đây"> 
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8" placeholder="0987628314"> 
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="viết data địa chỉ vào đây"> 
+                        </td>
+                    </tr>
+                  </table>
+            </div>
+            <div>
+            <button class="buttonYC m-t-20 m-l-10 m-b-10"> <span>Gửi y/c xác nhận</span> </button>
+            </div>
+        </div>
+    </div>

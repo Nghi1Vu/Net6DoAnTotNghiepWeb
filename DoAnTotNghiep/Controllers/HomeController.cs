@@ -80,6 +80,25 @@ namespace DoAnTotNghiep.Controllers
             }        
   
         }
+        public IActionResult TrangCaNhan()
+        {
+            return View();
+        }
+
+        public IActionResult ThongTinGiaDinh()
+        {
+            return View();
+        }
+
+        public IActionResult DoiMatKhau()
+        {
+            return View();
+        }
+
+        public IActionResult DSHoSo()
+        {
+            return View();
+        }
 
         public IActionResult DetailNews(int id)
         {
