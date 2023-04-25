@@ -1,5 +1,6 @@
 ﻿using DoAnTotNghiep.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Net.Http;
 
 namespace DoAnTotNghiep.Controllers
@@ -23,14 +24,25 @@ namespace DoAnTotNghiep.Controllers
         [HttpPost]
         public IActionResult Index(InfoLogin model)
         {
-            using HttpResponseMessage response = sharedClient.PostAsJsonAsync("/api/v1/signin", model).Result;
-            var todo = response.Content.ReadAsStringAsync().Result;
-            if(todo.IndexOf("\"expiresIn\":1") > 0){
-                return RedirectToAction("News","Home");
-            }
-            else
+            try
             {
-                return View();
+                using HttpResponseMessage response = sharedClient.PostAsJsonAsync("/api/v1/GetStudentInfo", model).Result;
+                var todo2 = response.Content.ReadAsStringAsync().Result;
+                StudentInfo studentInfo = JsonConvert.DeserializeObject<StudentInfo>(todo2);
+                HttpContext.Session.SetObjectAsJson("StudentInfo", studentInfo);
+                if (studentInfo.UserId != 0)
+                {
+                    return RedirectToAction("News", "Home");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Account");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Index", "Account");
             }
         }
     }

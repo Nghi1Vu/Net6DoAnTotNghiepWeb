@@ -1,4 +1,4 @@
-﻿
+﻿@model DoAnTotNghiep.Models.FamilyDetail
 @{
     ViewData["Title"] = "ThongTinGiaDinh";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -93,7 +93,7 @@
                     <tr>
                         <td>Thông tin mẹ</td>
                         <td>
-                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Họ Tên mẹ: </p>
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Họ Tên mẹ: @Model.MotherName</p>
                             <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Tuổi: </p>
                             <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Điện thoại: </p>
                             <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Nơi làm việc: </p>

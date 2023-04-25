@@ -46,9 +46,11 @@ namespace DoAnTotNghiep.Controllers
                 using HttpResponseMessage response1 = httpClient1.GetAsync("/oauth2/v3/tokeninfo?access_token=" + token.access_token).Result;
                 var todo1 = response1.Content.ReadAsStringAsync().Result;
                 TokenModel token1 = JsonConvert.DeserializeObject<TokenModel>(todo1);
-                using HttpResponseMessage response2 = sharedClient.PostAsJsonAsync("/api/v1/LoginWithEmail", token1).Result;
+                using HttpResponseMessage response2 = sharedClient.PostAsJsonAsync("/api/v1/GetStudentInfoByEmail", token1).Result;
                 var todo2 = response2.Content.ReadAsStringAsync().Result;
-                if (todo2.IndexOf("\"expiresIn\":1") > 0)
+                StudentInfo studentInfo = JsonConvert.DeserializeObject<StudentInfo>(todo2);
+                HttpContext.Session.SetObjectAsJson("StudentInfo", studentInfo);
+                if (studentInfo.UserId != 0)
                 {
                     return RedirectToAction("News", "Home");
                 }
@@ -59,7 +61,7 @@ namespace DoAnTotNghiep.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return RedirectToAction("Index", "Account");
             }
         }
 
@@ -82,12 +84,19 @@ namespace DoAnTotNghiep.Controllers
         }
         public IActionResult TrangCaNhan()
         {
-            return View();
+            var userid = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            return View(userid);
         }
 
         public IActionResult ThongTinGiaDinh()
         {
-            return View();
+            var user= HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetFamilyDetail?UserId=" + user.UserId).Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<FamilyDetail>(todo);
+            sharedClient.Dispose();
+            return View(result);
         }
 
         public IActionResult DoiMatKhau()
@@ -150,7 +159,14 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult CaNhan()
         {
-            return View();
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetStudentDetail?UserId=" + user.UserId).Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<StudentDetail>(todo);
+            sharedClient.Dispose();
+            ViewBag.StudentInfo = user;
+            return View(result);
         }
 
         public IActionResult DangKyHP()
