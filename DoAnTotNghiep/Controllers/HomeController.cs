@@ -162,6 +162,12 @@ namespace DoAnTotNghiep.Controllers
         {
             return View();
         }
+
+        public IActionResult BieuMauDanhGiaRenLuyen()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
