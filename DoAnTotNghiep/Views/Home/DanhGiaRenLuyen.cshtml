@@ -1,4 +1,4 @@
-﻿
+﻿@model List<DoAnTotNghiep.Models.RLSemester>
 @{
     ViewData["Title"] = "DanhGiaRenLuyen";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -73,16 +73,20 @@
                     <th style="width:15%">Xếp loại</th>
                     <th style="width:15%">Trạng thái</th>
                 </tr>
-                <tr>
-                    <!-- Hàng 2-->
-                    <td>1</td>
-                    <td>Học kỳ 1</td>
-                    <td><a href="@Url.Action("BieuMauDanhGiaRenLuyen", "Home" )" class="news-Link">[Xét rèn luyện]</td>
-                    <td>90 Điểm</td>
-                    <td>95</td>
-                    <td>Xuất sắc</td>
-                    <td>Hoàn thành</td>
-                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <!-- Hàng 2-->
+                        <td>1</td>
+                        <td>@item.SemesterID</td>
+                        <td><a href="@Url.Action("BieuMauDanhGiaRenLuyen", "Home" )" class="news-Link">[Xét rèn luyện]</td>
+                        <td>90 Điểm</td>
+                        <td>95</td>
+                        <td>Xuất sắc</td>
+                        <td>Hoàn thành</td>
+                    </tr>
+                }
+               
             </table>
         </div>
     </div>

@@ -176,11 +176,26 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult DanhGiaRenLuyen()
         {
-            return View();
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetRLSemester?UserId=" + user.UserId).Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<List<RLSemester>>(todo);
+            sharedClient.Dispose();
+            ViewBag.StudentInfo = user;
+            return View(result);
         }
 
         public IActionResult BieuMauDanhGiaRenLuyen()
         {
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetRLForm?UserId=" + user.UserId).Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<List<RLForm>>(todo);
+            sharedClient.Dispose();
+            ViewBag.StudentInfo = user;
+            return View(result);
             return View();
         }
 

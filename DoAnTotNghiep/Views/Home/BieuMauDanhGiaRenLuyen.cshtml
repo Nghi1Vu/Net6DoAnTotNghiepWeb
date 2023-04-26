@@ -1,4 +1,4 @@
-﻿
+﻿@model List<DoAnTotNghiep.Models.RLForm>
 @{
     ViewData["Title"] = "BieuMauDanhGiaRenLuyen";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -90,6 +90,11 @@
                         <td>9 Điểm</td>
                         <td>10 Điểm</td>
                     </tr>
+                    @foreach (var item in Model)
+                        {
+                        <p>@item.Title</p>
+
+    }
                     <tr>
                         <td colspan="13">Đánh giá về ý thức học tập ( Xếp từ 0 đến 30 điểm)</td>
                     </tr>
