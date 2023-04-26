@@ -76,34 +76,35 @@
                             <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Nơi làm việc: </p>
                         </td>
                         <td style="width:35%">
-                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8" placeholder="0987628314"> 
-                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="viết data địa chỉ vào đây"> 
-                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8" placeholder="0987628314"> 
-                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="viết data địa chỉ vào đây"> 
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8" placeholder="@Model.FatherName">
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="@Model.FatherAge">
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8" placeholder="@Model.FatherPhone1">
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="@Model.FatherJob">
                         </td>
                         <td rowspan="3"  style="width:45%">
-                            <p class="d-flex"><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Điện thoại gia đình: &emsp; <input id="#inputfamily" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8" placeholder="0987628314"> </p>
-                        <p class="d-flex"><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Điện thoại liên hệ: &ensp; &ensp; <input id="#inputfamily" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8 m-l-4" placeholder="0987628314"></p>
-                        <p class="d-flex"><i class='bx bxs-chevrons-right m-r-10 ' style='color:green'></i>Người / địa chỉ liên hệ:  <textarea id="textareaFamily" name="textareaFamily"  cols="35" >At w3schools.com you will learn how to make a website. </textarea></p>
-                        <p class="d-flex m-t-8"><i class='bx bxs-chevrons-right m-r-10 m-t-4' style='color:green'></i>Email liên hệ: &emsp; <input id="#inputfamily" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8 m-l-34" placeholder="0987628314"></p>
-                        <p class="d-flex">
-                            <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Tên anh chị em: <textarea id="textareaFamily" name="textareaFamily" rows="4" cols="35" class="m-l-35">At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.</textarea></p>
+                            <p class="d-flex"><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Điện thoại gia đình: &emsp; <input id="#inputfamily" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8" placeholder="@Model.HomePhoneContact"> </p>
+                            <p class="d-flex"><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Điện thoại liên hệ: &ensp; &ensp; <input id="#inputfamily" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8 m-l-4" placeholder="@Model.HomePhone"></p>
+                            <p class="d-flex"><i class='bx bxs-chevrons-right m-r-10 ' style='color:green'></i>Người / địa chỉ liên hệ:  <textarea id="textareaFamily" name="textareaFamily" cols="35">@Model.IsAddressPhone</textarea></p>
+                            <p class="d-flex m-t-8"><i class='bx bxs-chevrons-right m-r-10 m-t-4' style='color:green'></i>Email liên hệ: &emsp; <input id="#inputfamily" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8 m-l-34" placeholder="@Model.ContactEmail"></p>
+                            <p class="d-flex">
+                                <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Tên anh chị em: <textarea id="textareaFamily" name="textareaFamily" rows="4" cols="35" class="m-l-35">@Model.Siblings</textarea>
+                            </p>
                         </td>
                     </tr>
                     <tr>
                         <td>Thông tin mẹ</td>
                         <td>
-                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Họ Tên mẹ: @Model.MotherName</p>
+                            <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Họ Tên mẹ:</p>
                             <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Tuổi: </p>
                             <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Điện thoại: </p>
                             <p><i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Nơi làm việc: </p>
                         </td>
                         <td style="padding: 8px 5px">
-                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8" placeholder="0987628314"> 
-                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="viết data địa chỉ vào đây"> 
-                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8" placeholder="0987628314"> 
-                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="viết data địa chỉ vào đây"> 
-                        </td>
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8" placeholder="@Model.MotherName">
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="@Model.MotherAge">
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 m-b-8" placeholder="@Model.MotherPhone1">
+                            <input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="@Model.MotherJob">
+                    </td>
                     </tr>
                   </table>
             </div>
