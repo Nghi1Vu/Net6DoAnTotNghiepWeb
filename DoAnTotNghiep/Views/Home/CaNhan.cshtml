@@ -72,10 +72,10 @@
                 </div>
                 <div class="infor-left">
                     <p><strong>@ViewBag.StudentInfo.Fullname</strong></p>
-                    <p><strong>151901162</strong></p>
-                    <p><strong>19DTH4</strong></p>
-                    <p><strong>Công nghệ thông tin</strong></p>
-                    <p><strong>Công nghệ</strong></p>
+                    <p><strong>@ViewBag.StudentInfo.Usercode</strong></p>
+                    <p><strong>@ViewBag.StudentInfo.Classname</strong></p>
+                    <p><strong>@ViewBag.StudentInfo.IndustryName</strong></p>
+                    <p><strong>@ViewBag.StudentInfo.DepartmentName</strong></p>
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i> Họ và tên:<strong style="color: #0000FF;"> Bùi Minh Thái</strong>
+                        <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i> Họ và tên:<strong style="color: #0000FF;"> @ViewBag.StudentInfo.Fullname</strong>
                     </td>
                     <td></td>
                     <td>
@@ -114,13 +114,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Ngày sinh:</td>
+                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Ngày sinh: <strong style="color: #0000FF;"> @Model.DOB.Substring(0, 10 )</strong></td>
                     <td></td>
                     <td><input class="input-birth" type="date" id="FromDay"></td>
                 </tr>
                 <tr>
 
-                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Giới tính:</td>
+                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Giới tính: <strong style="color: #0000FF;"> @Model.Gender</strong></td>
                     <td></td>
                     <td>
                         <select id="GioiTinh" class="form-select form-select-sm mb-3" aria-label="Default select example">
@@ -131,7 +131,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>@Model.BirthPlace</td>
+                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Nơi Sinh: <strong style="color: #0000FF;"> @Model.BirthPlace</strong></td>
                     <td></td>
                     <td>
                         <select class="NoiSinh form-select form-select-sm mb-3" id="city1" aria-label=".form-select-sm">
@@ -140,7 +140,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Hộ khẩu thường trú:</td>
+                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Hộ khẩu thường trú: <strong style="color: #0000FF;">@(Model.NumberOfHousing + ", " + Model.DistrictSocialName + ", " + Model.DistrictName + ", " + Model.ProvinceName + ", " + Model.NationName)</strong></td>
                     <td></td>
                     <td class="HoKhau">
                         <span class="d-flex m-l-5">
@@ -172,7 +172,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Dân tộc: </td>
+                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Dân tộc: <strong style="color: #0000FF;"> @Model.EthnicName</strong> </td>
                     <td></td>
                     <td>
                         <select id="tablechung" class="form-select form-select-sm mb-3" aria-label="Default select example">
@@ -235,7 +235,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Tôn giáo: </td>
+                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Tôn giáo:  <strong style="color: #0000FF;"> @Model.ReligionName</strong></td>
                     <td></td>
                     <td>
                         <select id="tablechung" class="form-select form-select-sm mb-3" aria-label="Default select example">
@@ -251,7 +251,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Thành phần xuất thân: </td>
+                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Thành phần xuất thân: <strong style="color: #0000FF;"> @Model.HomeComponentName</strong></td>
                     <td></td>
                     <td>
                         <select id="tablechung" class="form-select form-select-sm mb-3" aria-label="Default select example">
@@ -269,7 +269,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Đối tượng ưu tiên:</td>
+                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Đối tượng ưu tiên: <strong style="color: #0000FF;"> @Model.DOB</strong></td>
                     <td></td>
                     <td>
                         <select id="tablechung" class="form-select form-select-sm mb-3" aria-label="Default select example">
@@ -286,7 +286,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Đối tượng miễn giảm:</td>
+                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Đối tượng miễn giảm: <strong style="color: #0000FF;"> @Model.ExemptionsName</strong></td>
                     <td></td>
                     <td>
                         <select id="tablechung" class="form-select form-select-sm mb-3" aria-label="Default select example">
@@ -304,17 +304,17 @@
                     </td>
                 </tr>
                 <tr>
-                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Học lớp 12 trường:</td>
+                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Học lớp 12 trường: <strong style="color: #0000FF;"> @Model.School</strong></td>
                     <td></td>
                     <td><input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="Nhập vào trường học lớp 12"></td>
                 </tr>
                 <tr>
-                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Số CMND/CCCD:</td>
+                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Số CMND/CCCD: <strong style="color: #0000FF;"> @Model.CMND</strong></td>
                     <td></td>
                     <td><input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="Nhập vào số CMND/CCCD"></td>
                 </tr>
                 <tr>
-                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Số thẻ bảo hiểm y tế:</td>
+                    <td> <i class='bx bxs-chevrons-right m-r-10' style='color:green'></i>Số thẻ bảo hiểm y tế: <strong style="color: #0000FF;"> @Model.BHYT</strong></td>
                     <td></td>
                     <td><input id="inputchung" type="text" class="input-infor flex-m p-l-10 fs-12 " placeholder="Nhập vào số thẻ bảo hiểm y tế"></td>
                 </tr>
