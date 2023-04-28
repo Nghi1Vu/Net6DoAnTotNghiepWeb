@@ -154,7 +154,6 @@ namespace DoAnTotNghiep.Controllers
             {
                 return RedirectToAction("Index", "Account");
             }
-            return View();
         }
 
         public IActionResult CaNhan()
@@ -188,15 +187,12 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult BieuMauDanhGiaRenLuyen()
         {
-            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
-            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetRLForm?UserId=" + user.UserId).Result;
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetRLForm").Result;
             var todo = response.Content.ReadAsStringAsync().Result;
             response.EnsureSuccessStatusCode();
             var result = JsonConvert.DeserializeObject<List<RLForm>>(todo);
             sharedClient.Dispose();
-            ViewBag.StudentInfo = user;
             return View(result);
-            return View();
         }
 
         public IActionResult Privacy()

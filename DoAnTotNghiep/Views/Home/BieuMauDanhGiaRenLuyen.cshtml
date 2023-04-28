@@ -2,6 +2,12 @@
 @{
     ViewData["Title"] = "BieuMauDanhGiaRenLuyen";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var rl1 = Model.Where(x => x.RLQuestionID == 1).ToList();
+    var rl2 = Model.Where(x => x.RLQuestionID == 2).ToList();
+    var rl3 = Model.Where(x => x.RLQuestionID == 3).ToList();
+    var rl4 = Model.Where(x => x.RLQuestionID == 4).ToList();
+    var rl5 = Model.Where(x => x.RLQuestionID == 5).ToList();
+
 }
 
 
@@ -62,8 +68,11 @@
     <div class="form-BieuMauRL">
         <p class="title-page">Phiếu đánh giá kết quả rèn luyện và khung điểm</p>
         <div class="title-line"></div>
-        <div class="warn-txt"><p>Với mục đích góp phần thực hiện mục tiêu giáo dục là đào tạo con người Việt Nam phát triển toàn diện, có đạo đức, tri thức ,sức khoẻ, thẩm mỹ và nghề nghiệp, trung thành với lý tưởng độc lập dân tộc và chủ nghĩa xã hội. 
-            Trường Đại học Công nghệ Đồng Nai triển khai phiếu đánh giá kết quả rèn luyện cho sinh viên. Việc đánh giá phải trung thực, đầy đủ; hoạt động rèn luyện của học kỳ nào chỉ được đánh giá cho học kì đó.</p>
+        <div class="warn-txt">
+            <p>
+                Với mục đích góp phần thực hiện mục tiêu giáo dục là đào tạo con người Việt Nam phát triển toàn diện, có đạo đức, tri thức ,sức khoẻ, thẩm mỹ và nghề nghiệp, trung thành với lý tưởng độc lập dân tộc và chủ nghĩa xã hội.
+                Trường Đại học Công nghệ Đồng Nai triển khai phiếu đánh giá kết quả rèn luyện cho sinh viên. Việc đánh giá phải trung thực, đầy đủ; hoạt động rèn luyện của học kỳ nào chỉ được đánh giá cho học kì đó.
+            </p>
         </div>
         <div class="border-BieuMauRL">
             <div class="head-table">
@@ -74,7 +83,7 @@
                     <tr class="clo-1">
                         <!-- Hàng 1-->
                         <th rowspan="2" style="width:3%">STT</th>
-                        <th rowspan="2">Tiêu chí đánh giá </th> 
+                        <th rowspan="2">Tiêu chí đánh giá </th>
                         <th colspan="11" style="width:15%;">Thang điểm</th>
                     </tr>
                     <tr>
@@ -90,370 +99,138 @@
                         <td>9 Điểm</td>
                         <td>10 Điểm</td>
                     </tr>
-                    @foreach (var item in Model)
-                        {
-                        <p>@item.Title</p>
+                    <tr>
+                        <td style="font-weight:bold" colspan="13">@(rl1[0].BigTitle)</td>
+                    </tr>
+                    @{
+                        var stt1 = 1;
+                    }
+                    @foreach (var item in rl1)
+                    {
+                        <tr>
+                            <td>@(stt1++)</td>
+                            <td>@item.Title</td>
+                            @for (int i1 = 0; i1 <= 10; i1++)
+                            {
+                                if (i1 <= item.MaxScore)
+                                {
+                                    <td title="@i1 Điểm"><input type="radio" id="0" name="TC1-ST1" value="@i1"></td>
+                                }
+                                else
+                                {
+                                    <td><input type="radio" disabled /></td>
+                                }
 
-    }
+                            }
+                        </tr>
+
+                    }
                     <tr>
-                        <td colspan="13">Đánh giá về ý thức học tập ( Xếp từ 0 đến 30 điểm)</td>
+                        <td style="font-weight:bold" colspan="13">@(rl2[0].BigTitle)</td>
                     </tr>
+                    @{
+                        var stt2 = 1;
+                    }
+                    @foreach (var item in rl2)
+                    {
+                        <tr>
+                            <td>@(stt2++)</td>
+                            <td>@item.Title</td>
+                            @for (int i2 = 0; i2 <= 10; i2++)
+                            {
+                                if (i2 <= item.MaxScore)
+                                {
+                                    <td title="@i2 Điểm"><input type="radio" id="0" name="TC1-ST1" value="@i2"></td>
+                                }
+                                else
+                                {
+
+                                    <td><input type="radio" disabled /></td>
+                                }
+                            }
+                        </tr>
+
+                    }
                     <tr>
-                        <td>1</td>
-                        <td>Đi học đầy đủ, đúng giờ, nghiêm túc trong giờ học (trừ 1 điểm/1 lần nghỉ không phép hoặc 3 lần đi muộn) - Điểm tối đa: 4</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC1-ST1" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC1-ST1" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC1-ST1" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC1-ST1" value="3"></td>
-                        <td title="4 Điểm"><input type="radio" id="4" name="TC1-ST1" value="4"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="font-weight:bold" colspan="13">@(rl3[0].BigTitle)</td>
                     </tr>
-                     <tr>
-                        <td>2</td>
-                        <td>Chuẩn bị bài đầy đủ; tích cực, chủ động, sáng tạo trong học tập - Điểm tối đa: 4</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC1-ST2" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC1-ST2" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC1-ST2" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC1-ST2" value="3"></td>
-                        <td title="4 Điểm"><input type="radio" id="4" name="TC1-ST2" value="4"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @{
+                        var stt3 = 1;
+                    }
+                    @foreach (var item in rl3)
+                    {
+                        <tr>
+                            <td>@(stt3++)</td>
+                            <td>@item.Title</td>
+                            @for (int i3 = 0; i3 <= 10; i3++)
+                            {
+                                if (i3 <= item.MaxScore)
+                                {
+                                    <td title="@i3 Điểm"><input type="radio" id="0" name="TC1-ST1" value="@i3"></td>
+                                }
+                                else
+                                {
+
+                                    <td><input type="radio" disabled /></td>
+                                }
+                            }
+                        </tr>
+
+                    }
                     <tr>
-                        <td>3</td>
-                        <td>Không vi phạm quy chế thi, kiểm tra (phạm quy hoặc không mang thẻ SV trừ 2 điểm/lần) - Điểm tối đa: 6</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC1-ST3" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC1-ST3" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC1-ST3" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC1-ST3" value="3"></td>
-                        <td title="4 Điểm"><input type="radio" id="4" name="TC1-ST3" value="4"></td>
-                        <td title="5 Điểm"><input type="radio" id="5" name="TC1-ST3" value="5"></td>
-                        <td title="6 Điểm"><input type="radio" id="6" name="TC1-ST3" value="6"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="font-weight:bold" colspan="13">@(rl4[0].BigTitle)</td>
                     </tr>
+                    @{
+                        var stt4 = 1;
+                    }
+                    @foreach (var item in rl4)
+                    {
+                        <tr>
+                            <td>@(stt4++)</td>
+                            <td>@item.Title</td>
+                            @for (int i4 = 0; i4 <= 10; i4++)
+                            {
+                                if (i4 <= item.MaxScore)
+                                {
+                                    <td title="@i4 Điểm"><input type="radio" id="0" name="TC1-ST1" value="@i4"></td>
+                                }
+                                else
+                                {
+                                    <td><input type="radio" disabled /></td>
+                                }
+                            }
+                        </tr>
+
+                    }
                     <tr>
-                        <td>4</td>
-                        <td>Không bị học lại môn nào (học lại trừ 1 điểm/môn) - Điểm tối đa: 6</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC1-ST4" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC1-ST4" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC1-ST4" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC1-ST4" value="3"></td>
-                        <td title="4 Điểm"><input type="radio" id="4" name="TC1-ST4" value="4"></td>
-                        <td title="5 Điểm"><input type="radio" id="5" name="TC1-ST4" value="5"></td>
-                        <td title="6 Điểm"><input type="radio" id="6" name="TC1-ST4" value="6"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="font-weight:bold" colspan="13">@(rl5[0].BigTitle)</td>
                     </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Đạt thành tích cao trong học tập (giảm 1 mức trừ 1 điểm) - Điểm tối đa: 6</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC1-ST5" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC1-ST5" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC1-ST5" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC1-ST5" value="3"></td>
-                        <td title="4 Điểm"><input type="radio" id="4" name="TC1-ST5" value="4"></td>
-                        <td title="5 Điểm"><input type="radio" id="5" name="TC1-ST5" value="5"></td>
-                        <td title="6 Điểm"><input type="radio" id="6" name="TC1-ST5" value="6"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                     <tr>
-                        <td>6</td>
-                        <td>Đạt giải Olympic hoặc NCKH cấp trường (Nhất: 4; nhì: 3; ba: 2; Khuyến khích: 1) - Điểm tối đa: 4</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC1-ST6" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC1-ST6" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC1-ST6" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC1-ST6" value="3"></td>
-                        <td title="4 Điểm"><input type="radio" id="4" name="TC1-ST6" value="4"></td>                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td colspan="13">Đánh giá về ý thức và kết quả chấp hành nội quy, quy chế nhà trường (khung điểm đánh giá từ 0 – 25 điểm)</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Thực hiện tốt quy chế công tác HSSV, Quy chế nội trú, Quy chế ngoại trú (khiển trách trừ 5 điểm; cảnh cáo trở lên trừ 10 điểm) - Điểm tối đa: 10</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC2-ST1" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC2-ST1" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC2-ST1" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC2-ST1" value="3"></td>
-                        <td title="4 Điểm"><input type="radio" id="4" name="TC2-ST1" value="4"></td>
-                        <td title="5 Điểm"><input type="radio" id="5" name="TC2-ST1" value="5"></td>
-                        <td title="6 Điểm"><input type="radio" id="0" name="TC2-ST1" value="6"></td>
-                        <td title="7 Điểm"><input type="radio" id="1" name="TC2-ST1" value="7"></td>
-                        <td title="8 Điểm"><input type="radio" id="2" name="TC2-ST1" value="8"></td>
-                        <td title="9 Điểm"><input type="radio" id="3" name="TC2-ST1" value="9"></td>
-                        <td title="10 Điểm"><input type="radio" id="4" name="TC2-ST1" value="10"></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Thực hiện tốt nếp sống văn hóa theo quy định của trường, của nơi cứ trú - Điểm tối đa: 5</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC2-ST2" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC2-ST2" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC2-ST2" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC2-ST2" value="3"></td>
-                        <td title="4 Điểm"><input type="radio" id="4" name="TC2-ST2" value="4"></td>
-                        <td title="5 Điểm"><input type="radio" id="5" name="TC2-ST2" value="5"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Tham gia đầy đủ, tích cực các buổi sinh hoạt tập thể (vắng 1 buổi trừ 1 điểm)- Điểm tối đa: 5</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC2-ST3" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC2-ST3" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC2-ST3" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC2-ST3" value="3"></td>
-                        <td title="4 Điểm"><input type="radio" id="4" name="TC2-ST3" value="4"></td>
-                        <td title="5 Điểm"><input type="radio" id="5" name="TC2-ST3" value="5"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Có tinh thần đấu tranh để đảm bảo thực hiện tốt quy chế, nội quy nhà trường. - Điểm tối đa: 3</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC2-ST4" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC2-ST4" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC2-ST4" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC2-ST4" value="3"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Được biểu dương khen thưởng về thực hiện nội quy, quy chế - Điểm tối đa: 2</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC2-ST4" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC2-ST4" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC2-ST4" value="2"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                     <tr>
-                        <td colspan="13">Đánh giá về ý thức và kết quả tham gia các hoạt động chính trị – xã hội, văn hoá, văn nghệ, thể thao, phòng chống tệ nạn xã hội (khung điểm đánh giá từ 0 – 20 điểm)</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Tham gia đầy đủ các buổi học chính trị, tuần sinh hoạt công dân sinh viên (vắng 1 buổi trừ 2 điểm) - Điểm tối đa: 6</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC3-ST1" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC3-ST1" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC3-ST1" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC3-ST1" value="3"></td>
-                        <td title="4 Điểm"><input type="radio" id="4" name="TC3-ST1" value="4"></td>
-                        <td title="5 Điểm"><input type="radio" id="5" name="TC3-ST1" value="5"></td>
-                        <td title="6 Điểm"><input type="radio" id="0" name="TC3-ST1" value="6"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Tham gia đầy đủ các hoạt động do trường, lớp, Đoàn, Hội tổ chức hoặc được điều động (vắng 1 lần trừ 1 điểm) - Điểm tối đa: 8</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC3-ST2" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC3-ST2" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC3-ST2" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC3-ST2" value="3"></td>
-                        <td title="4 Điểm"><input type="radio" id="4" name="TC3-ST2" value="4"></td>
-                        <td title="5 Điểm"><input type="radio" id="5" name="TC3-ST2" value="5"></td>
-                        <td title="6 Điểm"><input type="radio" id="0" name="TC3-ST2" value="6"></td>
-                        <td title="7 Điểm"><input type="radio" id="5" name="TC3-ST2" value="7"></td>
-                        <td title="8 Điểm"><input type="radio" id="0" name="TC3-ST2" value="8"></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Là thành viên của lớp, của chi đoàn được khen thưởng từ cấp khoa trở lên-Điểm tối đa: 3</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC3-ST3" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC3-ST3" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC3-ST3" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC3-ST3" value="3"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                     <tr>
-                        <td>4</td>
-                        <td>Đạt giải cá nhân trong các hoạt động phong trào từ cấp trưởng trở lên - Điểm tối đa: 3</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC3-ST4" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC3-ST4" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC3-ST4" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC3-ST4" value="3"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                     <tr>
-                        <td colspan="13">Đánh giá về phẩm chất công dân và quan hệ với cộng đồng (khung điểm đánh giá từ 0 – 15 điểm)</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Chấp hành tốt chủ trương, chính sách, pháp luật của Đảng, Nhà nước (vi phạm giao thông trừ 2 điểm/lần)- Điểm tối đa: 4</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC4-ST1" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC4-ST1" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC4-ST1" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC4-ST1" value="3"></td>
-                        <td title="4 Điểm"><input type="radio" id="4" name="TC4-ST1" value="4"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Báo cáo đầy đủ địa chỉ nơi đang cư trú đúng và kịp thời khi có sự thay đổi-Điểm tối đa: 2</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC4-ST2" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC4-ST2" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC4-ST2" value="2"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Tích cự tham gia phong trào tự quản ở trường, ở nơi cư trú - Điểm tối đa: 2</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC4-ST3" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC4-ST3" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC4-ST3" value="2"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Quan hệ đúng mực với bạn bè, với nhân dân nơi trú-Điểm tối đa: 2</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC4-ST4" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC4-ST4" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC4-ST4" value="2"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Có hành động dũng cảm cứu người hoặc tận tình giúp đỡ bạn trong học tập, sinh hoạt và cuộc sống-Điểm tối đa: 3</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC4-ST5" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC4-ST5" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC4-ST5" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC4-ST5" value="3"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                     <tr>
-                        <td>6</td>
-                        <td>Có tác dụng tốt đối với lớp, chi đoàn, chi hội sinh viên-Điểm tối đa: 2</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC4-ST6" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC4-ST6" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC4-ST6" value="2"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                     <tr>
-                        <td colspan="13">Đánh giá về ý thức và kết quả tham gia phụ trách lớp, các đoàn thể, tổ chức trong nhà trường hoặc đạt được thành tích đặc biệt trong học tập, rèn luyện của sinh viên (thang điểm đánh giá từ 0 – 10 điểm)</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Là Ban Cán sự lớp, BCH chi ủy, BCH chi đoàn, BCH chi hội, BCN Câu lạc bộ có đóng góp tích cực hoàn thành xuất sắc nhiệm vụ cho phong trào của lớp, Đoàn, Hội - Điểm tối đa: 7</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC4-ST1" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC4-ST1" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC4-ST1" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC4-ST1" value="3"></td>
-                        <td title="4 Điểm"><input type="radio" id="4" name="TC4-ST1" value="4"></td>
-                        <td title="5 Điểm"><input type="radio" id="5" name="TC4-ST1" value="5"></td>
-                        <td title="6 Điểm"><input type="radio" id="0" name="TC4-ST1" value="6"></td>
-                        <td title="7 Điểm"><input type="radio" id="5" name="TC4-ST1" value="7"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Tập thể do sinh viên đó phụ trách được công nhận danh hiệu tập thể học tập tốt, rèn luyện tốt-Điểm tối đa: 3</td>
-                        <td title="0 Điểm"><input type="radio" id="0" name="TC4-ST2" value="0"></td>
-                        <td title="1 Điểm"><input type="radio" id="1" name="TC4-ST2" value="1"></td>
-                        <td title="2 Điểm"><input type="radio" id="2" name="TC4-ST2" value="2"></td>
-                        <td title="3 Điểm"><input type="radio" id="3" name="TC4-ST2" value="3"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @{
+                        var stt5 = 1;
+                    }
+                    @foreach (var item in rl5)
+                    {
+                        <tr>
+                            <td>@(stt5++)</td>
+                            <td>@item.Title</td>
+                            @for (int i5 = 0; i5 <= 10; i5++)
+                            {
+                                if (i5 <= item.MaxScore)
+                                {
+                                    <td title="@i5 Điểm"><input type="radio" id="0" name="TC1-ST1" value="@i5"></td>
+                                }
+                                else
+                                {
+
+                                    <td><input type="radio" disabled /></td>
+                                }
+                            }
+                        </tr>
+
+                    }
+
+
+
                 </table>
                 <button class="button m-t-12 m-l-16">Lọc dữ liệu</button>
             </div>
