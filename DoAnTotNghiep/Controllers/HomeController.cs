@@ -77,10 +77,10 @@ namespace DoAnTotNghiep.Controllers
                 return View(news);
             }
             catch
-            {        
+            {
                 return RedirectToAction("Index", "Account");
-            }        
-  
+            }
+
         }
         public IActionResult TrangCaNhan()
         {
@@ -90,7 +90,7 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult ThongTinGiaDinh()
         {
-            var user= HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
             using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetFamilyDetail?UserId=" + user.UserId).Result;
             var todo = response.Content.ReadAsStringAsync().Result;
             response.EnsureSuccessStatusCode();
@@ -111,7 +111,7 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult DetailNews(int id)
         {
-            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetNewsDetail?NewsId="+ id).Result;
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetNewsDetail?NewsId=" + id).Result;
             var todo = response.Content.ReadAsStringAsync().Result;
             response.EnsureSuccessStatusCode();
             var news = JsonConvert.DeserializeObject<News>(todo);
@@ -181,20 +181,36 @@ namespace DoAnTotNghiep.Controllers
             response.EnsureSuccessStatusCode();
             var result = JsonConvert.DeserializeObject<List<RLSemester>>(todo);
             sharedClient.Dispose();
-            ViewBag.StudentInfo = user;
             return View(result);
         }
 
-        public IActionResult BieuMauDanhGiaRenLuyen()
+        public IActionResult BieuMauDanhGiaRenLuyen(int Id)
         {
             using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetRLForm").Result;
             var todo = response.Content.ReadAsStringAsync().Result;
             response.EnsureSuccessStatusCode();
             var result = JsonConvert.DeserializeObject<List<RLForm>>(todo);
             sharedClient.Dispose();
+            ViewBag.SemesterID = Id;
             return View(result);
         }
-
+        [HttpPost]
+        public IActionResult SendRLForm (PostRLForm model)
+        {
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            var obj = new
+            {
+                UserId = user.UserId,
+                SemesterID = model.SemesterID,
+                detail= model.detail
+            };
+            using HttpResponseMessage response = sharedClient.PostAsJsonAsync("api/v1/PostRLForm", obj).Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<int>(todo);
+            sharedClient.Dispose();
+            return Content(result.ToString());
+        }
         public IActionResult Privacy()
         {
             return View();

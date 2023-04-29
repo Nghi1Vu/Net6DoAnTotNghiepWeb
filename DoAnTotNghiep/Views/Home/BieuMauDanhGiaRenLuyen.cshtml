@@ -76,9 +76,11 @@
         </div>
         <div class="border-BieuMauRL">
             <div class="head-table">
-                ĐÁNH GIÁ RÈN LUYỆN: <strong>HỌC KỲ 12</strong>
+                ĐÁNH GIÁ RÈN LUYỆN: <strong>HỌC KỲ @ViewBag.SemesterID</strong>
             </div>
             <div class="table-RenLuyen">
+                <form method="post" action="/Home/SendRLForm">
+                    <input type="text" name="model.SemesterID" value="@ViewBag.SemesterID" hidden>
                 <table style="width:100%; margin-top: 10px;">
                     <tr class="clo-1">
                         <!-- Hàng 1-->
@@ -102,9 +104,10 @@
                     <tr>
                         <td style="font-weight:bold" colspan="13">@(rl1[0].BigTitle)</td>
                     </tr>
-                    @{
-                        var stt1 = 1;
-                    }
+                        @{
+                            var stt1 = 1;
+                            var count = 0;
+                        }
                     @foreach (var item in rl1)
                     {
                         <tr>
@@ -114,7 +117,7 @@
                             {
                                 if (i1 <= item.MaxScore)
                                 {
-                                    <td title="@i1 Điểm"><input type="radio" id="0" name="TC1-ST1" value="@i1"></td>
+                                        <td title="@i1 Điểm"><input type="radio" name="model.detail[@count].Score" value="@i1"></td>
                                 }
                                 else
                                 {
@@ -123,8 +126,9 @@
 
                             }
                         </tr>
-
-                    }
+                            <input type="text" name="model.detail[@count].RLAnswerID" value="@item.RLAnswerID" hidden>
+                            count++;
+                        }
                     <tr>
                         <td style="font-weight:bold" colspan="13">@(rl2[0].BigTitle)</td>
                     </tr>
@@ -140,7 +144,7 @@
                             {
                                 if (i2 <= item.MaxScore)
                                 {
-                                    <td title="@i2 Điểm"><input type="radio" id="0" name="TC1-ST1" value="@i2"></td>
+                                        <td title="@i2 Điểm"><input type="radio" name="model.detail[@count].Score" value="@i2"></td>
                                 }
                                 else
                                 {
@@ -149,7 +153,8 @@
                                 }
                             }
                         </tr>
-
+                            <input type="text" name="model.detail[@count].RLAnswerID" value="@item.RLAnswerID" hidden>
+                            count++;
                     }
                     <tr>
                         <td style="font-weight:bold" colspan="13">@(rl3[0].BigTitle)</td>
@@ -166,7 +171,7 @@
                             {
                                 if (i3 <= item.MaxScore)
                                 {
-                                    <td title="@i3 Điểm"><input type="radio" id="0" name="TC1-ST1" value="@i3"></td>
+                                        <td title="@i3 Điểm"><input type="radio" name="model.detail[@count].Score" value="@i3"></td>
                                 }
                                 else
                                 {
@@ -175,7 +180,8 @@
                                 }
                             }
                         </tr>
-
+                            <input type="text" name="model.detail[@count].RLAnswerID" value="@item.RLAnswerID" hidden>
+                            count++;
                     }
                     <tr>
                         <td style="font-weight:bold" colspan="13">@(rl4[0].BigTitle)</td>
@@ -192,7 +198,7 @@
                             {
                                 if (i4 <= item.MaxScore)
                                 {
-                                    <td title="@i4 Điểm"><input type="radio" id="0" name="TC1-ST1" value="@i4"></td>
+                                        <td title="@i4 Điểm"><input type="radio" name="model.detail[@count].Score" value="@i4"></td>
                                 }
                                 else
                                 {
@@ -200,7 +206,8 @@
                                 }
                             }
                         </tr>
-
+                            <input type="text" name="model.detail[@count].RLAnswerID" value="@item.RLAnswerID" hidden>
+                            count++;
                     }
                     <tr>
                         <td style="font-weight:bold" colspan="13">@(rl5[0].BigTitle)</td>
@@ -217,7 +224,7 @@
                             {
                                 if (i5 <= item.MaxScore)
                                 {
-                                    <td title="@i5 Điểm"><input type="radio" id="0" name="TC1-ST1" value="@i5"></td>
+                                        <td title="@i5 Điểm"><input type="radio" name="model.detail[@count].Score" value="@i5"></td>
                                 }
                                 else
                                 {
@@ -226,13 +233,15 @@
                                 }
                             }
                         </tr>
-
+                            <input type="text" name="model.detail[@count].RLAnswerID" value="@item.RLAnswerID" hidden>
+                            count++;
                     }
 
 
 
                 </table>
-                <button class="button m-t-12 m-l-16">Lọc dữ liệu</button>
+                    <button type="submit" class="button m-t-12 m-l-16">Gửi biểu mẫu</button>
+                </form>      
             </div>
         </div>
     </div>
