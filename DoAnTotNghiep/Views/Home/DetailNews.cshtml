@@ -21,18 +21,42 @@
                     <i class='bx bx-message-square-detail nav_icon'></i>
                     <span class="nav_name">Chia sẻ</span>
                 </a>
-                <a href="@Url.Action("KetQuaHocTap", "Home")" class="nav_link">
-                    <i class='bx bx-clipboard'></i>
-                    <span class="nav_name">Kết quả học tập</span>
-                </a>
-                <a href="@Url.Action("ThoiKhoaBieu", "Home")" class="nav_link">
-                    <i class='bx bx-time-five'></i>
-                    <span class="nav_name">Thời khóa biểu</span>
-                </a>
-                <a href="@Url.Action("XemLichThi", "Home" )" class="nav_link">
-                    <i class='bx bx-calendar'></i>
-                    <span class="nav_name">Lịch thi</span>
-                </a>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <a href="@Url.Action("KetQuaHocTap", "Home")" class="nav_link">
+                            <i class='bx bx-clipboard'></i>
+                            <span class="nav_name">Kết quả học tập</span>
+                        </a>
+                    </button>
+                    <div class="dropdown-contnet">
+                        <a href="#"><i class='bx bx-task'></i> Kết quả thi</a>
+                        <a href="#"><i class='bx bx-task'></i> TB chung tích lũy</a>
+                        <a href="#"><i class='bx bx-task'></i> TB chung học kỳ</a>
+                        <a href="#"><i class='bx bx-task'></i> Xét thử tốt nghiệp</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <a href="@Url.Action("ThoiKhoaBieu", "Home")" class="nav_link">
+                            <i class='bx bx-time-five'></i>
+                            <span class="nav_name">Thời khóa biểu</span>
+                        </a>
+                    </button>
+                    <div class="dropdown-contnet">
+                        <a href="#"><i class='bx bx-timer nav_icon_con'></i></i> Lịch giảng dạy</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <a href="@Url.Action("XemLichThi", "Home" )" class="nav_link">
+                            <i class='bx bx-calendar'></i>
+                            <span class="nav_name">Lịch thi</span>
+                        </a>
+                    </button>
+                    <div class="dropdown-contnet">
+                        <a href="#"><i class='bx bx-calendar-check'></i> Kế hoach thi theo lớp</a>
+                    </div>
+                </div>
                 <a href="@Url.Action("LopHoc", "Home" )" class="nav_link">
                     <i class='bx bxs-school'></i>
                     <span class="nav_name">Lớp học</span>
@@ -41,17 +65,29 @@
                     <i class='bx bx-user nav_icon'></i>
                     <span class="nav_name">Cá nhân</span>
                 </a>
-                <a href="@Url.Action("DangKyHP", "Home" )" class="nav_link">
-                    <i class='bx bx-bookmark nav_icon'></i>
-                    <span class="nav_name">Đăng ký học phần</span>
-                </a>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <a href="@Url.Action("DangKyHP", "Home" )" class="nav_link">
+                            <i class='bx bx-bookmark nav_icon'></i>
+                            <span class="nav_name">Đăng ký học phần</span>
+                        </a>
+                    </button>
+                    <div class="dropdown-contnet">
+                        <a href="@Url.Action("TinhHinhDangKyHP", "Home")"><i class='bx bxs-bookmark'></i> Tình hình ĐK học phần</a>
+                        <a href="#"><i class='bx bx-bookmarks'></i> ĐK học 2 chương trình</a>
+                        <a href="#"><i class='bx bx-bookmarks'></i> Danh sách đăng ký</a>
+                        <a href="#"><i class='bx bx-bookmarks'></i> Kiểm tra tiến độ CT2</a>
+                        <a href="@Url.Action("KhungChuongTrinh", "Home")"><i class='bx bxs-book-bookmark'></i> Khung chương trình</a>
+                        <a href="@Url.Action("KhungChuongTrinhKy", "Home")"><i class='bx bxs-book-bookmark'></i> Khung chương trình (Kỳ)</a>
+                    </div>
+                </div>
                 <a href="@Url.Action("DanhGiaRenLuyen", "Home" )" class="nav_link">
                     <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
                     <span class="nav_name">Đánh giá rèn luyện</span>
                 </a>
             </div>
         </div>
-        <a href="../login/login.htm" class="nav_link">
+        <a href="#" class="nav_link">
             <i class='bx bx-log-out nav_icon'></i>
             <span class="nav_name">Đăng xuất</span>
         </a>

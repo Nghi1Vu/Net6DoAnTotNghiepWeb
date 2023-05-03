@@ -3,7 +3,6 @@
     ViewData["Title"] = "TinhHinhDangKyHP";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@*chua them nav cac trang*@
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
@@ -71,13 +70,13 @@
                             <span class="nav_name">Đăng ký học phần</span>
                         </a>
                     </button>
-                    <div class="dropdown-contnet">
-                        <a href="#"><i class='bx bxs-bookmark'></i> Tình hình ĐK học phần</a>
+                    <div class="dropdown-contnet dis-block">
+                        <a href="@Url.Action("TinhHinhDangKyHP", "Home")"><i class='bx bxs-bookmark'></i> Tình hình ĐK học phần</a>
                         <a href="#"><i class='bx bx-bookmarks'></i> ĐK học 2 chương trình</a>
                         <a href="#"><i class='bx bx-bookmarks'></i> Danh sách đăng ký</a>
                         <a href="#"><i class='bx bx-bookmarks'></i> Kiểm tra tiến độ CT2</a>
-                        <a href="#"><i class='bx bxs-book-bookmark'></i> Khung chương trình</a>
-                        <a href="#"><i class='bx bxs-book-bookmark'></i> Khung chương trình (Kỳ)</a>
+                        <a href="@Url.Action("KhungChuongTrinh", "Home")"><i class='bx bxs-book-bookmark'></i> Khung chương trình</a>
+                        <a href="@Url.Action("KhungChuongTrinhKy", "Home")"><i class='bx bxs-book-bookmark'></i> Khung chương trình (Kỳ)</a>
                     </div>
                 </div>
                 <a href="@Url.Action("DanhGiaRenLuyen", "Home" )" class="nav_link">
