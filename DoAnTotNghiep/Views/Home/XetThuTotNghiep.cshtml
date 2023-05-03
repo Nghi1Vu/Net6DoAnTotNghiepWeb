@@ -1,9 +1,8 @@
 ﻿
 @{
-    ViewData["Title"] = "ThoiKhoaBieu";
+    ViewData["Title"] = "XetThuTotNghiep";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
@@ -22,12 +21,12 @@
                 </a>
                 <div class="dropdown">
                     <button class="dropbtn">
-                        <a href="@Url.Action("KetQuaHocTap", "Home")" class="nav_link">
+                        <a href="@Url.Action("KetQuaHocTap", "Home")" class="nav_link active">
                             <i class='bx bx-clipboard'></i>
                             <span class="nav_name">Kết quả học tập</span>
                         </a>
                     </button>
-                    <div class="dropdown-contnet">
+                    <div class="dropdown-contnet dis-block">
                         <a href="@Url.Action("KetQuaThi", "Home")"><i class='bx bx-task'></i> Kết quả thi</a>
                         <a href="@Url.Action("TBChungHocKy", "Home")"><i class='bx bx-task'></i> TB chung tích lũy</a>
                         <a href="@Url.Action("TBChungTichLuy", "Home")"><i class='bx bx-task'></i> TB chung học kỳ</a>
@@ -36,12 +35,12 @@
                 </div>
                 <div class="dropdown">
                     <button class="dropbtn">
-                        <a href="@Url.Action("ThoiKhoaBieu", "Home")" class="nav_link active">
+                        <a href="@Url.Action("ThoiKhoaBieu", "Home")" class="nav_link">
                             <i class='bx bx-time-five'></i>
                             <span class="nav_name">Thời khóa biểu</span>
                         </a>
                     </button>
-                    <div class="dropdown-contnet dis-block">
+                    <div class="dropdown-contnet">
                         <a href="@Url.Action("LichGiangDay", "Home")"><i class='bx bx-timer nav_icon_con'></i> Lịch giảng dạy</a>
                     </div>
                 </div>
@@ -92,57 +91,5 @@
         </a>
     </nav>
 </div>
-<!--Container Main start-->
-<div class="border-page">
-    <div class="Bang-tin">
-        <p class="title-page">Thời Khóa biểu</p>
-        <div class="title-line"></div>
-        <div class="panelTKB">
-            <div class="container px-1 px-sm-5 mx-auto">
-                <form autocomplete="off">
-                    <div class="flex-row d-flex justify-content-center">
-                        <div class="col-lg-5 col-11">
-                            <div class="input-group input-daterange">
-                                <input type="text" class="form-control input1" placeholder="Từ ngày" readonly>
-                                <input type="text" class="form-control input2" placeholder="Đến ngày" readonly>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <div class="row">
-                    <div class="col-lg-5">
-                    </div>
-                    <div class="col-lg-2 m-l-19 m-t-45 txt-panel-r">
-                        <button class="button">Lọc dữ liệu</button>
-                    </div>
-                    <div class="col-lg-5">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="table-tkb">
-            <table style="width:100%; margin-top: 5px;">
-                <tr class="clo-1">
-                    <!-- Hàng 1-->
-                    <th style="width:8%">STT</th>
-                    <th style="width:10%">Thứ</th>
-                    <th style="width:10%">ngày</th>
-                    <th style="min-width:10%; max-width:20%; overflow: visible;">Sáng</th>
-                    <th style="min-width:10%; max-width:20%; overflow: visible;">Chiều</th>
-                    <th style="min-width:10%; max-width:20%; overflow: visible;">Tối</th>
-                    <th style="width:8%">Ghi chú</th>
-                </tr>
-                <tr>
-                    <!-- Hàng 2-->
-                    <td>1</td>
-                    <td>Chủ Nhật</td>
-                    <td>24/5/2023</td>
-                    <td></td>
-                    <td></td>
-                    <td>adasdđâsda dsadsad asdaddàasfa fafaas</td>
-                    <td>94</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-</div>
+<h1>XetThuTotNghiep</h1>
+
