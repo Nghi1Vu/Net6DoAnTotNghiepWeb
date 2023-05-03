@@ -1930,7 +1930,7 @@ thead tr:nth-child(2) th {
     font-size: 12px
 }
 
-.table-RenLuyen table thead th {
+.table-RenLuyen table th {
     background: none;
     padding: 8px 5px;
     color: #000;

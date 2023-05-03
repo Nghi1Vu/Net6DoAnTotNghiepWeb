@@ -117,7 +117,7 @@
                         <tr>
                             <!-- Hàng 2-->
                             <td>@(stt++)</td>
-                            <td>@Model[i].SemesterID</td>
+                            <td>Học kỳ @Model[i].SemesterID</td>
                             <td><a href="@Url.Action("BieuMauDanhGiaRenLuyen", "Home" , new {Id =Model[i].SemesterID})" class="news-Link">[Xét rèn luyện]</td>
                             <td>@Model[i].Score</td>
                             <td></td>
@@ -130,7 +130,7 @@
                         <tr>
                             <!-- Hàng 2-->
                             <td>@(stt++)</td>
-                            <td>@(i+1)</td>
+                            <td>Học kỳ @(i + 1)</td>
                             <td><a href="@Url.Action("BieuMauDanhGiaRenLuyen", "Home" , new {Id =(i+1)})" class="news-Link">[Xét rèn luyện]</td>
                             <td></td>
                             <td></td>
