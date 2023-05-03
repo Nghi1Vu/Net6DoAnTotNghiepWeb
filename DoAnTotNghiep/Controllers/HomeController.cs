@@ -173,6 +173,26 @@ namespace DoAnTotNghiep.Controllers
             return View();
         }
 
+        public IActionResult TinhHinhDangKyHP()
+        {
+            return View();
+        }
+
+        public IActionResult KhungChuongTrinh()
+        {
+            return View();
+        }
+
+        public IActionResult KhungChuongTrinhKy()
+        {
+            return View();
+        }
+
+        public IActionResult ChiTietChuongTrinh()
+        {
+            return View();
+        }
+
         public IActionResult DanhGiaRenLuyen()
         {
             var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");

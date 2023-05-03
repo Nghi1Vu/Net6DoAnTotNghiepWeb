@@ -1,0 +1,198 @@
+﻿
+@{
+    ViewData["Title"] = "KhungChuongTrinhKy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*chua them nav cac trang*@
+<div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <a href="#" class="nav_logo m-l--10">
+                <img src="~/images/logo.png" width="35px" height="35px" alt="">
+                <span class="nav_logo-name">Quản lý sinh viên</span>
+            </a>
+            <div class="nav_list">
+                <a href="@Url.Action("News", "Home")" class="nav_link">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav_name">Bảng tin</span>
+                </a>
+                <a href="@Url.Action("ChiaSeBieuMau", "Home")" class="nav_link">
+                    <i class='bx bx-message-square-detail nav_icon'></i>
+                    <span class="nav_name">Chia sẻ</span>
+                </a>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <a href="@Url.Action("KetQuaHocTap", "Home")" class="nav_link">
+                            <i class='bx bx-clipboard'></i>
+                            <span class="nav_name">Kết quả học tập</span>
+                        </a>
+                    </button>
+                    <div class="dropdown-contnet">
+                        <a href="#"><i class='bx bx-task'></i> Kết quả thi</a>
+                        <a href="#"><i class='bx bx-task'></i> TB chung tích lũy</a>
+                        <a href="#"><i class='bx bx-task'></i> TB chung học kỳ</a>
+                        <a href="#"><i class='bx bx-task'></i> Xét thử tốt nghiệp</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <a href="@Url.Action("ThoiKhoaBieu", "Home")" class="nav_link">
+                            <i class='bx bx-time-five'></i>
+                            <span class="nav_name">Thời khóa biểu</span>
+                        </a>
+                    </button>
+                    <div class="dropdown-contnet">
+                        <a href="#"><i class='bx bx-timer nav_icon_con'></i></i> Lịch giảng dạy</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <a href="@Url.Action("XemLichThi", "Home" )" class="nav_link">
+                            <i class='bx bx-calendar'></i>
+                            <span class="nav_name">Lịch thi</span>
+                        </a>
+                    </button>
+                    <div class="dropdown-contnet">
+                        <a href="#"><i class='bx bx-calendar-check'></i> Kế hoach thi theo lớp</a>
+                    </div>
+                </div>
+                <a href="@Url.Action("LopHoc", "Home" )" class="nav_link">
+                    <i class='bx bxs-school'></i>
+                    <span class="nav_name">Lớp học</span>
+                </a>
+                <a href="@Url.Action("CaNhan", "Home" )" class="nav_link">
+                    <i class='bx bx-user nav_icon'></i>
+                    <span class="nav_name">Cá nhân</span>
+                </a>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <a href="@Url.Action("DangKyHP", "Home" )" class="nav_link active">
+                            <i class='bx bx-bookmark nav_icon'></i>
+                            <span class="nav_name">Đăng ký học phần</span>
+                        </a>
+                    </button>
+                    <div class="dropdown-contnet">
+                        <a href="#"><i class='bx bxs-bookmark'></i> Tình hình ĐK học phần</a>
+                        <a href="#"><i class='bx bx-bookmarks'></i> ĐK học 2 chương trình</a>
+                        <a href="#"><i class='bx bx-bookmarks'></i> Danh sách đăng ký</a>
+                        <a href="#"><i class='bx bx-bookmarks'></i> Kiểm tra tiến độ CT2</a>
+                        <a href="#"><i class='bx bxs-book-bookmark'></i> Khung chương trình</a>
+                        <a href="#"><i class='bx bxs-book-bookmark'></i> Khung chương trình (Kỳ)</a>
+                    </div>
+                </div>
+                <a href="@Url.Action("DanhGiaRenLuyen", "Home" )" class="nav_link">
+                    <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                    <span class="nav_name">Đánh giá rèn luyện</span>
+                </a>
+            </div>
+        </div>
+        <a href="#" class="nav_link">
+            <i class='bx bx-log-out nav_icon'></i>
+            <span class="nav_name">Đăng xuất</span>
+        </a>
+    </nav>
+</div>
+
+<div class="border-page">
+    <div class="Khung-CTK">
+        <p class="title-page">Khung chương trình K15-2019 - ĐẠI HỌC - CHÍNH QUY - CÔNG NGHỆ THÔNG TIN</p>
+        <div class="title-line"></div>
+        <div class="table-CTKhung">
+            <table style="width:100% ;padding-left: 4px">
+                <thead>
+                    <tr>
+                        <th style="width:2%;">STT</th>
+                        <th style="width:5%;">Tên học kỳ</th>
+                        <th style="width:6%;">Tổng số tín chỉ</th>
+                        <th>Danh sách các học phần trong kỳ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Học kỳ 1</td>
+                        <td>9</td>
+                        <td>
+                            <div class="table-con">
+                                <table style="width:100%; margin-top: 5px;">
+                                    <thead>
+                                        <tr>
+                                            <!-- Hàng 1-->
+                                            <th style="width:3%" rowspan="2">STT</th>
+                                            <th style="width:7%" rowspan="2">Mã học phần</th>
+                                            <th rowspan="2">Tên học phần</th>
+                                            <th style="width:6%" colspan="4">Số tín chỉ</th>
+                                            <th colspan="3">Số tiết</th>
+                                            <th style="width:9%" rowspan="2">Số lớp đã tạo</th>
+                                            <th style="width:6%" rowspan="2">Ghi chú</th>
+                                            <th style="width:6%" rowspan="2">Chi tiết</th>
+                                        </tr>
+                                        <tr class="clo-2">
+                                            <td style="width:5%">Tổng</td>
+                                            <td style="width:7%">Lý thuyết</td>
+                                            <td style="width:8%">Thực hành</td>
+                                            <td style="width:5%">Khác</td>
+                                            <td style="width:7%">Lý thuyết</td>
+                                            <td style="width:8%">Thực hành</td>
+                                            <td style="width:5%">Khác</td>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td colspan="3"><strong>Học phần bắt buộc</strong></td>
+                                        <td><strong>9</strong></td>
+                                        <td colspan="3"></td>
+                                        <td colspan="3"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>0070131</td>
+                                        <td>Kỹ năng giao tiếp, thuyết trình & làm việc nhóm</td>
+                                        <td>3.0</td>
+                                        <td>9.4</td>
+                                        <td>9.4</td>
+                                        <td>9.4</td>
+                                        <td>9.4</td>
+                                        <td>9.4</td>
+                                        <td>9.4</td>
+                                        <td>9.4</td>
+                                        <td>9.8</td>
+                                        <td><a href="@Url.Action("ChiTietChuongTrinh", "Home" )">[Chi tiết]</a></td>
+                                    </tr>   
+                                    <tr>
+                                        <td colspan="3"><strong>Học phần Tự chọn</strong></td>
+                                        <td><strong>9</strong></td>
+                                        <td colspan="3"></td>
+                                        <td colspan="3"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>0070131</td>
+                                        <td>Kỹ năng giao tiếp, thuyết trình & làm việc nhóm</td>
+                                        <td>3.0</td>
+                                        <td>9.4</td>
+                                        <td>9.4</td>
+                                        <td>9.4</td>
+                                        <td>9.4</td>
+                                        <td>9.4</td>
+                                        <td>9.4</td>
+                                        <td>9.4</td>
+                                        <td>9.8</td>
+                                        <td><a href="#">[Chi tiết]</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

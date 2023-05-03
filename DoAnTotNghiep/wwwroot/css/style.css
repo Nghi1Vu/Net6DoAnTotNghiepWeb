@@ -54,17 +54,16 @@ a {
     transition: .5s
 }
 /*----------tab infor sinh vvieen-------------*/
-.name-sv{
+.name-sv {
     margin-bottom: 15px;
 }
- /*----------animation hover-------------*/
+    /*----------animation hover-------------*/
     .name-sv svg {
         transition: transform .3s ease-in-out;
     }
 
         .name-sv svg:hover {
             transform: translate(25%, 10%) rotate(90deg);
-
         }
 /*----------animation checkbox svg và hủy animation hover-------------*/
 input[type = "checkbox"] {
@@ -116,6 +115,7 @@ input[type]:checked ~ span.top {
     position: fixed;
     transform: translate( 0%, 0%);
 }
+
 @-webkit-keyframes fadeEffect {
     0% {
         opacity: 0;
@@ -148,23 +148,28 @@ input[type]:checked ~ span.top {
     border: 1px solid white;
     transition: all .3s;
 }
+
     .butn-close:hover {
         background: #e8e8e8;
         border: 1px solid #e8e8e8;
     }
+
     .butn-close:active {
         color: #666;
         box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
     }
+
 .topright {
     float: right;
     cursor: pointer;
     font-size: 24px;
 }
+
 .tabInfor h4 {
     margin: 15px 0px;
     color: #ff0000
 }
+
 .tabInfor hr {
     margin: 25px 20px 30px 0px;
 }
@@ -185,31 +190,32 @@ input[type]:checked ~ span.top {
     align-items: center;
 }
 
-.tabInfor button p {
-    margin: 0;
-    position: relative;
-    font-size: 16px;
-    color: var(--main-color)
-}
+    .tabInfor button p {
+        margin: 0;
+        position: relative;
+        font-size: 16px;
+        color: var(--main-color)
+    }
 
-.tabInfor button::after {
-    position: absolute;
-    content: "";
-    width: 0;
-    left: 0;
-    bottom: -7px;
-    background: var(--main-color);
-    height: 2px;
-    transition: 0.5s ease-out;
-}
+    .tabInfor button::after {
+        position: absolute;
+        content: "";
+        width: 0;
+        left: 0;
+        bottom: -7px;
+        background: var(--main-color);
+        height: 2px;
+        transition: 0.5s ease-out;
+    }
 
-.tabInfor button:hover::after {
-    width: 100%;
-}
+    .tabInfor button:hover::after {
+        width: 100%;
+    }
 
 .tabInfor svg {
     animation: heartButton 3s infinite;
 }
+
 @keyframes heartButton {
     0% {
         transform: scale(1);
@@ -250,7 +256,7 @@ input[type]:checked ~ span.top {
     animation-duration: 4s;
     z-index: 1000;
     overflow: hidden;
-    position:absolute;
+    position: absolute;
 }
 
 @keyframes example {
@@ -338,22 +344,21 @@ input[type]:checked ~ span.top {
     background: rgba(255,255,255,.05);
     box-shadow: 0 0 10px rgba(0,0,0,0.25);
     backdrop-filter: blur(10px);
-    border-radius: 8px; 
+    border-radius: 8px;
 }
 
-    .Page-CaNhan .card-inner .content{
-        font-size:15px;
-
+    .Page-CaNhan .card-inner .content {
+        font-size: 15px;
     }
 
-    .Page-CaNhan .circle {
-        width: 100px;
-        height: 100px;
-        background: radial-gradient(#36b2fa, #e0f0fe);
-        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-        position: absolute;
-        animation: move-up6 2s ease-in infinite alternate-reverse;
-    }
+.Page-CaNhan .circle {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(#36b2fa, #e0f0fe);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    animation: move-up6 2s ease-in infinite alternate-reverse;
+}
 
     .Page-CaNhan .circle:nth-child(1) {
         top: -25px;
@@ -376,7 +381,7 @@ input[type]:checked ~ span.top {
 @keyframes move-down1 {
     to {
         transform: translateY(10px);
-        transform: rotate(-200deg); 
+        transform: rotate(-200deg);
     }
 }
 /*---------- social-media ---------*/
@@ -407,15 +412,19 @@ input[type]:checked ~ span.top {
         width: 1.1rem;
         fill: currentColor;
     }
+
 .Page-CaNhan .social-media .FB:hover {
     fill: #0674e7;
 }
+
 .Page-CaNhan .social-media .InSta:hover {
     fill: #ff0168;
 }
+
 .Page-CaNhan .social-media .LiKiN:hover {
     fill: #0a66c2;
 }
+
 .Page-CaNhan .social-media .Git:hover {
     fill: #1a1d21;
 }
@@ -478,7 +487,7 @@ input[type]:checked ~ span.top {
         line-height: 0;
         user-select: none;
         color: #555;
-        background-color: #eeeeee;
+        background-color: #dddddd;
         border-radius: 0 3px 3px 0;
         font-family: arial, sans-serif;
         font-size: 1rem;
@@ -490,9 +499,9 @@ input[type]:checked ~ span.top {
     }
 }
 
-.user-Image{
-    height:100px;
-    width:100px;
+.user-Image {
+    height: 100px;
+    width: 100px;
     border-radius: 50%;
     object-fit: cover;
     background: #dfdfdf;
@@ -538,84 +547,85 @@ input[type]:checked ~ span.top {
 
 /*------------------ End Body Page cá nhân --------------------*/
 /*------------------ Body Page cá nhân --------------------*/
-.infor-family{
+.infor-family {
     padding: 0 10px;
 }
-.ư.infor-family button {
-    padding: 5px 15px;
-    font-size: 12px;
-    text-align: center;
-    cursor: pointer;
-    color: #000;
-    background-color: #DDDDDD;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px #999;
-}
 
-    .infor-family button:hover {
-        background-color: #CCCCCC
-    }
-
-    .infor-family button:active {
-        background-color: #CCCCCC;
-        box-shadow: 0 2px #666;
-        transform: translateY(2px);
-    }
-        
-.infor-family .buttonYC {
-    padding: 10px 25px;
-    background-color: #f6ffff;
-    border: none;
-    outline: none;
-    border-radius: 30px;
-    font-size: 14px;
-    z-index: 1;
-    position: relative;
-    -webkit-box-shadow: 0 5px 15px rgba(33, 33, 33, .2);
-    box-shadow: 0 5px 15px rgba(33, 33, 33, .2);
-    overflow: hidden;
-    cursor: pointer;
-}
-
-    .infor-family .buttonYC > span {
-        z-index: 2;
-    }
-
-    .infor-family .buttonYC::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 30px;
-        background-color: #d9e7f8;
-        z-index: -1;
-        overflow: hidden;
-        -webkit-transform: scaleX(0);
-        -ms-transform: scaleX(0);
-        transform: scaleX(0);
-        -webkit-transform-origin: right;
-        -ms-transform-origin: right;
-        transform-origin: right;
-        -webkit-transition: -webkit-transform 0.2s ease-in;
-        transition: -webkit-transform 0.2s ease-in;
-        transition: transform 0.2s ease-in;
-    }
-
-    .infor-family .buttonYC:hover {
+    .infor-family button {
+        padding: 5px 15px;
+        font-size: 12px;
+        text-align: center;
+        cursor: pointer;
         color: #000;
+        background-color: #DDDDDD;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px #999;
     }
 
-        .infor-family .buttonYC:hover::before {
-            -webkit-transform: scaleX(1);
-            -ms-transform: scaleX(1);
-            transform: scaleX(1);
-            -webkit-transform-origin: left;
-            -ms-transform-origin: left;
-            transform-origin: left;
+        .infor-family button:hover {
+            background-color: #CCCCCC
         }
+
+        .infor-family button:active {
+            background-color: #CCCCCC;
+            box-shadow: 0 2px #666;
+            transform: translateY(2px);
+        }
+
+    .infor-family .buttonYC {
+        padding: 10px 25px;
+        background-color: #fffff;
+        border: none;
+        outline: none;
+        border-radius: 30px;
+        font-size: 14px;
+        z-index: 1;
+        position: relative;
+        -webkit-box-shadow: 0 5px 15px rgba(33, 33, 33, .2);
+        box-shadow: 0 5px 15px rgba(33, 33, 33, .2);
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+        .infor-family .buttonYC > span {
+            z-index: 2;
+        }
+
+        .infor-family .buttonYC::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            background-color: #d9e7f8;
+            z-index: -1;
+            overflow: hidden;
+            -webkit-transform: scaleX(0);
+            -ms-transform: scaleX(0);
+            transform: scaleX(0);
+            -webkit-transform-origin: right;
+            -ms-transform-origin: right;
+            transform-origin: right;
+            -webkit-transition: -webkit-transform 0.2s ease-in;
+            transition: -webkit-transform 0.2s ease-in;
+            transition: transform 0.2s ease-in;
+        }
+
+        .infor-family .buttonYC:hover {
+            color: #000;
+        }
+
+            .infor-family .buttonYC:hover::before {
+                -webkit-transform: scaleX(1);
+                -ms-transform: scaleX(1);
+                transform: scaleX(1);
+                -webkit-transform-origin: left;
+                -ms-transform-origin: left;
+                transform-origin: left;
+            }
 
 /*------------------ End Body Page cá nhân --------------------*/
 /*------------------  Body Page đổi mật khẩu --------------------*/
@@ -624,6 +634,7 @@ input[type]:checked ~ span.top {
     width: 100%;
     height: 70vh;
 }
+
 .login-content {
     max-width: 540px;
     margin: 8vh auto;
@@ -636,7 +647,7 @@ input[type]:checked ~ span.top {
     border: 1px solid #eee;
     box-shadow: 0 0 20px -10px #333;
 }
-    
+
     .login-form h4 {
         color: #878787;
         text-align: center;
@@ -662,7 +673,7 @@ input[type]:checked ~ span.top {
 .cl-txt-notic-1 {
     color: #FF0000;
     font-size: 20px;
-    font-weight:600;
+    font-weight: 600;
     margin-left: 4px;
 }
 
@@ -695,6 +706,7 @@ input[type]:checked ~ span.top {
     .gradi-btn-clr:hover {
         background-position: right center;
     }
+
     .gradi-btn-clr:active {
         background-position: left center;
     }
@@ -705,6 +717,7 @@ input[type]:checked ~ span.top {
     font-size: 18px;
     letter-spacing: 1px;
 }
+
 .nav-line {
     border: 1px solid #C0C0C0;
     border-radius: 2px;
@@ -787,7 +800,18 @@ input[type]:checked ~ span.top {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden
+    overflow: scroll;
+}
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .nav::-webkit-scrollbar {
+        display: none;
+    }
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.nav {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
 .nav_logo,
@@ -821,6 +845,42 @@ input[type]:checked ~ span.top {
 
 .nav_icon {
     font-size: 1.25rem
+}
+
+.nav_icon_con {
+    font-size: 1.1rem !important
+}
+
+.dropdown {
+    position: relative;
+    transition: .3s
+}
+
+.dropdown-contnet {
+    display: none;
+    margin-top: -1rem;
+}
+
+    .dropdown-contnet a {
+        font-size: 0.9rem;
+        display: block;
+        position: relative;
+        color: var(--first-color-light);
+        margin-bottom: 1rem;
+        margin-left: 2.3rem;
+        transition: .3s;
+    }
+
+        .dropdown-contnet a:hover {
+            color: var(--white-color);
+        }
+
+.dropdown:hover .dropdown-contnet {
+    display: block;
+}
+
+.dropdown:active .dropdown-contnet {
+    display: block;
 }
 
 .show {
@@ -886,9 +946,8 @@ input[type]:checked ~ span.top {
     height: auto;
     margin-top: 15px;
     padding-bottom: 5px;
-    border: 1px solid var(--line-color);
+    border: 2px solid var(--line-color);
     border-radius: 5px;
-
 }
 
 .title-page {
@@ -962,13 +1021,14 @@ input[type]:checked ~ span.top {
 }
 
 /*--------------- body Detail bảng tin------------------*/
-.Detail-News h5{
-   padding-top:20px;
-   font-family:Calibri;
-   font-weight:600;
-   display:grid;
-   place-items:center;
+.Detail-News h5 {
+    padding-top: 20px;
+    font-family: Calibri;
+    font-weight: 600;
+    display: grid;
+    place-items: center;
 }
+
 .Detail-News .Date {
     padding-top: 10px;
     font-family: Calibri;
@@ -1041,6 +1101,11 @@ td {
     padding: 5px 0px;
 }
 /*----------body Chia sẻ biểu mẫu, quy định, hướng dẫn chung -------------*/
+.card-header {
+    background-color: #e4e4e4;
+    border-bottom: 2px solid #ccc;
+}
+
 .body-share {
     margin: 15px 8px 5px 8px;
     padding: 1px;
@@ -1050,21 +1115,21 @@ td {
     border: none;
 }
 
-.card-body .table th {
-    border-top: 1px solid#CCCCCC !important;
-    border-bottom: 1px solid#CCCCCC !important;
+.border-page .card-body .table th {
+    border-top: 1px solid #cccccc !important;
+    border-bottom: 1px solid #cccccc !important;
 }
 
-.card-body .table th {
+.border-page .card-body .table th {
     text-align: left;
     border-right: 1px solid #fff !important;
     border-left: 1px solid #fff !important;
 }
 
 
-.card-body .table td {
-    border-right: 1px solid #fff !important;
-    border-left: 1px solid #fff !important;
+.border-page .card-body .table td {
+    border-top: 1px solid #cccccc !important;
+    border-bottom: 1px solid #cccccc !important;
 }
 
 /*--------------body thời khóa biểu---------------*/
@@ -1132,7 +1197,7 @@ td {
     top: 0;
     left: calc(50% - 120px) !important;
 }
-/*1484*/
+    /*1484*/
     .datepicker-dropdown.datepicker-orient-left:before {
         left: calc(50% - 6px) !important
     }
@@ -1151,10 +1216,12 @@ td {
         background-image: linear-gradient(#e0f0fe, #e0f0fe) !important;
         border-radius: 0 !important
     }
+
 .panelTKB thead:first-child {
     border: none !important;
     /* có thể thay đổi màu sắc thứ ở đây*/
 }
+
 thead tr:nth-child(3) th {
     font-weight: bold !important;
     padding-top: 10px;
@@ -1216,7 +1283,7 @@ thead tr:nth-child(2) th {
 .range-end {
     border-radius: 50% !important;
     background-image: linear-gradient(#0c98eb, #0c98eb) !important; /* màu chọn ngày */
-    background-color: #b9e2fe; 
+    background-color: #b9e2fe;
 }
 
 .range {
@@ -1267,7 +1334,7 @@ thead tr:nth-child(2) th {
 .txt-panel-r button {
     padding: 10px 20px;
     color: #6c757d; /* màu khi input*/
-    font-weight:600;
+    font-weight: 600;
     font-size: 13px !important;
     background-color: white !important;
     border: 1px solid lightgrey;
@@ -1280,6 +1347,7 @@ thead tr:nth-child(2) th {
     justify-content: center;
     overflow: hidden;
 }
+
     .txt-panel-r button::before {
         border-radius: 50%;
         background-color: #5eabdf;
@@ -1293,11 +1361,13 @@ thead tr:nth-child(2) th {
         border-color: #5eabdf;
         color: #5eabdf;
     }
+
     .txt-panel-r button:focus {
         color: #5eabdf;
         border-color: #5eabdf;
         box-shadow: 0 0 0 3px #5eabdf;
     }
+
         .txt-panel-r button:focus::before {
             transition: all 0.5s ease-out;
             opacity: 0;
@@ -1313,6 +1383,7 @@ thead tr:nth-child(2) th {
     padding-top: 3px;
     padding-bottom: 22px;
 }
+
 .table-tkb td {
     font-size: 12px;
     border: 1px solid #C0C0C0;
@@ -1343,6 +1414,7 @@ thead tr:nth-child(2) th {
     font-weight: 500;
     padding: 10px 0px;
 }
+
 .table-lichthi td {
     font-size: 12px;
     border: 1px solid #C0C0C0;
@@ -1362,16 +1434,15 @@ thead tr:nth-child(2) th {
     color: white;
 }
 
-.Lop-Hoc .table{
-    position:relative;
+.Lop-Hoc .table {
+    position: relative;
 }
 
-.Lop-Hoc .table thead tr {
-    position: sticky;
-    top: 55px;
-    background-color:#fff;
-
-}
+    .Lop-Hoc .table thead tr {
+        position: sticky;
+        top: 55px;
+        background-color: #fff;
+    }
 /*--------------body cập nhật thông tin sinh viên---------------*/
 .update-infor {
     padding: 0px 5px;
@@ -1394,7 +1465,7 @@ thead tr:nth-child(2) th {
 }
 
     .table-upInfor td, th {
-        border: 1px solid #99bbe8 !important;
+        border: 1px solid #99bbe8;
     }
 
     .table-upInfor tr:nth-child(2) {
@@ -1477,12 +1548,14 @@ thead tr:nth-child(2) th {
     width: 1em;
     margin: 8px 5px;
 }
+
 #textareaFamily {
     padding: 5px 10px;
     border-top: 1px solid #000;
     border: 1px solid #BBBBBB;
     color: #BBBBBB;
 }
+
 .table-inout td {
     border: 1px solid #99bbe8;
 }
@@ -1732,8 +1805,74 @@ thead tr:nth-child(2) th {
     background-color: #EEEEEE;
 }
 
-/*--------------body Đánh giá rèn luyện---------------*/
+/*--------------Tình hình đăng ký học phần---------------*/
 
+.TH-DK-HP .card-header {
+    background-color: #e4e4e4 !important;
+}
+
+.TH-DK-HP .table {
+    position: relative;
+}
+
+    .TH-DK-HP .table thead tr {
+        position: sticky;
+        top: 55px;
+        background-color: #fff;
+    }
+
+    .TH-DK-HP .table tbody tr td:nth-child(4) {
+        color: red;
+        font-weight: 600;
+    }
+
+/*--------------Xem khung chương trình---------------*/
+.Khung-CT {
+    padding: 10px
+}
+
+.table-CTKhung table { /* sài chung vs khung chương trình kỳ*/
+    margin-top: 10px
+}
+
+    .table-CTKhung table tr th {
+        padding: 5px 10px;
+        border: 1px solid #99bbe8;
+        background-color: #d9e7f8;
+        text-align: left;
+        color: #15428B;
+    }
+
+    .table-CTKhung table tr td {
+        border: 1px solid #99bbe8;
+        padding: 5px 7px;
+        text-align: left;
+    }
+
+        .table-CTKhung table tr td p {
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+.table-con th {
+    text-align: center !important;
+}
+
+.table-con thead tr td {
+    background-color: #d9e7f8 !important;
+    color: #15428B !important;
+    font-weight: 600;
+}
+/*--------------Xem khung chương trình---------------*/
+.Khung-CTK {
+    padding: 10px
+}
+
+    .Khung-CTK .table-CTKhung table thead tr th {
+        text-align: center;
+    }
+
+/*--------------body Đánh giá rèn luyện---------------*/
 .table-Danhgia th {
     background: #d9e7f8;
     padding: 8px 0px;
@@ -1750,6 +1889,7 @@ thead tr:nth-child(2) th {
     border: 1px solid #C0C0C0;
     border-collapse: collapse;
 }
+
     .table-Danhgia td:last-child {
         padding: 5px 8px;
         font-size: 13px;
@@ -1768,9 +1908,10 @@ thead tr:nth-child(2) th {
 
 .warn-txt {
     padding: 8px 15px;
-    font-size:12px;
-    color:red;
+    font-size: 12px;
+    color: red;
 }
+
 .border-BieuMauRL {
     height: auto;
     margin: 10px 10px 5px 10px;
@@ -1778,6 +1919,7 @@ thead tr:nth-child(2) th {
     padding-bottom: 8px;
     border: 1.5px solid #000;
 }
+
 .head-table {
     background: #FFFFFF;
     width: 205px;
@@ -1788,21 +1930,16 @@ thead tr:nth-child(2) th {
     font-size: 12px
 }
 
-.table-RenLuyen th {
+.table-RenLuyen table thead th {
     background: none;
-    padding: 8px 0px;
+    padding: 8px 5px;
     color: #000;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 800;
     border: 1px solid #C0C0C0 !important;
-    text-align: center;
+    text-align: left;
 }
 
-    .table-RenLuyen th:last-child {
-        padding-left: 10px;
-        text-align: left;
-        border: 1px solid #C0C0C0;
-    }
 
 .table-RenLuyen td {
     padding: 5px 8px;
@@ -1814,6 +1951,7 @@ thead tr:nth-child(2) th {
 .table-RenLuyen input {
     cursor: pointer;
 }
+
 .table-RenLuyen {
     padding: 0px 5px;
 }
