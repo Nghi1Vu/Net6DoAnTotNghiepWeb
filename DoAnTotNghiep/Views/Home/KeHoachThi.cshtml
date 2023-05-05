@@ -3,7 +3,6 @@
     ViewData["Title"] = "KeHoachThi";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
@@ -29,8 +28,8 @@
                     </button>
                     <div class="dropdown-contnet">
                         <a href="@Url.Action("KetQuaThi", "Home")"><i class='bx bx-task'></i> Kết quả thi</a>
-                        <a href="@Url.Action("TBChungTichLuy", "Home")"><i class='bx bx-task'></i> TB chung tích lũy</a>
-                        <a href="@Url.Action("TBChungHocKy", "Home")"><i class='bx bx-task'></i> TB chung học kỳ</a>
+                        <a href="@Url.Action("TBChungHocKy", "Home")"><i class='bx bx-task'></i> TB chung tích lũy</a>
+                        <a href="@Url.Action("TBChungTichLuy", "Home")"><i class='bx bx-task'></i> TB chung học kỳ</a>
                         <a href="@Url.Action("XetThuTotNghiep", "Home")"><i class='bx bx-task'></i> Xét thử tốt nghiệp</a>
                     </div>
                 </div>
@@ -47,7 +46,7 @@
                 </div>
                 <div class="dropdown">
                     <button class="dropbtn">
-                        <a href="@Url.Action("XemLichThi", "Home" )" class="nav_link active">
+                        <a href="@Url.Action("XemLichThi", "Home" )" class="nav_link  active">
                             <i class='bx bx-calendar'></i>
                             <span class="nav_name">Lịch thi</span>
                         </a>
@@ -84,82 +83,12 @@
                     <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
                     <span class="nav_name">Đánh giá rèn luyện</span>
                 </a>
-                @*                <a href="#" class="nav_link">
-                <i class='bx bx-log-out nav_icon'></i>
-                <span class="nav_name">Đăng xuất</span>
-                </a>*@
             </div>
         </div>
+        <a href="#" class="nav_link">
+            <i class='bx bx-log-out nav_icon'></i>
+            <span class="nav_name">Đăng xuất</span>
+        </a>
     </nav>
 </div>
-<!--Container Main start-->
-<div class="border-page">
-    <div class="Bang-tin">
-        <p class="title-page">Tra cứu thông tin kế hoạch thi theo lớp</p>
-        <div class="title-line"></div>
-        <div class="TBChungTL">
-            <div class="txt-notic">
-                <p><strong class="txt-clr-red">Chú ý: </strong>Cập nhật kế hoạch lịch thi thường xuyên vì kế hoạch thi có thể bị thay đổi</p>
-            </div>
-            <div class="table-TBChungTL m-t-30">
-                <table style="width:100% ;padding-left: 4px">
-                    <tr>
-                        <td colspan="16">
-                            <strong class="fs-11">Kế hoạch thi thi theo lớp</strong>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th style="width:2%;">STT</th>
-                        <th style="width:9%;">Mã lớp độc lập</th>
-                        <th style="width:20%;">Tên học phần</th>
-                        <th style="width:7%;">Ngày thi</th>
-                        <th>Ca thi</th>
-                        <th>Lần thi</th>
-                        <th style="width:7%;">Lớp ưu tiên</th>
-                        <th style="width:17%;">Khoa</th>
-                        <th style="width:8%;">Ngày công bố</th>
-                        <th style="width:9%;">Ngày cập nhật</th>
-                        <th style="width:7%;">Ghi chú</th>
-                    </tr>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>Kỹ năng giao tiếp, thuyết trình & làm việc nhóm</td>
-                            <td>18/11/2019</td>
-                            <td>Ca 4: 15h15</td>
-                            <td>Học kỳ 1</td>
-                            <td>0070131.22</td>
-                            <td>Phòng Quan hệ doanh nghiệp & phát triển kỹ năng</td>
-                            <td></td>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
 
-            <div class="table-TBChungTL m-t-5">
-                <table style="width:100% ;padding-left: 4px">
-                    <tr>
-                        <td colspan="16">
-                            <strong class="fs-11">Danh sách môn học và mã lớp độc lập</strong>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th style="width:2%;">STT</th>
-                        <th style="width:30%;">Mã lớp độc lập</th>
-                        <th>Môn học</th>
-                    </tr>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>

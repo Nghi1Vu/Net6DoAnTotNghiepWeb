@@ -3,7 +3,6 @@
     ViewData["Title"] = "DoiMatKhau";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
@@ -29,8 +28,8 @@
                     </button>
                     <div class="dropdown-contnet">
                         <a href="@Url.Action("KetQuaThi", "Home")"><i class='bx bx-task'></i> Kết quả thi</a>
-                        <a href="@Url.Action("TBChungTichLuy", "Home")"><i class='bx bx-task'></i> TB chung tích lũy</a>
-                        <a href="@Url.Action("TBChungHocKy", "Home")"><i class='bx bx-task'></i> TB chung học kỳ</a>
+                        <a href="@Url.Action("TBChungHocKy", "Home")"><i class='bx bx-task'></i> TB chung tích lũy</a>
+                        <a href="@Url.Action("TBChungTichLuy", "Home")"><i class='bx bx-task'></i> TB chung học kỳ</a>
                         <a href="@Url.Action("XetThuTotNghiep", "Home")"><i class='bx bx-task'></i> Xét thử tốt nghiệp</a>
                     </div>
                 </div>
@@ -60,7 +59,7 @@
                     <i class='bx bxs-school'></i>
                     <span class="nav_name">Lớp học</span>
                 </a>
-                <a href="@Url.Action("CaNhan", "Home" )" class="nav_link  active">
+                <a href="@Url.Action("CaNhan", "Home" )" class="nav_link active">
                     <i class='bx bx-user nav_icon'></i>
                     <span class="nav_name">Cá nhân</span>
                 </a>
@@ -84,12 +83,12 @@
                     <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
                     <span class="nav_name">Đánh giá rèn luyện</span>
                 </a>
-                @*                <a href="#" class="nav_link">
-                <i class='bx bx-log-out nav_icon'></i>
-                <span class="nav_name">Đăng xuất</span>
-                </a>*@
             </div>
         </div>
+        <a href="#" class="nav_link">
+            <i class='bx bx-log-out nav_icon'></i>
+            <span class="nav_name">Đăng xuất</span>
+        </a>
     </nav>
 </div>
 <!--Container Main start-->

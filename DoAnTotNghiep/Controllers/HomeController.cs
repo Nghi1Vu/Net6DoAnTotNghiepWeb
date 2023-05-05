@@ -159,32 +159,12 @@ namespace DoAnTotNghiep.Controllers
             return View();
         }
 
-        public IActionResult XemLichGiangDay()
-        {
-            return View();
-        }
-
         public IActionResult XemLichThi()
         {
             return View();
         }
 
         public IActionResult KeHoachThi()
-        {
-            return View();
-        }
-
-        public IActionResult Taikhoan()
-        {
-            return View();
-        }
-
-        public IActionResult ThanhToanCongNo()
-        {
-            return View();
-        }
-
-        public IActionResult DichVuMotCua()
         {
             return View();
         }

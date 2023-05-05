@@ -3,7 +3,6 @@
     ViewData["Title"] = "XetThuTotNghiep";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
@@ -29,8 +28,8 @@
                     </button>
                     <div class="dropdown-contnet dis-block">
                         <a href="@Url.Action("KetQuaThi", "Home")"><i class='bx bx-task'></i> Kết quả thi</a>
-                        <a href="@Url.Action("TBChungTichLuy", "Home")"><i class='bx bx-task'></i> TB chung tích lũy</a>
-                        <a href="@Url.Action("TBChungHocKy", "Home")"><i class='bx bx-task'></i> TB chung học kỳ</a>
+                        <a href="@Url.Action("TBChungHocKy", "Home")"><i class='bx bx-task'></i> TB chung tích lũy</a>
+                        <a href="@Url.Action("TBChungTichLuy", "Home")"><i class='bx bx-task'></i> TB chung học kỳ</a>
                         <a href="@Url.Action("XetThuTotNghiep", "Home")"><i class='bx bx-task'></i> Xét thử tốt nghiệp</a>
                     </div>
                 </div>
@@ -84,95 +83,13 @@
                     <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
                     <span class="nav_name">Đánh giá rèn luyện</span>
                 </a>
-                @*                <a href="#" class="nav_link">
-                <i class='bx bx-log-out nav_icon'></i>
-                <span class="nav_name">Đăng xuất</span>
-                </a>*@
             </div>
         </div>
+        <a href="#" class="nav_link">
+            <i class='bx bx-log-out nav_icon'></i>
+            <span class="nav_name">Đăng xuất</span>
+        </a>
     </nav>
 </div>
-<!--Container Main start-->
-<div class="border-page">
-    <div class="Bang-tin">
-        <p class="title-page">Xét thử tốt nghiệp</p>
-        <div class="title-line"></div>
-        <div class="TBChungTL">
-            <div class="txt-notic">
-                <strong class="txt-clr-red">Chú ý!:</strong>
-                <p>[1]. Điều kiện nộp đơn xét tốt nghiệp: Không còn công nợ, đủ chứng chỉ chuẩn đầu ra, TBCTL >= 2, không có tín chỉ F đối với môn bắt buộc, đủ số tín chỉ tối thiểu nhóm tự chọn</p>
-                <p>[2]. Khi hệ thống hiển thị dấu tích chọn và thông tin đợt xét được hiển thị bạn mới có thể gửi đơn xét tốt nghiệp</p>
-                <p>[3]. Số dư tài khoản của bạn phải lớn hơn hoặc bằng lệ phí nộp đơn xét tốt nghiệp</p>
-                <p>[4]. Lệ phí xét tốt nghiệp là <strong>1.500.000 (vnđ)</strong> - Số dư tài khoản của bạn <strong>37.000 (vnđ)</strong></p>
-            </div>
-            <div class="table-TBChungTL">
-                <table style="width:100% ;padding-left: 4px">
-                    <form>
-                    <tr>
-                        <td colspan="12">Thông tin đề xuất xin xét tốt nghiệp đợt: <span class="txt-clr-red">2023 - Đợt 1 - T6 - 2023 - Đợt 1 - T6 (Thời gian: 4/1/2023 11:31:00 AM - 5/5/2023 11:31:00 AM)</span></td>
-                    </tr>
-                    <tr>
-                        <th style="width:2%;">
-                            <div class="checkbox">
-                                 <input type="checkbox">
-                            </div>
-                        </th>
-                        <th style="width:3%;">STT</th>
-                        <th style="width:10%;">Mã sinh viên</th>
-                        <th style="width:10%;">Họ và tên</th>
-                        <th style="width:5%;">lớp</th>
-                        <th style="width:5%;">TBCTL</th>
-                        <th style="width:6%;">Số TCTL</th>
-                        <th style="width:10%;">Số TC F</th>
-                        <th>Chứng chỉ chuẩn đầu ra</th>
-                        <th style="width:7%;">Công nợ</th>
-                        <th style="width:8%;">Tình trạng</th>
-                        <th style="width:7%;">Ghi chú</th>
-                    </tr>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>9</td>
-                            <td></td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                            <td></td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                        </tr>
-                    </tbody>
-                    </form>
-                </table>
-                <button type="submit" class="button m-t-12 m-l-16">Nộp đơn xin xét tốt nghiệp</button>
-            </div>
-            <div class="table-TBChungTL">
-                <table style="width:100% ;padding-left: 4px">
-                    <form>
-                    <tr>
-                        <td colspan="12"><strong>Danh sách những chứng chỉ chuẩn đầu ra trong khóa học cần có</strong></td>
-                    </tr>
-                    <tr>
-                        <td style="width:10%;"><strong>STT</strong></td>
-                        <td style="width:40%;"><strong>Tên chứng chỉ</strong></td>
-                        <td style="width:30%;"><strong>Mã chứng chỉ</strong></td>
-                        <td style="width:20%;"><strong>Tình trạng</strong></td>
-                    </tr>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>9</td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                    </form>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
+<h1>XetThuTotNghiep</h1>
 
