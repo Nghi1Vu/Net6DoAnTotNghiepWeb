@@ -200,7 +200,14 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult DangKyHP()
         {
-            return View();
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetProgramSemester").Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<List<ProgramSemester>>(todo);
+            ViewBag.StudentInfo = user;
+            sharedClient.Dispose();
+            return View(result);
         }
 
         public IActionResult TinhHinhDangKyHP()
@@ -210,17 +217,38 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult KhungChuongTrinh()
         {
-            return View();
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetProgramSemester").Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<List<ProgramSemester>>(todo);
+            ViewBag.StudentInfo = user;
+            sharedClient.Dispose();
+            return View(result);
         }
 
         public IActionResult KhungChuongTrinhKy()
         {
-            return View();
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetProgramSemester").Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<List<ProgramSemester>>(todo);
+            ViewBag.StudentInfo = user;
+            sharedClient.Dispose();
+            return View(result);
         }
 
-        public IActionResult ChiTietChuongTrinh()
+        public IActionResult ChiTietChuongTrinh(int ModulesID)
         {
-            return View();
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetModuleDetail?ModulesID="+ModulesID).Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<List<ModuleDetail>>(todo);
+            ViewBag.StudentInfo = user;
+            sharedClient.Dispose();
+            return View(result);
         }
 
         public IActionResult DanhGiaRenLuyen()

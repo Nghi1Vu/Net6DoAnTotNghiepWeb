@@ -1,4 +1,5 @@
-﻿
+﻿@using DoAnTotNghiep.Models;
+@model List<ProgramSemester>;
 @{
     ViewData["Title"] = "KhungChuongTrinh";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -95,25 +96,25 @@
 
 <div class="border-page">
     <div class="Khung-CT">
-        <p class="title-page">Chi tiết ngành Công nghệ thông tin ( 7480201 ) - K15-2019 - ĐẠI HỌC - CHÍNH QUY ( 2019_DHCQ.K15 )</p>
+        <p class="title-page">Chi tiết ngành @ViewBag.StudentInfo.IndustryName ( @ViewBag.StudentInfo.IndustryCode ) - @ViewBag.StudentInfo.CourseName ( @ViewBag.StudentInfo.CourseCode )</p>
         <div class="title-line"></div>
         <div class="table-CTKhung">
             <table style="width:100% ;padding-left: 4px">
                 <tr>
                     <th style="width:15%;">Tên khoa</th>
-                    <td>Khoa Công nghệ +</td>
+                    <td>@ViewBag.StudentInfo.DepartmentName</td>
                 </tr>
                 <tr>
                     <th>Hệ đào tạo</th>
-                    <td>Đại học +</td>
+                    <td>@ViewBag.StudentInfo.TranningLevelName</td>
                 </tr>
                 <tr>
                     <th>Tên ngành</th>
-                    <td>Công nghệ thông tin +</td>
+                    <td>@ViewBag.StudentInfo.IndustryName</td>
                 </tr>
                 <tr>
                     <th>Mã ngành</th>
-                    <td>CT751 +</td>
+                    <td>@("CT"+ViewBag.StudentInfo.IndustryID)</td>
                 </tr>
                 <tr>
                     <th>Mục tiêu đào tạo</th>
@@ -128,11 +129,11 @@
                 </tr>
                 <tr>
                     <th>Thời gian giảng dạy</th>
-                    <td>(năm) +</td>
+                    <td>(năm)</td>
                 </tr>
                 <tr>
                     <th>Khối lượng kiến thức toàn khóa</th>
-                    <td>127.0 (tín chỉ) +</td>
+                    <td>@ViewBag.StudentInfo.Credits (tín chỉ) +</td>
                 </tr>
                 <tr>
                     <th>Đối tượng tuyển sinh</th>
