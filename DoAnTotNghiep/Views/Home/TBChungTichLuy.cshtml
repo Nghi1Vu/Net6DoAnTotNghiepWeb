@@ -3,6 +3,7 @@
     ViewData["Title"] = "TBChungTichLuy";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
@@ -28,8 +29,8 @@
                     </button>
                     <div class="dropdown-contnet dis-block">
                         <a href="@Url.Action("KetQuaThi", "Home")"><i class='bx bx-task'></i> Kết quả thi</a>
-                        <a href="@Url.Action("TBChungHocKy", "Home")"><i class='bx bx-task'></i> TB chung tích lũy</a>
-                        <a href="@Url.Action("TBChungTichLuy", "Home")"><i class='bx bx-task'></i> TB chung học kỳ</a>
+                        <a href="@Url.Action("TBChungTichLuy", "Home")"><i class='bx bx-task'></i> TB chung tích lũy</a>
+                        <a href="@Url.Action("TBChungHocKy", "Home")"><i class='bx bx-task'></i> TB chung học kỳ</a>
                         <a href="@Url.Action("XetThuTotNghiep", "Home")"><i class='bx bx-task'></i> Xét thử tốt nghiệp</a>
                     </div>
                 </div>
@@ -83,13 +84,252 @@
                     <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
                     <span class="nav_name">Đánh giá rèn luyện</span>
                 </a>
+                @*                <a href="#" class="nav_link">
+                <i class='bx bx-log-out nav_icon'></i>
+                <span class="nav_name">Đăng xuất</span>
+                </a>*@
             </div>
         </div>
-        <a href="#" class="nav_link">
-            <i class='bx bx-log-out nav_icon'></i>
-            <span class="nav_name">Đăng xuất</span>
-        </a>
     </nav>
 </div>
-<h1>TBChungTichLuy</h1>
+<!--Container Main start-->
+<div class="border-page">
+    <div class="Bang-tin">
+        <p class="title-page">Tín chỉ tích lũy</p>
+        <div class="title-line"></div>
+        <div class="TBChungTL">
+            <div class="infor-student">
+                <div class="Gap-txt">
+                    <div class="d-flex">
+                        <div class="">
+                            <p>Họ và tên sinh viên:</p>
+                            <p>Mã sinh viên:</p>
+                            <p>Lớp:</p>
+                        </div>
+                        <div class="p-l-30">
+                            <p><strong>Bùi Minh Thái</strong></p>
+                            <p><strong>151901162</strong></p>
+                            <p><strong>19DTH4</strong></p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="">
+                            <p><strong>Tổng tín chỉ tích lũy: </strong></p>
+                            <p><strong>Điểm trung bình chung tích lũy:	</strong></p>
+                            <p><strong>Xếp hạng:</strong></p>
+                        </div>
+                        <div class="txt-clr-red p-l-5">
+                            <p><strong>120.0</strong></p>
+                            <p><strong>3.32</strong></p>
+                            <p><strong>Giỏi</strong></p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="">
+                            <p>Số tiền trong tài khoản:</p>
+                            <p>Số tín chỉ đã đăng ký:</p>
+                        </div>
+                        <div class="txt-clr-red p-l-5">
+                            <p><strong>37,000</strong></p>
+                            <p><strong></strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-TBChungTL">
+                <table style="width:100% ;padding-left: 4px">
+                    <tr>
+                        <td colspan="16">
+                            <strong class="fs-11">Danh sách những học phần bắt buộc</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width:2%;" rowspan="2">STT</th>
+                        <th style="width:10%;" rowspan="2">Mã Học Phần</th>
+                        <th style="width:8%;" rowspan="2">Mã in</th>
+                        <th rowspan="2">Học phần</th>
+                        <th colspan="4">Tín chỉ tích lũy</th>
+                        <th colspan="4">Điểm tích lũy</th>
+                        <th style="width:8%;" rowspan="2">Ghi Chú</th>
+                    </tr>
+                    <tr>
+                        <th style="width:5%;">Số TC</th>
+                        <th style="width:4%;">Lý thuyết</th>
+                        <th style="width:4%;">Thực hành</th>
+                        <th style="width:4%;">Khác</th>
+                        <th style="width:4%;" >Lần 1</th>
+                        <th style="width:3%;">Cuối cùng</th>
+                        <th style="width:4%;">Điểm 4</th>
+                        <th style="width:3%;">Điểm chữ</th>
+                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Học kỳ 1</td>
+                            <td>9</td>
+                            <td></td>
+                            <td>1</td>
+                            <td>Học kỳ 1</td>
+                            <td>9</td>
+                            <td></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>Học kỳ 1</td>
+                            <td>9</td>
+                            <td></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-TBChungTL m-t-5">
+                <table style="width:100% ;padding-left: 4px">
+                    <tr>
+                        <td colspan="16">
+                            <strong class="fs-11">Danh sách những học phần sinh viên đăng ký tương đương</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width:2%;" rowspan="2">STT</th>
+                        <th style="width:10%;" rowspan="2">Mã Học Phần</th>
+                        <th style="width:8%;" rowspan="2">Mã in</th>
+                        <th rowspan="2">Học phần</th>
+                        <th colspan="4">Tín chỉ tích lũy</th>
+                        <th colspan="4">Điểm tích lũy</th>
+                        <th style="width:8%;" rowspan="2">Ghi Chú</th>
+                    </tr>
+                    <tr>
+                        <th style="width:5%;">Số TC</th>
+                        <th style="width:4%;">Lý thuyết</th>
+                        <th style="width:4%;">Thực hành</th>
+                        <th style="width:4%;">Khác</th>
+                        <th style="width:4%;">Lần 1</th>
+                        <th style="width:3%;">Cuối cùng</th>
+                        <th style="width:4%;">Điểm 4</th>
+                        <th style="width:3%;">Điểm chữ</th>
+                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Học kỳ 1</td>
+                            <td>9</td>
+                            <td></td>
+                            <td>1</td>
+                            <td>Học kỳ 1</td>
+                            <td>9</td>
+                            <td></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>Học kỳ 1</td>
+                            <td>9</td>
+                            <td></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-TBChungTL m-t-5">
+                <table style="width:100% ;padding-left: 4px">
+                    <tr>
+                        <td colspan="16">
+                            <strong class="fs-11">Danh sách những học phần tự chọn</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width:2%;" rowspan="2">STT</th>
+                        <th style="width:10%;" rowspan="2">Mã Học Phần</th>
+                        <th style="width:8%;" rowspan="2">Mã in</th>
+                        <th rowspan="2">Học phần</th>
+                        <th colspan="2">Nhóm tự chọn</th>
+                        <th colspan="4">Tín chỉ tích lũy</th>
+                        <th colspan="4">Điểm tích lũy</th>
+                        <th style="width:8%;" rowspan="2">Ghi Chú</th>
+                    </tr>
+                    <tr>
+                        <th style="width:10%;">Tên nhóm</th>
+                        <th style="width:5%;">Số TC phải học</th>
+                        <th style="width:5%;">Số TC</th>
+                        <th style="width:4%;">Lý thuyết</th>
+                        <th style="width:4%;">Thực hành</th>
+                        <th style="width:4%;">Khác</th>
+                        <th style="width:4%;">Lần 1</th>
+                        <th style="width:3%;">Cuối cùng</th>
+                        <th style="width:4%;">Điểm 4</th>
+                        <th style="width:3%;">Điểm chữ</th>
+                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Học kỳ 1</td>
+                            <td>9</td>
+                            <td></td>
+                            <td>1</td>
+                            <td>Học kỳ 1</td>
+                            <td>9</td>
+                            <td></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>Học kỳ 1</td>
+                            <td>9</td>
+                            <td></td>
+                            <td>9</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-TBChungTL m-t-5">
+                <table style="width:100% ;padding-left: 4px">
+                    <tr>
+                        <td colspan="16">
+                            <strong class="fs-11">
+                                Danh sách những học phần không tính TBC tích luỹ
+                            </strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width:2%;" rowspan="2">STT</th>
+                        <th style="width:10%;" rowspan="2">Mã Học Phần</th>
+                        <th style="width:8%;" rowspan="2">Mã in</th>
+                        <th rowspan="2">Học phần</th>
+                        <th colspan="4">Tín chỉ tích lũy</th>
+                        <th colspan="4">Điểm tích lũy</th>
+                        <th style="width:8%;" rowspan="2">Ghi Chú</th>
+                    </tr>
+                    <tr>
+                        <th style="width:5%;">Số TC</th>
+                        <th style="width:4%;">Lý thuyết</th>
+                        <th style="width:4%;">Thực hành</th>
+                        <th style="width:4%;">Khác</th>
+                        <th style="width:4%;">Lần 1</th>
+                        <th style="width:3%;">Cuối cùng</th>
+                        <th style="width:4%;">Điểm 4</th>
+                        <th style="width:3%;">Điểm chữ</th>
+                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Học kỳ 1</td>
+                            <td>9</td>
+                            <td></td>
+                            <td>1</td>
+                            <td>Học kỳ 1</td>
+                            <td>9</td>
+                            <td></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>Học kỳ 1</td>
+                            <td>9</td>
+                            <td></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
