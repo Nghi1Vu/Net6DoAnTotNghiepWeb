@@ -1,7 +1,9 @@
-﻿
+﻿@using DoAnTotNghiep.Models;
+@model List<ProgramSemester>;
 @{
     ViewData["Title"] = "KhungChuongTrinhKy";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var stt = 1;
 }
 
 <div class="l-navbar" id="nav-bar">
@@ -95,7 +97,7 @@
 
 <div class="border-page">
     <div class="Khung-CTK">
-        <p class="title-page">Khung chương trình K15-2019 - ĐẠI HỌC - CHÍNH QUY - CÔNG NGHỆ THÔNG TIN</p>
+        <p class="title-page">Khung chương trình @ViewBag.StudentInfo.CourseName -  @ViewBag.StudentInfo.IndustryName</p>
         <div class="title-line"></div>
         <div class="table-CTKhung">
             <table style="width:100% ;padding-left: 4px">
@@ -108,87 +110,138 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Học kỳ 1</td>
-                        <td>9</td>
-                        <td>
-                            <div class="table-con">
-                                <table style="width:100%; margin-top: 5px;">
-                                    <thead>
+                    @for (var i = 0; i < 12; i++)
+                    {
+                        <tr>
+                            <td>@(stt)</td>
+                            <td>Học kỳ @(stt)</td>
+                            <td>@Model.Where(x => x.SemesterID == stt).ToList()[0].CreditsS</td>
+                            <td>
+                                <div class="table-con">
+                                    <table style="width:100%; margin-top: 5px;">
+                                        <thead>
+                                            <tr>
+                                                <!-- Hàng 1-->
+                                                <th style="width:3%" rowspan="2">STT</th>
+                                                <th style="width:7%" rowspan="2">Mã học phần</th>
+                                                <th rowspan="2">Tên học phần</th>
+                                                <th style="width:6%" colspan="4">Số tín chỉ</th>
+                                                <th colspan="3">Số tiết</th>
+                                                <th style="width:9%" rowspan="2">Số lớp đã tạo</th>
+                                                <th style="width:6%" rowspan="2">Ghi chú</th>
+                                                <th style="width:6%" rowspan="2">Chi tiết</th>
+                                            </tr>
+                                            <tr class="clo-2">
+                                                <td style="width:5%">Tổng</td>
+                                                <td style="width:7%">Lý thuyết</td>
+                                                <td style="width:8%">Thực hành</td>
+                                                <td style="width:5%">Khác</td>
+                                                <td style="width:7%">Lý thuyết</td>
+                                                <td style="width:8%">Thực hành</td>
+                                                <td style="width:5%">Khác</td>
+                                            </tr>
+                                        </thead>
                                         <tr>
-                                            <!-- Hàng 1-->
-                                            <th style="width:3%" rowspan="2">STT</th>
-                                            <th style="width:7%" rowspan="2">Mã học phần</th>
-                                            <th rowspan="2">Tên học phần</th>
-                                            <th style="width:6%" colspan="4">Số tín chỉ</th>
-                                            <th colspan="3">Số tiết</th>
-                                            <th style="width:9%" rowspan="2">Số lớp đã tạo</th>
-                                            <th style="width:6%" rowspan="2">Ghi chú</th>
-                                            <th style="width:6%" rowspan="2">Chi tiết</th>
+                                            <td colspan="3"><strong>Học phần bắt buộc</strong></td>
+                                            <td><strong>@Model.Where(x => x.SemesterID == stt).ToList()[0].Credits0</strong></td>
+                                            <td colspan="3"></td>
+                                            <td colspan="3"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
-                                        <tr class="clo-2">
-                                            <td style="width:5%">Tổng</td>
-                                            <td style="width:7%">Lý thuyết</td>
-                                            <td style="width:8%">Thực hành</td>
-                                            <td style="width:5%">Khác</td>
-                                            <td style="width:7%">Lý thuyết</td>
-                                            <td style="width:8%">Thực hành</td>
-                                            <td style="width:5%">Khác</td>
+                                        @{
+                                            var sttbb = 1;
+                                            var stttc = 1;
+                                        }
+                                        @foreach (var item in Model.Where(x => x.SemesterID == stt).ToList().Where(x => x.ProgramGroupID == 0))
+                                        {
+                                            <tr>
+                                                <td>@(sttbb++)</td>
+                                                <td>@item.ModulesCode</td>
+                                                <td>@item.ModulesName</td>
+                                                <td>@item.Credits</td>
+                                                <td>@item.CreditsLT</td>
+                                                <td>@item.CreditsTH</td>
+                                                <td>@item.CreditsK</td>
+                                                <td>@item.TimesLT</td>
+                                                <td>@item.TimesTH</td>
+                                                <td>@item.TimesK</td>
+                                                <td>@item.CreatedClass</td>
+                                                @if(item.ModulesTypeID == 6)
+                                                {
+                                                    <td> *(Tự chọn)</td>
+                                                }
+                                                else if (item.ModulesTypeID == 8){
+                                                    <td> **</td>
+                                                }else if (item.ModulesTypeID == 7)
+                                                {
+                                                    <td> *</td>
+                                                }else if (item.ModulesTypeID == 2)
+                                                {
+                                                    <td> (Tự chọn)</td>
+                                                }
+                                                else{
+                                                    <td></td>
+                                                }
+
+                                                <td><a href="@Url.Action("ChiTietChuongTrinh", "Home" , new {ModulesID=item.ModulesID})">[Chi tiết]</a></td>
+                                            </tr>
+                                        }
+
+                                        <tr>
+                                            <td colspan="3"><strong>Học phần Tự chọn</strong></td>
+                                            <td><strong>@Model.Where(x => x.SemesterID == stt).ToList()[0].Credits1</strong></td>
+                                            <td colspan="3"></td>
+                                            <td colspan="3"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
-                                    </thead>
-                                    <tr>
-                                        <td colspan="3"><strong>Học phần bắt buộc</strong></td>
-                                        <td><strong>9</strong></td>
-                                        <td colspan="3"></td>
-                                        <td colspan="3"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>0070131</td>
-                                        <td>Kỹ năng giao tiếp, thuyết trình & làm việc nhóm</td>
-                                        <td>3.0</td>
-                                        <td>9.4</td>
-                                        <td>9.4</td>
-                                        <td>9.4</td>
-                                        <td>9.4</td>
-                                        <td>9.4</td>
-                                        <td>9.4</td>
-                                        <td>9.4</td>
-                                        <td>9.8</td>
-                                        <td><a href="@Url.Action("ChiTietChuongTrinh", "Home" )">[Chi tiết]</a></td>
-                                    </tr>   
-                                    <tr>
-                                        <td colspan="3"><strong>Học phần Tự chọn</strong></td>
-                                        <td><strong>9</strong></td>
-                                        <td colspan="3"></td>
-                                        <td colspan="3"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>0070131</td>
-                                        <td>Kỹ năng giao tiếp, thuyết trình & làm việc nhóm</td>
-                                        <td>3.0</td>
-                                        <td>9.4</td>
-                                        <td>9.4</td>
-                                        <td>9.4</td>
-                                        <td>9.4</td>
-                                        <td>9.4</td>
-                                        <td>9.4</td>
-                                        <td>9.4</td>
-                                        <td>9.8</td>
-                                        <td><a href="#">[Chi tiết]</a></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </td>
-                    </tr>
+                                        @foreach (var item in Model.Where(x => x.SemesterID == stt).ToList().Where(x => x.ProgramGroupID != 0))
+                                        {
+                                        <tr>
+                                            <td>@(stttc++)</td>
+                                                <td>@item.ModulesCode</td>
+                                                <td>@item.ModulesName</td>
+                                                <td>@item.Credits</td>
+                                                <td>@item.CreditsLT</td>
+                                                <td>@item.CreditsTH</td>
+                                                <td>@item.CreditsK</td>
+                                                <td>@item.TimesLT</td>
+                                                <td>@item.TimesTH</td>
+                                                <td>@item.TimesK</td>
+                                                <td>@item.CreatedClass</td>
+                                                @if (item.ModulesTypeID == 6)
+                                                {
+                                                    <td> *(Tự chọn)</td>
+                                                }
+                                                else if (item.ModulesTypeID == 8)
+                                                {
+                                                    <td> **</td>
+                                                }
+                                                else if (item.ModulesTypeID == 7)
+                                                {
+                                                    <td> *</td>
+                                                }
+                                                else if (item.ModulesTypeID == 2)
+                                                {
+                                                    <td> (Tự chọn)</td>
+                                                }
+                                                else
+                                                {
+                                                    <td></td>
+                                                }
+
+                                                <td><a href="@Url.Action("ChiTietChuongTrinh", "Home" , new {ModulesID=item.ModulesID})">[Chi tiết]</a></td>
+                                        </tr>}
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        stt++;
+                    }
+
                 </tbody>
             </table>
         </div>

@@ -21,6 +21,9 @@
         public int TimesBT { get; set; }
         public int TimesTH { get; set; }
         public int TimesTL { get; set; }
+        public int TimesK { get; set; }
+        public int ModulesID { get; set; }
+        public int SemesterID { get; set; }
         public string SemesterName { get; set; }
     }
 }

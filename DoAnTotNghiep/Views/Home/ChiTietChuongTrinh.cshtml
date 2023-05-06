@@ -1,4 +1,5 @@
-﻿
+﻿@using DoAnTotNghiep.Models;
+@model List<ModuleDetail>;
 @{
     ViewData["Title"] = "ChiTietChuongTrinh";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -95,51 +96,59 @@
 
 <div class="border-page">
     <div class="Khung-CT">
-        <p class="title-page">Chi tiết học phần tên học phân vào đây</p>
+        <p class="title-page">Chi tiết học phần @Model[0].ModulesName (@Model[0].ModulesCode)</p>
         <div class="title-line"></div>
         <div class="table-CTKhung">
             <table style="width:100% ;padding-left: 4px">
                 <tr>
                     <th style="width:15%;">Đơn vị dào tạo</th>
-                    <td>Khoa Công nghệ +</td>
+                    <td>@Model[0].DepartmentName</td>
                 </tr>
                 <tr>
                     <th>Mã học phần</th>
-                    <td>Đại học +</td>
+                    <td>@Model[0].HPModules</td>
                 </tr>
                 <tr>
                     <th>Tên học phần</th>
-                    <td>Công nghệ thông tin +</td>
+                    <td>@Model[0].ModulesName</td>
                 </tr>
                 <tr>
                     <th>Tên viết tắt</th>
-                    <td>CT751 +</td>
+                    <td>@Model[0].ModulesNameSort</td>
                 </tr>
                 <tr>
                     <th>Mã in</th>
                     <td>
-                        
+                        @Model[0].ModulesCode
                     </td>
                 </tr>
                 <tr>
                     <th>Mô tả</th>
-                    <td>(năm) +</td>
+                    <td>@Model[0].Descriptions</td>
                 </tr>
                 <tr>
                     <th>Số tín chỉ</th>
-                    <td>127.0 (tín chỉ) +</td>
+                    <td>@Model[0].Credits</td>
                 </tr>
                 <tr>
                     <th>Mục tiêu</th>
                     <td>
-                        <p>Kiến thức :</p>
-                        <p>Kỹ năng:</p>
-                        <p>Thái độ:</p>
+                        <p>Kiến thức :@Model[0].Purposely</p>
+                        <p>Kỹ năng:@Model[0].PurposelyKN</p>
+                        <p>Thái độ:@Model[0].PurposelyYT</p>
                     </td>
                 </tr>
                 <tr>
                     <th>Nội dung chương trình</th>
-                    <td></td>
+                    @if (Model[0].TypeName == "Chuyên ngành")
+                    {
+                        <td>Kiến thức chuyên ngành</td>
+                    }
+                    else{
+                        <td>Kiến thức đại cương</td>
+                        
+                        }
+
                 </tr>
                 <tr>
                     <th></th>
@@ -164,17 +173,50 @@
                                         <td style="width:7%">Hướn dẫn sinh viên tự học</td>
                                     </tr>
                                 </thead>
+                                @{
+                                    var stt = 1;
+                                    var sTong = 0;
+                                    var sTong2 = 0;
+                                    var sTong3 = 0;
+                                    var sTong4 = 0;
+                                    var sTong5 = 0;
+                                    var sTong6 = 0;
+                                    var sTong7 = 0;
+                                    var sTongS = 0;
+                                }
+                                @foreach(var item in Model)
+                                {
+                                    <tr>
+                                        <td>@(stt++)</td>
+                                        <td>@item.ChapterName</td>
+                                        <td>@Html.Raw(item.ContentChapter)</td>
+                                        <td>@item.TimesST</td>
+                                        <td>@item.TimesLT</td>
+                                        <td>@item.TimesBT</td>
+                                        <td>@item.TimesTL</td>
+                                        <td>@item.TimesTH</td>
+                                        <td>@item.TimesK</td>
+                                        <td>@item.TimesTest</td>
+                                    </tr>
+                                    sTong += @item.TimesST;
+                                    sTong2 += @item.TimesLT;
+                                    sTong3 += @item.TimesBT;
+                                    sTong4 += @item.TimesTL;
+                                    sTong5 += @item.TimesTH;
+                                    sTong6 += @item.TimesK;
+                                    sTong7 += @item.TimesTest;
+                                    sTongS = sTong + sTong2 + sTong3+sTong4+sTong5+sTong6+sTong7;
+                                }
                                 <tr>
-                                    <td>1</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>4</td>
-                                    <td>4</td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>2</td>
+                                    <td colspan="2">Tổng số tiết</td>
+                                    <td>@sTongS</td>
+                                    <td>@sTong</td>
+                                    <td>@sTong2</td>
+                                    <td>@sTong3</td>
+                                    <td>@sTong4</td>
+                                    <td>@sTong5</td>
+                                    <td>@sTong6</td>
+                                    <td>@sTong7</td>
                                 </tr>
                             </table>
                         </div>
@@ -182,7 +224,9 @@
                 </tr>
                 <tr>
                     <th>PP giảng dạy - đánh giá</th>
-                    <td></td>
+                    <td>Phương pháp giảng dạy:<br />
+                        @Model[0].ExamTypeName ( TL: @Model[0].ExamRateTL % - TN: @Model[0].ExamRateTN % - K: @Model[0].ExamRateK %)
+                    <br />Môn đánh giá điểm tiểu luận: <strong style="coloR:red">Không</strong></td>
                 </tr>
                 <tr>
                     <th>Yêu cầu đặc thù</th>
@@ -194,7 +238,7 @@
                 </tr>
                 <tr>
                     <th>SL SV tối đa/1 lớp học phần</th>
-                    <td></td>
+                    <td>@Model[0].NumberStPerClass</td>
                 </tr>
                 <tr>
                     <th>Học phần tương đương</th>
@@ -210,11 +254,11 @@
                 </tr>
                 <tr>
                     <th>Trình độ đào tạo</th>
-                    <td></td>
+                    <td>1. @Model[0].TranningLevelName</td>
                 </tr>
                 <tr>
                     <th>Tài liệu tham khảo</th>
-                    <td></td>
+                    <td>@Html.Raw(Model[0].References)</td>
                 </tr>
             </table>
         </div>

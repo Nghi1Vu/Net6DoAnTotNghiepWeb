@@ -3,6 +3,7 @@
     public class ModuleDetail
     {
         public string DepartmentName { get; set; }
+        public string TypeName { get; set; }
         public string HPModules { get; set; }
         public string ModulesName { get; set; }
         public string ModulesNameSort { get; set; }

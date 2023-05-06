@@ -3,6 +3,13 @@
 @{
     ViewData["Title"] = "KhungChuongTrinh";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var lstype = Model.Where(x => x.ModulesTypeID == 8).ToList();  
+    var lstype2 = Model.Where(x => x.ModulesTypeID == 6).ToList();
+    var lstype3 = Model.Where(x => x.ModulesTypeID == 7).ToList();
+    var lstype4 = Model.Where(x => x.ModulesTypeID == 5).ToList();
+    var lstype5 = Model.Where(x => x.ModulesTypeID == 1).ToList();
+    var lstype6 = Model.Where(x => x.ModulesTypeID == 4).ToList();
+    var lstype7 = Model.Where(x => x.ModulesTypeID == 2).ToList();
 }
 
 <div class="l-navbar" id="nav-bar">
@@ -114,7 +121,7 @@
                 </tr>
                 <tr>
                     <th>Mã ngành</th>
-                    <td>@("CT"+ViewBag.StudentInfo.IndustryID)</td>
+                    <td>@("CT" + ViewBag.StudentInfo.CourseIndustryID)</td>
                 </tr>
                 <tr>
                     <th>Mục tiêu đào tạo</th>
@@ -181,14 +188,18 @@
                                         <td style="width:5%;">Học trước</td>
                                     </tr>
                                 </thead>
+                                <tbody>
                                 <tr>
                                     <!-- Hàng 3 trờ đi dựa vao thứ tự của hàng 1 và 2-->
-                                    <td colspan="11"><strong>Kiến thức giáo dục đại cương</strong></td>
+                                    <td colspan="11"><strong>I. Kiến thức giáo dục đại cương</strong></td>
                                     <td colspan="4"></td>
                                 </tr>
+                                @{
+                                    var sttNK = 1;
+                                }
                                 <tr>
-                                    <td><strong>1.1</strong></td>
-                                    <td colspan="2"><strong>Ngoài khung</strong></td>
+                                    <td><strong>I.1</strong></td>
+                                    <td colspan="2"><strong>@lstype[0].TypeName</strong></td>
                                     <td><strong>0</strong></td>
                                     <td></td>
                                     <td></td>
@@ -202,28 +213,368 @@
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>0070131</td>
-                                    <td>Kỹ năng giao tiếp, thuyết trình & làm việc nhóm</td>
-                                    <td>3.0</td>
-                                    <td>9.4</td>
-                                    <td>9.4</td>
-                                    <td>9.4</td>
-                                    <td>9.4</td>
-                                    <td>9.4</td>
-                                    <td>9.4</td>
-                                    <td>9.4</td>
-                                    <td>9.8</td>
-                                    <td>94</td>
-                                    <td>
-                                        0070031,
-                                        0070033,
-                                        0070034,
-                                        0070057
-                                    </td>
-                                    <td>0070131</td>
-                                </tr>
+                            
+                                    @foreach(var item in lstype)
+                                    {
+                                        <tr>
+                                        <td>@(sttNK++)</td>
+                                        <td>@item.ModulesCode</td>
+                                        <td>@item.ModulesName</td>
+                                        <td>@item.Credits</td>
+                                        <td>@item.CreditsLT</td>
+                                        <td>@item.CreditsTH</td>
+                                        <td>@item.TimesLT</td>
+                                        <td>@item.TimesBT</td>
+                                        <td>@item.TimesTL</td>
+                                        <td>@item.TimesTH</td>
+                                            <td>@item.TimesK</td>
+                                        <td>@item.SemesterID</td>
+                                        <td></td>
+                                        <td>
+                                           @Html.Raw(item.ModulesTQ)
+                                        </td>
+                                        <td>@Html.Raw(item.ModulesHT)</td>
+                                    </tr>
+                                    }
+                                    @{
+                                        var sttTC = 1;
+                                        var sttTC2 = 0;
+                                    }
+                                    <tr>
+                                        <td><strong>I.2</strong></td>
+                                        <td colspan="2"><strong>@lstype2[0].TypeName</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><strong>Có tự chọn</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    @foreach (var item in lstype2.Where(x=>x.ProgramGroupID==0))
+                                    {
+                                        <tr>
+                                            <td>@(sttTC++)</td>
+                                            <td>@item.ModulesCode</td>
+                                            <td>@item.ModulesName</td>
+                                            <td>@item.Credits</td>
+                                            <td>@item.CreditsLT</td>
+                                            <td>@item.CreditsTH</td>
+                                            <td>@item.TimesLT</td>
+                                            <td>@item.TimesBT</td>
+                                            <td>@item.TimesTL</td>
+                                            <td>@item.TimesTH</td>
+                                            <td></td>
+                                            <td>@item.SemesterID</td>
+                                            <td>@item.TimesK</td>
+                                            <td>
+                                                @Html.Raw(item.ModulesTQ)
+                                            </td>
+                                            <td>@Html.Raw(item.ModulesHT)</td>
+                                        </tr>
+                                    }
+                                    @foreach (var item in lstype2.Where(x => x.ProgramGroupID != 0))
+                                    {
+                  
+                                        <tr>
+                                            <td>@(sttTC2++)</td>
+                                            <td>@item.ModulesCode</td>
+                                            <td>@item.ModulesName</td>
+                                            <td>@item.Credits</td>
+                                            <td>@item.CreditsLT</td>
+                                            <td>@item.CreditsTH</td>
+                                            <td>@item.TimesLT</td>
+                                            <td>@item.TimesBT</td>
+                                            <td>@item.TimesTL</td>
+                                            <td>@item.TimesTH</td>
+                                            <td>@item.TimesK</td>
+                                            <td>@item.SemesterID</td>
+                                            <td></td>
+                                            <td>
+                                                @Html.Raw(item.ModulesTQ)
+                                            </td>
+                                            <td>@Html.Raw(item.ModulesHT)</td>
+                                        </tr>
+                                    }
+                                    @{
+                                        var sttQP = 1;
+                                    }
+                                    <tr>
+                                        <td><strong>I.3</strong></td>
+                                        <td colspan="2"><strong>@lstype3[0].TypeName</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><strong>Bắt buộc</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    @foreach (var item in lstype3)
+                                    {
+                                        <tr>
+                                            <td>@(sttQP++)</td>
+                                            <td>@item.ModulesCode</td>
+                                            <td>@item.ModulesName</td>
+                                            <td>@item.Credits</td>
+                                            <td>@item.CreditsLT</td>
+                                            <td>@item.CreditsTH</td>
+                                            <td>@item.TimesLT</td>
+                                            <td>@item.TimesBT</td>
+                                            <td>@item.TimesTL</td>
+                                            <td>@item.TimesTH</td>
+                                            <td>@item.TimesK</td>
+                                            <td>@item.SemesterID</td>
+                                            <td></td>
+                                            <td>
+                                                @item.ModulesTQ
+                                            </td>
+                                            <td>@item.ModulesHT</td>
+                                        </tr>
+                                    }
+                                    @{
+                                        var sttCT = 1;
+                                    }
+                                    <tr>
+                                        <td><strong>I.4</strong></td>
+                                        <td colspan="2"><strong>@lstype4[0].TypeName</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><strong>Bắt buộc</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    @foreach (var item in lstype4)
+                                    {
+                                        <tr>
+                                            <td>@(sttCT++)</td>
+                                            <td>@item.ModulesCode</td>
+                                            <td>@item.ModulesName</td>
+                                            <td>@item.Credits</td>
+                                            <td>@item.CreditsLT</td>
+                                            <td>@item.CreditsTH</td>
+                                            <td>@item.TimesLT</td>
+                                            <td>@item.TimesBT</td>
+                                            <td>@item.TimesTL</td>
+                                            <td>@item.TimesTH</td>
+                                            <td>@item.TimesK</td>
+                                            <td>@item.SemesterID</td>
+                                            <td></td>
+                                            <td>
+                                                @item.ModulesTQ
+                                            </td>
+                                            <td>@item.ModulesHT</td>
+                                        </tr>
+                                    }
+                                    @{
+                                        var sttDC = 1;
+                                    }
+                                    <tr>
+                                        <td><strong>I.5</strong></td>
+                                        <td colspan="2"><strong>@lstype5[0].TypeName</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><strong>Bắt buộc</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    @foreach (var item in lstype5)
+                                    {
+                                        <tr>
+                                            <td>@(sttDC++)</td>
+                                            <td>@item.ModulesCode</td>
+                                            <td>@item.ModulesName</td>
+                                            <td>@item.Credits</td>
+                                            <td>@item.CreditsLT</td>
+                                            <td>@item.CreditsTH</td>
+                                            <td>@item.TimesLT</td>
+                                            <td>@item.TimesBT</td>
+                                            <td>@item.TimesTL</td>
+                                            <td>@item.TimesTH</td>
+                                            <td>@item.TimesK</td>
+                                            <td>@item.SemesterID</td>
+                                            <td></td>
+                                            <td>
+                                                @item.ModulesTQ
+                                            </td>
+                                            <td>@item.ModulesHT</td>
+                                        </tr>
+                                    }
+                                    <tr>
+                                        <!-- Hàng 3 trờ đi dựa vao thứ tự của hàng 1 và 2-->
+                                        <td colspan="11"><strong>II. KIẾN THỨC GIÁO DỤC CƠ SỞ NGHÀNH</strong></td>
+                                        <td colspan="4"></td>
+                                    </tr>
+                                    @{
+                                        var sttCSN = 1;
+                                    }
+                                    <tr>
+                                        <td><strong>II.1</strong></td>
+                                        <td colspan="2"><strong>@lstype6[0].TypeName</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><strong>Có tự chọn</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    @foreach (var item in lstype6.Where(x=>x.ProgramGroupID==0))
+                                    {
+                                        <tr>
+                                            <td>@(sttCSN++)</td>
+                                            <td>@item.ModulesCode</td>
+                                            <td>@item.ModulesName</td>
+                                            <td>@item.Credits</td>
+                                            <td>@item.CreditsLT</td>
+                                            <td>@item.CreditsTH</td>
+                                            <td>@item.TimesLT</td>
+                                            <td>@item.TimesBT</td>
+                                            <td>@item.TimesTL</td>
+                                            <td>@item.TimesTH</td>
+                                            <td>@item.TimesK</td>
+                                            <td>@item.SemesterID</td>
+                                            <td></td>
+                                            <td>
+                                                @item.ModulesTQ
+                                            </td>
+                                            <td>@item.ModulesHT</td>
+                                        </tr>
+                                    }
+                                    @{
+                                        var sttCSN2 = 1;
+                                    }
+                                    @foreach (var item in lstype6.Where(x => x.ProgramGroupID != 0))
+                                    {
+                                        <tr>
+                                            <td>@(sttCSN2++)</td>
+                                            <td>@item.ModulesCode</td>
+                                            <td>@item.ModulesName</td>
+                                            <td>@item.Credits</td>
+                                            <td>@item.CreditsLT</td>
+                                            <td>@item.CreditsTH</td>
+                                            <td>@item.TimesLT</td>
+                                            <td>@item.TimesBT</td>
+                                            <td>@item.TimesTL</td>
+                                            <td>@item.TimesTH</td>
+                                            <td>@item.TimesK</td>
+                                            <td>@item.SemesterID</td>
+                                            <td></td>
+                                            <td>
+                                                @item.ModulesTQ
+                                            </td>
+                                            <td>@item.ModulesHT</td>
+                                        </tr>
+                                    }
+                                    <tr>
+                                        <!-- Hàng 3 trờ đi dựa vao thứ tự của hàng 1 và 2-->
+                                        <td colspan="11"><strong>III. KIẾN THỨC GIÁO DỤC CHUYÊN NGHÀNH</strong></td>
+                                        <td colspan="4"></td>
+                                    </tr>
+                                    @{
+                                        var sttCN = 1;
+                                        var sttCN2 = 1;
+                                    }
+                                    <tr>
+                                        <td><strong>III.1</strong></td>
+                                        <td colspan="2"><strong>@lstype7[0].TypeName</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><strong>Có tự chọn</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+
+                                    @foreach (var item in lstype7.Where(x => x.ProgramGroupID == 0))
+                                    {
+                                        <tr>
+                                            <td>@(sttCN++)</td>
+                                            <td>@item.ModulesCode</td>
+                                            <td>@item.ModulesName</td>
+                                            <td>@item.Credits</td>
+                                            <td>@item.CreditsLT</td>
+                                            <td>@item.CreditsTH</td>
+                                            <td>@item.TimesLT</td>
+                                            <td>@item.TimesBT</td>
+                                            <td>@item.TimesTL</td>
+                                            <td>@item.TimesTH</td>
+                                            <td>@item.TimesK</td>
+                                            <td>@item.SemesterID</td>
+                                            <td></td>
+                                            <td>
+                                                @item.ModulesTQ
+                                            </td>
+                                            <td>@item.ModulesHT</td>
+                                        </tr>
+                                    }
+                                     @foreach (var item in lstype7.Where(x => x.ProgramGroupID != 0))
+                                    {
+
+                                        <tr>
+                                            <td>@(sttCN2++)</td>
+                                            <td>@item.ModulesCode</td>
+                                            <td>@item.ModulesName</td>
+                                            <td>@item.Credits</td>
+                                            <td>@item.CreditsLT</td>
+                                            <td>@item.CreditsTH</td>
+                                            <td>@item.TimesLT</td>
+                                            <td>@item.TimesBT</td>
+                                            <td>@item.TimesTL</td>
+                                            <td>@item.TimesTH</td>
+                                            <td>@item.TimesK</td>
+                                            <td>@item.SemesterID</td>
+                                            <td></td>
+                                            <td>
+                                                @item.ModulesTQ
+                                            </td>
+                                            <td>@item.ModulesHT</td>
+                                        </tr>
+                                    }
+                                    <tr>
+                                        <td>@ViewBag.StudentInfo.Credits</td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </td>
