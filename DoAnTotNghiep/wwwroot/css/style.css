@@ -53,6 +53,23 @@ a {
     z-index: var(--z-fixed);
     transition: .5s
 }
+
+.txt-notic{
+    font-size:11px;
+    margin: 10px 5px;
+}
+
+.txt-clr-table {
+    font-size: 11px;
+    font-weight:600;
+    color: red;
+    padding: 2px 4px;  
+}
+.txt-clr-red {
+    font-size: 11px;
+    font-weight: 600;
+    color: red;
+}
 /*----------tab infor sinh vvieen-------------*/
 .name-sv {
     margin-bottom: 15px;
@@ -1093,13 +1110,123 @@ td {
     background-color: #EDF5FF;
 }
 
-.table-kq-study .clo-2 {
+.table-kq-study .clo-2 td{
     background-color: #2647A0 !important;
     color: #fff;
     border: 1px solid #fff;
     font-weight: 500;
-    padding: 5px 0px;
+    padding: 8px 0px;
 }
+/*----------body kết quả Thi-------------*/
+.table-kq-Thi th {
+    background-color: #2647A0 !important;
+    color: #fff;
+    border: 1px solid #fff;
+    font-weight: 500;
+    padding: 10px 0px;
+}
+
+.table-kq-Thi td {
+    border: 1px solid #C0C0C0;
+    border-collapse: collapse;
+}
+
+.table-kq-Thi tr:nth-child(even) {
+    background-color: #EDF5FF;
+}
+
+.table-kq-Thi .clo-2 td{
+    background-color: #2647A0 !important;
+    color: #fff;
+    border: 1px solid #fff;
+    font-weight: 500;
+    padding: 8px 0px;
+}
+/*----------body TB chung tích lũy, kỳ ,kết quả thi, xét thử tốt nghiệp, kế hoạch thi-------------*/
+.Gap-txt {
+    position: relative;
+    display: flex;
+    font-weight: 500;
+    font-size: 11px;
+    gap: 5rem;
+    align-items: center;
+}
+
+.TBChungTL {
+    height: auto;
+    margin: 15px 5px 5px 5px;
+    padding: 4px;
+}
+
+
+.table-TBChungTL table { /* sài chung vs khung chương trình kỳ*/
+    margin-top: 10px
+}
+
+    .table-TBChungTL table tr th {
+        padding: 5px 10px;
+        border: 1px solid #99bbe8;
+        background-color: #d9e7f8;
+        text-align: center;
+        color: #15428B;
+    }
+    .table-TBChungTL table tr:first-child {
+        margin-bottom: 8px;
+    }
+   
+    .table-TBChungTL table tbody tr td {
+        border: 1px solid #99bbe8;
+        padding: 5px 7px;
+        text-align: left;
+    }
+
+        .table-TBChungTL table tr td p {
+            margin-bottom: 8px;
+        }
+.TBChungTL button {
+    padding: 7px 14px;
+    color: #6c757d; /* màu khi input*/
+    font-weight: 600;
+    font-size: 13px !important;
+    background-color: white !important;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+    .TBChungTL button::before {
+        border-radius: 50%;
+        background-color: #5eabdf;
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+    }
+
+    .TBChungTL button:hover {
+        border-color: #5eabdf;
+        color: #5eabdf;
+    }
+
+    .TBChungTL button:focus {
+        color: #5eabdf;
+        border: white;
+        box-shadow: 0 0 0 1px #5eabdf;
+    }
+
+        .TBChungTL button:focus::before {
+            transition: all 0.5s ease-out;
+            opacity: 0;
+            width: 250px;
+            height: 250px;
+        }
+
 /*----------body Chia sẻ biểu mẫu, quy định, hướng dẫn chung -------------*/
 .card-header {
     background-color: #e4e4e4;

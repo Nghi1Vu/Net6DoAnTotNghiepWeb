@@ -1,8 +1,8 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "KetQuaThi";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
@@ -28,8 +28,8 @@
                     </button>
                     <div class="dropdown-contnet dis-block">
                         <a href="@Url.Action("KetQuaThi", "Home")"><i class='bx bx-task'></i> Kết quả thi</a>
-                        <a href="@Url.Action("TBChungHocKy", "Home")"><i class='bx bx-task'></i> TB chung tích lũy</a>
-                        <a href="@Url.Action("TBChungTichLuy", "Home")"><i class='bx bx-task'></i> TB chung học kỳ</a>
+                        <a href="@Url.Action("TBChungTichLuy", "Home")"><i class='bx bx-task'></i> TB chung tích lũy</a>
+                        <a href="@Url.Action("TBChungHocKy", "Home")"><i class='bx bx-task'></i> TB chung học kỳ</a>
                         <a href="@Url.Action("XetThuTotNghiep", "Home")"><i class='bx bx-task'></i> Xét thử tốt nghiệp</a>
                     </div>
                 </div>
@@ -83,13 +83,105 @@
                     <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
                     <span class="nav_name">Đánh giá rèn luyện</span>
                 </a>
+                @*                <a href="#" class="nav_link">
+                <i class='bx bx-log-out nav_icon'></i>
+                <span class="nav_name">Đăng xuất</span>
+                </a>*@
             </div>
         </div>
-        <a href="#" class="nav_link">
-            <i class='bx bx-log-out nav_icon'></i>
-            <span class="nav_name">Đăng xuất</span>
-        </a>
     </nav>
 </div>
-<h1>KetQuaThi</h1>
+<!--Container Main start-->
+<div class="border-page">
+    <div class="Bang-tin">
+        <p class="title-page">Kết quả thi các môn</p>
+        <div class="title-line"></div>
+        <div class="body-study">
+            <div class="infor-student d-flex">
+                <div class="infor-left">
+                    <p>Họ và tên sinh viên:</p>
+                    <p>Mã sinh viên:</p>
+                    <p>Lớp:</p>
+                </div>
+                <div class="infor-left">
+                    <p><strong>Bùi Minh Thái</strong></p>
+                    <p><strong>151901162</strong></p>
+                    <p><strong>19DTH4</strong></p>
+                </div>
+
+            </div>
+            <div class="txt-notic">
+                <p>
+                    Với mục đích nâng cao chất lượng đào tạo , Trường Đại học Công nghệ Đồng Nai triển khai khảo sát ý kiến sinh viên về hoạt động tổ chức giảng dạy các môn học - học phần. Đề nghị bạn cho biết ý kiến của cá nhân về những nội dung được đưa ra trong bảng khảo sát dưới đây. Ý kiến của bạn là cơ sở để nhà trường cải tiến và nâng cao chất lượng đào tạo. Xin trân trọng cám ơn!
+                </p>
+                <p>
+                    Sinh viên vui lòng cho ý kiến đánh giá theo từng môn học - học phần trước khi xem điểm thi, bằng cách click vào cột "Ý kiến"
+                </p>
+            </div>
+            <div class="table-kq-Thi">
+                <table style="width:100%; margin-top: 5px;">
+                    <tr class="clo-1">
+                        <!-- Hàng 1-->
+                        <th style="width:3%" rowspan="2">STT</th>
+                        <th style="width:5.5%" rowspan="2">Mã HP</th>
+                        <th style="width:5.5%" rowspan="2">Mã in</th>
+                        <th rowspan="2">Học phần</th>
+                        <th style="width:5%" rowspan="2">Học kỳ</th>
+                        <th style="width:5.5%" rowspan="2">Số tín chỉ</th>
+                        <th style="width:4%" colspan="2">Điểm giữa kỳ</th>
+                        <th style="width:3%" rowspan="2">TB KTTX</th>
+                        <th style="width:4%" rowspan="2">Điểm TL/BTL</th>
+                        <th style="width:3%" rowspan="2">TB Thực hành</th>
+                        <th style="width:8%" colspan="2">Điểm thi</th>
+                        <th style="width:14%" colspan="3">Trung bình môn</th>
+                        <th style="width:7%" rowspan="2">Xếp loại</th>
+                        <th style="width:5%" rowspan="2">Ghi chú</th>
+                        <th style="width:5%" rowspan="2">Ý kiến</th>
+                    </tr>
+                    <tr class="clo-2" style="text-align: center;">
+                        <td>Lần 1</td>
+                        <td>Lần 2</td>
+                        <td>Lần 1</td>
+                        <td>Lần 2</td>
+                        <td>Điểm 10</td>
+                        <td>Điểm 4</td>
+                        <td>Điểm chữ</td>
+                    </tr>
+                    <tr>
+                        <!-- Hàng 3 trờ đi dựa vao thứ tự của hàng 1 và 2-->
+                        <td>1</td>
+                        <td>0070131</td>
+                        <td>HP2968</td>
+                        <td>0070132.10</td>
+                        <td>9.4</td>
+                        <td>9.4</td>
+                        <td>9.4</td>
+                        <td>9.4</td>
+                        <td>9.4</td>
+                        <td>9.4</td>
+                        <td>9.4</td>
+                        <td>9.4</td>
+                        <td>9.4</td>
+                        <td>9.4</td>
+                        <td>9.8</td>
+                        <td>94</td>
+                        <td>Trung Bình</td>
+                        <td>Chưa nộp học phí</td>
+                        <td>Đủ điều kiện</td>
+                    </tr>
+                    <tr class="txt-clr-table">
+                        <td colspan="9">Tổng số tín chỉ: </td>
+                        <td colspan="9">Trung bình chung tích lũy:</td>
+                        <td></td>
+                    </tr>
+                    <tr class="txt-clr-table">
+                        <td colspan="9">Tổng số tín chỉ tích lũy:</td>
+                        <td colspan="9">Xếp loại tốt nghiệp:</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
