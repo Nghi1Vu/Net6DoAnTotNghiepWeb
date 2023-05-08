@@ -140,7 +140,7 @@
                 </tr>
                 <tr>
                     <th>Khối lượng kiến thức toàn khóa</th>
-                    <td>@ViewBag.StudentInfo.Credits (tín chỉ) +</td>
+                    <td>@ViewBag.StudentInfo.Credits (tín chỉ)</td>
                 </tr>
                 <tr>
                     <th>Đối tượng tuyển sinh</th>
@@ -199,7 +199,7 @@
                                 }
                                 <tr>
                                     <td><strong>I.1</strong></td>
-                                    <td colspan="2"><strong>@lstype[0].TypeName</strong></td>
+                                    <td colspan="2"><strong>@lstype[0].TypeName.Substring(0,11)</strong></td>
                                     <td><strong>0</strong></td>
                                     <td></td>
                                     <td></td>
@@ -242,7 +242,7 @@
                                     }
                                     <tr>
                                         <td><strong>I.2</strong></td>
-                                        <td colspan="2"><strong>@lstype2[0].TypeName</strong></td>
+                                        <td colspan="2"><strong>@lstype2[0].TypeName.Substring(3)</strong></td>
                                         <td><strong>0</strong></td>
                                         <td></td>
                                         <td></td>
@@ -251,6 +251,21 @@
                                         <td></td>
                                         <td></td>
                                         <td><strong>Có tự chọn</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3"><strong>Kiến thức bắt buộc</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -270,7 +285,7 @@
                                             <td>@item.TimesBT</td>
                                             <td>@item.TimesTL</td>
                                             <td>@item.TimesTH</td>
-                                            <td></td>
+                                            <td><strong>Bắt buộc</strong></td>
                                             <td>@item.SemesterID</td>
                                             <td>@item.TimesK</td>
                                             <td>
@@ -279,6 +294,21 @@
                                             <td>@Html.Raw(item.ModulesHT)</td>
                                         </tr>
                                     }
+                                    <tr>
+                                        <td colspan="3"><strong>Tự chọn thể chất</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
                                     @foreach (var item in lstype2.Where(x => x.ProgramGroupID != 0))
                                     {
                   
@@ -307,7 +337,7 @@
                                     }
                                     <tr>
                                         <td><strong>I.3</strong></td>
-                                        <td colspan="2"><strong>@lstype3[0].TypeName</strong></td>
+                                        <td colspan="2"><strong>@lstype3[0].TypeName.Substring(3)</strong></td>
                                         <td><strong>0</strong></td>
                                         <td></td>
                                         <td></td>
@@ -350,7 +380,7 @@
                                     <tr>
                                         <td><strong>I.4</strong></td>
                                         <td colspan="2"><strong>@lstype4[0].TypeName</strong></td>
-                                        <td><strong>0</strong></td>
+                                        <td><strong>11</strong></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -392,7 +422,7 @@
                                     <tr>
                                         <td><strong>I.5</strong></td>
                                         <td colspan="2"><strong>@lstype5[0].TypeName</strong></td>
-                                        <td><strong>0</strong></td>
+                                        <td><strong>15</strong></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -439,7 +469,7 @@
                                     <tr>
                                         <td><strong>II.1</strong></td>
                                         <td colspan="2"><strong>@lstype6[0].TypeName</strong></td>
-                                        <td><strong>0</strong></td>
+                                        <td><strong>50</strong></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -452,7 +482,21 @@
                                         <td></td>
                                         <td></td>
                                     </tr>
-
+                                    <tr>
+                                        <td colspan="3"><strong>Kiến thức bắt buộc</strong></td>
+                                        <td><strong>35</strong></td>
+                                        <td><strong>35</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
                                     @foreach (var item in lstype6.Where(x=>x.ProgramGroupID==0))
                                     {
                                         <tr>
@@ -475,6 +519,21 @@
                                             <td>@item.ModulesHT</td>
                                         </tr>
                                     }
+                                    <tr>
+                                        <td colspan="3"><strong>Tự chọn cơ sở ngành</strong></td>
+                                        <td><strong>15</strong></td>
+                                        <td><strong>15</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
                                     @{
                                         var sttCSN2 = 1;
                                     }
@@ -525,7 +584,21 @@
                                         <td></td>
                                         <td></td>
                                     </tr>
-
+                                    <tr>
+                                        <td colspan="3"><strong>Kiến thức bắt buộc</strong></td>
+                                        <td><strong>16</strong></td>
+                                        <td><strong>16</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
                                     @foreach (var item in lstype7.Where(x => x.ProgramGroupID == 0))
                                     {
                                         <tr>
@@ -548,6 +621,21 @@
                                             <td>@item.ModulesHT</td>
                                         </tr>
                                     }
+                                    <tr>
+                                        <td colspan="3"><strong>Tự chọn chuyên ngành</strong></td>
+                                        <td><strong>35</strong></td>
+                                        <td><strong>35</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td><strong>0</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
                                      @foreach (var item in lstype7.Where(x => x.ProgramGroupID != 0))
                                     {
 
@@ -572,7 +660,19 @@
                                         </tr>
                                     }
                                     <tr>
-                                        <td>@ViewBag.StudentInfo.Credits</td>
+                                        <td colspan="3"><strong>Tổng số tín chỉ</strong></td>
+                                        <td><strong>@ViewBag.StudentInfo.Credits</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                 </tbody>
                             </table>

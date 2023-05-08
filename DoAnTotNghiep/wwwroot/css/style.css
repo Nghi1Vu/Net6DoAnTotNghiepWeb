@@ -55,18 +55,18 @@ a {
 }
 
 .txt-notic{
-    font-size:11px;
+    font-size:13px;
     margin: 10px 5px;
 }
 
 .txt-clr-table {
-    font-size: 11px;
+    font-size: 12px;
     font-weight:600;
     color: red;
     padding: 2px 4px;  
 }
 .txt-clr-red {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     color: red;
 }
@@ -83,12 +83,9 @@ a {
             transform: translate(25%, 10%) rotate(90deg);
         }
 /*----------animation checkbox svg và hủy animation hover-------------*/
-input[type = "checkbox"] {
-    -webkit-appearance: none;
+#check {
     display: none;
-    visibility: hidden;
 }
-
 .bar {
     position: relative;
     cursor: pointer;
@@ -729,6 +726,8 @@ input[type]:checked ~ span.top {
     }
 
 /*------------------ end Body Page đổi mật khẩu --------------------*/
+
+
 .option-1 {
     font-weight: 100;
     font-size: 18px;
@@ -1147,7 +1146,7 @@ td {
     position: relative;
     display: flex;
     font-weight: 500;
-    font-size: 11px;
+    font-size: 13px;
     gap: 5rem;
     align-items: center;
 }
@@ -1984,11 +1983,6 @@ thead tr:nth-child(2) th {
         padding: 5px 7px;
         text-align: left;
     }
-
-        .table-CTKhung table tr td p {
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
 
 .table-con th {
     text-align: center !important;
