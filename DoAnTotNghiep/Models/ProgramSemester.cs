@@ -2,6 +2,10 @@
 {
     public class ProgramSemester
     {
+        public string GroupName { get; set; }
+        public int MinCreditsLT { get; set; }
+        public int MinCreditsTH { get; set; }
+        public int MinCreditsK { get; set; }
         public int CreatedClass { get; set; }
         public int CreditsS { get; set; }
         public int ModulesTypeID { get; set; }

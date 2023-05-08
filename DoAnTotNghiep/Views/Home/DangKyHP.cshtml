@@ -1,7 +1,10 @@
-﻿
+﻿@using DoAnTotNghiep.Models;
+@model List<ProgramSemester>;
 @{
     ViewData["Title"] = "DangKyHP";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var sttbb = 1;
+    var stttc = 1;
 }
 
 <div class="l-navbar" id="nav-bar">
@@ -104,9 +107,9 @@
                 <p>Lớp:</p>
             </div>
             <div class="infor-DKHP">
-                <p><strong>Bùi Minh Thái</strong></p>
-                <p><strong>151901162</strong></p>
-                <p><strong>19DTH4</strong></p>
+                <p><strong>@ViewBag.StudentInfo.Fullname</strong></p>
+                <p><strong>@ViewBag.StudentInfo.Usercode</strong></p>
+                <p><strong>@ViewBag.StudentInfo.Classname</strong></p>
             </div>
             <div class="infor-DKHP2">
                 <p><strong>Tổng số tin chỉ tích lũy:</strong></p>
@@ -114,8 +117,8 @@
                 <p><strong>Xếp hạng:</strong></p>
             </div>
             <div class="infor-DKHP3">
-                <p><strong>113.0</strong></p>
-                <p><strong>3.36</strong></p>
+                <p><strong>127.0</strong></p>
+                <p><strong>@ViewBag.StudentInfo.TBCTL</strong></p>
                 <p><strong>Giỏi</strong></p>
             </div>
             <div class="infor-DKHP2 p-t-20 d-flex">
@@ -188,15 +191,19 @@
                         <td style="width:5%">Thực hành</td>
                         <td style="width:5%">Số TC</td>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>HP3176</td>
-                        <td>Kỹ năng phỏng vấn & hồ sơ xin việc</td>
-                        <td>2</td>
-                        <td>-</td>
-                        <td>2</td>
-                        <td><strong>A</strong></td>
-                    </tr>
+                    @foreach(var item in Model.Where(x=>x.ProgramGroupID==0))
+                    {
+                        <tr>
+                            <td>@(sttbb++)</td>
+                            <td>@("HP"+item.ModulesID)</td>
+                            <td>@item.ModulesName</td>
+                            <td>@item.CreditsLT</td>
+                            <td>@item.CreditsTH</td>
+                            <td>@item.Credits</td>
+                            <td><strong>A</strong></td>
+                        </tr>
+                    }
+                  
                 </table>
             </div>
         </div>
@@ -220,17 +227,20 @@
                         <td style="width:5%">Thực hành</td>
                         <td style="width:5%">Số TC</td>
                     </tr>
+                     @foreach(var item in Model.Where(x=>x.ProgramGroupID!=0))
+                    {
                     <tr>
-                        <td>1</td>
-                        <td>HP3176</td>
-                        <td>Kỹ năng phỏng vấn & hồ sơ xin việc</td>
-                        <td>2</td>
-                        <td>-</td>
-                        <td>2</td>
-                        <td>-</td>
-                        <td>2</td>
+                        <td>@(stttc++)</td>
+                            <td>@("HP" + item.ModulesID)</td>
+                            <td>@item.ModulesName</td>
+                            <td>@item.GroupName</td>
+                        <td>@(item.MinCreditsK+item.MinCreditsTH+item.MinCreditsLT)</td>
+                            <td>@item.CreditsLT</td>
+                            <td>@item.CreditsTH</td>
+                            <td>@item.Credits</td>
                         <td><strong>A</strong></td>
                     </tr>
+                    }
                 </table>
             </div>
         </div>
