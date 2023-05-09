@@ -1939,6 +1939,49 @@ thead tr:nth-child(2) th {
 .tabTable-dkhp tr:hover {
     background-color: #EEEEEE;
 }
+/* Style the tab Chọn ngày DKHP */
+.tabChonDKHP {
+    height: 100vh;
+    width: 91.4vw;
+    /*calc(93vw - 175px)*/
+    background-color: white;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-right: none;
+    margin: -2px 0px 0px -2px;
+    padding: 6px 12px;
+    display: none;
+    -webkit-animation: fadeEffect 0.4s;
+    animation: fadeEffect1 0.4s;
+    z-index: 2;
+    /*position: absolute;*/
+    position: fixed;
+    transform: translate( 0%, 0%);
+}
+
+@-webkit-keyframes fadeEffect1 {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+    }
+}
+
+@keyframes fadeEffect1 {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 /*--------------Tình hình đăng ký học phần---------------*/
 

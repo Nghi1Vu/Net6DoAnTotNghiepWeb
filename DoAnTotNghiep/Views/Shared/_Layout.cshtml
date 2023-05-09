@@ -27,7 +27,7 @@
             <div class="portal-new">
                 <h4 class="name-sv d-flex">
                     Hi: <strong>Bùi Minh Thái 324</strong>              
-                    <label onclick="openTab(event, 'tabInfor'); " for="check" class="bar">
+                    <label onclick="openTabIFSV(event, 'tabInfor'); " for="check" class="bar">
                         <input id="check" type="checkbox">
                             <span class="top">
                                 <svg xmlns="http://www.w3.org/2000/svg" id="Outline"   viewBox=" 5 4 24 24" fill="#007ACC" width="22" height="22"> 
@@ -193,6 +193,21 @@
         });
         //<!--===========End login==============-->
     </script>
+    <!--===========Tab Infor sinh vieen==============-->
+     <script>
+        function openTabIFSV(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+
+            tablinks = document.getElementsByClassName("tablinks");
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
     <!--===========Josn select tỉnh thành thành phố phường xã ==============-->
     <!--===========Ca nhan==============-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
@@ -254,6 +269,21 @@
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+    <!--===========Tab chọn ngày đăng ký học phần==============-->
+    <script>
+        function openTabDKHP(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+
+            tablinks = document.getElementsByClassName("tablinks");
+
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
