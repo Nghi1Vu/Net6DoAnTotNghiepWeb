@@ -235,7 +235,7 @@
                         <tr>
                             <td>@(sttbb++)</td>
                             <td>@("HP"+item.ModulesID)</td>
-                            <td>@item.ModulesName</td>
+                            <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP')" href="#">@item.ModulesName</a></td>
                             <td>@item.CreditsLT</td>
                             <td>@item.CreditsTH</td>
                             <td>@item.Credits</td>
@@ -271,7 +271,7 @@
                     <tr>
                         <td>@(stttc++)</td>
                             <td>@("HP" + item.ModulesID)</td>
-                            <td>@item.ModulesName</td>
+                            <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP')" href="#">@item.ModulesName</a></td>
                             <td>@item.GroupName</td>
                         <td>@(item.MinCreditsK+item.MinCreditsTH+item.MinCreditsLT)</td>
                             <td>@item.CreditsLT</td>

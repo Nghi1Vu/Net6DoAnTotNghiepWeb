@@ -1936,6 +1936,10 @@ thead tr:nth-child(2) th {
     padding: 5px 8px;
 }
 
+    .tabTable-dkhp td a:any-link {
+        color: #007BFF !important;
+    }
+
 .tabTable-dkhp tr:hover {
     background-color: #EEEEEE;
 }
