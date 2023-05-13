@@ -129,10 +129,31 @@ namespace DoAnTotNghiep.Controllers
             return View();
         }
 
+        public IActionResult KetQuaHocTapTrenLop()
+        {
+            return View();
+        }
+
+        public IActionResult XemKetQuaHocTapCacMon()
+        {
+            return View();
+        }
+
         public IActionResult KetQuaThi()
         {
             return View();
         }
+
+        public IActionResult KetQuaThiTrenLop()
+        {
+            return View();
+        }
+
+        public IActionResult XemKetQuaThiCacMon()
+        {
+            return View();
+        }
+
 
         public IActionResult TBChungTichLuy()
         {

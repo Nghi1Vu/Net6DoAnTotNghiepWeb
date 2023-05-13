@@ -1,0 +1,248 @@
+﻿
+@{
+    ViewData["Title"] = "KetQuaThiTrenLop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <a href="#" class="nav_logo m-l--10">
+                <img src="~/images/logo.png" width="35px" height="35px" alt="">
+                <span class="nav_logo-name">Quản lý sinh viên</span>
+            </a>
+            <div class="nav_list">
+                <a href="@Url.Action("News", "Home")" class="nav_link">
+                    <i title="Bảng tin" class='bx bx-home-alt-2'></i>
+                    <span class="nav_name">Bảng tin</span>
+                </a>
+                <a href="@Url.Action("ChiaSeBieuMau", "Home")" class="nav_link">
+                    <i title="Chia sẻ" class='bx bx-message-square-detail nav_icon'></i>
+                    <span class="nav_name">Chia sẻ</span>
+                </a>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <a href="@Url.Action("KetQuaHocTap", "Home")" class="nav_link active">
+                            <i title="Kết quả học tập" class='bx bx-clipboard'></i>
+                            <span class="nav_name">Kết quả học tập</span>
+                        </a>
+                    </button>
+                    <div class="dropdown-contnet dis-block">
+                        <a href="@Url.Action("KetQuaThi", "Home")"><i title="Kết quả thi" class='bx bx-task'></i> Kết quả thi</a>
+                        <a href="@Url.Action("TBChungTichLuy", "Home")"><i title="TB chung tích lũy" class='bx bx-task'></i> TB chung tích lũy</a>
+                        <a href="@Url.Action("TBChungHocKy", "Home")"><i title="TB chung học kỳ" class='bx bx-task'></i> TB chung học kỳ</a>
+                        <a href="@Url.Action("XetThuTotNghiep", "Home")"><i title="Xét thử tốt nghiệp" class='bx bx-task'></i> Xét thử tốt nghiệp</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <a href="@Url.Action("ThoiKhoaBieu", "Home")" class="nav_link">
+                            <i title="Thời khóa biểu" class='bx bx-time-five'></i>
+                            <span class="nav_name">Thời khóa biểu</span>
+                        </a>
+                    </button>
+                    <div class="dropdown-contnet">
+                        <a href="@Url.Action("LichGiangDay", "Home")"><i title="Lịch giảng dạy" class='bx bx-timer nav_icon_con'></i> Lịch giảng dạy</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <a href="@Url.Action("XemLichThi", "Home" )" class="nav_link">
+                            <i title="Lịch thi" class='bx bx-calendar'></i>
+                            <span class="nav_name">Lịch thi</span>
+                        </a>
+                    </button>
+                    <div class="dropdown-contnet">
+                        <a href="@Url.Action("KeHoachThi", "Home")"><i title="Kế hoạch thi theo lớp" class='bx bx-calendar-check'></i> Kế hoach thi theo lớp</a>
+                    </div>
+                </div>
+                <a href="@Url.Action("LopHoc", "Home" )" class="nav_link">
+                    <i title="Lớp Học" class='bx bxs-school'></i>
+                    <span class="nav_name">Lớp học</span>
+                </a>
+                <a href="@Url.Action("CaNhan", "Home" )" class="nav_link">
+                    <i title="Cá nhân" class='bx bx-user nav_icon'></i>
+                    <span class="nav_name">Cá nhân</span>
+                </a>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <a href="@Url.Action("DangKyHP", "Home" )" class="nav_link">
+                            <i title="Đăng ký học phần" class='bx bx-bookmark nav_icon'></i>
+                            <span class="nav_name">Đăng ký học phần</span>
+                        </a>
+                    </button>
+                    <div class="dropdown-contnet">
+                        <a href="@Url.Action("TinhHinhDangKyHP", "Home")"><i title="Tình hình ĐK học phần" class='bx bxs-bookmark'></i> Tình hình ĐK học phần</a>
+                        <a href="#"><i title="ĐK học 2 chương trình" class='bx bx-bookmarks'></i> ĐK học 2 chương trình</a>
+                        <a href="#"><i title="Danh sách đăng ký học phần" class='bx bx-bookmarks'></i> Danh sách đăng ký</a>
+                        <a href="#"><i title="Kiểm tra tiến độ CT2" class='bx bx-bookmarks'></i> Kiểm tra tiến độ CT2</a>
+                        <a href="@Url.Action("KhungChuongTrinh", "Home")"><i title="Khung chương trình" class='bx bxs-book-bookmark'></i> Khung chương trình</a>
+                        <a href="@Url.Action("KhungChuongTrinhKy", "Home")"><i title="Khung chương trình (Kỳ)" class='bx bxs-book-bookmark'></i> Khung chương trình (Kỳ)</a>
+                    </div>
+                </div>
+                <a href="@Url.Action("DanhGiaRenLuyen", "Home" )" class="nav_link">
+                    <i title="Đánh giá rèn luyện" class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                    <span class="nav_name">Đánh giá rèn luyện</span>
+                </a>
+                @*                <a href="#" class="nav_link">
+                <i class='bx bx-log-out nav_icon'></i>
+                <span class="nav_name">Đăng xuất</span>
+                </a>*@
+            </div>
+        </div>
+    </nav>
+</div>
+<!--Container Main start-->
+<div class="border-page">
+    <div class="Bang-tin">
+        <p class="title-page">Bảng kết quả thi</p>
+        <div class="title-line"></div>
+        <div class="TBChungTL p-b-60">
+            <div class="infor-student">
+                <div class="Gap-txt-xxl">
+                    <div class="d-flex">
+                        <div class="">
+                            <p>Môn:</p>
+                            <p>Hình thức thi:</p>
+                            <p>Mã lớp độc lập:</p>
+                        </div>
+                        <div class="p-l-30">
+                            <p><strong>Tiếng anh 1</strong></p>
+                            <p><strong>Vấn đáp</strong></p>
+                            <p><strong>130.43518</strong></p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="">
+                            <p>Trình độ:</p>
+                            <p>Số tín chỉ:</p>
+                            <p>Lớp ưu tiên:</p>
+                        </div>
+                        <div class="p-l-5">
+                            <p><strong>&nbsp;</strong></p>
+                            <p><strong>3.0</strong></p>
+                            <p><strong>0070131.22</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-TBChungTL">
+                <table style="width:100% ;padding-left: 4px">
+                    <tr>
+                        <th style="width:3%">STT</th>
+                        <th style="width:10%">Mã sinh viên</th>
+                        <th>Họ Tên</th>
+                        <th style="width:20%">Điểm thi lần 1</th>
+                        <th style="width:20%">Điểm thi lần 2</th>
+                        <th style="width:15%">Ghi chú</th>
+                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Học kỳ 1</td>
+                            <td><a href="@Url.Action("XemKetQuaThiCacMon", "Home")">Bùi Minh Thái</a></td>
+                            <td></td>
+                            <td>9</td>
+                            <td>8</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="float-r m-t-20 m-b-30">
+                    <div class="pagination ">
+                        <a href="#"><i class='bx bx-left-arrow-alt'></i></a>
+                        <a href="#">1</a>
+                        <a class="active" href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">6</a>
+                        <a href="#"><i class='bx bx-right-arrow-alt'></i></a>
+                    </div>
+                </div>
+                <table style="width:100% ;padding-left: 4px">
+                    <tr>
+                        <td colspan="6">
+                            <strong class="fs-11">Thống kê điểm</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width:3%">STT</th>
+                        <th>Mức điểm loại</th>
+                        <th style="width:17%">Số lượng sinh viên đợt 1</th>
+                        <th style="width:17%">Số lượng sinh viên đợt 1</th>
+                        <th style="width:17%">Thống kê điểm tổng kết lần 1</th>
+                        <th style="width:17%">Thống kê điểm tổng kết lần 2</th>
+                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><p style="color: green">Số HS/SV đạt mức điểm Xuất sắc (9 - 10)</p></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><p style="color: green">Số HS/SV đạt mức điểm Giỏi (8.0 - 8.9)</p></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><p style="color: blue">Số HS/SV đạt mức điểm Khá (7.0 - 7.9)</p></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><p style="color: orange">Số HS/SV đạt mức điểm Trung bình khá (6 - 7)</p></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><p style="color: orange">Số HS/SV đạt mức điểm Trung bình (5 - 5.9)</p></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td><p style="color: red">Số HS/SV đạt mức điểm Yếu (4 - 4.9)</p></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td><p style="color: red">Số HS/SV đạt mức điểm Kém (0 - 4)</p></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td><p>I (Chưa đủ dữ liệu đánh giá)</p></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

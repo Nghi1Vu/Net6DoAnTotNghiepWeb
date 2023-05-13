@@ -53,7 +53,70 @@ a {
     z-index: var(--z-fixed);
     transition: .5s
 }
+/*----------Pagination-------------*/
+.pagination {
+    display: inline-block;
+    font-size: 13px;
+    box-shadow: 0 8px 20px -9px #36b2fa;
+}
 
+    .pagination a i {
+        color: #7ccbfd;
+        font-size: 16px;
+        pointer-events: none;
+    }
+
+    .pagination a {
+        color: black;
+        float: left;
+        padding: 2px 8px;
+        margin: 0 8px;
+        text-decoration: none;
+    }
+
+        .pagination a.active {
+            background-color: #0c98eb;
+            color: white;
+            border-radius: 50%;
+        }
+
+        .pagination a:hover {
+            background-color: #36b2fa;
+            color: white;
+            border-radius: 50%;
+        }
+
+        .pagination a:first-child {
+            color: #36b2fa;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .pagination a:last-child {
+            color: #36b2fa;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .pagination a:active:first-child {
+            color: white;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .pagination a:active:last-child {
+            color: white;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .pagination a:active {
+            background-color: #7ccbfd;
+            color: white;
+            border-radius: 50%;
+        }
+
+/*----------End Pagination-------------*/
 .txt-notic{
     font-size:13px;
     margin: 10px 5px;
@@ -1116,6 +1179,11 @@ td {
     font-weight: 500;
     padding: 8px 0px;
 }
+
+/*----------body kết quả học tập-------------*/
+
+
+
 /*----------body kết quả Thi-------------*/
 .table-kq-Thi th {
     background-color: #2647A0 !important;
