@@ -1,7 +1,11 @@
-﻿
+﻿@model List<DoAnTotNghiep.Models.KQHT>
 @{
     ViewData["Title"] = "XemKetQuaHocTapCacMon";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var stt = 1;
+    var results = Model.GroupBy(
+    p => new { p.IndependentClassID, p.ModulesName, p.ClassName, p.ClassCode },
+    (key, g) => new { IndependentClassID = key.IndependentClassID, ModulesName = key.ModulesName, ClassName = key.ClassName, ClassCode = key.ClassCode });
 }
 
 <div class="l-navbar" id="nav-bar">
@@ -138,25 +142,28 @@
                         <th>Điểm 2</th>
                     </tr>
                     <tbody>
+                        @foreach (var item in results)
+                    {
                         <tr>
-                            <td>1</td>
-                            <td><a href="@Url.Action("KetQuaHocTapTrenLop", "Home")">Bùi Minh Thái</a></td>
-                            <td></td>
-                            <td></td>
-                            <td>9</td>
-                            <td>8</td>
-                            <td></td>
-                            <td></td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>9</td>
-                            <td></td>
-                            <td>9</td>
-                            <td>8</td>
-                            <td></td>
+                                <td>@(stt++)</td>
+                                <td><a href="@Url.Action("KetQuaHocTapTrenLop", "Home", new {IndependentClassID=@item.IndependentClassID})">@item.ModulesName</a></td>
+                            <td>@item.ClassCode</td>
+                                <td>@(Model.Where(x => x.ScoreType == 1 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 1 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 2 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 2 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 3 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 3 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 4 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 4 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 5 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 5 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 6 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 6 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 7 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 7 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 10 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 10 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 19 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 19 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 20 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 20 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 50 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 50 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 99 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 99 & x.IndependentClassID == item.IndependentClassID).FirstOrDefault().Score : null)</td>
                             <td></td>
                             <td></td>
                         </tr>
+                        }
                     </tbody>
                 </table>
             </div>

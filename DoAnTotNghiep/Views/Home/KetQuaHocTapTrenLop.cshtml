@@ -1,7 +1,11 @@
-﻿
+﻿@model List<DoAnTotNghiep.Models.KQHT>
 @{
     ViewData["Title"] = "KetQuaHocTapTrenLop";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var stt = 1;
+    var results = Model.GroupBy(
+    p => new { p.UserID, p.Usercode, p.Fullname },
+    (key, g) => new { UserID = key.UserID, Usercode = key.Usercode, Fullname = key.Fullname });
 }
 
 <div class="l-navbar" id="nav-bar">
@@ -159,25 +163,28 @@
                         <th>Điểm 2</th>
                     </tr>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td><a href="@Url.Action("XemKetQuaHocTapCacMon", "Home")">Bùi Minh Thái</a></td>
-                            <td></td>
-                            <td>9</td>
-                            <td>8</td>
-                            <td></td>
-                            <td></td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>9</td>
-                            <td></td>
-                            <td>9</td>
-                            <td>8</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        @foreach (var item in results)
+                        {
+                            <tr>
+                                <td>@(stt++)</td>
+                                <td>@item.Usercode</td>
+                                <td><a href="@Url.Action("XemKetQuaHocTapCacMon", "Home",new { UserID=@item.UserID})">@item.Fullname</a></td>
+                                <td>@(Model.Where(x => x.ScoreType == 1 & x.UserID == item.UserID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 1 & x.UserID == item.UserID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 2 & x.UserID == item.UserID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 2 & x.UserID == item.UserID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 3 & x.UserID == item.UserID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 3 & x.UserID == item.UserID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 4 & x.UserID == item.UserID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 4 & x.UserID == item.UserID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 5 & x.UserID == item.UserID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 5 & x.UserID == item.UserID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 6 & x.UserID == item.UserID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 6 & x.UserID == item.UserID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 7 & x.UserID == item.UserID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 7 & x.UserID == item.UserID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 10 & x.UserID == item.UserID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 10 & x.UserID == item.UserID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 19 & x.UserID == item.UserID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 19 & x.UserID == item.UserID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 20 & x.UserID == item.UserID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 20 & x.UserID == item.UserID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 50 & x.UserID == item.UserID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 50 & x.UserID == item.UserID).FirstOrDefault().Score : null)</td>
+                                <td>@(Model.Where(x => x.ScoreType == 99 & x.UserID == item.UserID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 99 & x.UserID == item.UserID).FirstOrDefault().Score : null)</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
                 <div class="float-r m-t-20">

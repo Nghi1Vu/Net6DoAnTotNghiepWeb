@@ -126,17 +126,36 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult KetQuaHocTap()
         {
-            return View();
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetKQHTByUser?UserId=" + user.UserId).Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<List<KQHT>>(todo);
+            sharedClient.Dispose();
+            ViewBag.StudentInfo = user;
+            return View(result);
         }
 
-        public IActionResult KetQuaHocTapTrenLop()
+        public IActionResult KetQuaHocTapTrenLop(int IndependentClassID)
         {
-            return View();
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetKQHTByClass?IndependentClassID=" + IndependentClassID).Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<List<KQHT>>(todo);
+            sharedClient.Dispose();
+            ViewBag.StudentInfo = user;
+            return View(result);
         }
 
-        public IActionResult XemKetQuaHocTapCacMon()
+        public IActionResult XemKetQuaHocTapCacMon(int UserID)
         {
-            return View();
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetKQHTByUser?UserId=" + UserID).Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<List<KQHT>>(todo);
+            sharedClient.Dispose();
+            return View(result);
         }
 
         public IActionResult KetQuaThi()
