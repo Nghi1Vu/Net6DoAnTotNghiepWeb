@@ -330,6 +330,11 @@ namespace DoAnTotNghiep.Controllers
             sharedClient.Dispose();
             return Content(result.ToString());
         }
+        public IActionResult GetIC(int ModulesID)
+        {
+            return ViewComponent("GetIC", ModulesID);
+        }
+
         public IActionResult Privacy()
         {
             return View();

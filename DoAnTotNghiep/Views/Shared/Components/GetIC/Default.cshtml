@@ -1,0 +1,38 @@
+﻿@model List<DoAnTotNghiep.Models.IndependentClass>
+<table style="width:100% ;padding-left: 4px">
+    <tr>
+        <td colspan="10">
+            <p class="p-t-8"><strong>Lựa chọn lớp học phần: </strong><strong class="txt-clr-red">Thi - Tiếng Anh chuẩn đầu ra</strong></p>
+        </td>
+    </tr>
+    <tr>
+        <th style="width:8%;">Tên Lớp</th>
+        <th style="width:8%;">Tên Mã lớp </th>
+        <th>Tên giáo viên giảng dạy</th>
+        <th style="width:10%;">Ngày bắt đầu</th>
+        <th style="width:10%;">Địa điểm học</th>
+        <th style="width:14%;">Thời gian học</th>
+        <th style="width:7%;">Tín chỉ</th>
+        <th style="width:10%;">Số lượng</th>
+        <th style="width:10%;">Học phí</th>
+        <th></th>
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ClassName</td>
+                <td>@item.ClassCode</td>
+                <td>@item.Teachername (KNN)</td>
+                <td>@item.StartDate</td>
+                <td>1. BIÊN HÒA</td>
+                <td>@(item.StartDate.DayOfWeek) @item.Description  @item.RoomName</td>
+                <td>@item.Credits</td>
+                <td>@item.MaxStudent</td>
+                <td>@item.COSTS</td>
+                <td><a href="#">[Đăng ký]</a></td>
+            </tr>
+        }
+      
+    </tbody>
+</table>

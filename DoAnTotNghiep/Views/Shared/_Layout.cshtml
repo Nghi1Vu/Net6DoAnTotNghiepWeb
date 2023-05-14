@@ -278,7 +278,7 @@
     </script>
     <!--===========Tab chọn ngày đăng ký học phần==============-->
     <script>
-        function openTabDKHP(evt, tabName) {
+        function openTabDKHP(evt, tabName, id) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
 
@@ -286,6 +286,12 @@
 
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
+            $.ajax({
+                url: "/Home/GetIC?ModulesID="+id,
+                success: function(rs){
+                    $(".table-TBChungTL").html(rs);
+                }
+            })
         }
 
         // Get the element with id="defaultOpen" and click on it

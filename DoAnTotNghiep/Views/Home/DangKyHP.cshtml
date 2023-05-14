@@ -10,39 +10,11 @@
     <span onclick="this.parentElement.style.display='none';" class="topright butn-close m-b-10">&times</span>
     <div class="TBChungTL">
         <div class="table-TBChungTL m-t-10">
-            <table style="width:100% ;padding-left: 4px">
-                <tr>
-                    <td colspan="10">
-                        <p class="p-t-8"><strong>Lựa chọn lớp học phần: </strong><strong class="txt-clr-red">Thi - Tiếng Anh chuẩn đầu ra</strong></p>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="width:8%;">Tên Lớp</th>
-                    <th style="width:8%;">Tên Mã lớp </th>
-                    <th>Tên giáo viên giảng dạy</th>
-                    <th style="width:10%;">Ngày bắt đầu</th>
-                    <th style="width:10%;">Địa điểm học</th>
-                    <th style="width:14%;">Thời gian học</th>
-                    <th style="width:7%;">Tín chỉ</th>
-                    <th style="width:10%;">Số lượng</th>
-                    <th style="width:10%;">Học phí</th>
-                    <th></th>
-                </tr>
-                <tbody>
-                    <tr>
-                        <td>0070198.1</td>
-                        <td>3685.60784</td>
-                        <td>Nguyễn Đình Thanh Bảo (KNN)</td>
-                        <td>18/11/2019</td>
-                        <td>1</td>
-                        <td>Thứ 7 (1,2,3)  G201</td>
-                        <td>10, 11, 12</td>
-                        <td>18/11/2019</td>
-                        <td>1</td>
-                        <td><a href="#">[Đăng ký]</a></td>
-                    </tr>
-                </tbody>
-            </table>
+            @await Component.InvokeAsync("GetIC",
+            new {
+            ModulesID =  0,
+           }
+            )
         </div>
     </div>
 </div>
@@ -180,7 +152,7 @@
                 </tr>
                 <tr>
                     <td>Sáng</td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP')" href="#" style="color: blue">[Chọn]</a></td>@*WARING: Onclick là mở tab Chọn ngày DKHP*@
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0)" href="#" style="color: blue">[Chọn]</a></td>@*WARING: Onclick là mở tab Chọn ngày DKHP*@
                     <td><a href="#" style="color: blue">[Chọn]</a></td>
                     <td><a href="#" style="color: blue">[Chọn]</a></td>
                     <td><a href="#" style="color: blue">[Chọn]</a></td>
@@ -235,7 +207,7 @@
                         <tr>
                             <td>@(sttbb++)</td>
                             <td>@("HP"+item.ModulesID)</td>
-                            <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP')" href="#">@item.ModulesName</a></td>
+                            <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP', @item.ModulesID)" href="#">@item.ModulesName</a></td>
                             <td>@item.CreditsLT</td>
                             <td>@item.CreditsTH</td>
                             <td>@item.Credits</td>
@@ -271,7 +243,7 @@
                     <tr>
                         <td>@(stttc++)</td>
                             <td>@("HP" + item.ModulesID)</td>
-                            <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP')" href="#">@item.ModulesName</a></td>
+                            <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',@item.ModulesID)" href="#">@item.ModulesName</a></td>
                             <td>@item.GroupName</td>
                         <td>@(item.MinCreditsK+item.MinCreditsTH+item.MinCreditsLT)</td>
                             <td>@item.CreditsLT</td>
