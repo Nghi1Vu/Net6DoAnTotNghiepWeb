@@ -98,7 +98,7 @@
     <div class="Bang-tin">
         <p class="title-page">ĐÁNH GIÁ KẾT QUẢ RÈN LUYỆN THEO HỌC KỲ</p>
         <div class="title-line"></div>
-        <div class="table-Danhgia">
+        <div class="table-Danhgia p-b-60">
             <table style="width:100%; margin-top: 10px;">
                 <tr class="clo-1">
                     <!-- Hàng 1-->
@@ -110,6 +110,8 @@
                     <th style="width:15%">Xếp loại</th>
                     <th style="width:15%">Trạng thái</th>
                 </tr>
+                <tbody id="tablepaging">
+                    <tr></tr>
                 @for(int i=0; i<12;i++)
                 {
                     if (i<@Model.Count)
@@ -139,8 +141,18 @@
                         </tr>
                     }
                 }
-               
+                </tbody>
             </table>
+            <div class="float-r">
+                <div id="pageNavPosition" style="padding-top: 20px;">
+                </div>
+            </div>
+            <script type="text/javascript">
+                var pager = new Pager('tablepaging', 10);
+                pager.init();
+                pager.showPageNav('pager', 'pageNavPosition');
+                pager.showPage(1);
+            </script>
         </div>
     </div>
 </div>

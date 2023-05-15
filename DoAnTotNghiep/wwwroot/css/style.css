@@ -54,6 +54,43 @@ a {
     transition: .5s
 }
 /*----------Pagination-------------*/
+#pageNavPosition {
+    padding: 3px 0;
+    box-shadow: 0 8px 20px -9px #36b2fa;
+    width:fit-content;
+}
+
+.pg-normal {
+    cursor: pointer;
+    color: #15428B;
+    font-size: 16px;
+    padding: 2px 8px;
+    margin: 3px 8px;
+}
+
+    .pg-normal:active {
+        background-color: #0c98eb;
+        color: white;
+        border-radius: 50%;
+    }
+        .pg-normal:active:first-child {
+            color: white;
+            background-color: white;
+            border-radius: 50%;
+        }
+        .pg-normal:active:last-child {
+            color: white;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+.pg-selected {
+    background-color: #0c98eb;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 8px;
+    margin: 2px 8px;
+}
 .pagination {
     display: inline-block;
     font-size: 13px;
@@ -974,6 +1011,10 @@ input[type]:checked ~ span.top {
     color: var(--active-color)
 }
 
+.active1 {
+    color: red !important;
+}
+
     .active::before {
         content: '';
         position: absolute;
@@ -1236,7 +1277,8 @@ td {
 
 
 .table-TBChungTL table { /* sài chung vs khung chương trình kỳ*/
-    margin-top: 10px
+    margin-top: 10px;
+    table-layout: auto
 }
 
     .table-TBChungTL table tr th {
