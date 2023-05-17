@@ -1,7 +1,6 @@
-﻿@using DoAnTotNghiep.Models
-@model List<News>
+﻿
 @{
-    ViewData["Title"] = "Dashboard";
+    ViewData["Title"] = "ThongBaoTraoDoiTrongLop";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -13,7 +12,7 @@
                 <span class="nav_logo-name">Quản lý sinh viên</span>
             </a>
             <div class="nav_list">
-                <a href="@Url.Action("News", "Home")" class="nav_link active">
+                <a href="@Url.Action("News", "Home")" class="nav_link">
                     <i title="Bảng tin" class='bx bx-home-alt-2'></i>
                     <span class="nav_name">Bảng tin</span>
                 </a>
@@ -54,14 +53,14 @@
                         </a>
                     </button>
                     <div class="dropdown-contnet">
-                        <a href="@Url.Action("KeHoachThi", "Home")"><i title="Kế hoạch thi theo lớp" class='bx bx-calendar-check'></i> Kế hoach thi theo lớp</a>
+                        <a href="@Url.Action("KeHoachThi", "Home")"><i class='bx bx-calendar-check'></i> Kế hoach thi theo lớp</a>
                     </div>
                 </div>
                 <a href="@Url.Action("LopHoc", "Home" )" class="nav_link">
                     <i title="Lớp Học" class='bx bxs-school'></i>
                     <span class="nav_name">Lớp học</span>
                 </a>
-                <a href="@Url.Action("CaNhan", "Home" )" class="nav_link">
+                <a href="@Url.Action("CaNhan", "Home" )" class="nav_link  active">
                     <i title="Cá nhân" class='bx bx-user nav_icon'></i>
                     <span class="nav_name">Cá nhân</span>
                 </a>
@@ -85,56 +84,56 @@
                     <i title="Đánh giá rèn luyện" class='bx bx-bar-chart-alt-2 nav_icon'></i>
                     <span class="nav_name">Đánh giá rèn luyện</span>
                 </a>
-@*                <a href="#" class="nav_link">
-                    <i class='bx bx-log-out nav_icon'></i>
-                    <span class="nav_name">Đăng xuất</span>
+                @*                <a href="#" class="nav_link">
+                <i class='bx bx-log-out nav_icon'></i>
+                <span class="nav_name">Đăng xuất</span>
                 </a>*@
             </div>
         </div>
     </nav>
 </div>
-<!--Container Main start-->
-<div style="transform: rotate(180deg);" class="z-index">
-    <div class="Box-notic">
-        <div style="transform: rotate(180deg);" class="txt-opc">
-            <img src="~/images/logo.png" width="50px" height="50px" alt="">
-            Chào mừng đến với QLSV của DNTU. &emsp;
+
+<div class="border-page">
+    <div class="Bang-tin">
+        <p class="title-page">Chia sẻ liên hệ, Mãu báo cáo, biểu mẫu, quy định, hướng dẫn chung</p>
+        <div class="title-line"></div>
+        <div class="body-share">
+            <div class="content">
+                <div class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="card">
+                                <p class="title-page">Bạn muốn chia sẻ điều gì ?</p>
+                                <div class="card-body">
+                                    <textarea id="textareaFamily" name="ChiaSeThongTin" rows="6" cols="68">
+
+                                    </textarea>
+                                    <div class="float-r">
+                                        <button type="submit" class="button m-t-12 m-l-16">Gửi biểu mẫu</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-1">
+                            
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card m-l--30">
+                                <p class="title-page">Nội dung chia sẻ</p>
+                                <div class="card-body">
+                                    <div class="fs-13">
+                                        <a><strong class="txt-clr-Blu">Huỳnh Thanh Tâm </strong> chia sẻ tới <strong class="txt-clr-Blu">Nguyễn Lê Đình Hiếu</strong></a> <br />
+                                        <a>Lý do SV không được cấp giấy XNSV: SV cần hoàn thành học phí trước khi đăng ký giấy xác nhận sinh viên</a><br />
+                                        <a class="txt-day">Ngày 15/05/2023 lúc 09:22</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .animated -->
+            </div><!-- .content -->
         </div>
     </div>
 </div>
 
-<div class="border-page p-b-60">
-    <div class="News">
-        <p class="title-page">Bảng tin@*@item.Head*@</p>
-        <div class="title-line"></div>
-        <table>
-            <tbody id="tablepaging">
-                <tr></tr>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            <div class="newsItem d-flex">
-                                <a href="@Url.Action("DetailNews", "Home", new{ id = @item.NewsId })" class="news-Daily-Item">
-                                    <span class="calTop">@(item.ModifiedTime.Value.Day)</span>
-                                    <span class="calBot">@(item.ModifiedTime.Value.Month + "/" + item.ModifiedTime.Value.Year)</span>
-                                </a>
-                                <a href="@Url.Action("DetailNews", "Home", new{ id = @item.NewsId })" class="news-Link">@item.Title<span class="newDate">&nbsp;(@(item.ModifiedTime.Value.Day + "/" + item.ModifiedTime.Value.Month + "/" + item.ModifiedTime.Value.Year))</span></a>
-                            </div>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <div class="float-r">
-            <div id="pageNavPosition" style="padding-top: 20px;">
-            </div>
-        </div>
-        <script type="text/javascript">
-            var pager = new Pager('tablepaging', 40);
-            pager.init();
-            pager.showPageNav('pager', 'pageNavPosition');
-            pager.showPage(1);
-        </script>
-    </div>
-</div>

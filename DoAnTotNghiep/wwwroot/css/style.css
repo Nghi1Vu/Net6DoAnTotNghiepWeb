@@ -825,6 +825,61 @@ input[type]:checked ~ span.top {
         background-position: left center;
     }
 
+/*------------------ Thông báo trao đổi trong lơp --------------------*/
+.txt-day {
+    font-size: 12px !important;
+    color: #999 !important;
+}
+
+.txt-clr-Blu {
+    font-size: 14px !important;
+    color: #3b5998 !important;
+}
+
+.content button {
+    padding: 7px 14px;
+    color: #6c757d; /* màu khi input*/
+    font-weight: 600;
+    font-size: 13px !important;
+    background-color: white !important;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+    .content button::before {
+        border-radius: 50%;
+        background-color: #5eabdf;
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+    }
+
+    .content button:hover {
+        border-color: #5eabdf;
+        color: #5eabdf;
+    }
+
+    .content button:focus {
+        color: #5eabdf;
+        border: white;
+        box-shadow: 0 0 0 1px #5eabdf;
+    }
+
+        .content button:focus::before {
+            transition: all 0.5s ease-out;
+            opacity: 0;
+            width: 250px;
+            height: 250px;
+        }
+
 /*------------------ end Body Page đổi mật khẩu --------------------*/
 
 

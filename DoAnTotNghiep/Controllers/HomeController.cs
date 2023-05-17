@@ -99,6 +99,11 @@ namespace DoAnTotNghiep.Controllers
             return View(result);
         }
 
+        public IActionResult ThongBaoTraoDoiTrongLop()
+        {
+            return View();
+        }
+
         public IActionResult DoiMatKhau()
         {
             return View();
