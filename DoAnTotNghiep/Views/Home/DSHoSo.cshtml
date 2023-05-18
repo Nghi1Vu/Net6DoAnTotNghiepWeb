@@ -1,7 +1,8 @@
-﻿
+﻿@model List<DoAnTotNghiep.Models.DsGtHs>
 @{
     ViewData["Title"] = "DSHoSo";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var stt = 1;
 }
 
 <div class="l-navbar" id="nav-bar">
@@ -117,36 +118,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td>Larry</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">5</th>
-                                                <td>Larry</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                            </tr>
+                                            @foreach(var item in Model){
+                                                <tr>
+                                                    <th scope="row">@(stt++)</th>
+                                                    <td>@item.RevenuesListName</td>
+                                                    <td>@item.Num</td>
+                                                    <td>@item.NumU</td>
+                                                </tr>
+
+                                            }
+                                            
+                                           
                                         </tbody>
                                     </table>
                                 </div>

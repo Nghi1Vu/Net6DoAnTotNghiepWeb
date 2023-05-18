@@ -1,4 +1,4 @@
-﻿
+﻿@model List<DoAnTotNghiep.Models.Message>
 @{
     ViewData["Title"] = "ThongBaoTraoDoiTrongLop";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -116,20 +116,32 @@
                         </div>
 
                         <div class="col-lg-1">
-                            
                         </div>
+
                         <div class="col-lg-6">
                             <div class="card m-l--30">
                                 <p class="title-page">Nội dung chia sẻ</p>
-                                <div class="card-body">
-                                    <div class="fs-13">
-                                        <a><strong class="txt-clr-Blu">Huỳnh Thanh Tâm </strong> chia sẻ tới <strong class="txt-clr-Blu">Nguyễn Lê Đình Hiếu</strong></a> <br />
-                                        <a>Lý do SV không được cấp giấy XNSV: SV cần hoàn thành học phí trước khi đăng ký giấy xác nhận sinh viên</a><br />
-                                        <a class="txt-day">Ngày 15/05/2023 lúc 09:22</a>
+                                @foreach (var item in Model.OrderByDescending(x => x.CreatedTime))
+                                {
+                                    <div class="card-body">
+                                        <div class="fs-13">
+                                            @if (item.touser != null && item.touser != "")
+                                            {
+                                                <a><strong class="txt-clr-Blu">@item.fromuser </strong> chia sẻ tới <strong class="txt-clr-Blu">@item.touser</strong></a> @Html.Raw("<br />")
+                                            }
+                                            else
+                                            {
+                                                <a><strong class="txt-clr-Blu">@item.fromuser </strong></a> @Html.Raw("<br />")
+                                            }
+                                            <a>@Html.Raw(item.Content)</a> @Html.Raw("<br />")
+                                            <a class="txt-day">Ngày @item.CreatedTime.ToString("dd/MM/yyyy") lúc @item.CreatedTime.ToString("HH:mm:ss tt")</a>
+                                        </div>
                                     </div>
-                                </div>
+                                }
                             </div>
                         </div>
+
+
                     </div>
                 </div><!-- .animated -->
             </div><!-- .content -->

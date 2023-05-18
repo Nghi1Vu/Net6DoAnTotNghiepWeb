@@ -101,7 +101,13 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult ThongBaoTraoDoiTrongLop()
         {
-            return View();
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetMessage?ClassID=" + user.ClassID).Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<List<Message>>(todo);
+            sharedClient.Dispose();
+            return View(result);
         }
 
         public IActionResult DoiMatKhau()
@@ -111,7 +117,13 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult DSHoSo()
         {
-            return View();
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetDsGtHs?UserID=" + user.UserId).Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var news = JsonConvert.DeserializeObject<List<DsGtHs>>(todo);
+            sharedClient.Dispose();
+            return View(news);
         }
 
         public IActionResult DetailNews(int id)
@@ -221,7 +233,14 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult Taikhoan()
         {
-            return View();
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetTradeHistory?UserId=" + user.UserId).Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<List<TradeHistory>>(todo);
+            sharedClient.Dispose();
+            ViewBag.StudentInfo = user;
+            return View(result);
         }
 
         public IActionResult ThanhToanCongNo()
