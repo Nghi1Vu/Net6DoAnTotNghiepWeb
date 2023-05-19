@@ -245,12 +245,50 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult ThanhToanCongNo()
         {
-            return View();
+            try
+            {
+                var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetTTCN?UserID=" + user.UserId).Result;
+                var todo = response.Content.ReadAsStringAsync().Result;
+                response.EnsureSuccessStatusCode();
+                var studenClasses = JsonConvert.DeserializeObject<List<TTCN>>(todo);
+                using HttpResponseMessage response2 = sharedClient.GetAsync("api/v1/GetTTCNDone?UserID=" + user.UserId).Result;
+                var todo2 = response2.Content.ReadAsStringAsync().Result;
+                response2.EnsureSuccessStatusCode();
+                var studenClasses2 = JsonConvert.DeserializeObject<List<TTCN>>(todo2);
+                ViewBag.StudentInfo = user;
+                ViewBag.StudentAmount = studenClasses2;
+                sharedClient.Dispose();
+                return View(studenClasses);
+            }
+            catch
+            {
+                return RedirectToAction("Index", "Account");
+            }
         }
 
         public IActionResult DichVuMotCua()
         {
-            return View();
+            try
+            {
+                var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetChannelAmount?ClassID="+user.ClassID).Result;
+                var todo = response.Content.ReadAsStringAsync().Result;
+                response.EnsureSuccessStatusCode();
+                var studenClasses = JsonConvert.DeserializeObject<List<ChannelAmount>>(todo);
+                using HttpResponseMessage response2 = sharedClient.GetAsync("api/v1/GetStudentAmount?UserID=" + user.UserId).Result;
+                var todo2 = response2.Content.ReadAsStringAsync().Result;
+                response2.EnsureSuccessStatusCode();
+                var studenClasses2 = JsonConvert.DeserializeObject<List<StudentAmount>>(todo2);
+                ViewBag.StudentInfo = user;
+                ViewBag.StudentAmount = studenClasses2;
+                sharedClient.Dispose();
+                return View(studenClasses);
+            }
+            catch
+            {
+                return RedirectToAction("Index", "Account");
+            }
         }
 
         public IActionResult LopHoc()
@@ -326,7 +364,7 @@ namespace DoAnTotNghiep.Controllers
         public IActionResult ChiTietChuongTrinh(int ModulesID)
         {
             var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
-            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetModuleDetail?ModulesID="+ModulesID).Result;
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetModuleDetail?ModulesID=" + ModulesID).Result;
             var todo = response.Content.ReadAsStringAsync().Result;
             response.EnsureSuccessStatusCode();
             var result = JsonConvert.DeserializeObject<List<ModuleDetail>>(todo);
@@ -357,14 +395,14 @@ namespace DoAnTotNghiep.Controllers
             return View(result);
         }
         [HttpPost]
-        public IActionResult SendRLForm (PostRLForm model)
+        public IActionResult SendRLForm(PostRLForm model)
         {
             var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
             var obj = new
             {
                 UserId = user.UserId,
                 SemesterID = model.SemesterID,
-                detail= model.detail
+                detail = model.detail
             };
             using HttpResponseMessage response = sharedClient.PostAsJsonAsync("api/v1/PostRLForm", obj).Result;
             var todo = response.Content.ReadAsStringAsync().Result;

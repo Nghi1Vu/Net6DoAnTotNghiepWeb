@@ -1,7 +1,8 @@
-﻿
+﻿@model List<DoAnTotNghiep.Models.ChannelAmount>
 @{
     ViewData["Title"] = "DichVuMotCua";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var stt = 1;
 }
 
 <div class="l-navbar" id="nav-bar">
@@ -106,9 +107,9 @@
                             <p>Lớp:</p>
                         </div>
                         <div class="p-l-30">
-                            <p><strong>Bùi Minh Thái</strong></p>
-                            <p><strong>151901162</strong></p>
-                            <p><strong>19DTH4</strong></p>
+                            <p><strong>@ViewBag.StudentInfo.Fullname</strong></p>
+                            <p><strong>@ViewBag.StudentInfo.Usercode</strong></p>
+                            <p><strong>@ViewBag.StudentInfo.Classname</strong></p>
                         </div>
                     </div>
                 </div>
@@ -134,26 +135,31 @@
                         <th style="width:0%;"><input type="checkbox"></th>
                     </tr>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td></td>
-                            <td>
-                                <div style="padding: 0 15px; transform: scale(0.8);">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td><div class="p-l-2"><input type="checkbox" aria-label="Checkbox for following text input"></div></td>
-                        </tr>
+                            @foreach(var item in Model)
+                            {
+                            <tr>
+                                <td>@(stt++)</td>
+                                <td>@item.ChannelAmountName</td>
+                                <td>@item.Costs</td>
+                                <td>
+                                    <div style="padding: 0 15px; transform: scale(0.8);">
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td>@item.ModifiedTime.ToString("dd/MM/yyyy")</td>
+                                <td>@item.Day</td>
+                                <td></td>
+                                <td><div class="p-l-2"><input type="checkbox" aria-label="Checkbox for following text input"></div></td>
+                            </tr>
+                            }
+                            
                         <tr class="txt-clr-red">
                             <td colspan="3">Tổng số tiền chưa thanh toán</td>
                             <td colspan="6">0<sub> (vnđ)</sub></td>
@@ -185,18 +191,48 @@
                         <th style="width:0%;"><input type="checkbox"></th>
                     </tr>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                            <td>1</td>
-                        </tr>
+                        @if (ViewBag.StudentAmount != null)
+                        {
+                            var stt2 = 1;
+                            @foreach (var item in (List<StudentAmount>)ViewBag.StudentAmount)
+                            {
+                                <tr>
+                                    <td>@(stt2++)</td>
+                                    <td>@item.ChannelAmountName</td>
+                                    <td>@item.Amount</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.TotalAmount</td>
+                                    <td>@item.CreatedTime.ToString("dd/MM/yyyy")</td>
+                                    <td></td>
+                                    @if (item.StatusID == 3)
+                                    {
+                                        <td style="color:green"><strong>Hoàn thành- Đã nhận hồ sơ</strong></td>
+                                    }
+                                    else
+                                    {
+                                        <td style="color:red"><strong>Yêu cầu đã bị hủy</strong></td>
+                                    }
+                                    <td>@item.Day</td>
+                                    <td></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        }
+
                     </tbody>
                 </table>
             </div>

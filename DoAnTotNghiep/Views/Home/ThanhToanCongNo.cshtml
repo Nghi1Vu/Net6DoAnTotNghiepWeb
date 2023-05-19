@@ -1,7 +1,8 @@
-﻿
+﻿@model List<DoAnTotNghiep.Models.TTCN>
 @{
     ViewData["Title"] = "ThanhToanCongNo";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var stt = 1;
 }
 
 <div class="l-navbar" id="nav-bar">
@@ -107,9 +108,9 @@
                             <p>Lớp:</p>
                         </div>
                         <div class="p-l-30">
-                            <p><strong>Bùi Minh Thái</strong></p>
-                            <p><strong>151901162</strong></p>
-                            <p><strong>19DTH4</strong></p>
+                            <p><strong>@ViewBag.StudentInfo.Fullname</strong></p>
+                            <p><strong>@ViewBag.StudentInfo.Usercode</strong></p>
+                            <p><strong>@ViewBag.StudentInfo.Classname</strong></p>
                         </div>
                     </div>
                 </div>
@@ -132,20 +133,24 @@
                         <th style="width:0%;"><input type="checkbox"></th>
                     </tr>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>9</td>
-                            <td></td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td><div class="p-l-2"><input type="checkbox" aria-label="Checkbox for following text input"></div></td>
-                        </tr>
-                        <tr class ="txt-clr-red">
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>@(stt++)</td>
+                                <td>@item.ClassCode</td>
+                                <td>@item.ModulesName</td>
+                                <td>@item.Credits</td>
+                                <td>@item.Costs</td>
+                                <td style="color:lightcoral"><strong>Chưa nộp</strong></td>
+                                <td><div class="p-l-2"><input type="checkbox" aria-label="Checkbox for following text input"></div></td>
+                            </tr>
+                            }
+
+                        <tr class="txt-clr-red">
                             <td colspan="4">Tổng số tiền chưa thanh toán</td>
                             <td colspan="3">0<sub> (vnđ)</sub></td>
                         </tr>
-                        <tr class ="txt-clr-red">
+                        <tr class="txt-clr-red">
                             <td colspan="4">Tổng số tiền chưa thanh toán</td>
                             <td colspan="3">0<sub> (vnđ)</sub></td>
                         </tr>
@@ -177,14 +182,31 @@
                         <th style="width:12%;">Trang thái</th>
                     </tr>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                        </tr>
+                         @if (ViewBag.StudentAmount != null)
+                        {
+                            var stt2 = 1;
+                            @foreach (var item in (List<TTCN>)ViewBag.StudentAmount)
+                            {
+                                <tr>
+                                    <td>@(stt2++)</td>
+                                    <td>@item.ClassCode</td>
+                                    <td>@item.ClassName</td>
+                                    <td>@item.Credits</td>
+                                    <td>@item.Costs</td>
+                                    <td style="color:blue"><strong>Đã nộp</strong></td>
+                                </tr>
+                            }
+
+                        }else{
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
