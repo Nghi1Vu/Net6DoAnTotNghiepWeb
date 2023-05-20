@@ -123,20 +123,100 @@
                                 <p class="title-page">Nội dung chia sẻ</p>
                                 @foreach (var item in Model.OrderByDescending(x => x.CreatedTime))
                                 {
-                                    <div class="card-body">
-                                        <div class="fs-13">
-                                            @if (item.touser != null && item.touser != "")
-                                            {
-                                                <a><strong class="txt-clr-Blu">@item.fromuser </strong> chia sẻ tới <strong class="txt-clr-Blu">@item.touser</strong></a> @Html.Raw("<br />")
-                                            }
-                                            else
-                                            {
-                                                <a><strong class="txt-clr-Blu">@item.fromuser </strong></a> @Html.Raw("<br />")
-                                            }
-                                            <a>@Html.Raw(item.Content)</a> @Html.Raw("<br />")
-                                            <a class="txt-day">Ngày @item.CreatedTime.ToString("dd/MM/yyyy") lúc @item.CreatedTime.ToString("HH:mm:ss tt")</a>
+                                    if (Model.Where(x => x.ParentID == item.CommentID).Count() > 0)
+                                    {
+                                        <div class="card-body">
+                                            <div class="fs-13">
+                                                @if (item.touser != null && item.touser != "")
+                                                {
+                                                    if (item.OwnerID == 10)
+                                                    {
+                                                        <a><strong class="txt-clr-Blu">Huỳnh Thanh Tâm </strong> chia sẻ tới <strong class="txt-clr-Blu">@item.touser</strong></a> @Html.Raw("<br />")
+
+                                                    }
+                                                    else if (item.OwnerID == 51)
+                                                    {
+                                                        <a><strong class="txt-clr-Blu">Trần Thị Phượng </strong> chia sẻ tới <strong class="txt-clr-Blu">@item.touser</strong></a> @Html.Raw("<br />")
+
+                                                    }
+                                                    else
+                                                    {
+                                                        <a><strong class="txt-clr-Blu">@item.fromuser </strong> chia sẻ tới <strong class="txt-clr-Blu">@item.touser</strong></a> @Html.Raw("<br />")
+
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <a><strong class="txt-clr-Blu">@item.fromuser </strong></a> @Html.Raw("<br />")
+                                                }
+                                                <a>@Html.Raw(item.Content)</a> @Html.Raw("<br />")
+                                                <a class="txt-day">Ngày @item.CreatedTime.ToString("dd/MM/yyyy") lúc @item.CreatedTime.ToString("HH:mm:ss tt")</a>
+                                            </div>
                                         </div>
-                                    </div>
+                                        foreach (var item2 in Model.Where(x => x.ParentID == item.CommentID))
+                                        {
+                                            <div style="margin-left:10px;background-color:aqua" class="card-body">
+                                                <div class="fs-13">
+                                                    @if (item2.touser != null && item2.touser != "")
+                                                    {
+                                                        if (item2.OwnerID == 10)
+                                                        {
+                                                            <a><strong class="txt-clr-Blu">Huỳnh Thanh Tâm </strong> chia sẻ tới <strong class="txt-clr-Blu">@item2.touser</strong></a> @Html.Raw("<br />")
+
+                                                        }
+                                                        else if (item2.OwnerID == 51)
+                                                        {
+                                                            <a><strong class="txt-clr-Blu">Trần Thị Phượng </strong> chia sẻ tới <strong class="txt-clr-Blu">@item2.touser</strong></a> @Html.Raw("<br />")
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <a><strong class="txt-clr-Blu">@item2.fromuser </strong> chia sẻ tới <strong class="txt-clr-Blu">@item2.touser</strong></a> @Html.Raw("<br />")
+
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <a><strong class="txt-clr-Blu">@item2.fromuser </strong></a> @Html.Raw("<br />")
+                                                    }
+                                                    <a>@Html.Raw(item2.Content)</a> @Html.Raw("<br />")
+                                                    <a class="txt-day">Ngày @item2.CreatedTime.ToString("dd/MM/yyyy") lúc @item2.CreatedTime.ToString("HH:mm:ss tt")</a>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <div class="card-body">
+                                            <div class="fs-13">
+                                                @if (item.touser != null && item.touser != "")
+                                                {
+                                                    if (item.OwnerID == 10)
+                                                    {
+                                                        <a><strong class="txt-clr-Blu">Huỳnh Thanh Tâm </strong> chia sẻ tới <strong class="txt-clr-Blu">@item.touser</strong></a> @Html.Raw("<br />")
+
+                                                    }
+                                                    else if (item.OwnerID == 51)
+                                                    {
+                                                        <a><strong class="txt-clr-Blu">Trần Thị Phượng </strong> chia sẻ tới <strong class="txt-clr-Blu">@item.touser</strong></a> @Html.Raw("<br />")
+
+                                                    }
+                                                    else
+                                                    {
+                                                        <a><strong class="txt-clr-Blu">@item.fromuser </strong> chia sẻ tới <strong class="txt-clr-Blu">@item.touser</strong></a> @Html.Raw("<br />")
+
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <a><strong class="txt-clr-Blu">@item.fromuser </strong></a> @Html.Raw("<br />")
+                                                }
+                                                <a>@Html.Raw(item.Content)</a> @Html.Raw("<br />")
+                                                <a class="txt-day">Ngày @item.CreatedTime.ToString("dd/MM/yyyy") lúc @item.CreatedTime.ToString("HH:mm:ss tt")</a>
+                                            </div>
+                                        </div>
+                                    }
+                                  
                                 }
                             </div>
                         </div>
