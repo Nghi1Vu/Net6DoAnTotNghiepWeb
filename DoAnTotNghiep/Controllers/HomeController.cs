@@ -203,7 +203,21 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult XetThuTotNghiep()
         {
-            return View();
+            try
+            {
+                var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetCertificateByUser?UserID=" + user.UserId).Result;
+                var todo = response.Content.ReadAsStringAsync().Result;
+                response.EnsureSuccessStatusCode();
+                var studenClasses = JsonConvert.DeserializeObject<List<Certificate>>(todo);
+                ViewBag.StudentInfo = user;
+                sharedClient.Dispose();
+                return View(studenClasses);
+            }
+            catch
+            {
+                return RedirectToAction("Index", "Account");
+            }
         }
 
         public IActionResult ThoiKhoaBieu()

@@ -1,7 +1,8 @@
-﻿
+﻿@model List<DoAnTotNghiep.Models.Certificate>
 @{
     ViewData["Title"] = "XetThuTotNghiep";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var stt = 1;
 }
 
 <div class="l-navbar" id="nav-bar">
@@ -162,12 +163,20 @@
                         <td style="width:20%;"><strong>Tình trạng</strong></td>
                     </tr>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>9</td>
-                            <td></td>
-                        </tr>
+                            @foreach(var item in Model)
+                            {
+                            <tr>
+                                <td>@(stt++)</td>
+                                <td>@item.CertificateName</td>
+                                <td>@item.CertificateCode</td>
+                                @if(item.ID>0){
+                                    <td>Có</td>
+                                    }else{
+                                    <td>Không</td>
+                                    }
+                            </tr>
+                            }
+                         
                     </tbody>
                     </form>
                 </table>
