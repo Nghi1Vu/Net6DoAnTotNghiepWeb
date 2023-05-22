@@ -1,7 +1,8 @@
-﻿
+﻿@model List<DoAnTotNghiep.Models.ExamByClass>
 @{
     ViewData["Title"] = "KetQuaThiTrenLop";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var stt = 1;
 }
 
 <div class="l-navbar" id="nav-bar">
@@ -138,14 +139,18 @@
                     </tr>
                     <tbody id="tablepaging">
                         <tr></tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td><a href="@Url.Action("XemKetQuaThiCacMon", "Home")">Bùi Minh Thái</a></td>
-                            <td></td>
-                            <td>9</td>
-                            <td>8</td>
-                        </tr>
+                        @foreach(var item in Model)
+                        {
+                            <tr>
+                                <td>@(stt++)</td>
+                                <td>@item.Usercode</td>
+                                <td><a href="@Url.Action("XemKetQuaThiCacMon", "Home", new {UserId=item.UserID})">Bùi Minh Thái</a></td>
+                                <td>@item.Score1</td>
+                                <td>@item.Score2</td>
+                                <td></td>
+                            </tr>
+                        }
+                       
                     </tbody>
                 </table>
                 <div class="float-r">
@@ -176,64 +181,64 @@
                         <tr>
                             <td>1</td>
                             <td><p style="color: green">Số HS/SV đạt mức điểm Xuất sắc (9 - 10)</p></td>
-                            <td></td>
-                            <td></td>
+                            <td>@Model.Where(x=>x.Score1>=9 && x.Score1<=10).Count()</td>
+                            <td>@Model.Where(x=>x.Score1>=9 && x.Score1<=10).Count()</td>
                             <td></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td><p style="color: green">Số HS/SV đạt mức điểm Giỏi (8.0 - 8.9)</p></td>
-                            <td></td>
-                            <td></td>
+                            <td>@Model.Where(x=>x.Score1>=8 && x.Score1<=8.9).Count()</td>
+                            <td>@Model.Where(x=>x.Score1>=8 && x.Score1<=8.9).Count()</td>
                             <td></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td><p style="color: blue">Số HS/SV đạt mức điểm Khá (7.0 - 7.9)</p></td>
-                            <td></td>
-                            <td></td>
+                            <td>@Model.Where(x=>x.Score1>=7 && x.Score1<=7.9).Count()</td>
+                            <td>@Model.Where(x=>x.Score1>=7 && x.Score1<=7.9).Count()</td>
                             <td></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>4</td>
                             <td><p style="color: orange">Số HS/SV đạt mức điểm Trung bình khá (6 - 7)</p></td>
-                            <td></td>
-                            <td></td>
+                            <td>@Model.Where(x=>x.Score1>=6 && x.Score1<=6.9).Count()</td>
+                            <td>@Model.Where(x=>x.Score1>=6 && x.Score1<=6.9).Count()</td>
                             <td></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>5</td>
                             <td><p style="color: orange">Số HS/SV đạt mức điểm Trung bình (5 - 5.9)</p></td>
-                            <td></td>
-                            <td></td>
+                            <td>@Model.Where(x=>x.Score1>=5 && x.Score1<=5.9).Count()</td>
+                            <td>@Model.Where(x=>x.Score1>=5 && x.Score1<=5.9).Count()</td>
                             <td></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>6</td>
                             <td><p style="color: red">Số HS/SV đạt mức điểm Yếu (4 - 4.9)</p></td>
-                            <td></td>
-                            <td></td>
+                            <td>@Model.Where(x=>x.Score1>=4 && x.Score1<=4.9).Count()</td>
+                            <td>@Model.Where(x=>x.Score1>=4 && x.Score1<=4.9).Count()</td>
                             <td></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>7</td>
                             <td><p style="color: red">Số HS/SV đạt mức điểm Kém (0 - 4)</p></td>
-                            <td></td>
-                            <td></td>
+                            <td>@Model.Where(x=>x.Score1>=0 && x.Score1<=3.9).Count()</td>
+                            <td>@Model.Where(x=>x.Score1>=0 && x.Score1<=3.9).Count()</td>
                             <td></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>8</td>
                             <td><p>I (Chưa đủ dữ liệu đánh giá)</p></td>
-                            <td></td>
-                            <td></td>
+                            <td>0</td>
+                            <td>0</td>
                             <td></td>
                             <td></td>
                         </tr>

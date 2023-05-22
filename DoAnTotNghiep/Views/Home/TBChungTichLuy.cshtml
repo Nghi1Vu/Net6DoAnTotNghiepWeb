@@ -1,4 +1,4 @@
-﻿
+﻿@model List<DoAnTotNghiep.Models.ProgramSemester>
 @{
     ViewData["Title"] = "TBChungTichLuy";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -107,9 +107,9 @@
                             <p>Lớp:</p>
                         </div>
                         <div class="p-l-30">
-                            <p><strong>Bùi Minh Thái</strong></p>
-                            <p><strong>151901162</strong></p>
-                            <p><strong>19DTH4</strong></p>
+                            <p><strong>@ViewBag.StudentInfo.Fullname</strong></p>
+                            <p><strong>@ViewBag.StudentInfo.Usercode</strong></p>
+                            <p><strong>@ViewBag.StudentInfo.Classname</strong></p>
                         </div>
                     </div>
                     <div class="d-flex">
@@ -163,22 +163,29 @@
                         <th style="width:3%;">Điểm chữ</th>
                     </tr>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                            <td></td>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                            <td></td>
-                            <td></td>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                            <td></td>
+                        @{
+                            var stt = 1;
+                        }
+                        @foreach (var item in Model.Where(x => x.ProgramGroupID == 0 && x.ModulesTypeID < 6))
+                        {
+                            <tr>
+                                <td>@(stt++)</td>
+                                <td>@("HP"+item.ModulesID)</td>
+                                <td>@item.ModulesCode</td>
+                                <td>@item.ModulesName</td>
+                                <td>@item.Credits</td>
+                                <td>@item.CreditsLT</td>
+                                <td>@item.CreditsTH</td>
+                                <td>@item.CreditsK</td>
+                                <td>@item.Score1</td>
+                                <td>@item.ScoreFinal</td>
+                                <td>@item.D4</td>
+                                <td>@item.SymbolName</td>
+                                <td></td>
 
-                        </tr>
+                            </tr>
+                        }
+                     
                     </tbody>
                 </table>
             </div>
@@ -211,18 +218,18 @@
                     </tr>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                            <td></td>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
                             <td></td>
                             <td></td>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                             <td></td>
 
                         </tr>
@@ -260,23 +267,28 @@
                         <th style="width:3%;">Điểm chữ</th>
                     </tr>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                            <td></td>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                            <td></td>
-                            <td></td>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                            <td></td>
-                            <td>9</td>
-                            <td></td>
-                        </tr>
+                        @{
+                            var stt2 = 1;
+                        }
+                        @foreach(var item in Model.Where(x=>x.ProgramGroupID!=0 && x.ModulesTypeID<6))
+                        {
+                            <tr>
+                                <td>@(stt2++)</td>
+                                <td>@("HP" + item.ModulesID)</td>
+                                <td>@item.ModulesCode</td>
+                                <td>@item.ModulesName</td>
+                                <td>@item.Credits</td>
+                                <td>@item.CreditsLT</td>
+                                <td>@item.CreditsTH</td>
+                                <td>@item.CreditsK</td>
+                                <td>@item.Score1</td>
+                                <td>@item.ScoreFinal</td>
+                                <td>@item.D4</td>
+                                <td>@item.SymbolName</td>
+                                <td></td>
+
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
@@ -310,22 +322,28 @@
                         <th style="width:3%;">Điểm chữ</th>
                     </tr>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                            <td></td>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                            <td></td>
-                            <td></td>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                            <td></td>
+                        @{
+                            var stt3 = 1;
+                        }
+                        @foreach (var item in Model.Where(x => x.ModulesTypeID >=6))
+                        {
+                            <tr>
+                                <td>@(stt3++)</td>
+                                <td>@("HP" + item.ModulesID)</td>
+                                <td>@item.ModulesCode</td>
+                                <td>@item.ModulesName</td>
+                                <td>@item.Credits</td>
+                                <td>@item.CreditsLT</td>
+                                <td>@item.CreditsTH</td>
+                                <td>@item.CreditsK</td>
+                                <td>@item.Score1</td>
+                                <td>@item.ScoreFinal</td>
+                                <td>@item.D4</td>
+                                <td>@item.SymbolName</td>
+                                <td></td>
 
-                        </tr>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>

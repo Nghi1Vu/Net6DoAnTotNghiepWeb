@@ -1,6 +1,8 @@
-﻿@{
+﻿@model List<DoAnTotNghiep.Models.ExamResult>
+@{
     ViewData["Title"] = "KetQuaThi";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var stt = 1;
 }
 
 <div class="l-navbar" id="nav-bar">
@@ -104,9 +106,9 @@
                     <p>Lớp:</p>
                 </div>
                 <div class="infor-left">
-                    <p><strong>Bùi Minh Thái</strong></p>
-                    <p><strong>151901162</strong></p>
-                    <p><strong>19DTH4</strong></p>
+                    <p><strong>@ViewBag.StudentInfo.Fullname</strong></p>
+                    <p><strong>@ViewBag.StudentInfo.Usercode</strong></p>
+                    <p><strong>@ViewBag.StudentInfo.Classname</strong></p>
                 </div>
 
             </div>
@@ -147,31 +149,35 @@
                         <th>Điểm 4</th>
                         <th>Điểm chữ</th>
                     </tr>
-                    <tr>
-                        <!-- Hàng 3 trờ đi dựa vao thứ tự của hàng 1 và 2-->
-                        <td>1</td>
-                        <td>0070131</td>
-                        <td>HP2968</td>
-                        <td><a href="@Url.Action("KetQuaThiTrenLop", "Home")">Kỹ năng giao tiếp, thuyết trình & làm việc nhóm</a></td>
-                        <td>9.4</td>
-                        <td>9.4</td>
-                        <td>9.4</td>
-                        <td>9.4</td>
-                        <td>9.4</td>
-                        <td>9.4</td>
-                        <td>9.4</td>
-                        <td>9.4</td>
-                        <td>9.4</td>
-                        <td>9.4</td>
-                        <td>9.8</td>
-                        <td>94</td>
-                        <td>Trung Bình</td>
-                        <td>Chưa nộp học phí</td>
-                        <td>Đủ điều kiện</td>
-                    </tr>
+                    @foreach(var item in Model)
+                    {
+                        <tr>
+                            <!-- Hàng 3 trờ đi dựa vao thứ tự của hàng 1 và 2-->
+                            <td>@(stt++)</td>
+                            <td>@item.ModulesCode</td>
+                            <td>@item.PrintCode</td>
+                            <td><a href="@Url.Action("KetQuaThiTrenLop", "Home", new {IndependentClassID=@item.IndependentClassID})">@item.ModulesName</a></td>
+                            <td>@item.SemesterIndex</td>
+                            <td>@item.Credits</td>
+                            <td>@item.SGKL1</td>
+                            <td></td>
+                            <td>@item.TBKTTK</td>
+                            <td></td>
+                            <td></td>
+                            <td>@item.EXAM</td>
+                            <td></td>
+                            <td>@item.ScoreFinal</td>
+                            <td>@item.D4</td>
+                            <td>@item.SymbolName</td>
+                            <td>@item.XH</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    }
+                
                     <tr class="txt-clr-table">
                         <td colspan="9">Tổng số tín chỉ: </td>
-                        <td colspan="9">Trung bình chung tích lũy:</td>
+                        <td colspan="9">Trung bình chung tích lũy:@ViewBag.StudentInfo.TBCTL</td>
                         <td></td>
                     </tr>
                     <tr class="txt-clr-table">

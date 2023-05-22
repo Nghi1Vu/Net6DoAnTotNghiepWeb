@@ -3,8 +3,13 @@
     public class ProgramSemester
     {
         public string GroupName { get; set; }
+        public string XH { get; set; }
+        public string SymbolName { get; set; }
         public int MinCreditsLT { get; set; }
         public int MinCreditsTH { get; set; }
+        public decimal Score1 { get; set; }
+        public decimal ScoreFinal { get; set; }
+        public decimal D4 { get; set; }
         public int MinCreditsK { get; set; }
         public int CreatedClass { get; set; }
         public int CreditsS { get; set; }

@@ -1,7 +1,8 @@
-﻿
+﻿@model List<DoAnTotNghiep.Models.TBCHKModel>
 @{
     ViewData["Title"] = "TBChungHocKy";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var stt = 1;
 }
 
 <div class="l-navbar" id="nav-bar">
@@ -107,9 +108,9 @@
                             <p>Lớp:</p>
                         </div>
                         <div class="p-l-30">
-                            <p><strong>Bùi Minh Thái</strong></p>
-                            <p><strong>151901162</strong></p>
-                            <p><strong>19DTH4</strong></p>
+                            <p><strong>@ViewBag.StudentInfo.Fullname</strong></p>
+                            <p><strong>@ViewBag.StudentInfo.Usercode</strong></p>
+                            <p><strong>@ViewBag.StudentInfo.Classname</strong></p>
                         </div>
                     </div>
                     <div class="d-flex">
@@ -139,20 +140,24 @@
             <div class="table-TBChungTL">
                 <table style="width:100% ;padding-left: 4px">
                     <tr>
-                        <th style="width:5%;" >Học kỳ</th>
-                        <th style="width:7%;" >Tổng TC theo kỳ</th>
-                        <th style="width:6%;" >TBC Học kỳ</th>
+                        <th style="width:5%;">Học kỳ</th>
+                        <th style="width:7%;">Tổng TC theo kỳ</th>
+                        <th style="width:6%;">TBC Học kỳ</th>
                         <th style="width:10%;">Cảnh báo</th>
                         <th>Ghi Chú</th>
                     </tr>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                            <td></td>
-                            <td>1</td>
-                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@(stt++)</td>
+                                <td></td>
+                                <td>@item.TBCHK</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        }
+
                     </tbody>
                 </table>
             </div>
