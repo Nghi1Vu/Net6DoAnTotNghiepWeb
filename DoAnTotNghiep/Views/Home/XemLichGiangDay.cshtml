@@ -1,4 +1,4 @@
-﻿
+﻿@model List<DoAnTotNghiep.Models.TeachCalendarDetail>
 @{
     ViewData["Title"] = "XemLichGiangDay";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -112,12 +112,16 @@
                         <th style="width:10%;">Bài kiểm tra</th>
                     </tr>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>10, 11, 12</td>
-                            <td>18/11/2019</td>
-                        </tr>
+                        @foreach(var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Day.ToString("dd/MM/yyyy")</td>
+                                <td>@Html.Raw(item.Contents)</td>
+                                <td>@item.Description</td>
+                                <td>@item.HaveTest</td>
+                            </tr>
+                        }
+                       
                     </tbody>
                 </table>
             </div>

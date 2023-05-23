@@ -1,7 +1,8 @@
-﻿
+﻿@model List< DoAnTotNghiep.Models.ExamCalendar>
 @{
     ViewData["Title"] = "KeHoachThi";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var stt = 1;
 }
 
 <div class="l-navbar" id="nav-bar">
@@ -152,11 +153,15 @@
                         <th>Môn học</th>
                     </tr>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>9</td>
-                        </tr>
+                        @foreach(var item in Model)
+                        {
+                            <tr>
+                                <td>@(stt++)</td>
+                                <td>@item.ClassCode</td>
+                                <td>@item.ModulesName</td>
+                            </tr>
+                        }
+                       
                     </tbody>
                 </table>
             </div>

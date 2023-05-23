@@ -1,5 +1,4 @@
 ﻿using DoAnTotNghiep.Models;
-using DoAnTotNghiep.Models.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -320,7 +319,7 @@ namespace DoAnTotNghiep.Controllers
             try
             {
                 var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
-                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetTeachCalendarDetail?IndependentClassID="+ IndependentClassID+"&UserID = " + user.UserId).Result;
+                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetTeachCalendarDetail?IndependentClassID="+ IndependentClassID+"&UserID=" + user.UserId).Result;
                 var todo = response.Content.ReadAsStringAsync().Result;
                 response.EnsureSuccessStatusCode();
                 var studenClasses = JsonConvert.DeserializeObject<List<TeachCalendarDetail>>(todo);

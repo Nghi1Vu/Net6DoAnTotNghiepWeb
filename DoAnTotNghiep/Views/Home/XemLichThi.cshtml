@@ -1,7 +1,8 @@
-﻿
+﻿@model List<DoAnTotNghiep.Models.ExamCalendar>
 @{
     ViewData["Title"] = "XemLichThi";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var stt = 1;
 }
 
 <div class="l-navbar" id="nav-bar">
@@ -105,9 +106,9 @@
                     <p>Lớp:</p>
                 </div>
                 <div class="infor-left">
-                    <p><strong>Bùi Minh Thái</strong></p>
-                    <p><strong>151901162</strong></p>
-                    <p><strong>19DTH4</strong></p>
+                    <p><strong>@ViewBag.StudentInfo.Fullname</strong></p>
+                    <p><strong>@ViewBag.StudentInfo.Usercode</strong></p>
+                    <p><strong>@ViewBag.StudentInfo.Classname</strong></p>
                 </div>
             </div>
             <div class="table-TBChungTL">
@@ -127,35 +128,26 @@
                         <th style="width:7%">Tham gia thi</th>
                         <th style="width:7.5%">Tình Trạng</th>
                     </tr>
-                    <tr>
-                        <!-- Hàng 3 trờ đi dựa vao thứ tự của hàng 1 và 2-->
-                        <td>1</td>
-                        <td>Kỹ năng giao tiếp, thuyết trình & làm việc nhóm</td>
-                        <td>28/12/2022</td>
-                        <td>Ca 3: 13h00</td>
-                        <td>251923</td>
-                        <td>1</td>
-                        <td>G501A</td>
-                        <td>Nhà H - Thực tập DN</td>
-                        <td>1. BIÊN HÒA</td>
-                        <td>27/12/2022</td>
-                        <td>Tham gia thi</td>
-                        <td>Đã nộp lệ phí</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Eve</td>
-                        <td>Jackson</td>
-                        <td>Jackson</td>
-                        <td>9.4</td>
-                        <td>9.4</td>
-                        <td>575 377 923-Online-A307</td>
-                        <td>9.4</td>
-                        <td>9.4</td>
-                        <td>9.4</td>
-                        <td>9.4</td>
-                        <td>9.4</td>
-                    </tr>
+                    @foreach(var item in Model)
+                    {
+                        <tr>
+                            <!-- Hàng 3 trờ đi dựa vao thứ tự của hàng 1 và 2-->
+                            <td>@(stt++)</td>
+                            <td>@item.ModulesName</td>
+                            <td>@item.DateExam.ToString("dd/MM/yyyy")</td>
+                            <td>@item.ExamTimeName</td>
+                            <td>@item.RegisterID</td>
+                            <td>1</td>
+                            <td>@item.Room</td>
+                            <td>@item.Campus</td>
+                            <td>1. BIÊN HÒA</td>
+                            <td>@item.CreatedTime</td>
+                            <td>Tham gia thi</td>
+                            <td>Đã nộp lệ phí</td>
+                        </tr>
+                    }
+                  
+                   
                 </table>
             </div>
         </div>

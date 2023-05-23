@@ -1,4 +1,4 @@
-﻿namespace DoAnTotNghiep.Models.Dto
+﻿namespace DoAnTotNghiep.Models
 {
     public class TeachCalendar
     {
