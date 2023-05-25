@@ -1,0 +1,40 @@
+﻿@model List<DoAnTotNghiep.Models.ExamCalendar>
+@{
+    var stt = 1;
+}
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>@(stt++)</td>
+            <td>@item.ClassCode</td>
+            <td>@item.ModulesName</td>
+            <td>@item.DateExam.ToString("dd/MM/yyyy")</td>
+            <td>@item.ExamTimeName</td>
+            <td>1</td>
+            <td>@item.ClassName</td>
+            <td>@item.DepartmentName</td>
+            <td>@item.CreatedTime.ToString("dd/MM/yyyy")</td>
+            <td></td>
+            <td>Đủ điều kiện</td>
+        </tr>
+    }
+
+}
+else
+{
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+}

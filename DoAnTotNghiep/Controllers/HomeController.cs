@@ -370,7 +370,12 @@ namespace DoAnTotNghiep.Controllers
                 return RedirectToAction("Index", "Account");
             }
         }
+        public IActionResult KeHoachThiChiTiet(string ClassCode)
+        {
 
+            return ViewComponent("GetExamPlan", ClassCode);
+
+        }
         public IActionResult Taikhoan()
         {
             var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");

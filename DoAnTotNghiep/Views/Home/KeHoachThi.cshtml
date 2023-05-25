@@ -122,20 +122,12 @@
                         <th style="width:9%;">Ngày cập nhật</th>
                         <th style="width:7%;">Ghi chú</th>
                     </tr>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                            <td>Kỹ năng giao tiếp, thuyết trình & làm việc nhóm</td>
-                            <td>18/11/2019</td>
-                            <td>Ca 4: 15h15</td>
-                            <td>Học kỳ 1</td>
-                            <td>0070131.22</td>
-                            <td>Phòng Quan hệ doanh nghiệp & phát triển kỹ năng</td>
-                            <td></td>
-                            <td>1</td>
-                            <td>Học kỳ 1</td>
-                        </tr>
+                    <tbody id="Plan">
+                        @await Component.InvokeAsync("GetExamPlan",
+                        new {
+                        ClassCode =  "",
+                        }
+                        )
                     </tbody>
                 </table>
             </div>
@@ -157,8 +149,8 @@
                         {
                             <tr>
                                 <td>@(stt++)</td>
-                                <td>@item.ClassCode</td>
-                                <td>@item.ModulesName</td>
+                                <td><button onclick="PlanDetail(@item.ClassCode)">@item.ClassCode</button></td>
+                                <td><button onclick="PlanDetail(@item.ClassCode)">@item.ModulesName</button></td>
                             </tr>
                         }
                        
@@ -168,3 +160,15 @@
         </div>
     </div>
 </div>
+<script>
+    function PlanDetail(a){
+        var ClassCode=a;
+        $.ajax({
+            url: '@Url.Action("KeHoachThiChiTiet", "Home")',
+            data: { ClassCode},
+            success: function(data){
+                $("#Plan").html(data);
+            }
+        })
+    }
+</script>
