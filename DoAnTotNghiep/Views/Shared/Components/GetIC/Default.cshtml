@@ -1,4 +1,9 @@
 ﻿@model List<DoAnTotNghiep.Models.IndependentClass>
+@{
+    var results = Model.GroupBy(
+    p => new { p.StartDate, p.Teachername, p.ClassName, p.ClassCode,p.Credits,p.Amount, p.SSSV },
+    (key, g) => new { StartDate = key.StartDate, Teachername = key.Teachername, ClassName = key.ClassName, ClassCode = key.ClassCode, Credits = key.Credits, Amount = key.Amount, SSSV = key.SSSV });
+}
 <table style="width:100% ;padding-left: 4px">
     <tr>
         <td colspan="10">
@@ -18,7 +23,7 @@
         <th></th>
     </tr>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in results)
         {
             <tr>
                 <td>@item.ClassName</td>
@@ -26,10 +31,13 @@
                 <td>@item.Teachername (KNN)</td>
                 <td>@item.StartDate</td>
                 <td>1. BIÊN HÒA</td>
-                <td>@(item.StartDate.DayOfWeek) @item.Description  @item.RoomName</td>
+                @foreach(var item2 in Model.Where(x => x.ClassCode == item.ClassCode))
+                {
+                    <td style="display:block">@("Thứ " + item2.DayStudy + "(" + @item2.timeday + ")" + @item2.RoomName)</td>
+                }
                 <td>@item.Credits</td>
-                <td>@item.MaxStudent</td>
-                <td>@item.COSTS</td>
+                <td>@item.SSSV</td>
+                <td>@item.Amount</td>
                 <td><a href="#">[Đăng ký]</a></td>
             </tr>
         }
