@@ -26,7 +26,7 @@ string dayOfWeek = culture.DateTimeFormat.GetDayName(i.DayOfWeek);
                                         <tr @(i.ToString("dd/MM/yyyy") == DateTime.Now.ToString("dd/MM/yyyy") ? "style=background-color:yellow" : "")>
                                             <!-- Hàng 2-->
                                             <td>@(stt++)</td>
-                                                    <td>@dayOfWeek</td>
+                                                            <td>@dayOfWeek</td>
                                             <td>@i.ToString("dd/MM/yyyy")</td>
             @if (Model.Where(x => x.StudyDate == i && x.TimesInDay == 1).Count() > 0)
             {
