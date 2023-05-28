@@ -292,9 +292,23 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult ThoiKhoaBieu()
         {
+            ViewBag.aDate = DateTime.Now.AddDays(-7).ToString("dd/MM/yyyy");
+            ViewBag.eDate = DateTime.Now.AddDays(8).ToString("dd/MM/yyyy");
             return View();
         }
-
+        public IActionResult GetTKB(string aDate, string eDate)
+        {
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetTKB?UserID=" + user.UserId + "&aDate=" + DateTime.Parse(aDate).ToString("yyyy-MM-dd") + "&eDate=" + DateTime.Parse(eDate).ToString("yyyy-MM-dd")).Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var studenClasses = JsonConvert.DeserializeObject<List<TKB>>(todo);
+            ViewBag.StudentInfo = user;
+            sharedClient.Dispose();
+            ViewBag.aDate = DateTime.Parse(aDate);
+            ViewBag.eDate = DateTime.Parse(eDate);
+            return View(studenClasses);
+        }
         public IActionResult LichGiangDay()
         {
             try
@@ -319,7 +333,7 @@ namespace DoAnTotNghiep.Controllers
             try
             {
                 var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
-                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetTeachCalendarDetail?IndependentClassID="+ IndependentClassID+"&UserID=" + user.UserId).Result;
+                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetTeachCalendarDetail?IndependentClassID=" + IndependentClassID + "&UserID=" + user.UserId).Result;
                 var todo = response.Content.ReadAsStringAsync().Result;
                 response.EnsureSuccessStatusCode();
                 var studenClasses = JsonConvert.DeserializeObject<List<TeachCalendarDetail>>(todo);
@@ -417,7 +431,7 @@ namespace DoAnTotNghiep.Controllers
             try
             {
                 var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
-                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetChannelAmount?ClassID="+user.ClassID).Result;
+                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetChannelAmount?ClassID=" + user.ClassID).Result;
                 var todo = response.Content.ReadAsStringAsync().Result;
                 response.EnsureSuccessStatusCode();
                 var studenClasses = JsonConvert.DeserializeObject<List<ChannelAmount>>(todo);

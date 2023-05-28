@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "ThoiKhoaBieu";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -103,8 +102,8 @@
                     <div class="flex-row d-flex justify-content-center">
                         <div class="col-lg-5 col-11">
                             <div class="input-group input-daterange">
-                                <input type="text" class="form-control input1" placeholder="Từ ngày" readonly>
-                                <input type="text" class="form-control input2" placeholder="Đến ngày" readonly>
+                                <input type="text" value="@ViewBag.aDate" id="aDate" class="form-control input1" placeholder="Từ ngày" readonly>
+                                <input type="text" value="@ViewBag.eDate" id="eDate" class="form-control input2" placeholder="Đến ngày" readonly>
                             </div>
                         </div>
                     </div>
@@ -113,7 +112,7 @@
                     <div class="col-lg-5">
                     </div>
                     <div class="col-lg-2 m-l-19 m-t-45 txt-panel-r">
-                        <button class="button">Lọc dữ liệu</button>
+                        <button class="button" onclick="getTKB();">Lọc dữ liệu</button>
                     </div>
                     <div class="col-lg-5">
                     </div>
@@ -121,7 +120,7 @@
             </div>
         </div>
         <div class="table-tkb">
-            <table style="width:100%; margin-top: 5px;">
+            <table id="getTKB" style="width:100%; margin-top: 5px;">
                 <tr class="clo-1">
                     <!-- Hàng 1-->
                     <th style="width:8%">STT</th>
@@ -132,17 +131,31 @@
                     <th style="min-width:10%; max-width:20%; overflow: visible;">Tối</th>
                     <th style="width:8%">Ghi chú</th>
                 </tr>
-                <tr>
-                    <!-- Hàng 2-->
-                    <td>1</td>
-                    <td>Chủ Nhật</td>
-                    <td>24/5/2023</td>
-                    <td></td>
-                    <td></td>
-                    <td>adasdđâsda dsadsad asdaddàasfa fafaas</td>
-                    <td>94</td>
-                </tr>
             </table>
         </div>
     </div>
 </div>
+<script>
+    $(function(){
+        var aDate = $("#aDate").val();
+        var eDate = $("#eDate").val();
+        $.ajax({
+            url: "/Home/GetTKB",
+            data: { aDate, eDate },
+            success: function (res) {
+                $("#getTKB").html(res);
+            }
+        })
+    })
+    function getTKB() {
+        var aDate = $("#aDate").val();
+        var eDate = $("#eDate").val();
+         $.ajax({
+            url: "/Home/GetTKB",
+            data: { aDate, eDate },
+            success: function (res) {
+                $("#getTKB").html(res);
+            }
+        })
+    }
+</script>
