@@ -3,6 +3,7 @@
     public class IndependentClass
     {
         public int Amount { get; set; }
+        public int TimesInDay { get; set; }
         public string SSSV { get; set; }
         public int DayStudy { get; set; }
         public string RoomName { get; set; }
