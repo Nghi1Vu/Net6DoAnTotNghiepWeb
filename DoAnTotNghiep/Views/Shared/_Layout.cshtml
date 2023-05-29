@@ -87,7 +87,12 @@
             <i class='bx bx-menu'  style="margin-top: 3px;" id="header-toggle"></i>
             <div class="portal-new">
                 <h4 class="name-sv d-flex">
-                    Hi: <strong>Bùi Minh Thái 324</strong>              
+                    Hi: <strong>
+                        @await Component.InvokeAsync("GetProfile",
+                        new {
+                        }
+                        )
+                    </strong>
                     <label onclick="openTabIFSV(event, 'tabInfor'); " for="check" class="bar">
                         <input id="check" type="checkbox">
                             <span class="top">

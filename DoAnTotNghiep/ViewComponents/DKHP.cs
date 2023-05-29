@@ -30,4 +30,13 @@ namespace DoAnTotNghiep.ViewComponents
             return View(result);
         }
     }
+    [ViewComponent(Name = "GetProfile")]
+    public class GetProfile : ViewComponent
+    {
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            return Content(user.Fullname);
+        }
+    }
 }
