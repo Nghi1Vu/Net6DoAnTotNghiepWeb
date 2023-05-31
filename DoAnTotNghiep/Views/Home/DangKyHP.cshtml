@@ -152,33 +152,33 @@
                 </tr>
                 <tr>
                     <td>Sáng</td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0)" href="#" style="color: blue">[Chọn]</a></td>@*WARING: Onclick là mở tab Chọn ngày DKHP*@
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,2)" href="#" style="color: blue">[Chọn]</a></td>@*WARING: Onclick là mở tab Chọn ngày DKHP*@
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,3)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,4)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,5)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,6)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,7)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,1)" href="#" style="color: blue">[Chọn]</a></td>
                 </tr>
                 <tr>
                     <td>Chiều</td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,2)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,3)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,4)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,5)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,6)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,7)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,1)" href="#" style="color: blue">[Chọn]</a></td>
                 </tr>
                 <tr>
                     <td>Tối</td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,2)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,3)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,4)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,5)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,6)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,7)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,1)" href="#" style="color: blue">[Chọn]</a></td>
                 </tr>
             </table>
         </div>
@@ -207,7 +207,7 @@
                         <tr>
                             <td>@(sttbb++)</td>
                             <td>@("HP"+item.ModulesID)</td>
-                            <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP', @item.ModulesID)" href="#">@item.ModulesName</a></td>
+                            <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP', @item.ModulesID,0,0)" href="#">@item.ModulesName</a></td>
                             <td>@item.CreditsLT</td>
                             <td>@item.CreditsTH</td>
                             <td>@item.Credits</td>
@@ -243,7 +243,7 @@
                     <tr>
                         <td>@(stttc++)</td>
                             <td>@("HP" + item.ModulesID)</td>
-                            <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',@item.ModulesID)" href="#">@item.ModulesName</a></td>
+                            <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',@item.ModulesID,0,0)" href="#">@item.ModulesName</a></td>
                             <td>@item.GroupName</td>
                         <td>@(item.MinCreditsK+item.MinCreditsTH+item.MinCreditsLT)</td>
                             <td>@item.CreditsLT</td>

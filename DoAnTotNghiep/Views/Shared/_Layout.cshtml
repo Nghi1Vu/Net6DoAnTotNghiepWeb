@@ -349,7 +349,7 @@
     </script>
     <!--===========Tab chọn ngày đăng ký học phần==============-->
     <script>
-        function openTabDKHP(evt, tabName, id) {
+        function openTabDKHP(evt, tabName, id, time, day) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
 
@@ -358,7 +358,7 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
             $.ajax({
-                url: "/Home/GetIC?ModulesID="+id,
+                url: "/Home/GetIC?ModulesID=" + id + "&TimesInDay=" + time + "&DayStudy="+day,
                 success: function(rs){
                     $(".table-TBChungTL").html(rs);
                 }

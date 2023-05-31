@@ -18,13 +18,24 @@ namespace DoAnTotNghiep.ViewComponents
                 BaseAddress = new Uri(_configuration["UrlApi"]),
             };
         }
-        public async Task<IViewComponentResult> InvokeAsync(int ModulesID)
+        public async Task<IViewComponentResult> InvokeAsync(int ModulesID, int TimesInDay, int DayStudy)
         {
             var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
-            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetIC?ModulesID=" + ModulesID).Result;
-            var todo = response.Content.ReadAsStringAsync().Result;
-            response.EnsureSuccessStatusCode();
-            var result = JsonConvert.DeserializeObject<List<IndependentClass>>(todo);
+            var result = new List<IndependentClass>();
+            if (ModulesID != 0)
+            {
+                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetIC?ModulesID=" + ModulesID).Result;
+                var todo = response.Content.ReadAsStringAsync().Result;
+                response.EnsureSuccessStatusCode();
+                result = JsonConvert.DeserializeObject<List<IndependentClass>>(todo);
+            }
+            else
+            {
+                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetICByTKB?TimesInDay=" + TimesInDay + "&DayStudy=" + DayStudy).Result;
+                var todo = response.Content.ReadAsStringAsync().Result;
+                response.EnsureSuccessStatusCode();
+                result = JsonConvert.DeserializeObject<List<IndependentClass>>(todo);
+            }
             ViewBag.StudentInfo = user;
             sharedClient.Dispose();
             return View(result);

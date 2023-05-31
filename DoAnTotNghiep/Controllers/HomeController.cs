@@ -493,7 +493,21 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult TinhHinhDangKyHP()
         {
-            return View();
+            try
+            {
+                var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetLogDKHP?UserID=" + user.UserId).Result;
+                var todo = response.Content.ReadAsStringAsync().Result;
+                response.EnsureSuccessStatusCode();
+                var studenClasses = JsonConvert.DeserializeObject<List<LogDKHP>>(todo);
+                ViewBag.StudentInfo = user;
+                sharedClient.Dispose();
+                return View(studenClasses);
+            }
+            catch
+            {
+                return RedirectToAction("Index", "Account");
+            }
         }
 
         public IActionResult KhungChuongTrinh()
@@ -570,11 +584,10 @@ namespace DoAnTotNghiep.Controllers
             sharedClient.Dispose();
             return Content(result.ToString());
         }
-        public IActionResult GetIC(int ModulesID)
+        public IActionResult GetIC(int ModulesID, int TimesInDay, int DayStudy)
         {
-            return ViewComponent("GetIC", ModulesID);
+            return ViewComponent("GetIC", new { ModulesID,TimesInDay, DayStudy } );
         }
-
         public IActionResult Privacy()
         {
             return View();

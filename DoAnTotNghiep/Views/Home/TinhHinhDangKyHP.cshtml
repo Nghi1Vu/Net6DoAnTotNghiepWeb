@@ -1,7 +1,8 @@
-﻿
+﻿@model List<LogDKHP>
 @{
     ViewData["Title"] = "TinhHinhDangKyHP";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var stt = 1;
 }
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
@@ -121,17 +122,27 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td scope="row">223</td>
-                                                <td>605662</td>
-                                                <td>13/03/2023</td>
-                                                <td>Đang học</td>
-                                                <td>786.60566</td>
-                                                <td>0070174.3</td>
-                                                <td>Kỹ năng giao tiếp, thuyết trình & làm việc nhóm</td>
-                                                <td>Học kỳ 12</td>
-                                                <td>Nguyễn Thu Hằng</td>
-                                            </tr>
+                                            @foreach(var item in Model)
+                                            {
+                                                <tr>
+                                                    <td scope="row">@(stt++)</td>
+                                                    <td>@item.RegisterID</td>
+                                                    <td>@item.CreatedTime.ToString("dd/MM/yyyy")</td>
+                                                    @if(item.Del==1){
+                                                        <td>Đã xóa</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td style="color:red">Đang học</td>
+                                                    }
+                                                    <td>@item.ClassCode</td>
+                                                    <td>@item.ClassName</td>
+                                                    <td>@item.ModulesName</td>
+                                                    <td>@item.SemesterName</td>
+                                                    <td>@item.register</td>
+                                                </tr>
+                                            }
+                                          
                                         </tbody>
                                     </table>
                                 </div>
