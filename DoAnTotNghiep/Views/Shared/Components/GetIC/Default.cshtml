@@ -29,7 +29,7 @@
                 <td>@item.ClassName</td>
                 <td>@item.ClassCode</td>
                 <td>@item.Teachername (KNN)</td>
-                <td>@item.StartDate</td>
+                <td>@item.StartDate.ToString("dd/MM/yyyy")</td>
                 <td>1. BIÊN HÒA</td>
                 @foreach(var item2 in Model.Where(x => x.ClassCode == item.ClassCode))
                 {

@@ -122,13 +122,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach(var item in Model)
+                                            @foreach (var item in Model)
                                             {
                                                 <tr>
                                                     <td scope="row">@(stt++)</td>
                                                     <td>@item.RegisterID</td>
                                                     <td>@item.CreatedTime.ToString("dd/MM/yyyy")</td>
-                                                    @if(item.Del==1){
+                                                    @if (item.Del == 1)
+                                                    {
                                                         <td>Đã xóa</td>
                                                     }
                                                     else
@@ -139,10 +140,22 @@
                                                     <td>@item.ClassName</td>
                                                     <td>@item.ModulesName</td>
                                                     <td>@item.SemesterName</td>
-                                                    <td>@item.register</td>
+                                                    @if (item.OwnerID == 51)
+                                                    {
+                                                        <td>Trần Thị Phượng</td>
+                                                    }
+                                                    else if (item.OwnerID == 368)
+                                                    {
+                                                        <td>Ngô Thị Phương Nga</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td>@item.register</td>
+
+                                                    }
                                                 </tr>
                                             }
-                                          
+
                                         </tbody>
                                     </table>
                                 </div>
