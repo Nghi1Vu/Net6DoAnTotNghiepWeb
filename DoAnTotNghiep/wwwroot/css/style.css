@@ -1705,6 +1705,19 @@ thead tr:nth-child(2) th {
     .table-tkb tr:hover {
         background-color: #EEEEEE;
     }
+
+#getTKB thead {
+    position: sticky;
+    top: 58px;
+}
+#getTKB td {
+    padding: 5px 5px;
+    font-size: 12px;
+}
+#getTKB tr td:first-child {
+    text-align: center;
+}
+
 /*--------------body xêm lịch thi---------------*/
 
 .table-lichthi th {
