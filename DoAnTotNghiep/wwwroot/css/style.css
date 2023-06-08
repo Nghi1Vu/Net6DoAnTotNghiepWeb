@@ -1717,9 +1717,14 @@ thead tr:nth-child(2) th {
 #getTKB tr td:first-child {
     text-align: center;
 }
+/*--------------body xem lịch giảng dạy---------------*/
+.TeachCalender {
+    height: auto;
+    margin: 15px 5px 5px 5px;
+    padding: 4px;
+}
 
-/*--------------body xêm lịch thi---------------*/
-
+/*--------------body xem lịch thi---------------*/
 .table-lichthi th {
     background-color: #2647A0 !important;
     color: #fff;
