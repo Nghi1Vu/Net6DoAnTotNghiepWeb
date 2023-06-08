@@ -50,9 +50,25 @@
                     data: { username, password },
                     method: "POST",
                     success: function (result) {
-                        $("#div1").html(result);
+                        //$("#div1").html(result);
+                        window.location=result;
                     }
                 });
+            });
+            $(document).on('keypress', function (event) {
+                if (event.which == 13) {
+                    var username = $("#username").val();
+                    var password = $("#password").val();
+                    $.ajax({
+                        url: "/Account/Index",
+                        data: { username, password },
+                        method: "POST",
+                        success: function (result) {
+                            //$("#div1").html(result);
+                            window.location = result;
+                        }
+                    });
+                }
             });
         });
     </script>

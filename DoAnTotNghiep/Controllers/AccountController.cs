@@ -32,17 +32,17 @@ namespace DoAnTotNghiep.Controllers
                 HttpContext.Session.SetObjectAsJson("StudentInfo", studentInfo);
                 if (studentInfo.UserId != 0)
                 {
-                    return RedirectToAction("News", "Home");
+                    return Content("/Home/News");
                 }
                 else
                 {
-                    return RedirectToAction("Index", "Account");
+                    return Content("/Account/Index");
                 }
 
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Index", "Account");
+                return Content("/Account/Index");
             }
         }
     }

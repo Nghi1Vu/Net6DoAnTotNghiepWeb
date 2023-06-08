@@ -454,11 +454,13 @@ namespace DoAnTotNghiep.Controllers
         {
             try
             {
+                var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
                 using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetStudentClass").Result;
                 var todo = response.Content.ReadAsStringAsync().Result;
                 response.EnsureSuccessStatusCode();
                 var studenClasses = JsonConvert.DeserializeObject<List<StudenClass>>(todo);
                 sharedClient.Dispose();
+                ViewBag.StudentInfo = user;
                 return View(studenClasses);
             }
             catch

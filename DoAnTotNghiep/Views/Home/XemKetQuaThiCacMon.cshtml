@@ -104,9 +104,9 @@
                     <p>Lớp:</p>
                 </div>
                 <div class="infor-left">
-                    <p><strong>@ViewBag.StudentInfo.Fullname</strong></p>
-                    <p><strong>@ViewBag.StudentInfo.Usercode</strong></p>
-                    <p><strong>@ViewBag.StudentInfo.Classname</strong></p>
+                    <p><strong>@Model[0].fullname</strong></p>
+                    <p><strong>@Model[0].Usercode</strong></p>
+                    <p><strong>@Model[0].Class</strong></p>
                 </div>
             </div>
             <div class="table-TBChungTL m-t-20">
@@ -144,15 +144,15 @@
                                 <td>@(stt++)</td>
                                 <td><a href="@Url.Action("KetQuaThiTrenLop", "Home", new {IndependentClassID=item.IndependentClassID})">@item.ModulesName</a></td>
                                 <td>@item.Credits</td>
-                                <td>@item.SGKL1</td>
+                                <td>@item.SGKL1.ToString("F1")</td>
                                 <td></td>
-                                <td>@item.TBKTTK</td>
+                                <td>@item.TBKTTK.ToString("F1")</td>
                                 <td></td>
                                 <td></td>
-                                <td>@item.EXAM</td>
+                                <td>@item.EXAM.ToString("F1")</td>
                                 <td></td>
-                                <td>@item.ScoreFinal</td>
-                                <td>@item.D4</td>
+                                <td>@item.ScoreFinal.ToString("F1")</td>
+                                <td>@item.D4.ToString("F1")</td>
                                 <td>@item.SymbolName</td>
                                 <td>@item.CreatedTime.ToString("dd/MM/yyyy")</td>
                                 <td></td>
