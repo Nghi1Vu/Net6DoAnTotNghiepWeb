@@ -1705,8 +1705,26 @@ thead tr:nth-child(2) th {
     .table-tkb tr:hover {
         background-color: #EEEEEE;
     }
-/*--------------body xêm lịch thi---------------*/
 
+#getTKB thead {
+    position: sticky;
+    top: 58px;
+}
+#getTKB td {
+    padding: 5px 5px;
+    font-size: 12px;
+}
+#getTKB tr td:first-child {
+    text-align: center;
+}
+/*--------------body xem lịch giảng dạy---------------*/
+.TeachCalender {
+    height: auto;
+    margin: 15px 5px 5px 5px;
+    padding: 4px;
+}
+
+/*--------------body xem lịch thi---------------*/
 .table-lichthi th {
     background-color: #2647A0 !important;
     color: #fff;

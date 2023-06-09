@@ -4,16 +4,17 @@
     var stt = 1;
     Layout = null;
 }
-<tr class="clo-1">
+
+<thead>
                     <!-- Hàng 1-->
-                    <th style="width:8%">STT</th>
-                    <th style="width:10%">Thứ</th>
-                    <th style="width:10%">ngày</th>
-                    <th style="min-width:10%; max-width:20%; overflow: visible;">Sáng</th>
-                    <th style="min-width:10%; max-width:20%; overflow: visible;">Chiều</th>
-                    <th style="min-width:10%; max-width:20%; overflow: visible;">Tối</th>
-                    <th style="width:8%">Ghi chú</th>
-                </tr>
+    <th style="width:5%">STT</th>
+    <th style="width:10%">Thứ</th>
+    <th style="width:10%">ngày</th>
+    <th style="min-width:10%; max-width:20%; overflow: visible;">Sáng</th>
+    <th style="min-width:10%; max-width:20%; overflow: visible;">Chiều</th>
+    <th style="min-width:10%; max-width:20%; overflow: visible;">Tối</th>
+    <th style="width:8%">Ghi chú</th>
+</thead>
 @if (ViewBag.aDate != null && ViewBag.aDate != null)
 {
     for (DateTime i = ViewBag.aDate; i < ViewBag.eDate; i = i.AddDays(1))
@@ -21,59 +22,59 @@
         var stts = 1;
         var sttc = 1;
         var sttt = 1;
-CultureInfo culture = new CultureInfo("vi-VN");
-string dayOfWeek = culture.DateTimeFormat.GetDayName(i.DayOfWeek);
-                                        <tr @(i.ToString("dd/MM/yyyy") == DateTime.Now.ToString("dd/MM/yyyy") ? "style=background-color:yellow" : "")>
-                                            <!-- Hàng 2-->
-                                            <td>@(stt++)</td>
-                                                            <td>@dayOfWeek</td>
-                                            <td>@i.ToString("dd/MM/yyyy")</td>
+        CultureInfo culture = new CultureInfo("vi-VN");
+        string dayOfWeek = culture.DateTimeFormat.GetDayName(i.DayOfWeek);
+        <tr @(i.ToString("dd/MM/yyyy") == DateTime.Now.ToString("dd/MM/yyyy") ? "style=background-color:yellow" : "")>
+            <!-- Hàng 2-->
+            <td>@(stt++)</td>
+            <td>@dayOfWeek</td>
+            <td>@i.ToString("dd/MM/yyyy")</td>
             @if (Model.Where(x => x.StudyDate == i && x.TimesInDay == 1).Count() > 0)
             {
                 foreach (var item in Model.Where(x => x.StudyDate == i && x.TimesInDay == 1))
                 {
-                                                                    <td>
-                                                                        <p><strong>@stts.(@item.StudyTime) - @item.ModulesName (Lớp: @item.ClassName - @item.ClassCode)</strong></p>
-                                                                        <p><strong>GV: @item.teachername (@item.Phone - @item.DepartmentNameSort)</strong></p>
-                                                                        <p style="color: red">(@item.RoomName - @item.CampusName - 1.BIÊN HÒA)</p>
-                                                                    </td>
+                    <td>
+                        <p><strong>@stts.(@item.StudyTime) - @item.ModulesName (Lớp: @item.ClassName - @item.ClassCode)</strong></p>
+                        <p><strong>GV: @item.teachername (@item.Phone - @item.DepartmentNameSort)</strong></p>
+                        <p style="color: red">(@item.RoomName - @item.CampusName - 1.BIÊN HÒA)</p>
+                    </td>
                 }
             }
             else
             {
-                                                        <td></td>
+                <td></td>
             }
             @if (Model.Where(x => x.StudyDate == i && x.TimesInDay == 2).Count() > 0)
             {
                 foreach (var item in Model.Where(x => x.StudyDate == i && x.TimesInDay == 2))
                 {
-                                                                    <td>
-                                                                        <p><strong>@sttc.(@item.StudyTime) - @item.ModulesName (Lớp: @item.ClassName - @item.ClassCode)</strong></p>
-                                                                            <p><strong>GV: @item.teachername (@item.Phone - @item.DepartmentNameSort)</strong></p>
-                                                                        <p style="color: red">(@item.RoomName - @item.CampusName - 1.BIÊN HÒA)</p>
-                                                                    </td>
+                    <td>
+                        <p><strong>@sttc.(@item.StudyTime) - @item.ModulesName (Lớp: @item.ClassName - @item.ClassCode)</strong></p>
+                        <p><strong>GV: @item.teachername (@item.Phone - @item.DepartmentNameSort)</strong></p>
+                        <p style="color: red">(@item.RoomName - @item.CampusName - 1.BIÊN HÒA)</p>
+                    </td>
                 }
             }
             else
             {
-                                                        <td></td>
+                <td></td>
             }
             @if (Model.Where(x => x.StudyDate == i && x.TimesInDay == 3).Count() > 0)
             {
                 foreach (var item in Model.Where(x => x.StudyDate == i && x.TimesInDay == 3))
                 {
-                                                                    <td>
-                                                                        <p><strong>@sttt.(@item.StudyTime) - @item.ModulesName (Lớp: @item.ClassName - @item.ClassCode)</strong></p>
-                                                                         <p><strong>GV: @item.teachername (@item.Phone - @item.DepartmentNameSort)</strong></p>
-                                                                        <p style="color: red">(@item.RoomName - @item.CampusName - 1.BIÊN HÒA)</p>
-                                                                    </td>
+                    <td>
+                        <p><strong>@sttt.(@item.StudyTime) - @item.ModulesName (Lớp: @item.ClassName - @item.ClassCode)</strong></p>
+                        <p><strong>GV: @item.teachername (@item.Phone - @item.DepartmentNameSort)</strong></p>
+                        <p style="color: red">(@item.RoomName - @item.CampusName - 1.BIÊN HÒA)</p>
+                    </td>
                 }
             }
             else
             {
-                                                        <td></td>
+                <td></td>
             }
-                                            <td></td>
-                                        </tr>
+            <td></td>
+        </tr>
     }
 }   
