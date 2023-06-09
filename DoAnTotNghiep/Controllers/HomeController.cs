@@ -109,10 +109,41 @@ namespace DoAnTotNghiep.Controllers
             sharedClient.Dispose();
             return View(result);
         }
-
         public IActionResult DoiMatKhau()
         {
             return View();
+        }
+        [HttpPost]
+        public JsonResult DoiMatKhau(ChangePass change)
+        {
+            try
+            {
+                if (change.newpass != change.validpass)
+                {
+                    return Json("K");
+                }
+                var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+                var obj = new
+                {
+                    username = user.Usercode,
+                    oldpass = change.oldpass,
+                    newpass = change.newpass
+                };
+                using HttpResponseMessage response = sharedClient.PostAsJsonAsync("api/v1/ChangePassword", obj).Result;
+                var todo = response.Content.ReadAsStringAsync().Result;
+                response.EnsureSuccessStatusCode();
+                var result = JsonConvert.DeserializeObject<int>(todo);
+                sharedClient.Dispose();
+                if (result == 1)
+                {
+                    return Json("Y");
+                }
+                return Json("N");
+            }
+            catch
+            {
+                return Json("N");
+            }
         }
 
         public IActionResult DSHoSo()

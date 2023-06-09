@@ -1,9 +1,9 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "DoiMatKhau";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
@@ -105,18 +105,18 @@
                         <div class="login-form">
                             <form>
                                 <div class="form-group">
-                                    <label for="username">Mật khẩu cũ<span class="cl-txt-notic-1 ">*</span></label>
-                                    <input id="password" name="password" type="password" class="form-control" placeholder="Password">
+                                    <label for="oldpass">Mật khẩu cũ<span class="cl-txt-notic-1 ">*</span></label>
+                                    <input id="oldpass" name="oldpass" type="password" class="form-control" placeholder="Old Password...">
                                 </div>
                                 <div class="form-group m-t--10 ">
-                                    <label for="username">Mật khẩu mới<span class="cl-txt-notic-1 ">*</span></label>
-                                    <input id="password" name="password" type="password" class="form-control" placeholder="Password">
+                                    <label for="newpass">Mật khẩu mới<span class="cl-txt-notic-1 ">*</span></label>
+                                    <input id="newpass" name="newpass" type="password" class="form-control" placeholder="New Password...">
                                 </div>
                                 <div class="form-group m-t--10">
-                                    <label for="password">Xác nhận mật khẩu mới<span class="cl-txt-notic-1 ">*</span></label>
-                                    <input id="password" name="password" type="password" class="form-control" placeholder="Password">
+                                    <label for="validpass">Xác nhận mật khẩu mới<span class="cl-txt-notic-1 ">*</span></label>
+                                    <input id="validpass" name="validpass" type="password" class="form-control" placeholder="Valid Password...">
                                 </div>
-                                <a id="login" class="gradi-btn gradi-btn-clr">Xác nhận</a>
+                                <a id="change" class="gradi-btn gradi-btn-clr">Xác nhận</a>
                             </form>
                         </div>
                     </div>
@@ -125,4 +125,53 @@
         </div>
     </div>
 </div>
-
+<script>
+    $(document).ready(function () {
+        $("#change").click(function () {
+            var oldpass = $("#oldpass").val();
+            var newpass = $("#newpass").val();
+            var validpass = $("#validpass").val();
+            $.ajax({
+                url: "/Home/Doimatkhau",
+                data: { oldpass, newpass, validpass },
+                method: "POST",
+                success: function (result) {
+                    if (result == "K") {
+                        toastr.error("Mật khẩu xác nhận không trùng khớp");
+                    } else if (result == "N") {
+                        toastr.error("Không thành công");
+                    } else if (result == "Y") {
+                        toastr.success("Thành công");
+                        setTimeout(function () {
+                            window.location = "/Account/Index";
+                        }, 2000);
+                    }
+                }
+            });
+        });
+        $(document).on('keypress', function (event) {
+            if (event.which == 13) {
+                var oldpass = $("#oldpass").val();
+                var newpass = $("#newpass").val();
+                var validpass = $("#validpass").val();
+                $.ajax({
+                    url: "/Home/Doimatkhau",
+                    data: { oldpass, newpass, validpass },
+                    method: "POST",
+                    success: function (result) {
+                        if (result == "K") {
+                            toastr.error("Mật khẩu xác nhận không trùng khớp");
+                        } else if (result == "N") {
+                            toastr.error("Không thành công");
+                        } else if (result == "Y") {
+                            toastr.success("Thành công");
+                            setTimeout(function () {
+                                window.location = "/Account/Index";
+                            }, 2000);
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
