@@ -102,7 +102,7 @@
                 <table style="width:100% ;padding-left: 4px">
                     <tr>
                         <td colspan="4">
-                            <p class="p-t-10">Xem lịch giảng dạy học phần <strong class="txt-clr-red">Tiếng anh 1</strong>. Giáo viên giảng dạy: <strong class="txt-clr-red">Nguyễn văn quết</strong>.</p>
+                            <p class="p-t-10">Xem lịch giảng dạy học phần <strong class="txt-clr-red">@Model[0].ModulesName</strong>. Giáo viên giảng dạy: <strong class="txt-clr-red">@(Model[0].teachername != null && Model[0].teachername != "" ? Model[0].teachername : "Vũ Qúy Định")</strong>.</p>
                         </td>
                     </tr>
                     <tr>

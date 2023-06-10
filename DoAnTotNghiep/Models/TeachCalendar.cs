@@ -16,6 +16,8 @@
         public DateTime Day { get; set; }
         public string Contents { get; set; }
         public string Description { get; set; }
+        public string teachername { get; set; }
+        public string ModulesName { get; set; }
         public int HaveTest { get; set; }
 
     }
