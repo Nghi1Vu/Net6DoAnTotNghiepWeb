@@ -1,4 +1,5 @@
-﻿@model List<DoAnTotNghiep.Models.TTCN>
+﻿@using System.Globalization;
+@model List<DoAnTotNghiep.Models.TTCN>
 @{
     ViewData["Title"] = "ThanhToanCongNo";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -130,7 +131,7 @@
                         <th style="width:5%;">Số tín chỉ</th>
                         <th style="width:8%;">Số tiền</th>
                         <th style="width:6%;">Trạng thái</th>
-                        <th style="width:0%;"><input type="checkbox"></th>
+                        <th style="width:0%;"><input id="chkall" type="checkbox"></th>
                     </tr>
                     <tbody>
                             @foreach (var item in Model)
@@ -140,23 +141,26 @@
                                 <td>@item.ClassCode</td>
                                 <td>@item.ModulesName</td>
                                 <td>@item.Credits</td>
-                                <td>@item.Costs</td>
+                                <td class="cost">@item.Costs</td>
                                 <td style="color:lightcoral"><strong>Chưa nộp</strong></td>
                                 <td><div class="p-l-2"><input type="checkbox" aria-label="Checkbox for following text input"></div></td>
                             </tr>
                             }
-
+                            @{
+                                CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN"); // try with "en-US"
+                                string a = double.Parse("12345").ToString("#,###", cul.NumberFormat);
+                            }
                         <tr class="txt-clr-red">
-                            <td colspan="4">Tổng số tiền chưa thanh toán</td>
-                            <td colspan="3">0<sub> (vnđ)</sub></td>
+                            <td colspan="4">Tổng số tiền chưa thanh toán:</td>
+                            <td colspan="3" id="ctt"><sub> (vnđ)</sub></td>
                         </tr>
                         <tr class="txt-clr-red">
-                            <td colspan="4">Tổng số tiền chưa thanh toán</td>
-                            <td colspan="3">0<sub> (vnđ)</sub></td>
+                            <td colspan="4">Số dư tài khoản:</td>
+                            <td colspan="3">@ViewBag.StudentInfo.Amount.ToString("#,###", cul.NumberFormat)<sub> (vnđ)</sub></td>
                         </tr>
                         <tr class="txt-clr-red">
                             <td colspan="3">Số tiền hệ thống sẽ trừ:</td>
-                            <td></td>
+                            <td id="htst"></td>
                             <td colspan="4"></td>
                         </tr>
                     </tbody>
@@ -213,3 +217,22 @@
         </div>
     </div>
 </div>
+<script>
+    $(function(){
+        debugger
+        var s=0;
+        $(".cost").each(function () {
+            s += parseInt($(this).html());
+        })
+        $("#ctt").html(s);
+        $("input[type=checkbox]").change(function () {
+            debugger
+            let tong = 0;
+            $("input[type=checkbox]:checked").each(function () {
+                tong += parseInt($(this).parent().parent().parent().find('.cost').html());
+            })
+            $("#htst").html(tong);
+        })
+    })
+        
+</script>
