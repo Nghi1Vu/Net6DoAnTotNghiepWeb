@@ -5,7 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var stt = 1;
 }
-
+@{
+                                CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN"); // try with "en-US"
+                                string a = double.Parse("12345").ToString("#,###", cul.NumberFormat);
+                            }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
@@ -143,13 +148,19 @@
                                 <td>@item.Credits</td>
                                 <td class="cost">@item.Costs</td>
                                 <td style="color:lightcoral"><strong>Chưa nộp</strong></td>
-                                <td><div class="p-l-2"><input type="checkbox" aria-label="Checkbox for following text input"></div></td>
+                                    @if (item.Credits != 0)
+                                    {
+                                    <td><div class="p-l-2"><input type="checkbox" value="@item.id" aria-label="Checkbox for following text input"></div></td>
+                                    }
+
+                                    else
+                                    {
+                                        string b = 'k' + item.id.ToString();
+                                    <td><div class="p-l-2"><input type="checkbox" value="@(b)" aria-label="Checkbox for following text input"></div></td>
+                                    }
                             </tr>
                             }
-                            @{
-                                CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN"); // try with "en-US"
-                                string a = double.Parse("12345").ToString("#,###", cul.NumberFormat);
-                            }
+                            
                         <tr class="txt-clr-red">
                             <td colspan="4">Tổng số tiền chưa thanh toán:</td>
                             <td colspan="3" id="ctt"><sub> (vnđ)</sub></td>
@@ -166,7 +177,7 @@
                     </tbody>
                     </form>
                 </table>
-                <button type="submit" class="button m-t-12 m-l-16">Thanh toán</button>
+                <button id="thanhtoan" type="submit" class="button m-t-12 m-l-16">Thanh toán</button>
             </div>
             <div class="table-TBChungTL m-t-10">
                 <table style="width:100% ;padding-left: 4px">
@@ -221,6 +232,31 @@
 </div>
 <script>
     $(function () {
+        $("#thanhtoan").click(function () {
+            let id = "";
+            $("input[type=checkbox]:checked").each(function () {
+                if ($(this).parent().prop('nodeName') != "TH") {
+                    id += $(this).val() + ',';
+                }
+            })
+            $.ajax({
+                url: "/Home/PostTTCN",
+                method: "POST",
+                data: { id },
+                success: function (rs) {
+                    if (rs == "Y") {
+                        toastr.success("Thành công");
+                        setTimeout(function(){
+                            window.location = "/Home/ThanhToanCongNo";
+                        }, 2000);
+                    } else if (rs == "S") {
+                        toastr.warning("Số dư không đủ");
+                    } else {
+                        toastr.error("Không thành công");
+                    }
+                }
+            })
+        })
         debugger
         var s = 0;
         $(".cost").each(function () {
