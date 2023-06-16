@@ -1,9 +1,14 @@
-﻿@model List<DoAnTotNghiep.Models.ChannelAmount>
+﻿@using System.Globalization;
+@model List<DoAnTotNghiep.Models.ChannelAmount>
 @{
     ViewData["Title"] = "DichVuMotCua";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var stt = 1;
+    CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN"); // try with "en-US"
+
 }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
@@ -132,7 +137,7 @@
                         <th style="width:12%;">Ngày áp dụng</th>
                         <th style="width:15%;">Số ngày sử lý yêu cầu</th>
                         <th style="width:10%;">Trạng thái</th>
-                        <th style="width:0%;"><input type="checkbox"></th>
+                        <th style="width:0%;"><input id="chkall" type="checkbox"></th>
                     </tr>
                     <tbody>
                             @foreach(var item in Model)
@@ -143,7 +148,7 @@
                                 <td>@item.Costs</td>
                                 <td>
                                     <div style="padding: 0 15px; transform: scale(0.8);">
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select count" aria-label="Default select example">
                                             <option selected>1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -156,18 +161,18 @@
                                 <td>@item.ModifiedTime.ToString("dd/MM/yyyy")</td>
                                 <td>@item.Day</td>
                                 <td></td>
-                                <td><div class="p-l-2"><input type="checkbox" aria-label="Checkbox for following text input"></div></td>
+                                <td><div class="p-l-2"><input value="@item.ChannelAmountID" type="checkbox" aria-label="Checkbox for following text input"></div></td>
                             </tr>
                             }
                             
                         <tr class="txt-clr-red">
-                            <td colspan="3">Tổng số tiền chưa thanh toán</td>
-                            <td colspan="6">0<sub> (vnđ)</sub></td>
+                            <td colspan="3">Số dư tài khoản:</td>
+                            <td colspan="6">@ViewBag.StudentInfo.Amount.ToString("#,###", cul.NumberFormat)<sub> (vnđ)</sub></td>
                         </tr>
                     </tbody>
                     </form>
                 </table>
-                <button type="submit" class="button m-t-12 m-l-16">Thanh toán</button>
+                <button id="thanhtoan" type="submit" class="button m-t-12 m-l-16">Thanh toán</button>
             </div>
             <div class="table-TBChungTL m-t-10">
                 <table style="width:100% ;padding-left: 4px">
@@ -207,6 +212,9 @@
                                     @if (item.StatusID == 3)
                                     {
                                         <td style="color:green"><strong>Hoàn thành- Đã nhận hồ sơ</strong></td>
+                                    }else if (item.StatusID == 1)
+                                    {
+                                        <td style="color:yellowgreen"><strong>Đang xử lý- Đã nhận hồ sơ</strong></td>
                                     }
                                     else
                                     {
@@ -239,3 +247,48 @@
         </div>
     </div>
 </div>
+<script>
+    $(function(){
+        $("#chkall").change(function () {
+            if ($(this).prop("checked") == true) {
+                $("input[type=checkbox]").each(function () {
+                    if ($(this).parent().prop('nodeName') != "TH") {
+                        $(this).prop("checked", true);
+                    }
+                })
+            } else {
+                $("input[type=checkbox]:checked").each(function () {
+                    if ($(this).parent().prop('nodeName') != "TH") {
+                        $(this).prop("checked", false);
+                    }
+                })
+            }
+            
+        })
+        $("#thanhtoan").click(function(){
+            let id = "";
+            $("input[type=checkbox]:checked").each(function () {
+                if ($(this).parent().prop('nodeName') != "TH") {
+                    id += $(this).val() +'-'+ $(this).parent().parent().parent().find(".count").val() + ',';
+                }
+            })
+            $.ajax({
+                url: "/Home/PostOneDoor",
+                method: "POST",
+                data: { id },
+                success: function (rs) {
+                    if (rs == "Y") {
+                        toastr.success("Thành công");
+                        setTimeout(function () {
+                            window.location = "/Home/DichVuMotCua";
+                        }, 2000);
+                    } else if (rs == "S") {
+                        toastr.warning("Số dư không đủ");
+                    } else {
+                        toastr.error("Không thành công");
+                    }
+                }
+            })
+        })
+    })
+</script>

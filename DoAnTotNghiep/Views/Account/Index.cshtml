@@ -2,7 +2,11 @@
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
-
+<style>
+    body.waiting * {
+        cursor: wait;
+    }
+</style>
 <body class="br-body">
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
@@ -43,6 +47,7 @@
     <script>
         $(document).ready(function () {
             $("#login").click(function () {
+                document.body.className = 'waiting';
                 var username = $("#username").val();
                 var password = $("#password").val();
                 $.ajax({
@@ -52,11 +57,15 @@
                     success: function (result) {
                         //$("#div1").html(result);
                         window.location=result;
+                    },
+                    complete: function(){
+                        document.body.className = ''; // could be empty or whatever you want
                     }
                 });
             });
             $(document).on('keypress', function (event) {
                 if (event.which == 13) {
+                    document.body.className = 'waiting';
                     var username = $("#username").val();
                     var password = $("#password").val();
                     $.ajax({
@@ -66,6 +75,9 @@
                         success: function (result) {
                             //$("#div1").html(result);
                             window.location = result;
+                        },
+                        complete: function () {
+                            document.body.className = ''; // could be empty or whatever you want
                         }
                     });
                 }

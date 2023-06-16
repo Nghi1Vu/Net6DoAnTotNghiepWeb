@@ -489,6 +489,38 @@ namespace DoAnTotNghiep.Controllers
                 return RedirectToAction("Index", "Account");
             }
         }
+        [HttpPost]
+        public IActionResult PostOneDoor(string id)
+        {
+            try
+            {
+                string odid = id.Trim().Substring(0, id.Length - 1);
+                var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+                var obj = new
+                {
+                    UserId = user.UserId,
+                    odid = odid,
+                    amount = user.Amount
+                };
+                using HttpResponseMessage response = sharedClient.PostAsJsonAsync("api/v1/PostOneDoor", obj).Result;
+                var todo = response.Content.ReadAsStringAsync().Result;
+                response.EnsureSuccessStatusCode();
+                var result = JsonConvert.DeserializeObject<string>(todo);
+                if (result == "Y")
+                {
+                    using HttpResponseMessage response2 = sharedClient.PostAsJsonAsync("/api/v1/GetStudentInfoByEmail", new { email = user.Email }).Result;
+                    var todo2 = response2.Content.ReadAsStringAsync().Result;
+                    StudentInfo studentInfo = JsonConvert.DeserializeObject<StudentInfo>(todo2);
+                    HttpContext.Session.SetObjectAsJson("StudentInfo", studentInfo);
+                }
+                sharedClient.Dispose();
+                return Content(result);
+            }
+            catch
+            {
+                return RedirectToAction("Index", "Account");
+            }
+        }
         public IActionResult DichVuMotCua()
         {
             try
