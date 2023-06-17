@@ -422,8 +422,13 @@ namespace DoAnTotNghiep.Controllers
             return ViewComponent("GetExamPlan", ClassCode);
 
         }
-        public IActionResult Taikhoan()
+        public IActionResult Taikhoan(string aDate, string eDate)
         {
+            if(aDate==null && eDate == null)
+            {
+                aDate = DateTime.Now.AddDays(-7).ToString("dd/MM/yyyy");
+                eDate = DateTime.Now.AddDays(8).ToString("dd/MM/yyyy");
+            }
             var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
             using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetTradeHistory?UserId=" + user.UserId).Result;
             var todo = response.Content.ReadAsStringAsync().Result;
@@ -431,7 +436,8 @@ namespace DoAnTotNghiep.Controllers
             var result = JsonConvert.DeserializeObject<List<TradeHistory>>(todo);
             sharedClient.Dispose();
             ViewBag.StudentInfo = user;
-            return View(result);
+            var fiter = result.Where(x => x.CreatedTime >= DateTime.Parse(aDate) && x.CreatedTime<=DateTime.Parse(eDate)).ToList();
+            return View(fiter);
         }
 
         public IActionResult ThanhToanCongNo()

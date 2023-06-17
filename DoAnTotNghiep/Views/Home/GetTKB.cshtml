@@ -17,7 +17,7 @@
 </thead>
 @if (ViewBag.aDate != null && ViewBag.aDate != null)
 {
-    for (DateTime i = ViewBag.aDate; i < ViewBag.eDate; i = i.AddDays(1))
+    for (DateTime i = ViewBag.aDate; i <= ViewBag.eDate; i = i.AddDays(1))
     {
         var stts = 1;
         var sttc = 1;

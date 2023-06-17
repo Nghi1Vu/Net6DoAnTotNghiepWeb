@@ -105,8 +105,8 @@
                     <div class="flex-row d-flex justify-content-center">
                         <div class="col-lg-5 col-11">
                             <div class="input-group input-daterange">
-                                <input type="text" class="form-control input1" placeholder="Từ ngày" readonly>
-                                <input type="text" class="form-control input2" placeholder="Đến ngày" readonly>
+                                <input type="text" id="aDate" class="form-control input1" value="@(Context.Request.Query.Count>0?Context.Request.Query.FirstOrDefault().Value.ToString():DateTime.Now.AddDays(-7).ToString("dd/MM/yyyy"))" placeholder="Từ ngày" readonly>
+                                <input type="text" id="eDate" class="form-control input2" value="@(Context.Request.Query.Count>0?Context.Request.Query.LastOrDefault().Value.ToString(): DateTime.Now.AddDays(8).ToString(" dd/MM/yyyy"))" placeholder="Đến ngày" readonly>
                             </div>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                     <div class="col-lg-5">
                     </div>
                     <div class="col-lg-2 m-l-19 m-t-30 txt-panel-r">
-                        <button class="button">Lọc dữ liệu</button>
+                        <button onclick="Filter();" class="button">Lọc dữ liệu</button>
                     </div>
                     <div class="col-lg-5">
                     </div>
@@ -172,4 +172,10 @@
         </div>
     </div>
 </div>
-
+<script>
+   function Filter(){
+        var aDate = $("#aDate").val();
+        var eDate = $("#eDate").val();
+        window.location="/Home/Taikhoan?aDate="+aDate+"&eDate="+eDate;
+    }
+</script>
