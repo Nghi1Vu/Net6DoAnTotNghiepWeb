@@ -105,12 +105,15 @@
                             <div class="card">
                                 <p class="title-page">Bạn muốn chia sẻ điều gì ?</p>
                                 <div class="card-body">
-                                    <textarea id="textareaFamily" name="ChiaSeThongTin" rows="6" cols="68">
+                                    <form action="/Home/PostMessage" method="get">
+                                        <textarea id="textareaFamily" name="content" rows="6" cols="68">
 
                                     </textarea>
-                                    <div class="float-r">
-                                        <button type="submit" class="button m-t-12 m-l-16">Gửi biểu mẫu</button>
-                                    </div>
+                                        <div class="float-r">
+                                            <button type="submit" class="button m-t-12 m-l-16">Gửi biểu mẫu</button>
+                                        </div>
+                                    </form>
+                                    
                                 </div>
                             </div>
                         </div>

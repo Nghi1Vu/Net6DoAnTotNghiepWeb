@@ -110,6 +110,16 @@ namespace DoAnTotNghiep.Controllers
             sharedClient.Dispose();
             return View(result);
         }
+        public IActionResult PostMessage(string content)
+        {
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/PostMessage?UserId=" + user.UserId+ "&content="+content).Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<string>(todo);
+            sharedClient.Dispose();
+            return RedirectToAction("ThongBaoTraoDoiTrongLop");
+        }
         public IActionResult DoiMatKhau()
         {
             return View();
