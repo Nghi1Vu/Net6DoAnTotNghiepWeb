@@ -120,6 +120,22 @@ namespace DoAnTotNghiep.Controllers
             sharedClient.Dispose();
             return RedirectToAction("ThongBaoTraoDoiTrongLop");
         }
+        public JsonResult HandleDKHP(int id)
+        {
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            var obj = new
+            {
+                id = id,
+                UserID = user.UserId,
+                amount=user.Amount
+            };
+            using HttpResponseMessage response = sharedClient.PostAsJsonAsync("api/v1/HandleDKHP", obj).Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<string>(todo);
+            sharedClient.Dispose();
+            return Json(result);
+        }
         public IActionResult DoiMatKhau()
         {
             return View();
