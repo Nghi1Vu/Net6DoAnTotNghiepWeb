@@ -6,7 +6,7 @@
     var sttbb = 1;
     var stttc = 1;
 }
-<div id="TabChonNgayDKHP" class="tabChonDKHP">
+<div style="margin:20px 20px;width:1200px;height:650px;overflow:scroll;" id="TabChonNgayDKHP" class="tabChonDKHP">
     <span onclick="this.parentElement.style.display='none';" class="topright butn-close m-b-10">&times</span>
     <div class="TBChungTL">
         <div class="table-TBChungTL m-t-10">
@@ -207,7 +207,7 @@
                         <tr>
                             <td>@(sttbb++)</td>
                             <td>@("HP"+item.ModulesID)</td>
-                            <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP', @item.ModulesID,0,0)" href="#">@item.ModulesName</a></td>
+                            <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP', @item.ModulesID,0,0)" style="cursor:pointer;color:dodgerblue">@item.ModulesName</a></td>
                             <td>@item.CreditsLT</td>
                             <td>@item.CreditsTH</td>
                             <td>@item.Credits</td>
@@ -243,7 +243,7 @@
                     <tr>
                         <td>@(stttc++)</td>
                             <td>@("HP" + item.ModulesID)</td>
-                            <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',@item.ModulesID,0,0)" href="#">@item.ModulesName</a></td>
+                            <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',@item.ModulesID,0,0)" style="cursor:pointer;color:dodgerblue">@item.ModulesName</a></td>
                             <td>@item.GroupName</td>
                         <td>@(item.MinCreditsK+item.MinCreditsTH+item.MinCreditsLT)</td>
                             <td>@item.CreditsLT</td>
