@@ -120,14 +120,15 @@ namespace DoAnTotNghiep.Controllers
             sharedClient.Dispose();
             return RedirectToAction("ThongBaoTraoDoiTrongLop");
         }
-        public JsonResult HandleDKHP(int id)
+        public JsonResult HandleDKHP(int id, int mdid)
         {
             var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
             var obj = new
             {
                 id = id,
                 UserID = user.UserId,
-                amount=user.Amount
+                amount=user.Amount,
+                mdid= mdid
             };
             using HttpResponseMessage response = sharedClient.PostAsJsonAsync("api/v1/HandleDKHP", obj).Result;
             var todo = response.Content.ReadAsStringAsync().Result;

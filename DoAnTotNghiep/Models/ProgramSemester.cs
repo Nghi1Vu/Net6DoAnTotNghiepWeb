@@ -3,6 +3,7 @@
     public class ProgramSemester
     {
         public string GroupName { get; set; }
+        public string chked { get; set; }
         public string XH { get; set; }
         public string SymbolName { get; set; }
         public int MinCreditsLT { get; set; }

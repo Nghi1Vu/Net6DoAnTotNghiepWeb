@@ -204,15 +204,30 @@
                     </tr>
                     @foreach(var item in Model.Where(x=>x.ProgramGroupID==0))
                     {
-                        <tr>
-                            <td>@(sttbb++)</td>
-                            <td>@("HP"+item.ModulesID)</td>
-                            <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP', @item.ModulesID,0,0)" style="cursor:pointer;color:dodgerblue">@item.ModulesName</a></td>
-                            <td>@item.CreditsLT</td>
-                            <td>@item.CreditsTH</td>
-                            <td>@item.Credits</td>
-                            <td><strong>@item.SymbolName</strong></td>
-                        </tr>
+                        if (item.chked == "x")
+                        {
+                            <tr>
+                                <td>@(sttbb++)</td>
+                                <td>@("HP" + item.ModulesID)</td>
+                                <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP', @item.ModulesID,0,0)" style="cursor:pointer;color:dodgerblue">@item.ModulesName</a></td>
+                                <td>@item.CreditsLT</td>
+                                <td>@item.CreditsTH</td>
+                                <td>@item.Credits</td>
+                                <td><strong>@item.SymbolName</strong></td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td>@(sttbb++)</td>
+                                <td>@("HP" + item.ModulesID)</td>
+                                <td>@item.ModulesName</td>
+                                <td>@item.CreditsLT</td>
+                                <td>@item.CreditsTH</td>
+                                <td>@item.Credits</td>
+                                <td><strong>@item.SymbolName</strong></td>
+                            </tr>
+                        }
                     }
                   
                 </table>
@@ -240,7 +255,9 @@
                     </tr>
                      @foreach(var item in Model.Where(x=>x.ProgramGroupID!=0))
                     {
-                    <tr>
+                        if (item.chked == "x")
+                        {
+                              <tr>
                         <td>@(stttc++)</td>
                             <td>@("HP" + item.ModulesID)</td>
                             <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',@item.ModulesID,0,0)" style="cursor:pointer;color:dodgerblue">@item.ModulesName</a></td>
@@ -250,7 +267,22 @@
                             <td>@item.CreditsTH</td>
                             <td>@item.Credits</td>
                         <td><strong>@item.SymbolName</strong></td>
-                    </tr>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td>@(stttc++)</td>
+                                <td>@("HP" + item.ModulesID)</td>
+                                <td>@item.ModulesName</td>
+                                <td>@item.GroupName</td>
+                                <td>@(item.MinCreditsK + item.MinCreditsTH + item.MinCreditsLT)</td>
+                                <td>@item.CreditsLT</td>
+                                <td>@item.CreditsTH</td>
+                                <td>@item.Credits</td>
+                                <td><strong>@item.SymbolName</strong></td>
+                            </tr>
+                        }
                     }
                 </table>
             </div>

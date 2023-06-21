@@ -1,8 +1,8 @@
 ﻿@model List<DoAnTotNghiep.Models.IndependentClass>
 @{
     var results = Model.GroupBy(
-    p => new { p.IndependentClassID,p.StartDate, p.Teachername, p.ClassName, p.ClassCode,p.Credits,p.Amount, p.SSSV },
-    (key, g) => new { IndependentClassID = key.IndependentClassID, StartDate = key.StartDate, Teachername = key.Teachername, ClassName = key.ClassName, ClassCode = key.ClassCode, Credits = key.Credits, Amount = key.Amount, SSSV = key.SSSV });
+    p => new { p.ModulesID, p.IndependentClassID, p.StartDate, p.Teachername, p.ClassName, p.ClassCode, p.Credits, p.Amount, p.SSSV },
+    (key, g) => new { ModulesID = key.ModulesID, IndependentClassID = key.IndependentClassID, StartDate = key.StartDate, Teachername = key.Teachername, ClassName = key.ClassName, ClassCode = key.ClassCode, Credits = key.Credits, Amount = key.Amount, SSSV = key.SSSV });
 }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -41,7 +41,7 @@
                 <td>@item.Credits</td>
                 <td>@item.SSSV</td>
                 <td>@item.Amount</td>
-                <td><a onclick="dkhp(@item.IndependentClassID)" href="#">[Đăng ký]</a></td>
+                <td><a onclick="dkhp(@item.IndependentClassID,@item.ModulesID)" href="#">[Đăng ký]</a></td>
             </tr>
         }
       

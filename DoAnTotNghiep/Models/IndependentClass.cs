@@ -4,6 +4,7 @@
     {
         public int Amount { get; set; }
         public int IndependentClassID { get; set; }
+        public int ModulesID { get; set; }
         public int TimesInDay { get; set; }
         public string SSSV { get; set; }
         public int DayStudy { get; set; }
