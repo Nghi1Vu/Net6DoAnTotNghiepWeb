@@ -48,10 +48,10 @@
     </tbody>
 </table>
 <script>
-    function dkhp(id){
+    function dkhp(id,mdid){
         $.ajax({
             url:"/Home/HandleDKHP",
-            data:{id},
+            data:{id,mdid},
             method:"post",
             success: function(rs){
                 if(rs.split('|')[0]=='Y'){
