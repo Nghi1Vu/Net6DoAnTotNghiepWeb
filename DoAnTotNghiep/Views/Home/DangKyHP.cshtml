@@ -5,7 +5,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var sttbb = 1;
     var stttc = 1;
+    string DKHPByTKB(int a, int b)
+    {
+        string rs = "";
+        if (ViewBag.DKHPByTKB != null)
+        {
+            var chkTKB = (ViewBag.DKHPByTKB as List<DKHPByTKB>).Where(x=>x.TimesInDay==a && x.DayStudy==b).ToList();
+            for(int i=0; i<chkTKB.Count; i++)
+            {
+                rs += @"<div style='display:block;border:1px solid blue;'><strong onclick='" + "DeleteDKHP(" + chkTKB[i].IndependentClassID + ")" + "' style='color:red;float:right;cursor: pointer;'>x</strong><p>" + chkTKB[i].ClassName + "</p>" + "<strong>" + chkTKB[i].ModulesName + "</strong><p>(" + chkTKB[i].timeday + ")</p><p><strong>" + chkTKB[i].room + chkTKB[i].campus + "</strong>(1.BIÊN HÒA)" + "</p></div>";
+            }
+        }
+        else
+        {
+            return "";
+        }
+
+        return rs;
+    }
 }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <div style="margin:20px 20px;width:1200px;height:650px;overflow:scroll;" id="TabChonNgayDKHP" class="tabChonDKHP">
     <span onclick="this.parentElement.style.display='none';" class="topright butn-close m-b-10">&times</span>
     <div class="TBChungTL">
@@ -152,33 +173,33 @@
                 </tr>
                 <tr>
                     <td>Sáng</td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,2)" href="#" style="color: blue">[Chọn]</a></td>@*WARING: Onclick là mở tab Chọn ngày DKHP*@
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,3)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,4)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,5)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,6)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,7)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,1)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,2)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(1,2))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,3)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(1,3))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,4)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(1,4))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,5)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(1,5))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,6)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(1,6))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,7)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(1,7))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,1,1)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(1,1))</td>
                 </tr>
                 <tr>
                     <td>Chiều</td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,2)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,3)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,4)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,5)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,6)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,7)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,1)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,2)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(2,2))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,3)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(2,3))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,4)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(2,4))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,5)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(2,5))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,6)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(2,6))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,7)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(2,7))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,2,1)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(2,1))</td>
                 </tr>
                 <tr>
                     <td>Tối</td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,2)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,3)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,4)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,5)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,6)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,7)" href="#" style="color: blue">[Chọn]</a></td>
-                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,1)" href="#" style="color: blue">[Chọn]</a></td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,2)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(3,2))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,3)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(3,3))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,4)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(3,4))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,5)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(3,5))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,6)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(3,6))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,7)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(3,7))</td>
+                    <td><a onclick="openTabDKHP(event, 'TabChonNgayDKHP',0,3,1)" href="#" style="color: blue">[Chọn]</a>@Html.Raw(DKHPByTKB(3,1))</td>
                 </tr>
             </table>
         </div>
@@ -289,3 +310,30 @@
         </div>
     </div>
 </div>
+<script>
+    function DeleteDKHP(id){
+        if (confirm("Bạn có chắc muốn hủy đăng ký hp này!") == true) {
+            $.ajax({
+                url: "/Home/DeleteDKHP",
+                data: { id },
+                method: "Post",
+                uccess: function (rs) {
+                    if (rs.split('|')[0] == 'Y') {
+                        toastr.success(rs.split('|')[1]);
+                        setTimeout(function () {
+                            window.location = "/Home/Dangkyhp"
+                        }, 2000);
+                    } else {
+                        toastr.warning(rs.split('|')[1]);
+                    }
+                },
+                error: function (e) {
+                    toastr.error("Xảy ra lỗi err: " + e);
+                }
+            })
+        } else {
+            console.log("You canceled!");
+        }
+        
+    }
+</script>

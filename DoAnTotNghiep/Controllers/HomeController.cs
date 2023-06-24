@@ -616,6 +616,10 @@ namespace DoAnTotNghiep.Controllers
             var todo = response.Content.ReadAsStringAsync().Result;
             response.EnsureSuccessStatusCode();
             var result = JsonConvert.DeserializeObject<List<ProgramSemester>>(todo);
+            using HttpResponseMessage response2 = sharedClient.GetAsync("api/v1/GetDKHPByTKB?UserID=" + user.UserId).Result;
+            var todo2 = response2.Content.ReadAsStringAsync().Result;
+            response2.EnsureSuccessStatusCode();
+            ViewBag.DKHPByTKB= JsonConvert.DeserializeObject<List<DKHPByTKB>>(todo2).ToList();
             ViewBag.StudentInfo = user;
             sharedClient.Dispose();
             return View(result);
@@ -713,6 +717,22 @@ namespace DoAnTotNghiep.Controllers
             var result = JsonConvert.DeserializeObject<int>(todo);
             sharedClient.Dispose();
             return Content(result.ToString());
+        }
+        [HttpPost]
+        public JsonResult DeleteDKHP(int id)
+        {
+            var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
+            var obj = new
+            {
+                UserID = user.UserId,
+                IndependentClassID = id,
+            };
+            using HttpResponseMessage response = sharedClient.PostAsJsonAsync("api/v1/DeleteDKHP", obj).Result;
+            var todo = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            var result = JsonConvert.DeserializeObject<string>(todo);
+            sharedClient.Dispose();
+            return Json(result);
         }
         public IActionResult GetIC(int ModulesID, int TimesInDay, int DayStudy)
         {
