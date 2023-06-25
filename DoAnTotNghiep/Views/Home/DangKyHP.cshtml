@@ -317,7 +317,7 @@
                 url: "/Home/DeleteDKHP",
                 data: { id },
                 method: "Post",
-                uccess: function (rs) {
+                success: function (rs) {
                     if (rs.split('|')[0] == 'Y') {
                         toastr.success(rs.split('|')[1]);
                         setTimeout(function () {
