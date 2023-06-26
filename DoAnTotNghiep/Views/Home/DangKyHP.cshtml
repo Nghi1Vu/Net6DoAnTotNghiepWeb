@@ -13,7 +13,7 @@
             var chkTKB = (ViewBag.DKHPByTKB as List<DKHPByTKB>).Where(x=>x.TimesInDay==a && x.DayStudy==b).ToList();
             for(int i=0; i<chkTKB.Count; i++)
             {
-                rs += @"<div style='display:block;border:1px solid blue;'><strong onclick='" + "DeleteDKHP(" + chkTKB[i].IndependentClassID + ")" + "' style='color:red;float:right;cursor: pointer;'>x</strong><p>" + chkTKB[i].ClassName + "</p>" + "<strong>" + chkTKB[i].ModulesName + "</strong><p>(" + chkTKB[i].timeday + ")</p><p><strong>" + chkTKB[i].room + chkTKB[i].campus + "</strong>(1.BIÊN HÒA)" + "</p></div>";
+                rs += @"<div style='display:block; border:1px solid #007ACC; position: relative; top: -15px; background-color: wheat; padding: 4px;'><strong onclick='" + "DeleteDKHP(" + chkTKB[i].IndependentClassID + ")" + "' style='color:red; float:right; cursor:pointer; margin-right: 5px;'>x</strong><p>" + chkTKB[i].ClassName + "</p>" + "<strong>" + chkTKB[i].ModulesName + "</strong><p>(" + chkTKB[i].timeday + ")</p><p><strong>" + chkTKB[i].room + " " + chkTKB[i].campus + "</strong>&nbsp(1.BIÊN HÒA)" + "</p></div>";
             }
         }
         else
@@ -27,7 +27,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<div style="margin:20px 20px;width:1200px;height:650px;overflow:scroll;" id="TabChonNgayDKHP" class="tabChonDKHP">
+<div id="TabChonNgayDKHP" class="tabChonDKHP">
     <span onclick="this.parentElement.style.display='none';" class="topright butn-close m-b-10">&times</span>
     <div class="TBChungTL">
         <div class="table-TBChungTL m-t-10">
