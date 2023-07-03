@@ -339,7 +339,17 @@ namespace DoAnTotNghiep.Controllers
                 var todo = response.Content.ReadAsStringAsync().Result;
                 response.EnsureSuccessStatusCode();
                 var studenClasses = JsonConvert.DeserializeObject<List<Certificate>>(todo);
+                using HttpResponseMessage response2 = sharedClient.GetAsync("api/v1/GetExamResult?UserID=" + user.UserId).Result;
+                var todo2 = response2.Content.ReadAsStringAsync().Result;
+                response2.EnsureSuccessStatusCode();
+                var F = JsonConvert.DeserializeObject<List<ExamResult>>(todo2).Where(x=>x.XH=="F").Count();
+                using HttpResponseMessage response3 = sharedClient.GetAsync("api/v1/GetTTCN?UserID=" + user.UserId).Result;
+                var todo3 = response3.Content.ReadAsStringAsync().Result;
+                response3.EnsureSuccessStatusCode();
+                var ttcn = JsonConvert.DeserializeObject<List<TTCN>>(todo3).Sum(x=>x.Costs);
                 ViewBag.StudentInfo = user;
+                ViewBag.F = F;
+                ViewBag.ttcn = ttcn;
                 sharedClient.Dispose();
                 return View(studenClasses);
             }

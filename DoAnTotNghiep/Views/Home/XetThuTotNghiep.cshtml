@@ -134,14 +134,14 @@
                         <tr>
                             <td></td>
                             <td>1</td>
-                            <td>151901162</td>
-                            <td>Bùi Minh Thái</td>
-                            <td>19DTH4</td>
-                            <td>120.0/<strong>127.0</strong></td>
-                            <td>Học kỳ 1</td>
-                            <td>0</td>
-                            <td>3/4</td>
-                            <td></td>
+                            <td>@ViewBag.StudentInfo.Usercode</td>
+                            <td>@ViewBag.StudentInfo.Fullname</td>
+                            <td>@ViewBag.StudentInfo.Classname</td>
+                            <td>@ViewBag.StudentInfo.TBCTL</td>
+                            <td>@ViewBag.StudentInfo.TotalCredits/<strong>@ViewBag.StudentInfo.Credits</strong></td>
+                            <td>@ViewBag.F</td>
+                            <td>@Model.Where(x=>x.ID>0).Count()/@Model.Count</td>
+                            <td>@ViewBag.ttcn</td>
                             <td></td>
                             <td>Đang học</td>
                         </tr>
