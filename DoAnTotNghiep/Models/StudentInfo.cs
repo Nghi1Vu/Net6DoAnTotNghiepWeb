@@ -15,6 +15,7 @@
         public string DepartmentName { get; set; }
         public string Usercode { get; set; }
         public string Classname { get; set; }
+        public string XH { get; set; }
         public int ClassID { get; set; }
         public decimal TBCTL { get; set; }
         public decimal TotalCredits { get; set; }
