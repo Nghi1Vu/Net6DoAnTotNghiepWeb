@@ -463,8 +463,8 @@ namespace DoAnTotNghiep.Controllers
         {
             if(aDate==null && eDate == null)
             {
-                aDate = DateTime.Now.AddDays(-7).ToString("dd/MM/yyyy");
-                eDate = DateTime.Now.AddDays(8).ToString("dd/MM/yyyy");
+                aDate = DateTime.Now.AddYears(-1).ToString("dd/MM/yyyy");
+                eDate = DateTime.Now.AddDays(0).ToString("dd/MM/yyyy");
             }
             var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
             using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetTradeHistory?UserId=" + user.UserId).Result;

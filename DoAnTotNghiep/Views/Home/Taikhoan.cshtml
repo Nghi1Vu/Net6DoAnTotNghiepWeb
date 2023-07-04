@@ -105,8 +105,8 @@
                     <div class="flex-row d-flex justify-content-center">
                         <div class="col-lg-5 col-11">
                             <div class="input-group input-daterange">
-                                <input type="text" id="aDate" class="form-control input1" value="@(Context.Request.Query.Count>0?Context.Request.Query.FirstOrDefault().Value.ToString():DateTime.Now.AddDays(-7).ToString("dd/MM/yyyy"))" placeholder="Từ ngày" readonly>
-                                <input type="text" id="eDate" class="form-control input2" value="@(Context.Request.Query.Count>0?Context.Request.Query.LastOrDefault().Value.ToString(): DateTime.Now.AddDays(8).ToString(" dd/MM/yyyy"))" placeholder="Đến ngày" readonly>
+                                <input type="text" id="aDate" class="form-control input1" value="@(Context.Request.Query.Count>0?Context.Request.Query.FirstOrDefault().Value.ToString():DateTime.Now.AddYears(-1).ToString("dd/MM/yyyy"))" placeholder="Từ ngày" readonly>
+                                <input type="text" id="eDate" class="form-control input2" value="@(Context.Request.Query.Count>0?Context.Request.Query.LastOrDefault().Value.ToString(): DateTime.Now.AddDays(0).ToString(" dd/MM/yyyy"))" placeholder="Đến ngày" readonly>
                             </div>
                         </div>
                     </div>
