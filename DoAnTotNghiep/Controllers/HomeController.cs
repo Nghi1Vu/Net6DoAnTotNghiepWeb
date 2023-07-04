@@ -519,7 +519,7 @@ namespace DoAnTotNghiep.Controllers
                 var result = JsonConvert.DeserializeObject<string>(todo);
                 if (result == "Y")
                 {
-                    using HttpResponseMessage response2 = sharedClient.PostAsJsonAsync("/api/v1/GetStudentInfoByEmail", new { email= user.Email }).Result;
+                    using HttpResponseMessage response2 = sharedClient.PostAsJsonAsync("/api/v1/GetStudentInfoByEmail", new { email= user.Email!=null ? user.Email:user.Usercode }).Result;
                     var todo2 = response2.Content.ReadAsStringAsync().Result;
                     StudentInfo studentInfo = JsonConvert.DeserializeObject<StudentInfo>(todo2);
                     HttpContext.Session.SetObjectAsJson("StudentInfo", studentInfo);
@@ -551,7 +551,7 @@ namespace DoAnTotNghiep.Controllers
                 var result = JsonConvert.DeserializeObject<string>(todo);
                 if (result == "Y")
                 {
-                    using HttpResponseMessage response2 = sharedClient.PostAsJsonAsync("/api/v1/GetStudentInfoByEmail", new { email = user.Email }).Result;
+                    using HttpResponseMessage response2 = sharedClient.PostAsJsonAsync("/api/v1/GetStudentInfoByEmail", new { email = user.Email != null ? user.Email : user.Usercode }).Result;
                     var todo2 = response2.Content.ReadAsStringAsync().Result;
                     StudentInfo studentInfo = JsonConvert.DeserializeObject<StudentInfo>(todo2);
                     HttpContext.Session.SetObjectAsJson("StudentInfo", studentInfo);
