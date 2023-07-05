@@ -1,4 +1,5 @@
 ﻿@using DoAnTotNghiep.Models;
+@using System.Globalization;
 @model List<ProgramSemester>;
 @{
     ViewData["Title"] = "DangKyHP";
@@ -23,6 +24,10 @@
 
         return rs;
     }
+}
+@{
+    CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN"); // try with "en-US"
+    string a = double.Parse("12345").ToString("#,###", cul.NumberFormat);
 }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -149,12 +154,12 @@
                 <p><strong>Xếp hạng:</strong></p>
             </div>
             <div class="infor-DKHP3">
-                <p><strong>127.0</strong></p>
+                <p><strong>@ViewBag.StudentInfo.TotalCredits</strong></p>
                 <p><strong>@ViewBag.StudentInfo.TBCTL</strong></p>
-                <p><strong>Giỏi</strong></p>
+                <p><strong>@ViewBag.StudentInfo.XH</strong></p>
             </div>
             <div class="infor-DKHP2 p-t-20 d-flex">
-                <p>Số tiền trong tài khoản: &nbsp;</p><strong style="color: red;"> @ViewBag.StudentInfo.Amount</strong>
+                <p>Số tiền trong tài khoản: &nbsp;</p><strong style="color: red;"> @ViewBag.StudentInfo.Amount.ToString("#,###", cul.NumberFormat)</strong>
             </div>
         </div>
         <div class="table-dkhp">

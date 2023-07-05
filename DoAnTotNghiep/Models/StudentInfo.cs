@@ -1,9 +1,15 @@
 ﻿namespace DoAnTotNghiep.Models
 {
+    public class KeyResponse
+    {
+        public StudentInfo rsInfo { get; set; }
+        public string Key { get; set; }
+    }
     public class StudentInfo
     {
         public int UserId { get; set; }
         public int CourseIndustryID { get; set; }
+        public int CourseID { get; set; }
         public decimal Credits { get; set; }
         public string Fullname { get; set; }
         public string CourseName { get; set; }

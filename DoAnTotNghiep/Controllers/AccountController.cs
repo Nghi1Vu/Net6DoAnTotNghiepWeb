@@ -28,9 +28,10 @@ namespace DoAnTotNghiep.Controllers
             {
                 using HttpResponseMessage response = sharedClient.PostAsJsonAsync("/api/v1/GetStudentInfo", model).Result;
                 var todo2 = response.Content.ReadAsStringAsync().Result;
-                StudentInfo studentInfo = JsonConvert.DeserializeObject<StudentInfo>(todo2);
-                HttpContext.Session.SetObjectAsJson("StudentInfo", studentInfo);
-                if (studentInfo.UserId != 0)
+                KeyResponse studentInfo = JsonConvert.DeserializeObject<KeyResponse>(todo2);
+                HttpContext.Session.SetObjectAsJson("StudentInfo", studentInfo.rsInfo);
+                HttpContext.Session.SetString("Key", studentInfo.Key);
+                if (studentInfo.rsInfo.UserId != 0)
                 {
                     return Content("/Home/News");
                 }

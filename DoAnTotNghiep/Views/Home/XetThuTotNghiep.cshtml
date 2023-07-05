@@ -1,8 +1,13 @@
-﻿@model List<DoAnTotNghiep.Models.Certificate>
+﻿@using System.Globalization;
+@model List<DoAnTotNghiep.Models.Certificate>
 @{
     ViewData["Title"] = "XetThuTotNghiep";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var stt = 1;
+}
+@{
+    CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN"); // try with "en-US"
+    string a = double.Parse("12345").ToString("#,###", cul.NumberFormat);
 }
 
 <div class="l-navbar" id="nav-bar">
@@ -104,7 +109,7 @@
                 <p>[1]. Điều kiện nộp đơn xét tốt nghiệp: Không còn công nợ, đủ chứng chỉ chuẩn đầu ra, TBCTL >= 2, không có tín chỉ F đối với môn bắt buộc, đủ số tín chỉ tối thiểu nhóm tự chọn</p>
                 <p>[2]. Khi hệ thống hiển thị dấu tích chọn và thông tin đợt xét được hiển thị bạn mới có thể gửi đơn xét tốt nghiệp</p>
                 <p>[3]. Số dư tài khoản của bạn phải lớn hơn hoặc bằng lệ phí nộp đơn xét tốt nghiệp</p>
-                <p>[4]. Lệ phí xét tốt nghiệp là <strong>1.500.000 (vnđ)</strong> - Số dư tài khoản của bạn <strong>37.000 (vnđ)</strong></p>
+                <p>[4]. Lệ phí xét tốt nghiệp là <strong>1.500.000 (vnđ)</strong> - Số dư tài khoản của bạn <strong>@ViewBag.StudentInfo.Amount.ToString("#,###", cul.NumberFormat)<sub> (vnđ)</sub></strong></p>
             </div>
             <div class="table-TBChungTL">
                 <table style="width:100% ;padding-left: 4px">
@@ -141,7 +146,7 @@
                             <td>@ViewBag.StudentInfo.TotalCredits/<strong>@ViewBag.StudentInfo.Credits</strong></td>
                             <td>@ViewBag.F</td>
                             <td>@Model.Where(x=>x.ID>0).Count()/@Model.Count</td>
-                            <td>@ViewBag.ttcn</td>
+                            <td>@ViewBag.ttcn.ToString("#,###", cul.NumberFormat)</td>
                             <td></td>
                             <td>Đang học</td>
                         </tr>

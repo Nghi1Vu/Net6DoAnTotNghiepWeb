@@ -1,6 +1,8 @@
 ﻿using DoAnTotNghiep.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Controllers;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace DoAnTotNghiep.ViewComponents
 {
@@ -20,18 +22,20 @@ namespace DoAnTotNghiep.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync(int ModulesID, int TimesInDay, int DayStudy)
         {
+            string key = HttpContext.Session.GetString("Key");
+            sharedClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", key);
             var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
             var result = new List<IndependentClass>();
             if (ModulesID != 0)
             {
-                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetIC?ModulesID=" + ModulesID).Result;
+                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetIC?ModulesID=" + ModulesID+ "&CourseID="+user.CourseID+ "&CourseIndustryID="+user.CourseIndustryID).Result;
                 var todo = response.Content.ReadAsStringAsync().Result;
                 response.EnsureSuccessStatusCode();
                 result = JsonConvert.DeserializeObject<List<IndependentClass>>(todo);
             }
             else
             {
-                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetICByTKB?TimesInDay=" + TimesInDay + "&DayStudy=" + DayStudy).Result;
+                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetICByTKB?TimesInDay=" + TimesInDay + "&DayStudy=" + DayStudy+ "&CourseIndustryID="+user.CourseIndustryID+ "&CourseID="+user.CourseID).Result;
                 var todo = response.Content.ReadAsStringAsync().Result;
                 response.EnsureSuccessStatusCode();
                 result = JsonConvert.DeserializeObject<List<IndependentClass>>(todo);

@@ -1,6 +1,7 @@
 ﻿using DoAnTotNghiep.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace DoAnTotNghiep.ViewComponents
 {
@@ -20,6 +21,8 @@ namespace DoAnTotNghiep.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync(string ClassCode)
         {
+            string key = HttpContext.Session.GetString("Key");
+            sharedClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", key);
             var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
             using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetExamCalendar?UserID=" + user.UserId).Result;
             var todo = response.Content.ReadAsStringAsync().Result;

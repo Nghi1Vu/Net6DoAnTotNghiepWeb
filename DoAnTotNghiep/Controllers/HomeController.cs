@@ -1,5 +1,6 @@
 ﻿using DoAnTotNghiep.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -23,6 +24,11 @@ namespace DoAnTotNghiep.Controllers
             {
                 BaseAddress = new Uri(_configuration["UrlApi"]),
             };
+        }
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            string key = HttpContext.Session.GetString("Key");
+            sharedClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", key);
         }
         public IActionResult Index(string state, string code, string scope)
         {
@@ -49,9 +55,10 @@ namespace DoAnTotNghiep.Controllers
                 TokenModel token1 = JsonConvert.DeserializeObject<TokenModel>(todo1);
                 using HttpResponseMessage response2 = sharedClient.PostAsJsonAsync("/api/v1/GetStudentInfoByEmail", token1).Result;
                 var todo2 = response2.Content.ReadAsStringAsync().Result;
-                StudentInfo studentInfo = JsonConvert.DeserializeObject<StudentInfo>(todo2);
-                HttpContext.Session.SetObjectAsJson("StudentInfo", studentInfo);
-                if (studentInfo.UserId != 0)
+                KeyResponse studentInfo = JsonConvert.DeserializeObject<KeyResponse>(todo2);
+                HttpContext.Session.SetObjectAsJson("StudentInfo", studentInfo.rsInfo);
+                HttpContext.Session.SetString("Key", studentInfo.Key);
+                if (studentInfo.rsInfo.UserId != 0)
                 {
                     return RedirectToAction("News", "Home");
                 }
@@ -128,7 +135,9 @@ namespace DoAnTotNghiep.Controllers
                 id = id,
                 UserID = user.UserId,
                 amount=user.Amount,
-                mdid= mdid
+                mdid= mdid,
+                CourseID=user.CourseID,
+                CourseIndustryID=user.CourseIndustryID
             };
             using HttpResponseMessage response = sharedClient.PostAsJsonAsync("api/v1/HandleDKHP", obj).Result;
             var todo = response.Content.ReadAsStringAsync().Result;
@@ -297,7 +306,7 @@ namespace DoAnTotNghiep.Controllers
             try
             {
                 var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
-                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetProgramSemester").Result;
+                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetProgramSemester?CourseIndustryID=" + user.CourseIndustryID + "&CourseID=" + user.CourseID + "&UserID=" + user.UserId).Result;
                 var todo = response.Content.ReadAsStringAsync().Result;
                 response.EnsureSuccessStatusCode();
                 var studenClasses = JsonConvert.DeserializeObject<List<ProgramSemester>>(todo);
@@ -335,7 +344,7 @@ namespace DoAnTotNghiep.Controllers
             try
             {
                 var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
-                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetCertificateByUser?UserID=" + user.UserId).Result;
+                using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetCertificateByUser?UserID=" + user.UserId+ "&CourseIndustryID="+user.CourseIndustryID).Result;
                 var todo = response.Content.ReadAsStringAsync().Result;
                 response.EnsureSuccessStatusCode();
                 var studenClasses = JsonConvert.DeserializeObject<List<Certificate>>(todo);
@@ -622,7 +631,7 @@ namespace DoAnTotNghiep.Controllers
         public IActionResult DangKyHP()
         {
             var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
-            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetProgramSemester").Result;
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetProgramSemester?CourseIndustryID="+user.CourseIndustryID+ "&CourseID="+user.CourseID+ "&UserID="+user.UserId).Result;
             var todo = response.Content.ReadAsStringAsync().Result;
             response.EnsureSuccessStatusCode();
             var result = JsonConvert.DeserializeObject<List<ProgramSemester>>(todo);
@@ -657,7 +666,7 @@ namespace DoAnTotNghiep.Controllers
         public IActionResult KhungChuongTrinh()
         {
             var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
-            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetProgramSemester").Result;
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetProgramSemester?CourseIndustryID=" + user.CourseIndustryID + "&CourseID=" + user.CourseID + "&UserID=" + user.UserId).Result;
             var todo = response.Content.ReadAsStringAsync().Result;
             response.EnsureSuccessStatusCode();
             var result = JsonConvert.DeserializeObject<List<ProgramSemester>>(todo);
@@ -669,7 +678,7 @@ namespace DoAnTotNghiep.Controllers
         public IActionResult KhungChuongTrinhKy()
         {
             var user = HttpContext.Session.GetObjectFromJson<StudentInfo>("StudentInfo");
-            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetProgramSemester").Result;
+            using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetProgramSemester?CourseIndustryID=" + user.CourseIndustryID + "&CourseID=" + user.CourseID + "&UserID=" + user.UserId).Result;
             var todo = response.Content.ReadAsStringAsync().Result;
             response.EnsureSuccessStatusCode();
             var result = JsonConvert.DeserializeObject<List<ProgramSemester>>(todo);
