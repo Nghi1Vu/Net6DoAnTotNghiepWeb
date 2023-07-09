@@ -72,7 +72,12 @@ namespace DoAnTotNghiep.Controllers
                 return RedirectToAction("Index", "Account");
             }
         }
-
+        public IActionResult Logout()
+        {
+            HttpContext.Session.SetObjectAsJson("StudentInfo",null);
+            HttpContext.Session.SetString("Key", "");
+            return RedirectToAction("Index", "Account");
+        }
         public IActionResult News()
         {
             try
