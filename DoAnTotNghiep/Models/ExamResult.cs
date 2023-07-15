@@ -14,11 +14,11 @@
         public string ModulesName { get; set; }
         public string SemesterIndex { get; set; }
         public decimal Credits { get; set; }
-        public decimal SGKL1 { get; set; }
-        public decimal TBKTTK { get; set; }
-        public decimal EXAM { get; set; }
-        public decimal ScoreFinal { get; set; }
-        public decimal D4 { get; set; }
+        public decimal? SGKL1 { get; set; }
+        public decimal? TBKTTK { get; set; }
+        public decimal? EXAM { get; set; }
+        public decimal? ScoreFinal { get; set; }
+        public decimal? D4 { get; set; }
         public string XH { get; set; }
         public string SymbolName { get; set; }
     }
