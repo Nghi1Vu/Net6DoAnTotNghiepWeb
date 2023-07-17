@@ -141,7 +141,7 @@
                             <tr>
                                 <td>@(stt++)</td>
                                 <td>@item.ClassCode</td>
-                                <td>@item.ModulesName</td>
+                                <td class="txt-left">@item.ModulesName</td>
                                 <td>@item.Credits</td>
                                 <td class="cost">@item.Costs</td>
                                 <td style="color:lightcoral"><strong>Chưa nộp</strong></td>
@@ -159,15 +159,15 @@
                             }
                             
                         <tr class="txt-clr-red">
-                            <td colspan="4">Tổng số tiền chưa thanh toán:</td>
-                            <td colspan="3" id="ctt"><sub> (vnđ)</sub></td>
+                            <td class="txt-left" colspan="4">Tổng số tiền chưa thanh toán:</td>
+                            <td class="txt-left" colspan="3" id="ctt"><sub> (vnđ)</sub></td>
                         </tr>
                         <tr class="txt-clr-red">
-                            <td colspan="4">Số dư tài khoản:</td>
-                            <td colspan="3">@ViewBag.StudentInfo.Amount.ToString("#,###", cul.NumberFormat)<sub> (vnđ)</sub></td>
+                            <td class="txt-left" colspan="4">Số dư tài khoản:</td>
+                            <td class="txt-left" colspan="3">@ViewBag.StudentInfo.Amount.ToString("#,###", cul.NumberFormat)<sub> (vnđ)</sub></td>
                         </tr>
                         <tr class="txt-clr-red">
-                            <td colspan="3">Số tiền hệ thống sẽ trừ:</td>
+                            <td class="txt-left" colspan="3">Số tiền hệ thống sẽ trừ:</td>
                             <td id="htst"></td>
                             <td id="vnd" colspan="4"></td>
                         </tr>

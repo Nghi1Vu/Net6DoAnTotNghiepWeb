@@ -159,12 +159,12 @@
                             <tr>
                                 <td>@(stt++)</td>
                                 <td>@item.MHP</td>
-                                <td>@item.ModulesName</td>
+                                <td class="txt-left">@item.ModulesName</td>
                                 <td>@item.Credits</td>
                                 <td>@item.minDay</td>
                                 <td>@item.maxDay</td>
                                 <td><a href="@Url.Action("XemLichGiangDay", "Home", new {IndependentClassID=item.IndependentClassID})">[Xem lịch giảng dạy]</a></td>
-                                <td>@(item.teachername + "(" + item.teacherphone + ")")</td>
+                                <td class="txt-left">@(item.teachername + "(" + item.teacherphone + ")")</td>
 
                             </tr>
                         }

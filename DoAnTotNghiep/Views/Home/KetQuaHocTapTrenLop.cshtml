@@ -166,8 +166,8 @@
                         {
                             <tr >
                                 <td>@(stt++)</td>
-                                <td>@item.Usercode</td>
-                                <td><a href="@Url.Action("XemKetQuaHocTapCacMon", "Home",new { UserID=@item.UserID})">@item.Fullname</a></td>
+                                <td class="txt-left">@item.Usercode</td>
+                                <td class="txt-left"><a href="@Url.Action("XemKetQuaHocTapCacMon", "Home",new { UserID=@item.UserID})">@item.Fullname</a></td>
                                 <td>@(Model.Where(x => x.ScoreType == 1 & x.UserID == item.UserID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 1 & x.UserID == item.UserID).FirstOrDefault().Score.ToString().IndexOf('.') > 0 ? ((decimal)Model.Where(x => x.ScoreType == 1 & x.UserID == item.UserID).FirstOrDefault().Score).ToString("F1") : Model.Where(x => x.ScoreType == 1 & x.UserID == item.UserID).FirstOrDefault().Score : null)</td>
                                 <td>@(Model.Where(x => x.ScoreType == 2 & x.UserID == item.UserID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 2 & x.UserID == item.UserID).FirstOrDefault().Score.ToString().IndexOf('.') > 0 ? ((decimal)Model.Where(x => x.ScoreType == 2 & x.UserID == item.UserID).FirstOrDefault().Score).ToString("F1") : Model.Where(x => x.ScoreType == 2 & x.UserID == item.UserID).FirstOrDefault().Score : null)</td>
                                 <td>@(Model.Where(x => x.ScoreType == 3 & x.UserID == item.UserID).FirstOrDefault() != null ? Model.Where(x => x.ScoreType == 3 & x.UserID == item.UserID).FirstOrDefault().Score.ToString().IndexOf('.') > 0 ? ((decimal)Model.Where(x => x.ScoreType == 3 & x.UserID == item.UserID).FirstOrDefault().Score).ToString("F1") : Model.Where(x => x.ScoreType == 3 & x.UserID == item.UserID).FirstOrDefault().Score : null)</td>

@@ -3,11 +3,11 @@
 :root {
     --header-height: 3rem;
     --nav-width: 68px;
-    --main-color: #007ACC;
-    --white-color: #00d2ff;
+    --main-color: #e84b50; /*#c6282d #007ACC*/
+    --white-color: #942024; /*text nav hover color*/
     --active-color: #fff;
-    --line-color: #D8DFEA;
-    --first-color-light: #AFA5D9;
+    --line-color: #f3767a;
+    --first-color-light: #fcccce; /*text nav color*/
     --body-font: Tahoma, Arial, Verdana, sans-serif;
     --normal-font-size: 1rem;
     --hovered-color: #c84747;
@@ -56,20 +56,20 @@ a {
 /*----------Pagination-------------*/
 #pageNavPosition {
     padding: 3px 0;
-    box-shadow: 0 8px 20px -9px #36b2fa;
-    width:fit-content;
+    box-shadow: 0 8px 20px -9px #f3767a;
+    width: fit-content;
 }
 
 .pg-normal {
     cursor: pointer;
-    color: #15428B;
+    color: #942024;
     font-size: 16px;
     padding: 2px 8px;
     margin: 3px 8px;
 }
 
     .pg-normal:active {
-        background-color: #0c98eb;
+        background-color: #942024;
         color: white;
         border-radius: 50%;
     }
@@ -85,7 +85,7 @@ a {
         }
 
 .pg-selected {
-    background-color: #0c98eb;
+    background-color: #b32227;
     color: white;
     border-radius: 50%;
     padding: 3px 8px;
@@ -380,16 +380,16 @@ input[type]:checked ~ span.top {
         border: none;
     }
 
-    20% {
+    30% {
         width: 325px;
-        background-color: #e0f0fe;
-        border-right: 8px inset #0c98eb;
+        background-color: #f0f8ff;
+        border-right: 8px inset #e84b50;
     }
 
     80% {
         width: 325px;
         background-color: #f0f8ff;
-        border-right: 8px inset #0c98eb;
+        border-right: 8px inset #e84b50;
     }
 
     90% {
@@ -1121,7 +1121,7 @@ input[type]:checked ~ span.top {
     height: auto;
     margin-top: 15px;
     padding-bottom: 5px;
-    border: 2px solid var(--line-color);
+    border: 1px solid var(--line-color);
     border-radius: 5px;
 }
 
@@ -1338,19 +1338,20 @@ td {
 
     .table-TBChungTL table tr th {
         padding: 5px 10px;
-        border: 1px solid #99bbe8;
-        background-color: #d9e7f8;
+        border: 1px solid #b32227;
+        background-color: #fcccce;
         text-align: center;
-        color: #15428B;
+        color: #b32227;
     }
     .table-TBChungTL table tr:first-child {
         margin-bottom: 8px;
     }
-   
+
     .table-TBChungTL table tbody tr td {
-        border: 1px solid #99bbe8;
+        border: 1px solid #b32227;
         padding: 5px 7px;
-        text-align: left;
+        text-align: center;
+        color: #b32227;
     }
 
         .table-TBChungTL table tr td p {
@@ -1375,7 +1376,7 @@ td {
 
     .TBChungTL button::before {
         border-radius: 50%;
-        background-color: #5eabdf;
+        background-color: #f3767a;
         content: '';
         position: absolute;
         width: 0;
@@ -1383,14 +1384,14 @@ td {
     }
 
     .TBChungTL button:hover {
-        border-color: #5eabdf;
-        color: #5eabdf;
+        border-color: #b32227;
+        color: #b32227;
     }
 
     .TBChungTL button:focus {
-        color: #5eabdf;
+        color: #b32227;
         border: white;
-        box-shadow: 0 0 0 1px #5eabdf;
+        box-shadow: 0 0 0 1px #b32227;
     }
 
         .TBChungTL button:focus::before {
@@ -1443,7 +1444,7 @@ td {
         border-radius: 10px;
         box-sizing: border-box;
         background-color: #fff !important;
-        color: #007acc !important; /* màu khi input*/
+        color: #e84b50 !important; /* màu khi input*/
         font-size: 13px !important;
         letter-spacing: 1px;
         position: relative;
@@ -1462,7 +1463,7 @@ td {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 2px solid #5eabdf !important;
+    border: 2px solid #f3767a !important;
     outline-width: 0
 }
 
@@ -1517,8 +1518,15 @@ td {
         border-radius: 0 !important
     }
 
-.panelTKB thead:first-child {
+    .panelTKB thead:first-child {
+        border: none !important;
+        /* có thể thay đổi màu sắc thứ ở đây*/
+    }
+
+.table-condensed tbody tr td {
     border: none !important;
+    font-size: 14px;
+
     /* có thể thay đổi màu sắc thứ ở đây*/
 }
 
@@ -1548,7 +1556,7 @@ thead tr:nth-child(2) th {
     .day.old,
     .day.new {
         background-color: #F5F5F5 !important;
-        color: #007acc !important /*màu tháng trước và sau*/
+        color: #f3767a !important /*màu tháng trước và sau*/
     }
 
         .day.old:hover,
@@ -1576,20 +1584,20 @@ thead tr:nth-child(2) th {
 .range-start,
 .range-end {
     border-radius: 50% !important;
-    background-image: linear-gradient(#0c98eb, #0c98eb) !important; /* màu chọn ngày */
+    background-image: linear-gradient(#e84b50, #e84b50) !important; /* màu chọn ngày */
 }
 
 .range-start,
 .range-end {
     border-radius: 50% !important;
-    background-image: linear-gradient(#0c98eb, #0c98eb) !important; /* màu chọn ngày */
-    background-color: #b9e2fe;
+    background-image: linear-gradient(#e84b50, #e84b50) !important; /* màu chọn ngày */
+    background-color: #b9e2fe !important;
 }
 
 .range {
     color: #000 !important; /* Chọn từ ngày */
-    background-color: #e0f0fe !important;
-    border-color: #b9e2fe;
+    background-color: #fde3e4 !important;
+    border-color: #fde3e4;
 }
 
 .prev,
@@ -1599,7 +1607,7 @@ thead tr:nth-child(2) th {
     padding: 10px 10px 10px 10px !important;
     font-size: 18px;
     opacity: 0.7;
-    color: #1a87d1 /* top content màu */
+    color: #e84b50 /* top content màu */
 }
 
     .prev:hover,
@@ -1650,7 +1658,7 @@ thead tr:nth-child(2) th {
 
     .txt-panel-r button::before {
         border-radius: 50%;
-        background-color: #5eabdf;
+        background-color: #f3767a;
         content: '';
         position: absolute;
         width: 0;
@@ -1658,14 +1666,14 @@ thead tr:nth-child(2) th {
     }
 
     .txt-panel-r button:hover {
-        border-color: #5eabdf;
-        color: #5eabdf;
+        border-color: #b32227;
+        color: #b32227;
     }
 
     .txt-panel-r button:focus {
-        color: #5eabdf;
-        border-color: #5eabdf;
-        box-shadow: 0 0 0 3px #5eabdf;
+        color: #b32227;
+        border-color: #b32227;
+        box-shadow: 0 0 0 3px #b32227;
     }
 
         .txt-panel-r button:focus::before {
@@ -1686,15 +1694,15 @@ thead tr:nth-child(2) th {
 
 .table-tkb td {
     font-size: 12px;
-    border: 1px solid #C0C0C0;
+    border: 1px solid #b32227;
     border-collapse: collapse;
 }
 
 .table-tkb th {
-    background: #d9e7f8;
+    background: #fcccce;
     padding: 8px 20px;
-    color: #000000;
-    border: 1px solid #99bbe8;
+    color: #b32227;
+    border: 1px solid #b32227;
     text-align: center;
 }
 
@@ -1748,7 +1756,7 @@ thead tr:nth-child(2) th {
 }
 /*--------------body Lớp Học ---------------*/
 .Lop-Hoc .card-header {
-    background-color: #7ccbfd !important;
+    background-color: #f3767a !important;
     color: white;
 }
 
@@ -1783,7 +1791,8 @@ thead tr:nth-child(2) th {
 }
 
     .table-upInfor td, th {
-        border: 1px solid #99bbe8;
+        border: 1px solid #b32227;
+        color: #b32227
     }
 
     .table-upInfor tr:nth-child(2) {
@@ -1791,7 +1800,7 @@ thead tr:nth-child(2) th {
     }
 
     .table-upInfor .special {
-        background: #d9e7f8;
+        background: #fcccce;
         height: 30px;
         color: #000000;
         border: 1px solid #99bbe8;
@@ -1800,7 +1809,7 @@ thead tr:nth-child(2) th {
     }
 
         .table-upInfor .special:hover {
-            background: #d9e7f8;
+            background: #fcccce;
         }
 
     .table-upInfor tr:hover {
@@ -1875,14 +1884,14 @@ thead tr:nth-child(2) th {
 }
 
 .table-inout td {
-    border: 1px solid #99bbe8;
+    border: 1px solid #b32227;
 }
 
 .table-inout th {
-    background: #d9e7f8;
+    background: #fcccce;
     height: 30px;
-    color: #000000;
-    border: 1px solid #99bbe8;
+    color: #b32227;
+    border: 1px solid #b32227;
     text-align: center;
     font-weight: bold;
 }
@@ -1891,7 +1900,7 @@ thead tr:nth-child(2) th {
     background: #F6FFFF;
     height: 30px;
     color: #000000;
-    border: 1px solid #99bbe8;
+    border: 1px solid #b32227;
     text-align: center;
     font-weight: bold;
 }
@@ -2033,9 +2042,9 @@ thead tr:nth-child(2) th {
 
     /* Style the buttons inside the tab */
     .tab button {
-        background-color: #1e7898;
+        background-color: #e84b50;
         float: left;
-        border: 1px solid #1e7898;
+        border: 1px solid #e84b50;
         border-radius: 5px 5px 0px 0px;
         cursor: pointer;
         padding: 5px 12px;
@@ -2047,8 +2056,8 @@ thead tr:nth-child(2) th {
 
         /* Change background color of buttons on hover */
         .tab button:hover {
-            background-color: #51abcb;
-            border: 1px solid #51abcb;
+            background-color: #b32227;
+            border: 1px solid #b32227;
         }
 
         /* Create an active/current tablink class */
@@ -2075,16 +2084,16 @@ thead tr:nth-child(2) th {
 }
 
     .table-dkhp th {
-        background: #d9e7f8;
+        background: #fcccce;
         padding: 8px 0px;
-        color: #000000;
-        border: 1px solid #99bbe8;
+        color: #b32227;
+        border: 1px solid #b32227;
         text-align: center;
     }
 
     .table-dkhp td {
-        color: #000000;
-        border: 1px solid #99bbe8;
+        color: #b32227;
+        border: 1px solid #b32227;
         padding: 5px 8px;
     }
 
@@ -2093,29 +2102,29 @@ thead tr:nth-child(2) th {
     }
 
 .tabTable-dkhp th {
-    background: #d9e7f8;
+    background: #fcccce;
     padding: 8px 0px;
     color: #000000;
-    border: 1px solid #99bbe8;
+    border: 1px solid #b32227;
     text-align: center;
 }
 
 .tabTable-dkhp tr:nth-child(2) {
-    background: #d9e7f8;
+    background: #fcccce;
     padding: 8px 0px;
     color: #000000;
-    border: 1px solid #99bbe8;
+    border: 1px solid #b32227;
     text-align: center;
     font-weight: bold;
 }
 
     .tabTable-dkhp tr:nth-child(2):hover {
-        background: #d9e7f8;
+        background: #fcccce;
     }
 
 .tabTable-dkhp td {
     color: #000000;
-    border: 1px solid #99bbe8;
+    border: 1px solid #b32227;
     padding: 5px 8px;
 }
 
@@ -2210,14 +2219,14 @@ thead tr:nth-child(2) th {
 
     .table-CTKhung table tr th {
         padding: 5px 10px;
-        border: 1px solid #99bbe8;
-        background-color: #d9e7f8;
+        border: 1px solid #b32227;
+        background-color: #fcccce;
         text-align: left;
-        color: #15428B;
+        color: #b32227;
     }
 
     .table-CTKhung table tr td {
-        border: 1px solid #99bbe8;
+        border: 1px solid #b32227;
         padding: 5px 7px;
         text-align: left;
     }
@@ -2227,8 +2236,8 @@ thead tr:nth-child(2) th {
 }
 
 .table-con thead tr td {
-    background-color: #d9e7f8 !important;
-    color: #15428B !important;
+    background-color: #fcccce !important;
+    color: #b32227 !important;
     font-weight: 600;
 }
 /*--------------Xem khung chương trình---------------*/
@@ -2242,19 +2251,19 @@ thead tr:nth-child(2) th {
 
 /*--------------body Đánh giá rèn luyện---------------*/
 .table-Danhgia th {
-    background: #d9e7f8;
+    background: #fcccce;
     padding: 8px 0px;
-    color: #0000FF;
+    color: #b32227;
     font-size: 13px;
     font-weight: 800;
-    border: 1px solid #99bbe8;
+    border: 1px solid #b32227;
     text-align: center;
 }
 
 .table-Danhgia td {
     padding: 5px 8px;
     font-size: 13px;
-    border: 1px solid #C0C0C0;
+    border: 1px solid #b32227;
     border-collapse: collapse;
 }
 
@@ -2347,7 +2356,7 @@ thead tr:nth-child(2) th {
 
     .form-BieuMauRL button::before {
         border-radius: 50%;
-        background-color: #5eabdf;
+        background-color: #f3767a;
         content: '';
         position: absolute;
         width: 0;
@@ -2355,14 +2364,14 @@ thead tr:nth-child(2) th {
     }
 
     .form-BieuMauRL button:hover {
-        border-color: #5eabdf;
-        color: #5eabdf;
+        border-color: #b32227;
+        color: #b32227;
     }
 
     .form-BieuMauRL button:focus {
-        color: #5eabdf;
-        border: white;
-        box-shadow: 0 0 0 1px #5eabdf;
+        color: #b32227;
+        border: #b32227;
+        box-shadow: 0 0 0 1px #b32227;
     }
 
         .form-BieuMauRL button:focus::before {

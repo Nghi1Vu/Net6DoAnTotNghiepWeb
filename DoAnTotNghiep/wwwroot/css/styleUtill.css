@@ -12230,11 +12230,11 @@ iframe {
 
 /* ------------------------------------ */
 .txt-center {
-    text-align: center;
+    text-align: center !important;
 }
 
 .txt-left {
-    text-align: left;
+    text-align: left !important;
 }
 
 .txt-right {

@@ -14,7 +14,7 @@
             var chkTKB = (ViewBag.DKHPByTKB as List<DKHPByTKB>).Where(x=>x.TimesInDay==a && x.DayStudy==b).ToList();
             for(int i=0; i<chkTKB.Count; i++)
             {
-                rs += @"<div style='display:block; border:1px solid #007ACC; position: relative; top: -15px; background-color: wheat; padding: 4px;'><strong onclick='" + "DeleteDKHP(" + chkTKB[i].IndependentClassID + ")" + "' style='color:red; float:right; cursor:pointer; margin-right: 5px;'>x</strong><p>" + chkTKB[i].ClassName + "</p>" + "<strong>" + chkTKB[i].ModulesName + "</strong><p>(" + chkTKB[i].timeday + ")</p><p><strong>" + chkTKB[i].room + " " + chkTKB[i].campus + "</strong>&nbsp(1.BIÊN HÒA)" + "</p></div>";
+                rs += @"<div style='display:block; border:1px solid #b32227; position: relative; top: -15px; background-color: wheat; padding: 4px;'><strong onclick='" + "DeleteDKHP(" + chkTKB[i].IndependentClassID + ")" + "' style='color:red; float:right; cursor:pointer; margin-right: 5px;'>x</strong><p>" + chkTKB[i].ClassName + "</p>" + "<strong>" + chkTKB[i].ModulesName + "</strong><p>(" + chkTKB[i].timeday + ")</p><p><strong>" + chkTKB[i].room + " " + chkTKB[i].campus + "</strong>&nbsp(1.BIÊN HÒA)" + "</p></div>";
             }
         }
         else

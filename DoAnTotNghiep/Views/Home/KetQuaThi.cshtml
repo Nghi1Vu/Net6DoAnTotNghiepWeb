@@ -153,7 +153,7 @@
                             <td>@(stt++)</td>
                             <td>@item.ModulesCode</td>
                             <td>@item.PrintCode</td>
-                            <td><a href="@Url.Action("KetQuaThiTrenLop", "Home", new {IndependentClassID=@item.IndependentClassID})">@item.ModulesName</a></td>
+                            <td class="txt-left"><a href="@Url.Action("KetQuaThiTrenLop", "Home", new {IndependentClassID=@item.IndependentClassID})">@item.ModulesName</a></td>
                             <td>@item.SemesterIndex</td>
                             <td>@item.Credits</td>
                             <td>@item.SGKL1</td>
@@ -173,13 +173,13 @@
                     }
                 
                     <tr class="txt-clr-table">
-                        <td colspan="9">Tổng số tín chỉ: @ViewBag.StudentInfo.Credits</td>
-                        <td colspan="9">Trung bình chung tích lũy: @ViewBag.StudentInfo.TBCTL</td>
+                        <td class="txt-left" colspan="9">Tổng số tín chỉ: &ensp; </td>
+                        <td class="txt-left" colspan="9">Trung bình chung tích lũy: &ensp;@ViewBag.StudentInfo.TBCTL</td>
                         <td></td>
                     </tr>
                     <tr class="txt-clr-table">
-                        <td colspan="9">Tổng số tín chỉ tích lũy: @ViewBag.StudentInfo.TotalCredits</td>
-                        <td colspan="9">Xếp loại tốt nghiệp: @ViewBag.StudentInfo.XH</td>
+                        <td class="txt-left" colspan="9">Tổng số tín chỉ tích lũy: &ensp;</td>
+                        <td class="txt-left" colspan="9">Xếp loại tốt nghiệp: &ensp;</td>
                         <td></td>
                     </tr>
                 </table>
