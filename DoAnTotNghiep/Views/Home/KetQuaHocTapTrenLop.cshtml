@@ -101,30 +101,34 @@
         <div class="TBChungTL p-b-60">
             <div class="infor-student">
                 <div class="Gap-txt-xxl">
-                    <div class="d-flex">
-                        <div class="">
-                            <p>Môn:</p>
-                            <p>Hình thức thi:</p>
-                            <p>Mã lớp độc lập:</p>
+                    @if (Model.Count > 0)
+                    {
+                        <div class="d-flex">
+                            <div class="">
+                                <p>Môn:</p>
+                                <p>Hình thức thi:</p>
+                                <p>Mã lớp độc lập:</p>
+                            </div>
+                            <div class="p-l-30">
+                                <p><strong>@Model[0].ModulesName</strong></p>
+                                <p><strong>Vấn đáp</strong></p>
+                                <p><strong>@Model[0].ClassCode</strong></p>
+                            </div>
                         </div>
-                        <div class="p-l-30">
-                            <p><strong>@Model[0].ModulesName</strong></p>
-                            <p><strong>Vấn đáp</strong></p>
-                            <p><strong>@Model[0].ClassCode</strong></p>
+                        <div class="d-flex">
+                            <div class="">
+                                <p>Trình độ:</p>
+                                <p>Số tín chỉ:</p>
+                                <p>Lớp ưu tiên:</p>
+                            </div>
+                            <div class="p-l-5">
+                                <p><strong>&nbsp;</strong></p>
+                                <p><strong>@Model[0].Credits</strong></p>
+                                <p><strong>@Model[0].ClassName</strong></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="d-flex">
-                        <div class="">
-                            <p>Trình độ:</p>
-                            <p>Số tín chỉ:</p>
-                            <p>Lớp ưu tiên:</p>
-                        </div>
-                        <div class="p-l-5">
-                            <p><strong>&nbsp;</strong></p>
-                            <p><strong>@Model[0].Credits</strong></p>
-                            <p><strong>@Model[0].ClassName</strong></p>
-                        </div>
-                    </div>
+                    }
+                  
                 </div>
             </div>
             <div class="table-TBChungTL">

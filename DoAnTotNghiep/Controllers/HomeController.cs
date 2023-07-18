@@ -1,6 +1,7 @@
 ﻿using DoAnTotNghiep.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.CodeAnalysis;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -770,7 +771,7 @@ namespace DoAnTotNghiep.Controllers
                 return RedirectToAction("Index", "Account");
             }
         }
-
+        [ResponseCache(Duration =3600,Location =ResponseCacheLocation.Client)]
         public IActionResult KhungChuongTrinhKy()
         {
             try
