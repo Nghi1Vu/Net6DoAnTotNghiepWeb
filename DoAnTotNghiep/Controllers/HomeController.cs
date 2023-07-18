@@ -771,7 +771,7 @@ namespace DoAnTotNghiep.Controllers
                 return RedirectToAction("Index", "Account");
             }
         }
-        [ResponseCache(Duration =3600,Location =ResponseCacheLocation.Client)]
+        //[ResponseCache(Duration =3600,Location =ResponseCacheLocation.Client)]
         public IActionResult KhungChuongTrinhKy()
         {
             try
