@@ -723,7 +723,7 @@ namespace DoAnTotNghiep.Controllers
                 using HttpResponseMessage response2 = sharedClient.GetAsync("api/v1/GetDKHPByTKB?UserID=" + user.UserId).Result;
                 var todo2 = response2.Content.ReadAsStringAsync().Result;
                 response2.EnsureSuccessStatusCode();
-                ViewBag.DKHPByTKB = JsonConvert.DeserializeObject<List<DKHPByTKB>>(todo2).ToList().Where(x=> result!=null && result.Where(y=>y.ModulesID==x.ModulesId && (y.ScoreFinal != null || y.D4 != null || y.Score1 != null || y.XH != "")).Count()<=0).ToList();
+                ViewBag.DKHPByTKB = JsonConvert.DeserializeObject<List<DKHPByTKB>>(todo2).ToList().Where(x=> result!=null && result.Where(y=>y.ModulesID==x.ModulesId && (y.ScoreFinal != null || y.D4 != null || y.Score1 != null || y.XH != null)).Count()<=0).ToList();
                 ViewBag.StudentInfo = user;
                 sharedClient.Dispose();
                 return View(result);
