@@ -227,7 +227,7 @@
                     </tr>
                     @foreach(var item in Model.Where(x=>x.ProgramGroupID==0))
                     {
-                        if (item.chked == "x")
+                        if (item.chked == "x" && item.ModulesTypeID < 6)
                         {
                             <tr>
                                 <td>@(sttbb++)</td>
@@ -278,7 +278,7 @@
                     </tr>
                      @foreach(var item in Model.Where(x=>x.ProgramGroupID!=0))
                     {
-                        if (item.chked == "x")
+                        if (item.chked == "x" && item.ModulesTypeID <6)
                         {
                               <tr>
                         <td>@(stttc++)</td>

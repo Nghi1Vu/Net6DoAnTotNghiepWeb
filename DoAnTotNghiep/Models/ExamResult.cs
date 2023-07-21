@@ -30,9 +30,9 @@
         public string ClassName { get; set; }
         public string Fullname { get; set; }
         public int UserID { get; set; }
-        public double Score1 { get; set; }
+        public double? Score1 { get; set; }
         public double Credits { get; set; }
-        public decimal Score2 { get; set; }
+        public decimal? Score2 { get; set; }
 
     }
 }

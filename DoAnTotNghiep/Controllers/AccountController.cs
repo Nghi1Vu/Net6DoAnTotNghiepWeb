@@ -19,6 +19,7 @@ namespace DoAnTotNghiep.Controllers
         }
         public IActionResult Index()
         {
+            ViewBag.URLWeb = _configuration["URLWeb"];
             return View();
         }
         [HttpPost]
