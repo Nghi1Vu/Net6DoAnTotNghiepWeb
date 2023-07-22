@@ -1,4 +1,5 @@
 ﻿@using DoAnTotNghiep.Models;
+@using System.Text.RegularExpressions;
 @model List<ProgramSemester>;
 @{
     ViewData["Title"] = "KhungChuongTrinh";
@@ -213,6 +214,31 @@
                             
                                     @foreach(var item in lstype)
                                     {
+                                        if (item.ModulesHT != null)
+                                        {
+                                            string input = item.ModulesHT;
+                                            string pattern = @"\b(\d+)\b"; // Mẫu Regex để tìm các chuỗi số
+
+                                            // Sử dụng Regex.Matches để tìm tất cả các khớp trong chuỗi
+                                            MatchCollection matches = Regex.Matches(input, pattern);
+
+                                            string lastMatchValue = null;
+                                            string result = "";
+
+                                            // Duyệt qua từng khớp và lược bỏ các giá trị giống nhau, chỉ giữ lại giá trị cuối cùng
+                                            foreach (Match match in matches)
+                                            {
+                                                string currentValue = match.Groups[1].Value;
+                                                if (currentValue != lastMatchValue)
+                                                {
+                                                    result += currentValue + ", ";
+                                                    lastMatchValue = currentValue;
+                                                }
+                                            }
+
+                                            // Loại bỏ dấu phẩy cuối cùng và khoảng trắng
+                                            item.ModulesHT = result.TrimEnd(',', ' ');
+                                        }
                                         <tr>
                                         <td>@(sttNK++)</td>
                                         <td>@item.ModulesCode</td>
@@ -271,6 +297,31 @@
 
                                     @foreach (var item in lstype2.Where(x=>x.ProgramGroupID==0))
                                     {
+                                        if (item.ModulesHT != null)
+                                        {
+                                            string input = item.ModulesHT;
+                                            string pattern = @"\b(\d+)\b"; // Mẫu Regex để tìm các chuỗi số
+
+                                            // Sử dụng Regex.Matches để tìm tất cả các khớp trong chuỗi
+                                            MatchCollection matches = Regex.Matches(input, pattern);
+
+                                            string lastMatchValue = null;
+                                            string result = "";
+
+                                            // Duyệt qua từng khớp và lược bỏ các giá trị giống nhau, chỉ giữ lại giá trị cuối cùng
+                                            foreach (Match match in matches)
+                                            {
+                                                string currentValue = match.Groups[1].Value;
+                                                if (currentValue != lastMatchValue)
+                                                {
+                                                    result += currentValue + ", ";
+                                                    lastMatchValue = currentValue;
+                                                }
+                                            }
+
+                                            // Loại bỏ dấu phẩy cuối cùng và khoảng trắng
+                                            item.ModulesHT = result.TrimEnd(',', ' ');
+                                        }
                                         <tr>
                                             <td>@(sttTC++)</td>
                                             <td>@item.ModulesCode</td>
@@ -308,7 +359,31 @@
                                     </tr>
                                     @foreach (var item in lstype2.Where(x => x.ProgramGroupID != 0))
                                     {
-                  
+                                        if (item.ModulesHT != null)
+                                        {
+                                            string input = item.ModulesHT;
+                                            string pattern = @"\b(\d+)\b"; // Mẫu Regex để tìm các chuỗi số
+
+                                            // Sử dụng Regex.Matches để tìm tất cả các khớp trong chuỗi
+                                            MatchCollection matches = Regex.Matches(input, pattern);
+
+                                            string lastMatchValue = null;
+                                            string result = "";
+
+                                            // Duyệt qua từng khớp và lược bỏ các giá trị giống nhau, chỉ giữ lại giá trị cuối cùng
+                                            foreach (Match match in matches)
+                                            {
+                                                string currentValue = match.Groups[1].Value;
+                                                if (currentValue != lastMatchValue)
+                                                {
+                                                    result += currentValue + ", ";
+                                                    lastMatchValue = currentValue;
+                                                }
+                                            }
+
+                                            // Loại bỏ dấu phẩy cuối cùng và khoảng trắng
+                                            item.ModulesHT = result.TrimEnd(',', ' ');
+                                        }
                                         <tr>
                                             <td>@(sttTC2++)</td>
                                             <td>@item.ModulesCode</td>
@@ -351,6 +426,31 @@
 
                                     @foreach (var item in lstype3)
                                     {
+                                        if (item.ModulesHT != null)
+                                        {
+                                            string input = item.ModulesHT;
+                                            string pattern = @"\b(\d+)\b"; // Mẫu Regex để tìm các chuỗi số
+
+                                            // Sử dụng Regex.Matches để tìm tất cả các khớp trong chuỗi
+                                            MatchCollection matches = Regex.Matches(input, pattern);
+
+                                            string lastMatchValue = null;
+                                            string result = "";
+
+                                            // Duyệt qua từng khớp và lược bỏ các giá trị giống nhau, chỉ giữ lại giá trị cuối cùng
+                                            foreach (Match match in matches)
+                                            {
+                                                string currentValue = match.Groups[1].Value;
+                                                if (currentValue != lastMatchValue)
+                                                {
+                                                    result += currentValue + ", ";
+                                                    lastMatchValue = currentValue;
+                                                }
+                                            }
+
+                                            // Loại bỏ dấu phẩy cuối cùng và khoảng trắng
+                                            item.ModulesHT = result.TrimEnd(',', ' ');
+                                        }
                                         <tr>
                                             <td>@(sttQP++)</td>
                                             <td>@item.ModulesCode</td>
@@ -366,9 +466,9 @@
                                             <td>@item.SemesterID</td>
                                             <td></td>
                                             <td>
-                                                @item.ModulesTQ
+                                                @Html.Raw(item.ModulesTQ)
                                             </td>
-                                            <td>@item.ModulesHT</td>
+                                            <td>@Html.Raw(item.ModulesHT)</td>
                                         </tr>
                                     }
                                     @{
@@ -393,6 +493,31 @@
 
                                     @foreach (var item in lstype4)
                                     {
+                                        if (item.ModulesHT != null)
+                                        {
+                                            string input = item.ModulesHT;
+                                            string pattern = @"\b(\d+)\b"; // Mẫu Regex để tìm các chuỗi số
+
+                                            // Sử dụng Regex.Matches để tìm tất cả các khớp trong chuỗi
+                                            MatchCollection matches = Regex.Matches(input, pattern);
+
+                                            string lastMatchValue = null;
+                                            string result = "";
+
+                                            // Duyệt qua từng khớp và lược bỏ các giá trị giống nhau, chỉ giữ lại giá trị cuối cùng
+                                            foreach (Match match in matches)
+                                            {
+                                                string currentValue = match.Groups[1].Value;
+                                                if (currentValue != lastMatchValue)
+                                                {
+                                                    result += currentValue + ", ";
+                                                    lastMatchValue = currentValue;
+                                                }
+                                            }
+
+                                            // Loại bỏ dấu phẩy cuối cùng và khoảng trắng
+                                            item.ModulesHT = result.TrimEnd(',', ' ');
+                                        }
                                         <tr>
                                             <td>@(sttCT++)</td>
                                             <td>@item.ModulesCode</td>
@@ -408,9 +533,9 @@
                                             <td>@item.SemesterID</td>
                                             <td></td>
                                             <td>
-                                                @item.ModulesTQ
+                                               @Html.Raw(item.ModulesTQ)
                                             </td>
-                                            <td>@item.ModulesHT</td>
+                                            <td>@Html.Raw(item.ModulesHT)</td>
                                         </tr>
                                     }
                                     @{
@@ -435,6 +560,32 @@
 
                                     @foreach (var item in lstype5)
                                     {
+                                        if (item.ModulesHT != null)
+                                        {
+                                            string input = item.ModulesHT;
+                                            string pattern = @"\b(\d+)\b"; // Mẫu Regex để tìm các chuỗi số
+
+                                            // Sử dụng Regex.Matches để tìm tất cả các khớp trong chuỗi
+                                            MatchCollection matches = Regex.Matches(input, pattern);
+
+                                            string lastMatchValue = null;
+                                            string result = "";
+
+                                            // Duyệt qua từng khớp và lược bỏ các giá trị giống nhau, chỉ giữ lại giá trị cuối cùng
+                                            foreach (Match match in matches)
+                                            {
+                                                string currentValue = match.Groups[1].Value;
+                                                if (currentValue != lastMatchValue)
+                                                {
+                                                    result += currentValue + ", ";
+                                                    lastMatchValue = currentValue;
+                                                }
+                                            }
+
+                                            // Loại bỏ dấu phẩy cuối cùng và khoảng trắng
+                                            item.ModulesHT = result.TrimEnd(',', ' ');
+                                        }
+                                       
                                         <tr>
                                             <td>@(sttDC++)</td>
                                             <td>@item.ModulesCode</td>
@@ -450,9 +601,9 @@
                                             <td>@item.SemesterID</td>
                                             <td></td>
                                             <td>
-                                                @item.ModulesTQ
+                                                @Html.Raw(item.ModulesTQ)
                                             </td>
-                                            <td>@item.ModulesHT</td>
+                                            <td>@Html.Raw(item.ModulesHT)</td>
                                         </tr>
                                     }
                                     <tr>
@@ -496,6 +647,31 @@
                                     </tr>
                                     @foreach (var item in lstype6.Where(x=>x.ProgramGroupID==0))
                                     {
+                                        if (item.ModulesHT != null)
+                                        {
+                                            string input = item.ModulesHT;
+                                            string pattern = @"\b(\d+)\b"; // Mẫu Regex để tìm các chuỗi số
+
+                                            // Sử dụng Regex.Matches để tìm tất cả các khớp trong chuỗi
+                                            MatchCollection matches = Regex.Matches(input, pattern);
+
+                                            string lastMatchValue = null;
+                                            string result = "";
+
+                                            // Duyệt qua từng khớp và lược bỏ các giá trị giống nhau, chỉ giữ lại giá trị cuối cùng
+                                            foreach (Match match in matches)
+                                            {
+                                                string currentValue = match.Groups[1].Value;
+                                                if (currentValue != lastMatchValue)
+                                                {
+                                                    result += currentValue + ", ";
+                                                    lastMatchValue = currentValue;
+                                                }
+                                            }
+
+                                            // Loại bỏ dấu phẩy cuối cùng và khoảng trắng
+                                            item.ModulesHT = result.TrimEnd(',', ' ');
+                                        }
                                         <tr>
                                             <td>@(sttCSN++)</td>
                                             <td>@item.ModulesCode</td>
@@ -511,9 +687,9 @@
                                             <td>@item.SemesterID</td>
                                             <td></td>
                                             <td>
-                                                @item.ModulesTQ
+                                               @Html.Raw(item.ModulesTQ)
                                             </td>
-                                            <td>@item.ModulesHT</td>
+                                            <td>@Html.Raw(item.ModulesHT)</td>
                                         </tr>
                                     }
                                     <tr>
@@ -536,6 +712,31 @@
                                     }
                                     @foreach (var item in lstype6.Where(x => x.ProgramGroupID != 0))
                                     {
+                                        if (item.ModulesHT != null)
+                                        {
+                                            string input = item.ModulesHT;
+                                            string pattern = @"\b(\d+)\b"; // Mẫu Regex để tìm các chuỗi số
+
+                                            // Sử dụng Regex.Matches để tìm tất cả các khớp trong chuỗi
+                                            MatchCollection matches = Regex.Matches(input, pattern);
+
+                                            string lastMatchValue = null;
+                                            string result = "";
+
+                                            // Duyệt qua từng khớp và lược bỏ các giá trị giống nhau, chỉ giữ lại giá trị cuối cùng
+                                            foreach (Match match in matches)
+                                            {
+                                                string currentValue = match.Groups[1].Value;
+                                                if (currentValue != lastMatchValue)
+                                                {
+                                                    result += currentValue + ", ";
+                                                    lastMatchValue = currentValue;
+                                                }
+                                            }
+
+                                            // Loại bỏ dấu phẩy cuối cùng và khoảng trắng
+                                            item.ModulesHT = result.TrimEnd(',', ' ');
+                                        }
                                         <tr>
                                             <td>@(sttCSN2++)</td>
                                             <td>@item.ModulesCode</td>
@@ -551,9 +752,9 @@
                                             <td>@item.SemesterID</td>
                                             <td></td>
                                             <td>
-                                                @item.ModulesTQ
+                                                @Html.Raw(item.ModulesTQ)
                                             </td>
-                                            <td>@item.ModulesHT</td>
+                                            <td>@Html.Raw(item.ModulesHT)</td>
                                         </tr>
                                     }
                                     <tr>
@@ -598,6 +799,31 @@
                                     </tr>
                                     @foreach (var item in lstype7.Where(x => x.ProgramGroupID == 0))
                                     {
+                                        if (item.ModulesHT != null)
+                                        {
+                                            string input = item.ModulesHT;
+                                            string pattern = @"\b(\d+)\b"; // Mẫu Regex để tìm các chuỗi số
+
+                                            // Sử dụng Regex.Matches để tìm tất cả các khớp trong chuỗi
+                                            MatchCollection matches = Regex.Matches(input, pattern);
+
+                                            string lastMatchValue = null;
+                                            string result = "";
+
+                                            // Duyệt qua từng khớp và lược bỏ các giá trị giống nhau, chỉ giữ lại giá trị cuối cùng
+                                            foreach (Match match in matches)
+                                            {
+                                                string currentValue = match.Groups[1].Value;
+                                                if (currentValue != lastMatchValue)
+                                                {
+                                                    result += currentValue + ", ";
+                                                    lastMatchValue = currentValue;
+                                                }
+                                            }
+
+                                            // Loại bỏ dấu phẩy cuối cùng và khoảng trắng
+                                            item.ModulesHT = result.TrimEnd(',', ' ');
+                                        }
                                         <tr>
                                             <td>@(sttCN++)</td>
                                             <td>@item.ModulesCode</td>
@@ -613,9 +839,9 @@
                                             <td>@item.SemesterID</td>
                                             <td></td>
                                             <td>
-                                                @item.ModulesTQ
+                                                @Html.Raw(item.ModulesTQ)
                                             </td>
-                                            <td>@item.ModulesHT</td>
+                                            <td>@Html.Raw(item.ModulesHT)</td>
                                         </tr>
                                     }
                                     <tr>
@@ -635,7 +861,31 @@
                                     </tr>
                                      @foreach (var item in lstype7.Where(x => x.ProgramGroupID != 0))
                                     {
+                                        if (item.ModulesHT != null)
+                                        {
+                                            string input = item.ModulesHT;
+                                            string pattern = @"\b(\d+)\b"; // Mẫu Regex để tìm các chuỗi số
 
+                                            // Sử dụng Regex.Matches để tìm tất cả các khớp trong chuỗi
+                                            MatchCollection matches = Regex.Matches(input, pattern);
+
+                                            string lastMatchValue = null;
+                                            string result = "";
+
+                                            // Duyệt qua từng khớp và lược bỏ các giá trị giống nhau, chỉ giữ lại giá trị cuối cùng
+                                            foreach (Match match in matches)
+                                            {
+                                                string currentValue = match.Groups[1].Value;
+                                                if (currentValue != lastMatchValue)
+                                                {
+                                                    result += currentValue + ", ";
+                                                    lastMatchValue = currentValue;
+                                                }
+                                            }
+
+                                            // Loại bỏ dấu phẩy cuối cùng và khoảng trắng
+                                            item.ModulesHT = result.TrimEnd(',', ' ');
+                                        }
                                         <tr>
                                             <td>@(sttCN2++)</td>
                                             <td>@item.ModulesCode</td>
@@ -651,9 +901,9 @@
                                             <td>@item.SemesterID</td>
                                             <td></td>
                                             <td>
-                                                @item.ModulesTQ
+                                                @Html.Raw(item.ModulesTQ)
                                             </td>
-                                            <td>@item.ModulesHT</td>
+                                            <td>@Html.Raw(item.ModulesHT)</td>
                                         </tr>
                                     }
                                     <tr>

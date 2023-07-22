@@ -7,6 +7,7 @@
         public string XH { get; set; }
         public string SymbolName { get; set; }
         public int MinCreditsLT { get; set; }
+        public int kqht { get; set; }
         public int MinCreditsTH { get; set; }
         public decimal? Score1 { get; set; }
         public decimal? ScoreFinal { get; set; }

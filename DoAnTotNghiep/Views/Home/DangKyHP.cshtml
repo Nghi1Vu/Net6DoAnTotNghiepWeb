@@ -31,7 +31,11 @@
 }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+<style>
+    body.waiting * {
+        cursor: wait;
+    }
+</style>
 <div id="TabChonNgayDKHP" class="tabChonDKHP">
     <span onclick="this.parentElement.style.display='none';" class="topright butn-close m-b-10">&times</span>
     <div class="TBChungTL">
@@ -315,6 +319,7 @@
 <script>
     function DeleteDKHP(id){
         if (confirm("Bạn có chắc muốn hủy đăng ký hp này!") == true) {
+                    document.body.className = 'waiting';
             $.ajax({
                 url: "/Home/DeleteDKHP",
                 data: { id },
@@ -331,6 +336,9 @@
                 },
                 error: function (e) {
                     toastr.error("Xảy ra lỗi err: " + e);
+                },
+                complete: function () {
+                    document.body.className = ''; // could be empty or whatever you want
                 }
             })
         } else {
