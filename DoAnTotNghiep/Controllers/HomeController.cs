@@ -232,6 +232,7 @@ namespace DoAnTotNghiep.Controllers
         {
             try
             {
+                var X = HttpContext.Request;
                 using HttpResponseMessage response = sharedClient.GetAsync("api/v1/GetNewsDetail?NewsId=" + id).Result;
                 var todo = response.Content.ReadAsStringAsync().Result;
                 response.EnsureSuccessStatusCode();

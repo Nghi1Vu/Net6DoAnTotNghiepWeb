@@ -38,13 +38,13 @@ namespace DoAnTotNghiep.Controllers
                 }
                 else
                 {
-                    return Content("/Account/Index");
+                    return Content(todo2);
                 }
 
             }
             catch (Exception ex)
             {
-                return Content("/Account/Index");
+                return Content(ex.InnerException.Message);
             }
         }
     }
