@@ -112,7 +112,7 @@
                         <tr>
                             <td>@(stt)</td>
                             <td>Học kỳ @(stt)</td>
-                            <td>@Model.Where(x => x.SemesterID == stt).ToList()[0].CreditsS</td>
+                            <td>@(Model.Where(x => x.SemesterID == stt).Count()>0?Model.Where(x => x.SemesterID == stt).ToList()[0].CreditsS:0)</td>
                             <td>
                                 <div class="table-con">
                                     <table style="width:100%; margin-top: 5px;">
@@ -140,7 +140,7 @@
                                         </thead>
                                         <tr>
                                             <td colspan="3"><strong>Học phần bắt buộc</strong></td>
-                                            <td><strong>@Model.Where(x => x.SemesterID == stt).ToList()[0].Credits0</strong></td>
+                                            <td><strong>@(Model.Where(x => x.SemesterID == stt).Count() > 0 ? Model.Where(x => x.SemesterID == stt).ToList()[0].Credits0 : 0)</strong></td>
                                             <td colspan="3"></td>
                                             <td colspan="3"></td>
                                             <td></td>
@@ -188,7 +188,7 @@
 
                                         <tr>
                                             <td colspan="3"><strong>Học phần Tự chọn</strong></td>
-                                            <td><strong>@Model.Where(x => x.SemesterID == stt).ToList()[0].Credits1</strong></td>
+                                            <td><strong>@(Model.Where(x => x.SemesterID == stt).Count() > 0 ? Model.Where(x => x.SemesterID == stt).ToList()[0].Credits1 : 0)</strong></td>
                                             <td colspan="3"></td>
                                             <td colspan="3"></td>
                                             <td></td>
