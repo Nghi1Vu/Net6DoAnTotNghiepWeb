@@ -433,8 +433,8 @@ namespace DoAnTotNghiep.Controllers
 
         public IActionResult ThoiKhoaBieu()
         {
-            ViewBag.aDate = DateTime.Now.AddDays(-7).ToString();
-            ViewBag.eDate = DateTime.Now.AddDays(8).ToString();
+            ViewBag.aDate = DateTime.Now.AddDays(-7).ToString().Substring(0,9);
+            ViewBag.eDate = DateTime.Now.AddDays(8).ToString().Substring(0, 9);
             return View();
         }
         public IActionResult GetTKB(string aDate, string eDate)
@@ -448,8 +448,8 @@ namespace DoAnTotNghiep.Controllers
                 var studenClasses = JsonConvert.DeserializeObject<List<TKB>>(todo);
                 ViewBag.StudentInfo = user;
                 sharedClient.Dispose();
-                ViewBag.aDate = DateTime.Parse(aDate);
-                ViewBag.eDate = DateTime.Parse(eDate);
+                ViewBag.aDate = DateTime.Parse(aDate).Date;
+                ViewBag.eDate = DateTime.Parse(eDate).Date;
                 return View(studenClasses);
             }
             catch
