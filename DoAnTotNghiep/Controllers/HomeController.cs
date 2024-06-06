@@ -607,8 +607,8 @@ namespace DoAnTotNghiep.Controllers
                 {
                     using HttpResponseMessage response2 = sharedClient.PostAsJsonAsync("/api/v1/GetStudentInfoByEmail", new { email = user.Email != null ? user.Email : user.Usercode }).Result;
                     var todo2 = response2.Content.ReadAsStringAsync().Result;
-                    StudentInfo studentInfo = JsonConvert.DeserializeObject<StudentInfo>(todo2);
-                    HttpContext.Session.SetObjectAsJson("StudentInfo", studentInfo);
+                    KeyResponse studentInfo = JsonConvert.DeserializeObject<KeyResponse>(todo2);
+                    HttpContext.Session.SetObjectAsJson("StudentInfo", studentInfo.rsInfo);
                 }
                 sharedClient.Dispose();
                 return Content(result);
@@ -639,8 +639,8 @@ namespace DoAnTotNghiep.Controllers
                 {
                     using HttpResponseMessage response2 = sharedClient.PostAsJsonAsync("/api/v1/GetStudentInfoByEmail", new { email = user.Email != null ? user.Email : user.Usercode }).Result;
                     var todo2 = response2.Content.ReadAsStringAsync().Result;
-                    StudentInfo studentInfo = JsonConvert.DeserializeObject<StudentInfo>(todo2);
-                    HttpContext.Session.SetObjectAsJson("StudentInfo", studentInfo);
+                    KeyResponse studentInfo = JsonConvert.DeserializeObject<KeyResponse>(todo2);
+                    HttpContext.Session.SetObjectAsJson("StudentInfo", studentInfo.rsInfo);
                 }
                 sharedClient.Dispose();
                 return Content(result);
